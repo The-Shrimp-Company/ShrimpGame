@@ -44,12 +44,12 @@ public class TankController : MonoBehaviour
 
         if (updateTimer >= updateTime)
         {
-            updateTime = 0;
-
             foreach(Shrimp shrimp in shrimpInTank)
             {
-                shrimp.UpdateShrimp();
+                shrimp.UpdateShrimp(updateTimer);
             }
+
+            updateTimer = 0;
         }
     }
 
@@ -61,6 +61,9 @@ public class TankController : MonoBehaviour
 
         s.stats = ShrimpManager.instance.CreateShrimp();
         newShrimp.name = s.stats.name;
+
+        s.shrimpActivities.Add(new ShrimpMovement());
+        s.shrimpActivities[0].taskTime = 10;
 
         shrimpInTank.Add(s);
     }

@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.31735995, y: 0.15147, z: 0.15147}
+  m_LocalScale: {x: 0.16588405, y: 0.07917337, z: 0.07917337}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3593668517792092488}
@@ -158,8 +158,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.30934253, y: 0.1507321, z: 0.15446043}
-  m_Center: {x: -0.00069768727, y: 0.0028662384, z: -0.0028927326}
+  m_Size: {x: 0.1647803, y: 0.07171643, z: 0.08384895}
+  m_Center: {x: -0.00024753064, y: 0.0039865375, z: -0.0015869141}
 --- !u!114 &9063577623321785071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,3 +172,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f178cd02e9a006a4489501c1e92c3339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats:
+    name: 
+    gender: 0
+    age: 0
+    hunger: 0
+    illness: 0
+    temperament: 0
+    actualSize: 0
+    fightHistory: 0
+    breedingHistory: 0
+    illnessHistory: 0
+    moltHistory: 0
