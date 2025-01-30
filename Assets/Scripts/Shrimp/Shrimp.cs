@@ -12,14 +12,15 @@ public class Shrimp : MonoBehaviour
         float timeRemaining = elapsedTime;  // The time since the last update
         do
         {
-            if (shrimpActivities[0] != null)
+            if (shrimpActivities.Count > 0 && shrimpActivities[0] != null)
             {
-                Debug.Log(timeRemaining);
+                Debug.Log("Start - " + timeRemaining);
                 timeRemaining = shrimpActivities[0].StartActivity(elapsedTime);
                 if (timeRemaining != 0)
                 {
                     shrimpActivities.RemoveAt(0);
                 }
+                Debug.Log("End - " + timeRemaining);
             }
             else
             {
