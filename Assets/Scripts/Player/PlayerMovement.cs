@@ -17,11 +17,12 @@ public class PlayerMovement : MonoBehaviour
 
 
     private Vector2 move = new Vector2(0, 0);
+    private Vector2 mouse = new Vector2(0, 0);
+    private Vector2 oldLook = new Vector2(0, 0);
 
 
     [Header("Look Modifier")]
-    public Vector2 LookMultiplier;
-    public float LookCap;
+    public int LookMultiplier;
 
 
 
@@ -40,6 +41,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Debug.Log(oldLook + "turning to" + mouse);
+        //rotY = Mathf.Clamp(mouse.y * LookMultiplier.y, -LookCap, LookCap);
+        rotY = (mouse.y + oldLook.y) / 2;
+        //rotX = Mathf.Clamp(mouse.x * LookMultiplier.x, -LookCap, LookCap);
+        rotX = (mouse.x + oldLook.x) / 2;
+        oldLook = mouse;
+
         //Look Controls
         transform.Rotate(0, rotX * Time.deltaTime, 0);
         Cam.LookVertical(rotY * Time.deltaTime);
@@ -54,9 +63,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnLook(InputValue Mouse)
     {
-        Vector2 mouse = Mouse.Get<Vector2>();
-        rotY = Mathf.Clamp(mouse.y * LookMultiplier.y, -LookCap, LookCap);
-        rotX = Mathf.Clamp(mouse.x * LookMultiplier.x, -LookCap, LookCap);
+        mouse = Mouse.Get<Vector2>();
+        mouse *= LookMultiplier;
     }
 
     public void OnMove(InputValue Move)
