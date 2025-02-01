@@ -22,7 +22,7 @@ public class TankController : MonoBehaviour
     {
         tankPos = transform.position;
 
-        for (int i = 0; i < 1; i++) 
+        for (int i = 0; i < 5; i++) 
         {
             SpawnRandomShrimp();
         }
@@ -62,14 +62,22 @@ public class TankController : MonoBehaviour
         s.stats = ShrimpManager.instance.CreateShrimp();
         newShrimp.name = s.stats.name;
 
-        s.shrimpActivities.Add(new ShrimpMovement());
-        s.shrimpActivities[0].taskTime = 4;
+        ShrimpMovement sm = new ShrimpMovement(); 
+        s.shrimpActivities.Add(sm);
+        sm.taskTime = Random.Range(4, 8);
+        sm.shrimp = s.gameObject;
+        sm.SetDestination(GetRandomTankPosition());
 
-        s.shrimpActivities.Add(new ShrimpSleeping());
-        s.shrimpActivities[1].taskTime = 4;
+        ShrimpSleeping ss = new ShrimpSleeping();
+        s.shrimpActivities.Add(ss);
+        ss.taskTime = Random.Range(4, 8);
+        ss.shrimp = s.gameObject;
 
-        s.shrimpActivities.Add(new ShrimpMovement());
-        s.shrimpActivities[2].taskTime = 4;
+        sm = new ShrimpMovement();
+        s.shrimpActivities.Add(sm);
+        sm.taskTime = Random.Range(4, 8);
+        sm.shrimp = s.gameObject;
+        sm.SetDestination(GetRandomTankPosition());
 
         shrimpInTank.Add(s);
     }

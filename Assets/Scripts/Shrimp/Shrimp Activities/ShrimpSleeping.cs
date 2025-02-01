@@ -6,6 +6,6 @@ public class ShrimpSleeping : ShrimpActivity
 {
     public override void UpdateActivity()
     {
-        Debug.Log("Sleeping");
+        
     }
 }

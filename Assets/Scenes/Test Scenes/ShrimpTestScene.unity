@@ -364,7 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shrimpInTank: []
   spawnTime: 1
-  updateTime: 10
+  updateTime: 0.5
   tankSize: {x: 1, y: 0.6, z: 0.6}
   shrimpPrefab: {fileID: 8402780776056034104, guid: 9c37763690d5b354cb993c972810dd39,
     type: 3}

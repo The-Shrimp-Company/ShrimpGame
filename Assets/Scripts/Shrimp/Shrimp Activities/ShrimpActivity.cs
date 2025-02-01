@@ -5,18 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class ShrimpActivity
 {
+    public GameObject shrimp;
     public float taskTime;
     protected float taskRemainingTime;
     private float elapsedTimeRemaining;
-    public bool taskComplete;
+    public bool taskStarted, taskComplete;
 
-    public float StartActivity(float elapsedTime)
+    public float Activity(float elapsedTime)
     {
-        if (taskTime == 0)
-            Debug.Log("Task is missing the taskTime value");
 
-        if (taskRemainingTime == 0)  // If the task is just starting
-            taskRemainingTime = taskTime;  // Set the remaining time
+        if (!taskStarted)  // If the task is just starting
+            StartActivity();
 
         elapsedTimeRemaining = elapsedTime - taskRemainingTime;
         taskRemainingTime -= elapsedTime;
@@ -34,6 +33,15 @@ public class ShrimpActivity
         {
             return 0;
         }
+
+    }
+
+    public virtual void StartActivity()
+    {
+        if (taskTime == 0) Debug.Log("Task is missing the taskTime value");
+
+        taskRemainingTime = taskTime;  // Set the remaining time
+        taskStarted = true;
     }
 
     public virtual void UpdateActivity()
