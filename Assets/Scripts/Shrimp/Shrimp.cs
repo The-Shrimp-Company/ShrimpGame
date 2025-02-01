@@ -15,7 +15,7 @@ public class Shrimp : MonoBehaviour
             if (shrimpActivities.Count > 0 && shrimpActivities[0] != null)
             {
                 Debug.Log("Start - " + timeRemaining);
-                timeRemaining = shrimpActivities[0].StartActivity(elapsedTime);
+                timeRemaining = shrimpActivities[0].StartActivity(timeRemaining);
                 if (timeRemaining != 0)
                 {
                     shrimpActivities.RemoveAt(0);
