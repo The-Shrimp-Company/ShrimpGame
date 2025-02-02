@@ -10,7 +10,7 @@ public class TankController : MonoBehaviour
     public float spawnTime;
 
     private float updateTimer;
-    public float updateTime;  // The time between each shrimp update, 0 will be every frame
+    public float updateTime;                            // The time between each shrimp update, 0 will be every frame
 
     private Vector3 tankPos;
     public Vector3 tankSize;
@@ -60,30 +60,14 @@ public class TankController : MonoBehaviour
         Shrimp s = newShrimp.GetComponent<Shrimp>();
 
         s.stats = ShrimpManager.instance.CreateShrimp();
+        s.ChangeTank(this);
         newShrimp.name = s.stats.name;
-
-        ShrimpMovement sm = new ShrimpMovement(); 
-        s.shrimpActivities.Add(sm);
-        sm.taskTime = Random.Range(4, 8);
-        sm.shrimp = s.gameObject;
-        sm.SetDestination(GetRandomTankPosition());
-
-        ShrimpSleeping ss = new ShrimpSleeping();
-        s.shrimpActivities.Add(ss);
-        ss.taskTime = Random.Range(4, 8);
-        ss.shrimp = s.gameObject;
-
-        sm = new ShrimpMovement();
-        s.shrimpActivities.Add(sm);
-        sm.taskTime = Random.Range(4, 8);
-        sm.shrimp = s.gameObject;
-        sm.SetDestination(GetRandomTankPosition());
 
         shrimpInTank.Add(s);
     }
 
 
-    private Vector3 GetRandomTankPosition()
+    public Vector3 GetRandomTankPosition()
     {
         float x = Random.Range(-tankSize.x, tankSize.x) + tankPos.x;
         float y = Random.Range(-tankSize.y, tankSize.y) + tankPos.y;

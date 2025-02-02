@@ -6,6 +6,19 @@ public class Shrimp : MonoBehaviour
 {
     public ShrimpStats stats;
     public List<ShrimpActivity> shrimpActivities = new List<ShrimpActivity>();
+    private TankController tank;
+    private int minActivitiesInQueue = 2;
+
+
+    public void Start()
+    {
+        if (shrimpActivities.Count == 0)
+        {
+            AddActivity(GetRandomActivity());
+            AddActivity(GetRandomActivity());
+            AddActivity(GetRandomActivity());
+        }
+    }
 
     public void UpdateShrimp(float elapsedTime)
     {
@@ -17,7 +30,7 @@ public class Shrimp : MonoBehaviour
                 timeRemaining = shrimpActivities[0].Activity(timeRemaining);
                 if (timeRemaining != 0)
                 {
-                    shrimpActivities.RemoveAt(0);
+                    EndActivity();
                 }
             }
             else
@@ -26,5 +39,52 @@ public class Shrimp : MonoBehaviour
             }
         }
         while (timeRemaining > 0);
+    }
+
+    public void EndActivity()
+    {
+        shrimpActivities.RemoveAt(0);
+
+        if (shrimpActivities.Count <= minActivitiesInQueue)  // If the shrimp has less 
+        {
+            AddActivity(GetRandomActivity());
+        }
+    }
+
+    private ShrimpActivity GetRandomActivity()
+    {
+        int i = Random.Range(0, 2);
+        if (i == 0) return new ShrimpMovement();
+        if (i == 1) return new ShrimpSleeping();
+        return (new ShrimpActivity());
+    }
+
+    private void AddActivity(ShrimpActivity activity)
+    {
+        if (activity is ShrimpMovement)
+        {
+            ShrimpMovement movement = (ShrimpMovement) activity;  // Casts the activity to the derrived shrimpMovement activity
+
+            movement.taskTime = Random.Range(4, 8);
+            movement.SetDestination(tank.GetRandomTankPosition());
+        }
+        else if (activity is ShrimpSleeping)
+        {
+            ShrimpSleeping sleeping = (ShrimpSleeping) activity;
+
+            sleeping.taskTime = Random.Range(4, 8);
+        }
+        else
+        {
+            Debug.Log("Activity logic is missing");
+        }
+
+        activity.shrimp = gameObject;
+        shrimpActivities.Add(activity);
+    }
+
+    public void ChangeTank(TankController t)
+    {
+        tank = t;
     }
 }

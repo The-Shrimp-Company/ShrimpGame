@@ -26,7 +26,7 @@ public class ShrimpActivity
 
         if (elapsedTimeRemaining > 0)  // They complete the task 
         {
-            taskComplete = true;
+            EndActivity();
             return elapsedTimeRemaining;
         }
         else  // Time runs out during the task
@@ -47,5 +47,10 @@ public class ShrimpActivity
     public virtual void UpdateActivity()
     {
 
+    }
+
+    public virtual void EndActivity()
+    {
+        taskComplete = true;
     }
 }
