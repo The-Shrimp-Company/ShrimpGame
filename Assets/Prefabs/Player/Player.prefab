@@ -96,10 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa2eec945075d944970b98316634048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 0
-  JumpHeight: 0
-  LookMultiplier: {x: 0, y: 0}
-  LookCap: 0
+  Speed: 0
 --- !u!1 &6183220165517948709
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,7 +109,6 @@ GameObject:
   - component: {fileID: 9177306783200822452}
   - component: {fileID: 827773901864798869}
   - component: {fileID: 4574719427570564379}
-  - component: {fileID: 5819295256200498909}
   m_Layer: 0
   m_Name: Player Camera
   m_TagString: Untagged
@@ -238,15 +234,3 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &5819295256200498909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6183220165517948709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ade0d5eb9462302469589349aa7fcdd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
