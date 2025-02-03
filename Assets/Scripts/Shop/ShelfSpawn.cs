@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class ShelfSpawn : MonoBehaviour
+{
+    private Transform[] _shelves;
+
+    private int _shelfIndex = 0;
+
+    private void Start()
+    {
+        _shelves = GetComponentsInChildren<Transform>();
+
+        _shelves = _shelves.Where(x => x.parent.name == "Shelving").ToArray();
+
+        foreach(Transform shelf in _shelves)
+        {
+            shelf.gameObject.SetActive(false);
+        }
+
+        SpawnNextShelf();
+    }
+
+    public void SpawnNextShelf()
+    {
+        foreach (Transform shelf in _shelves)
+        {
+            if(shelf.gameObject.activeSelf == false)
+            {
+                shelf.gameObject.SetActive(true);
+                return;
+            }
+        }
+    }
+
+    public void SpawnNextTank()
+    {
+
+        bool fullShelfCheck = false;
+        while (!fullShelfCheck && _shelfIndex < _shelves.Length)
+        {
+            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank();
+            if (!fullShelfCheck)
+            {
+                if(_shelfIndex < _shelves.Length - 1 )
+                {
+                    SpawnNextShelf();
+                    Debug.Log(_shelfIndex + "  " + _shelves.Length);
+                    _shelfIndex++;
+                }
+                else
+                {
+                    Debug.Log("OOF: Out of Fhelves...");
+                    break;
+                }
+            }
+        }
+    }
+}

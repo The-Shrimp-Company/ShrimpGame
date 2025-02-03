@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class CameraControls : MonoBehaviour
 {
-    public Transform camera;
+    public Transform cameraTransform;
     public float lookSenstivity;
 
 
@@ -24,7 +24,7 @@ public class CameraControls : MonoBehaviour
     {
         _rotY += _look.y * lookSenstivity;
         _rotY = Mathf.Clamp(_rotY, -45, 35);
-        camera.localRotation = Quaternion.Euler(-_rotY, 0, 0);
+        cameraTransform.localRotation = Quaternion.Euler(-_rotY, 0, 0);
 
         transform.Rotate(0, _look.x * lookSenstivity, 0);
     }
