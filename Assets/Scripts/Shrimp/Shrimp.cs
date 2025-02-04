@@ -7,7 +7,7 @@ public class Shrimp : MonoBehaviour
     public ShrimpStats stats;
     public float swimSpeed;
     public List<ShrimpActivity> shrimpActivities = new List<ShrimpActivity>();
-    private TankController tank;
+    public TankController tank;
     private int minActivitiesInQueue = 2;
 
 
@@ -79,7 +79,7 @@ public class Shrimp : MonoBehaviour
             Debug.Log("Activity logic is missing");
         }
 
-        activity.shrimp = gameObject;
+        activity.shrimp = this;
         shrimpActivities.Add(activity);
     }
 

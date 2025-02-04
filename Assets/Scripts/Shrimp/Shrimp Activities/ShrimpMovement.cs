@@ -5,10 +5,13 @@ using UnityEngine;
 public class ShrimpMovement : ShrimpActivity
 {
     private Vector3 start, destination;
+    private bool simpleMove;
 
 
     public override void StartActivity()
     {
+        simpleMove = true;
+
         start = shrimp.transform.position;
 
         float dist = Vector3.Distance(start, destination);
@@ -20,9 +23,22 @@ public class ShrimpMovement : ShrimpActivity
 
     public override void UpdateActivity()
     {
+        if (simpleMove) SimpleMove();
+        else AdvancedMove();
+    }
+
+
+    private void SimpleMove()
+    {
         float t = taskRemainingTime / taskTime;
         t = -t + 1;
         shrimp.transform.position = Vector3.Lerp(start, destination, t);
+    }
+
+
+    private void AdvancedMove()
+    {
+
     }
 
 

@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ShrimpActivity
 {
-    public GameObject shrimp;
+    public Shrimp shrimp;
     public float taskTime;
     protected float taskRemainingTime;
     private float elapsedTimeRemaining;
