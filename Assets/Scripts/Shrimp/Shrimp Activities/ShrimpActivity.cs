@@ -11,6 +11,7 @@ public class ShrimpActivity
     private float elapsedTimeRemaining;
     public bool taskStarted, taskComplete;
 
+
     public float Activity(float elapsedTime)
     {
 
@@ -33,8 +34,8 @@ public class ShrimpActivity
         {
             return 0;
         }
-
     }
+
 
     public virtual void StartActivity()
     {
@@ -44,10 +45,12 @@ public class ShrimpActivity
         taskStarted = true;
     }
 
+
     public virtual void UpdateActivity()
     {
 
     }
+
 
     public virtual void EndActivity()
     {
