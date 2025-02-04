@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shrimp : MonoBehaviour
 {
     public ShrimpStats stats;
+    public float swimSpeed;
     public List<ShrimpActivity> shrimpActivities = new List<ShrimpActivity>();
     private TankController tank;
     private int minActivitiesInQueue = 2;
@@ -65,7 +66,6 @@ public class Shrimp : MonoBehaviour
         {
             ShrimpMovement movement = (ShrimpMovement) activity;  // Casts the activity to the derrived shrimpMovement activity
 
-            movement.taskTime = Random.Range(4, 8);
             movement.SetDestination(tank.GetRandomTankPosition());
         }
         else if (activity is ShrimpSleeping)

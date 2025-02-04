@@ -184,3 +184,5 @@ MonoBehaviour:
     breedingHistory: 0
     illnessHistory: 0
     moltHistory: 0
+  swimSpeed: 2
+  shrimpActivities: []

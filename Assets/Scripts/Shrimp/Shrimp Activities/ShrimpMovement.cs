@@ -9,9 +9,12 @@ public class ShrimpMovement : ShrimpActivity
 
     public override void StartActivity()
     {
-        base.StartActivity();
-
         start = shrimp.transform.position;
+
+        float dist = Vector3.Distance(start, destination);
+        taskTime = shrimp.GetComponent<Shrimp>().swimSpeed * dist;
+
+        base.StartActivity();
     }
 
 
