@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7020643424900095725}
+  - component: {fileID: 8525724806375028851}
   m_Layer: 0
   m_Name: Tank_20
   m_TagString: Untagged
@@ -210,6 +211,24 @@ Transform:
   - {fileID: 291556561453923619}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8525724806375028851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648666137469273175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7c81709ff3ead640b1e850481fc8ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shrimpInTank: []
+  spawnTime: 1
+  updateTime: 0
+  tankSize: {x: 0.3, y: 0.3, z: 0.2}
+  shrimpPrefab: {fileID: 8402780776056034104, guid: 9c37763690d5b354cb993c972810dd39,
+    type: 3}
 --- !u!1001 &252597784024734408
 PrefabInstance:
   m_ObjectHideFlags: 0
