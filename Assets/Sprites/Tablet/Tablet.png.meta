@@ -6,7 +6,7 @@ TextureImporter:
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,13 +37,13 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
+    wrapU: 1
+    wrapV: 1
     wrapW: 0
-  nPOTScale: 1
+  nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 0
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -95,18 +95,260 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Tablet_BG
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 46
+        width: 4103
+        height: 2906
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a91392b9154bb8418c9ffc3c6ee728a
+      internalID: 248998647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Sell
+      rect:
+        serializedVersion: 2
+        x: 4278
+        y: 2289
+        width: 680
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b50fec1ab3b3884f8505e380d4111a3
+      internalID: -527081183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Buy
+      rect:
+        serializedVersion: 2
+        x: 5063
+        y: 2305
+        width: 682
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c65f84b7c2d3e414391fa1b0bd9681b8
+      internalID: -1690571012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Upgrades
+      rect:
+        serializedVersion: 2
+        x: 5828
+        y: 2298
+        width: 682
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323992f0bbb4762429ad3812482d1b8c
+      internalID: -207030974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Inventory
+      rect:
+        serializedVersion: 2
+        x: 4278
+        y: 1581
+        width: 679
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010d6da935efa104aa552511b262b733
+      internalID: -23592830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Emails
+      rect:
+        serializedVersion: 2
+        x: 5075
+        y: 1587
+        width: 679
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98eae4dd51f7eeb458901fb0d714a1f1
+      internalID: 71162332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Vet
+      rect:
+        serializedVersion: 2
+        x: 5838
+        y: 1603
+        width: 679
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93fb1ca42b6cd2a4aa955fc8b28ac088
+      internalID: -1858574746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Settings
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 844
+        width: 679
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7993ba4c73145d418b89922aa58cf37
+      internalID: -387624956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Save
+      rect:
+        serializedVersion: 2
+        x: 5082
+        y: 841
+        width: 682
+        height: 663
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f084cf517dccde49bec49b204a34ba5
+      internalID: 1372763300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Slider
+      rect:
+        serializedVersion: 2
+        x: 4393
+        y: 441
+        width: 461
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7283cbba7a41b47a10b63c900f9731
+      internalID: -1039730818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tablet_Cursor
+      rect:
+        serializedVersion: 2
+        x: 5073
+        y: 424
+        width: 102
+        height: 157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b470acffe6e8b34b82bff9a37c1e6fe
+      internalID: 1279620742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ff1a0c40bf655ff45aeb7dfb10a6c906
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tablet_BG: 248998647
+      Tablet_Buy: -1690571012
+      Tablet_Cursor: 1279620742
+      Tablet_Emails: 71162332
+      Tablet_Inventory: -23592830
+      Tablet_Save: 1372763300
+      Tablet_Sell: -527081183
+      Tablet_Settings: -387624956
+      Tablet_Slider: -1039730818
+      Tablet_Upgrades: -207030974
+      Tablet_Vet: -1858574746
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
