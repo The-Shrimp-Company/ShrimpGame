@@ -25,12 +25,24 @@ public class PlayerDebug : MonoBehaviour
 
     public void OnSpawnShrimp()
     {
-
-        GameObject target = lookCheck.LookCheck(1, "Tanks");
-
-        if(target != null)
+        if (Money.instance.WithdrawMoney(10))
         {
-            target.GetComponent<TankController>().SpawnShrimp();
+            GameObject target = lookCheck.LookCheck(1, "Tanks");
+
+            if (target != null)
+            {
+                target.GetComponent<TankController>().SpawnShrimp();
+            }
         }
+        else
+        {
+            Debug.Log("Nuh uh uh");
+        }
+        
+    }
+
+    public void OnAddMoney()
+    {
+        Money.instance.AddMoney(5);
     }
 }
