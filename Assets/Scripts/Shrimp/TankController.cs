@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TankController : MonoBehaviour
@@ -12,8 +14,9 @@ public class TankController : MonoBehaviour
     private float updateTimer;
     public float updateTime;                            // The time between each shrimp update, 0 will be every frame
 
+
     private Vector3 tankPos;
-    public Vector3 tankSize;
+    private Vector3 tankSize;
 
     public GameObject shrimpPrefab;
 
@@ -22,10 +25,15 @@ public class TankController : MonoBehaviour
     {
         tankPos = transform.position;
 
+
+
+        tankSize = GetComponent<Collider>().bounds.size / 2;
+
+        /*
         for (int i = 0; i < 5; i++) 
         {
             SpawnRandomShrimp();
-        }
+        }*/
     }
 
     void Update()
@@ -67,10 +75,15 @@ public class TankController : MonoBehaviour
     }
 
 
+    public void SpawnShrimp()
+    {
+        SpawnRandomShrimp();
+    }
+
     public Vector3 GetRandomTankPosition()
     {
         float x = Random.Range(-tankSize.x, tankSize.x) + tankPos.x;
-        float y = Random.Range(-tankSize.y, tankSize.y) + tankPos.y;
+        float y = Random.Range(0, tankSize.y*2) + tankPos.y;
         float z = Random.Range(-tankSize.z, tankSize.z) + tankPos.z;
         return new Vector3(x, y, z);
     }

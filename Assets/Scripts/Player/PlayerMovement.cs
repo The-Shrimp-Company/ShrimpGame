@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController CC;
 
+    Camera cam;
+
 
     [Header("Movement Modifier")]
     public float Speed;
@@ -24,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         CC = GetComponent<CharacterController>();
+        cam = GetComponentInChildren<Camera>();
     }
 
     private void FixedUpdate()
@@ -37,5 +40,17 @@ public class PlayerMovement : MonoBehaviour
     {
         move = Move.Get<Vector2>();
         move *= Speed;
+    }
+
+
+    public void OnCrouch(InputValue Crouch)
+    {
+        if (Crouch.isPressed)
+        {
+            cam.transform.position = cam.transform.position + Vector3.down/2;
+        }else if (!Crouch.isPressed)
+        {
+            cam.transform.position = cam.transform.position + Vector3.up/2;
+        }
     }
 }

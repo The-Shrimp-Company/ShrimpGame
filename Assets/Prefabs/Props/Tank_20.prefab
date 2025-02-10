@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2295600796960550647}
   - component: {fileID: 1638459253891895708}
   - component: {fileID: 1655397517266141304}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8692380174273107039}
   - component: {fileID: 1597638681402457649}
   - component: {fileID: 4751873691823331885}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7020643424900095725}
   - component: {fileID: 8525724806375028851}
-  m_Layer: 0
+  - component: {fileID: 4799688758862684444}
+  m_Layer: 6
   m_Name: Tank_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,9 +227,30 @@ MonoBehaviour:
   shrimpInTank: []
   spawnTime: 1
   updateTime: 0
-  tankSize: {x: 0.3, y: 0.3, z: 0.2}
+  mesh: {fileID: 1973893103929547111, guid: 2cce6bf54420abf48a5e15ab17ee81c6, type: 3}
   shrimpPrefab: {fileID: 8402780776056034104, guid: 9c37763690d5b354cb993c972810dd39,
     type: 3}
+--- !u!65 &4799688758862684444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648666137469273175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6, y: 0.4002, z: 0.4002}
+  m_Center: {x: 0, y: 0.2078, z: 0}
 --- !u!1001 &252597784024734408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,6 +313,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 226d4a600f124f442847aea727c96c02,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -366,6 +393,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anubias (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9876a30234e405c479ae7b8ed943c2d1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -439,6 +471,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Java-Fern
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 846010637b40e6f41a186c853ce7913f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -514,6 +551,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Driftwood
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ebbd60656d405b347b9f80f6f56f86a5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -587,6 +629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ludwigia
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 51e58945fa4bfe740a6c39bfc3abcd18,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -682,6 +729,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eel-Grass
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 69ec433770ac28b408a9b64ca2e9e3e6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -771,6 +823,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocky_low
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85b6fa1703d798847aebf4bb8b43ee47,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -844,6 +901,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dwarf water lettuce
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19f91df2903d6a241b42bd00d35710bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -919,6 +981,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 93ce23aa9f6ca1449bdc5fb4b949aa5d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -993,6 +1060,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dwarf water lettuce (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 19f91df2903d6a241b42bd00d35710bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1066,6 +1138,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Peble
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ad7707011fbc98b4790c3919bd91b62d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
