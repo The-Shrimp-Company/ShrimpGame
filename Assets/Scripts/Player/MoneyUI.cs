@@ -10,12 +10,11 @@ public class MoneyUI : MonoBehaviour
     void Start()
     {
         text = GetComponent<TMPro.TextMeshProUGUI>();
-        text.text = "hello";
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = Money.instance.money.ToString();
+        text.text = ("£" + Money.instance.money.ToString());
     }
 }

@@ -20,7 +20,7 @@ public class PlayerDebug : MonoBehaviour
 
     public void OnTestingFunctions()
     {
-        shelves.SpawnNextTank();
+        
     }
 
     public void OnSpawnShrimp()

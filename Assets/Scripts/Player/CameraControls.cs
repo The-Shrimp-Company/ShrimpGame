@@ -10,6 +10,7 @@ public class CameraControls : MonoBehaviour
     public Transform cameraTransform;
     public float lookSenstivity;
 
+    private PlayerInput _playerInput;
 
     private Vector2 _look;
     private float _rotY;
@@ -18,10 +19,15 @@ public class CameraControls : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        _playerInput = GetComponent<PlayerInput>();
     }
 
     private void Update()
     {
+        if(_playerInput.currentActionMap.name != "Move")
+        {
+            return;
+        }
         _rotY += _look.y * lookSenstivity;
         _rotY = Mathf.Clamp(_rotY, -45, 15);
         cameraTransform.localRotation = Quaternion.Euler(-_rotY, 0, 0);

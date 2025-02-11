@@ -42,6 +42,12 @@ public class PlayerMovement : MonoBehaviour
         move *= Speed;
     }
 
+    public void OnSlowMove(InputValue Move)
+    {
+        move = Move.Get<Vector2>() / 2;
+        move *= Speed;
+    }
+
 
     public void OnCrouch(InputValue Crouch)
     {
