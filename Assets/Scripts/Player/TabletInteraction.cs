@@ -36,7 +36,9 @@ public class TabletInteraction : MonoBehaviour
             switch (clicked.name)
             {
                 case "Buy Shrimp":
-                    Debug.Log("Yes");
+                    shelves.SpawnShrimp();
+                    break;
+                case "Buy Tanks":
                     shelves.SpawnNextTank();
                     break;
                 default:

@@ -40,17 +40,17 @@ public class Shelf : MonoBehaviour
         
     }
 
-    public bool AddTank()
+    public GameObject AddTank()
     {
         foreach(Transform tank in _tanks)
         {
             if (!tank.gameObject.activeSelf)
             {
                 tank.gameObject.SetActive(true);
-                return true;
+                return tank.gameObject;
             }
         }
-        return false;
+        return null;
     }
 
 }

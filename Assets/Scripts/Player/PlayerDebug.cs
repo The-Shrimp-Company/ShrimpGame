@@ -8,6 +8,7 @@ public class PlayerDebug : MonoBehaviour
 
     private CameraLookCheck lookCheck;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,20 +26,19 @@ public class PlayerDebug : MonoBehaviour
 
     public void OnSpawnShrimp()
     {
-        if (Money.instance.WithdrawMoney(10))
-        {
-            GameObject target = lookCheck.LookCheck(1, "Tanks");
+        GameObject target = lookCheck.LookCheck(1, "Tanks");
 
-            if (target != null)
-            {
-                target.GetComponent<TankController>().SpawnShrimp();
-            }
-        }
-        else
+        if (target != null)
         {
-            Debug.Log("Nuh uh uh");
+
+            TankController tankController = target.GetComponent<TankController>();
+
+            shelves.SwitchSaleTank(tankController);
+
         }
         
+        
+
     }
 
     public void OnAddMoney()

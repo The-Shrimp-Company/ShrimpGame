@@ -14,6 +14,9 @@ public class TankController : MonoBehaviour
     private float updateTimer;
     public float updateTime;                            // The time between each shrimp update, 0 will be every frame
 
+    private bool _saleTank = false;
+    [SerializeField]
+    private GameObject sign;
 
     private Vector3 tankPos;
     private Vector3 tankSize;
@@ -25,7 +28,7 @@ public class TankController : MonoBehaviour
     {
         tankPos = transform.position;
 
-
+        sign.SetActive(_saleTank);
 
         tankSize = GetComponent<Collider>().bounds.size / 2;
 
@@ -61,6 +64,11 @@ public class TankController : MonoBehaviour
         }
     }
 
+    public void switchSale()
+    {
+        _saleTank = !_saleTank;
+        sign.SetActive(_saleTank);
+    }
 
     private void SpawnRandomShrimp()
     {

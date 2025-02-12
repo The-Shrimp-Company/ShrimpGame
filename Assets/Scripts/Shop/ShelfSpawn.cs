@@ -7,6 +7,8 @@ public class ShelfSpawn : MonoBehaviour
 {
     private Transform[] _shelves;
 
+    private TankController _saleTank;
+
     private int _shelfIndex = 0;
 
     private void Start()
@@ -38,11 +40,11 @@ public class ShelfSpawn : MonoBehaviour
     public void SpawnNextTank()
     {
 
-        bool fullShelfCheck = false;
-        while (!fullShelfCheck && _shelfIndex < _shelves.Length)
+        TankController fullShelfCheck = null;
+        while (fullShelfCheck == null && _shelfIndex < _shelves.Length)
         {
-            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank();
-            if (!fullShelfCheck)
+            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank().GetComponentInChildren<TankController>();
+            if (fullShelfCheck == null)
             {
                 if(_shelfIndex < _shelves.Length - 1 )
                 {
@@ -55,6 +57,40 @@ public class ShelfSpawn : MonoBehaviour
                     Debug.Log("OOF: Out of Fhelves...");
                     break;
                 }
+            }
+            if (_saleTank == null)
+            {
+                _saleTank = fullShelfCheck;
+                _saleTank.switchSale();
+            }
+        }
+    }
+
+    public void SwitchSaleTank(TankController newTank)
+    {
+        // If we previously had no sale tank
+        if (_saleTank == null)
+        {
+            _saleTank = newTank;
+            _saleTank.switchSale();
+        }
+        else if (_saleTank != newTank)
+        {
+            // Switch the old one
+            _saleTank.switchSale();
+            _saleTank = newTank;
+            // Switch the new one
+            _saleTank.switchSale();
+        }
+    }
+
+    public void SpawnShrimp()
+    {
+        if(_saleTank != null)
+        {
+            if (Money.instance.WithdrawMoney(10))
+            {
+                _saleTank.SpawnShrimp();
             }
         }
     }
