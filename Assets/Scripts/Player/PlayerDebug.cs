@@ -24,6 +24,7 @@ public class PlayerDebug : MonoBehaviour
         
     }
 
+    /* Old Function to interact with tanks on click
     public void OnSpawnShrimp()
     {
         GameObject target = lookCheck.LookCheck(1, "Tanks");
@@ -34,12 +35,9 @@ public class PlayerDebug : MonoBehaviour
             TankController tankController = target.GetComponent<TankController>();
 
             shelves.SwitchSaleTank(tankController);
-
         }
-        
-        
-
     }
+    */
 
     public void OnAddMoney()
     {

@@ -53,10 +53,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Crouch.isPressed)
         {
-            cam.transform.position = cam.transform.position + Vector3.down/2;
+            cam.transform.localPosition = new Vector3(0, 0, 0);
         }else if (!Crouch.isPressed)
         {
-            cam.transform.position = cam.transform.position + Vector3.up/2;
+            cam.transform.localPosition = Vector3.up/2;
         }
     }
 }

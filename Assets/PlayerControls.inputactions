@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SpawnShrimp",
+                    "name": "PlayerClick",
                     "type": "Button",
                     "id": "a1ff97a6-f1a2-49b0-a84e-5e6074faf60e",
                     "expectedControlType": "Button",
@@ -209,7 +209,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SpawnShrimp",
+                    "action": "PlayerClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -445,6 +445,85 @@
                 {
                     "name": "",
                     "id": "980bf47c-4598-4f79-a548-0ae245b44b6e",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveMouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "TankView",
+            "id": "6a3a3a88-8ebd-4a87-9990-4c830b344ed3",
+            "actions": [
+                {
+                    "name": "ExitView",
+                    "type": "Button",
+                    "id": "dbe82bba-1ada-421e-865a-21eef7553ffa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Click",
+                    "type": "Button",
+                    "id": "cf3cca3b-a08e-42a8-9d4d-a14340c9516d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveMouse",
+                    "type": "PassThrough",
+                    "id": "63dfdc59-7da9-4584-b4ad-2b7b07e10f8e",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ff02dd7a-c9a7-420d-ab69-050ce62123c6",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitView",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79871006-94b0-4511-9ea8-b5cb13df028f",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitView",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dfe65da8-e84b-4983-b3b7-b596bf51d6a3",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a34de45a-6e7f-4ec2-99d7-ea52211a3db3",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",

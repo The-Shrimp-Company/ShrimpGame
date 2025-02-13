@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,8 +13,7 @@ public class PlayerTablet : MonoBehaviour
     private float _tabletRestingCoord;
     [SerializeField]
     private float _tabletActiveCoord;
-    [SerializeField]
-    private RectTransform _tabletBackgroundRect;
+    private Rect _currentAreaRect;
     [SerializeField]
     private GameObject cursor;
     [SerializeField]
@@ -29,6 +29,7 @@ public class PlayerTablet : MonoBehaviour
         _cursorRect = cursor.GetComponent<RectTransform>();
         // Sets the tablets position to the resting position. It's already at that position, but just in case
         _tabletRect.position = new Vector3(_tabletRect.position.x, _tabletRestingCoord, 0);
+        UIManager.instance.Subscribe(this);
     }
 
     public void OnOpenTablet()
@@ -36,9 +37,17 @@ public class PlayerTablet : MonoBehaviour
         // Switches the tablet position based on the current position. I love the ternary operator
         _tabletRect.position = new Vector3(_tabletRect.position.x, _tabletRect.position.y == _tabletRestingCoord ? _tabletActiveCoord : _tabletRestingCoord , 0);
         string nextMap = _input.currentActionMap.name == "Move" ? "UI" : "Move";
+        UIManager.instance.ChangeFocus(_tabletInteraction);
+
         _input.SwitchCurrentActionMap(nextMap);
     }
 
+    public void SwitchFocus()
+    {
+        RectTransform[] temp = UIManager.instance.GetFocus().GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Cursor")).ToArray();
+        _cursorRect = temp[0];
+        _currentAreaRect = UIManager.instance.GetCurrentRect();
+    }
 
     public void OnMoveMouse(InputValue Mouse)
     {
@@ -48,13 +57,13 @@ public class PlayerTablet : MonoBehaviour
         Vector3 mouseClamp = _cursorRect.localPosition;
 
         // Clamp the cursor to the bounds of the tablet
-        mouseClamp.x = Mathf.Clamp(mouseClamp.x, _tabletBackgroundRect.rect.x, _tabletBackgroundRect.rect.x + _tabletBackgroundRect.rect.width);
-        mouseClamp.y = Mathf.Clamp(mouseClamp.y, _tabletBackgroundRect.rect.y, _tabletBackgroundRect.rect.y + _tabletBackgroundRect.rect.height);
+        mouseClamp.x = Mathf.Clamp(mouseClamp.x, _currentAreaRect.x, _currentAreaRect.x + _currentAreaRect.width);
+        mouseClamp.y = Mathf.Clamp(mouseClamp.y, _currentAreaRect.y, _currentAreaRect.y + _currentAreaRect.height);
         _cursorRect.localPosition = mouseClamp;
     }
 
     public void OnClick()
     {
-        _tabletInteraction.MouseClick(_cursorRect.localPosition);
+        UIManager.instance.GetFocus().MouseClick(_cursorRect.localPosition);
     }
 }

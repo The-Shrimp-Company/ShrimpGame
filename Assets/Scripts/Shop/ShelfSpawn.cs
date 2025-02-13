@@ -40,10 +40,10 @@ public class ShelfSpawn : MonoBehaviour
     public void SpawnNextTank()
     {
 
-        TankController fullShelfCheck = null;
+        GameObject fullShelfCheck = null;
         while (fullShelfCheck == null && _shelfIndex < _shelves.Length)
         {
-            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank().GetComponentInChildren<TankController>();
+            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank();
             if (fullShelfCheck == null)
             {
                 if(_shelfIndex < _shelves.Length - 1 )
@@ -60,7 +60,7 @@ public class ShelfSpawn : MonoBehaviour
             }
             if (_saleTank == null)
             {
-                _saleTank = fullShelfCheck;
+                _saleTank = fullShelfCheck.GetComponentInChildren<TankController>();
                 _saleTank.switchSale();
             }
         }

@@ -21,8 +21,13 @@ public class TankController : MonoBehaviour
     private Vector3 tankPos;
     private Vector3 tankSize;
 
+    [SerializeField]
+    private GameObject camDock;
+
     public GameObject shrimpPrefab;
 
+    [SerializeField]
+    private GameObject tankViewPrefab;
 
     void Start()
     {
@@ -94,5 +99,16 @@ public class TankController : MonoBehaviour
         float y = Random.Range(0, tankSize.y*2) + tankPos.y;
         float z = Random.Range(-tankSize.z, tankSize.z) + tankPos.z;
         return new Vector3(x, y, z);
+    }
+
+    public GameObject GetCam()
+    {
+        return camDock;
+    }
+
+    public void SetTankView()
+    {
+        GameObject newView = Instantiate(tankViewPrefab, transform);
+        UIManager.instance.ChangeFocus(newView.GetComponent<TabletInteraction>());
     }
 }

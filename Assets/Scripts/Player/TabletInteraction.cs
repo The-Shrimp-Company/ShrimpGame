@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class TabletInteraction : MonoBehaviour
 {
-    private RectTransform[] buttons;
+    protected RectTransform[] buttons;
 
-    public ShelfSpawn shelves;
+    protected string _clickedButton = null;
+
+    [SerializeField]
+    private ShelfSpawn shelves;
 
     private void Start()
     {
-        buttons = GetComponentsInChildren<RectTransform>().Where(x => x.name != "Cursor" && x.name != "TabletBackground").ToArray();
+        buttons = GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Button")).ToArray();
     }
 
     public void MouseClick(Vector3 point)
@@ -33,18 +36,31 @@ public class TabletInteraction : MonoBehaviour
 
         if(clicked != null)
         {
-            switch (clicked.name)
-            {
-                case "Buy Shrimp":
-                    shelves.SpawnShrimp();
-                    break;
-                case "Buy Tanks":
-                    shelves.SpawnNextTank();
-                    break;
-                default:
-                    Debug.Log("No");
-                    break;
-            }
+            _clickedButton = clicked.name;
         }
     }
+
+    protected virtual void PressedButton()
+    {
+        switch (_clickedButton)
+        {
+            case "Buy Shrimp":
+                shelves.SpawnShrimp();
+                break;
+            case "Buy Tanks":
+                shelves.SpawnNextTank();
+                break;
+            default:
+                Debug.Log("No");
+                break;
+        }
+        _clickedButton = null;
+    }
+
+    public void Update()
+    {
+        if (_clickedButton != null) PressedButton();
+    }
+
+    public virtual void Close() { }
 }
