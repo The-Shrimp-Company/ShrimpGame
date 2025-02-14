@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldManager : MonoBehaviour
+public class TankGrid : MonoBehaviour
 {
-    public static WorldManager Instance { get; private set; }
+    public static TankGrid Instance { get; private set; }
     [SerializeField] GameObject gridPointPrefab;
     [SerializeField] int gridWidth;
     [SerializeField] int gridHeight;
@@ -94,8 +94,6 @@ public class WorldManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        //Gizmos.DrawWireCube(transform.position, new Vector3(gridWidth, gridHeight, gridLength) * pointDistance);
-
         if (grid != null && debugGrid)
         {
             for (int i = 0; i < gridWidth; i++)

@@ -34,23 +34,18 @@ public class ShrimpAgent : MonoBehaviour
     [HideInInspector] public AgentStatus Status = AgentStatus.Finished;
 
 
-    private float HeuristicFunction(Vector3 p1, Vector3 p2)
-    {
-        return (p2 - p1).sqrMagnitude;
-    }
 
-
-    private List<GridNode> ReconstructPath(NodeData start, NodeData current, NodeData[][][] dataSet)
+    private List<GridNode> RetracePath(NodeData start, NodeData current, NodeData[][][] dataSet)
     {
         cornerNodes = new List<GridNode>();
         List<GridNode> totalPath = new List<GridNode>();
 
         NodeData currentPointData = dataSet[current.Coords.x][current.Coords.y][current.Coords.z];
-        GridNode currentPoint = WorldManager.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
+        GridNode currentPoint = TankGrid.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
 
         totalPath.Add(currentPoint);
 
-        GridNode cameFromPoint = WorldManager.Instance.grid[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
+        GridNode cameFromPoint = TankGrid.Instance.grid[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
 
         Vector3 direction = (currentPoint.coords - cameFromPoint.coords);
         direction = direction.normalized;
@@ -61,9 +56,9 @@ public class ShrimpAgent : MonoBehaviour
         while (current.CameFrom.x != -1 && count < 10000)
         {
 
-            currentPoint = WorldManager.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
+            currentPoint = TankGrid.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
             NodeData cameFromPointData = dataSet[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
-            cameFromPoint = WorldManager.Instance.grid[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
+            cameFromPoint = TankGrid.Instance.grid[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
 
             Vector3 dir = (currentPoint.coords - cameFromPoint.coords);
             if (dir != direction)
@@ -76,7 +71,7 @@ public class ShrimpAgent : MonoBehaviour
             current = dataSet[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
         }
 
-        currentPoint = WorldManager.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
+        currentPoint = TankGrid.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
         cornerNodes.Add(currentPoint);
 
         return totalPath;
@@ -129,22 +124,21 @@ public class ShrimpAgent : MonoBehaviour
     {
         startPos = transform.position;
         endPos = goal;
-        startNode = WorldManager.Instance.GetClosestNode(transform.position);
-        endNode = WorldManager.Instance.GetClosestNode(goal);
+        startNode = TankGrid.Instance.GetClosestNode(transform.position);
+        endNode = TankGrid.Instance.GetClosestNode(goal);
         if (startNode == endNode || startNode.invalid || endNode.invalid)
         {
             Status = AgentStatus.Invalid;
-            Debug.Log("1");
             return Status;
         }
 
-        NodeData[][][] dataSet = new NodeData[WorldManager.Instance.grid.Length][][];
+        NodeData[][][] dataSet = new NodeData[TankGrid.Instance.grid.Length][][];
         for (int i = 0; i < dataSet.Length; i++)
         {
-            dataSet[i] = new NodeData[WorldManager.Instance.grid[i].Length][];
+            dataSet[i] = new NodeData[TankGrid.Instance.grid[i].Length][];
             for (int j = 0; j < dataSet[i].Length; j++)
             {
-                dataSet[i][j] = new NodeData[WorldManager.Instance.grid[i][j].Length];
+                dataSet[i][j] = new NodeData[TankGrid.Instance.grid[i][j].Length];
             }
         }
         List<NodeData> openSet = new List<NodeData>();
@@ -163,7 +157,7 @@ public class ShrimpAgent : MonoBehaviour
 
             if (current.Coords == endNode.coords)
             {
-                totalPath = ReconstructPath(startPoint, current, dataSet);
+                totalPath = RetracePath(startPoint, current, dataSet);
                 if (!supressMovement)
                 {
                     Status = AgentStatus.InProgress;
@@ -175,12 +169,12 @@ public class ShrimpAgent : MonoBehaviour
             openSet.RemoveAt(0);
             RemoveFromHeap(openSet, 0);
 
-            GridNode currentPoint = WorldManager.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
+            GridNode currentPoint = TankGrid.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
 
             for (int i = 0; i < currentPoint.neighbours.Count; i++)
             {
                 Vector3Int indexes = currentPoint.neighbours[i];
-                GridNode neighbour = WorldManager.Instance.grid[indexes.x][indexes.y][indexes.z];
+                GridNode neighbour = TankGrid.Instance.grid[indexes.x][indexes.y][indexes.z];
                 NodeData neighbourData = dataSet[indexes.x][indexes.y][indexes.z];
 
                 bool neighbourPassed = true;
@@ -193,12 +187,12 @@ public class ShrimpAgent : MonoBehaviour
 
                 if (!neighbour.invalid)
                 {
-                    float tenativeScore = current.GScore + WorldManager.Instance.pointDistance;
+                    float tenativeScore = current.GScore + TankGrid.Instance.pointDistance;
                     if (tenativeScore < neighbourData.GScore)
                     {
                         neighbourData.CameFrom = current.Coords;
                         neighbourData.GScore = tenativeScore;
-                        neighbourData.FScore = neighbourData.GScore + HeuristicFunction(neighbour.worldPos, endNode.worldPos);
+                        neighbourData.FScore = neighbourData.GScore + (endNode.worldPos - neighbour.worldPos).sqrMagnitude;
                         if (!neighbourPassed)
                         {
                             openSet.Add(neighbourData);
@@ -210,7 +204,6 @@ public class ShrimpAgent : MonoBehaviour
         }
 
         Status = AgentStatus.Invalid;
-        Debug.Log("2");
 
         return Status;
     }
@@ -230,7 +223,7 @@ public class ShrimpAgent : MonoBehaviour
     {
         Status = AgentStatus.NewPath;
 
-        GridNode p = WorldManager.Instance.GetClosestNode(transform.position);
+        GridNode p = TankGrid.Instance.GetClosestNode(transform.position);
 
         while (Status == AgentStatus.NewPath)
         {
@@ -257,7 +250,6 @@ public class ShrimpAgent : MonoBehaviour
         points.Add(cornerNodes[cornerNodes.Count - 1].worldPos);
         for (int i = cornerNodes.Count - 2; i >= 0; i--)
         {
-            //Vector3 centerPos = CornerPoints[i + 1].WorldPosition + (CornerPoints[i].WorldPosition - CornerPoints[i + 1].WorldPosition) / 2f;
             points.Add(cornerNodes[i].worldPos);
         }
         points.Add(cornerNodes[0].worldPos);

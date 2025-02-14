@@ -20,7 +20,7 @@ public class ShrimpMoveRandom : MonoBehaviour
     }
     IEnumerator C_MoveRandom()
     {
-        List<GridNode> freePoints = WorldManager.Instance.GetFreePoints();
+        List<GridNode> freePoints = TankGrid.Instance.GetFreePoints();
         GridNode start = freePoints[Random.Range(0, freePoints.Count)];
         transform.position = start.worldPos;
         while (true)
