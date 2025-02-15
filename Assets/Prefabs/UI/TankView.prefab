@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2541413600787694656}
   m_Layer: 0
   m_Name: Set Tank
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,9 +238,10 @@ GameObject:
   - component: {fileID: 4428174358951737484}
   - component: {fileID: 8862721570316287926}
   - component: {fileID: 131927633617552070}
+  - component: {fileID: 6387445573526290414}
   m_Layer: 0
   m_Name: TankView
-  m_TagString: Untagged
+  m_TagString: UIScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,4 +325,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d40d9856402a64fa5248ae6e003443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugBox: {fileID: 0}
   shelves: {fileID: 0}
+--- !u!114 &6387445573526290414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4927723591345053280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295

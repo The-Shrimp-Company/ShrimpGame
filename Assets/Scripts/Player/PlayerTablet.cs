@@ -35,11 +35,18 @@ public class PlayerTablet : MonoBehaviour
     public void OnOpenTablet()
     {
         // Switches the tablet position based on the current position. I love the ternary operator
-        _tabletRect.position = new Vector3(_tabletRect.position.x, _tabletRect.position.y == _tabletRestingCoord ? _tabletActiveCoord : _tabletRestingCoord , 0);
-        string nextMap = _input.currentActionMap.name == "Move" ? "UI" : "Move";
+        _tabletRect.position = new Vector3(_tabletRect.position.x, _tabletActiveCoord, 0);
         UIManager.instance.ChangeFocus(_tabletInteraction);
 
-        _input.SwitchCurrentActionMap(nextMap);
+        _input.SwitchCurrentActionMap("UI");
+    }
+
+    public void OnCloseTablet() 
+    {
+        _tabletRect.position = new Vector3(_tabletRect.position.x, _tabletRestingCoord, 0);
+        UIManager.instance.ChangeFocus();
+
+        _input.SwitchCurrentActionMap("Move");
     }
 
     public void SwitchFocus()
@@ -64,6 +71,6 @@ public class PlayerTablet : MonoBehaviour
 
     public void OnClick()
     {
-        UIManager.instance.GetFocus().MouseClick(_cursorRect.localPosition);
+        UIManager.instance.GetFocus().MouseClick(_cursorRect.transform.position);
     }
 }

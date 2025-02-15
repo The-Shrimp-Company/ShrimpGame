@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TabletInteraction : MonoBehaviour
 {
@@ -10,32 +12,38 @@ public class TabletInteraction : MonoBehaviour
     protected string _clickedButton = null;
 
     [SerializeField]
-    private ShelfSpawn shelves;
+    protected ShelfSpawn shelves;
 
     private void Start()
     {
         buttons = GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Button")).ToArray();
     }
 
-    public void MouseClick(Vector3 point)
+
+    public void MouseClick(Vector3 point) 
     {
-        Vector3[] corners = new Vector3[4];
         RectTransform clicked = null;
-        foreach (RectTransform rect in buttons)
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        PointerEventData ped = new PointerEventData(null);
+        ped.position = point;
+
+        UIManager.instance.GetFocus().GetComponent<GraphicRaycaster>().Raycast(ped, results);
+
+
+        foreach (RaycastResult r in results)
         {
-            rect.GetLocalCorners(corners);
-            if(point.x > corners[0].x + rect.localPosition.x && point.x < corners[2].x + rect.localPosition.x)
+            if (r.gameObject.CompareTag("Button"))
             {
-                if(point.y > corners[0].y + rect.localPosition.y && point.y < corners[2].y + rect.localPosition.y)
-                {
-                    clicked = rect;
-                    break;
-                }
+                clicked = r.gameObject.GetComponent<RectTransform>();
+                break;
             }
         }
 
         if(clicked != null)
         {
+            Debug.Log("here");
+            
             _clickedButton = clicked.name;
         }
     }

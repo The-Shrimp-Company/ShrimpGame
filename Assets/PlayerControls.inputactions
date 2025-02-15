@@ -271,7 +271,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "OpenTablet",
+                    "name": "CloseTablet",
                     "type": "Button",
                     "id": "398f50f9-3e2f-4243-8326-3dd5ebdf11cf",
                     "expectedControlType": "Button",
@@ -317,7 +317,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "OpenTablet",
+                    "action": "CloseTablet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
