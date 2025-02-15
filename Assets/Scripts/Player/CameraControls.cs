@@ -29,7 +29,7 @@ public class CameraControls : MonoBehaviour
             return;
         }
         _rotY += _look.y * lookSenstivity;
-        _rotY = Mathf.Clamp(_rotY, -45, 15);
+        _rotY = Mathf.Clamp(_rotY, -75, 45);
         cameraTransform.localRotation = Quaternion.Euler(-_rotY, 0, 0);
 
         transform.Rotate(0, _look.x * lookSenstivity, 0);

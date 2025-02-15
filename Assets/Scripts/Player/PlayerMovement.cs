@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CC.SimpleMove(transform.TransformVector(move.x, 0, move.y));
-        //CC.Move(transform.TransformVector(move.x * Time.deltaTime, 0, move.y * Time.deltaTime));
     }
 
 
@@ -48,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         move *= Speed;
     }
 
-
+    /*
     public void OnCrouch(InputValue Crouch)
     {
         if (Crouch.isPressed)
@@ -59,4 +58,5 @@ public class PlayerMovement : MonoBehaviour
             cam.transform.localPosition = Vector3.up/2;
         }
     }
+    */
 }

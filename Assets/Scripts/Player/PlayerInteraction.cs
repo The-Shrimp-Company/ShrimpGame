@@ -23,12 +23,13 @@ public class PlayerInteraction : MonoBehaviour
 
     public void OnPlayerClick()
     {
-        GameObject target = lookCheck.LookCheck(1, "Tanks");
+        GameObject target = lookCheck.LookCheck(5, "Tanks");
 
         if (target != null)
         {
 
             TankController tankController = target.GetComponent<TankController>();
+
 
             _camera.transform.position = tankController.GetCam().transform.position;
             _camera.transform.rotation = tankController.GetCam().transform.rotation;
