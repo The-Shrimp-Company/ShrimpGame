@@ -39,8 +39,10 @@ public class PlayerDebug : MonoBehaviour
     }
     */
 
+    /*
     public void OnAddMoney()
     {
         Money.instance.AddMoney(5);
     }
+    */
 }

@@ -58,6 +58,9 @@ public class TabletInteraction : MonoBehaviour
             case "Buy Tanks":
                 shelves.SpawnNextTank();
                 break;
+            case "Add Money":
+                Money.instance.AddMoney(20);
+                break;
             default:
                 Debug.Log("No");
                 break;
