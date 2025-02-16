@@ -13,6 +13,8 @@ public class Shrimp : MonoBehaviour
 
     public void Start()
     {
+        transform.position = tank.GetRandomTankPosition();
+
         if (shrimpActivities.Count == 0)
         {
             AddActivity(GetRandomActivity());

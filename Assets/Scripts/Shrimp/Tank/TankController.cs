@@ -12,36 +12,36 @@ public class TankController : MonoBehaviour
     public float spawnTime;
 
     private float updateTimer;
-    public float updateTime;                            // The time between each shrimp update, 0 will be every frame
+    public float updateTime;  // The time between each shrimp update, 0 will be every frame
 
     private bool _saleTank = false;
-    [SerializeField]
-    private GameObject sign;
+    [SerializeField] private GameObject sign;
 
-    private Vector3 tankPos;
-    private Vector3 tankSize;
+    public TankGrid tankGrid;  // The grid used for pathfinding
 
-    [SerializeField]
-    private GameObject camDock;
+    [SerializeField] private GameObject camDock;
 
     public GameObject shrimpPrefab;
 
-    [SerializeField]
-    private GameObject tankViewPrefab;
+    [SerializeField] private GameObject tankViewPrefab;
+
+    [SerializeField] bool autoSpawnTestShrimp;
 
     void Start()
     {
-        tankPos = transform.position;
+        if (tankGrid == null) Debug.LogError("Pathfinding grid is missing");
+
 
         sign.SetActive(_saleTank);
 
-        tankSize = GetComponent<Collider>().bounds.size / 2;
 
-        /*
-        for (int i = 0; i < 5; i++) 
+        if (autoSpawnTestShrimp)
         {
-            SpawnRandomShrimp();
-        }*/
+            for (int i = 0; i < 5; i++)
+            {
+                SpawnRandomShrimp();
+            }
+        }
     }
 
     void Update()
@@ -95,10 +95,8 @@ public class TankController : MonoBehaviour
 
     public Vector3 GetRandomTankPosition()
     {
-        float x = Random.Range(-tankSize.x, tankSize.x) + tankPos.x;
-        float y = Random.Range(0, tankSize.y*2) + tankPos.y;
-        float z = Random.Range(-tankSize.z, tankSize.z) + tankPos.z;
-        return new Vector3(x, y, z);
+        List<GridNode> freePoints = TankGrid.Instance.GetFreePoints();
+        return freePoints[Random.Range(0, freePoints.Count)].worldPos;
     }
 
     public GameObject GetCam()
