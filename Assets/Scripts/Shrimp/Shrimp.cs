@@ -9,6 +9,7 @@ public class Shrimp : MonoBehaviour
     public List<ShrimpActivity> shrimpActivities = new List<ShrimpActivity>();
     public TankController tank;
     private int minActivitiesInQueue = 2;
+    public ShrimpAgent agent;
 
 
     public void Start()
@@ -22,6 +23,7 @@ public class Shrimp : MonoBehaviour
             AddActivity(GetRandomActivity());
         }
     }
+
 
     public void UpdateShrimp(float elapsedTime)
     {
@@ -44,6 +46,7 @@ public class Shrimp : MonoBehaviour
         while (timeRemaining > 0);
     }
 
+
     public void EndActivity()
     {
         shrimpActivities.RemoveAt(0);
@@ -54,6 +57,7 @@ public class Shrimp : MonoBehaviour
         }
     }
 
+
     private ShrimpActivity GetRandomActivity()
     {
         int i = Random.Range(0, 2);
@@ -62,28 +66,35 @@ public class Shrimp : MonoBehaviour
         return (new ShrimpActivity());
     }
 
+
     private void AddActivity(ShrimpActivity activity)
     {
         if (activity is ShrimpMovement)
         {
             ShrimpMovement movement = (ShrimpMovement) activity;  // Casts the activity to the derrived shrimpMovement activity
 
-            movement.SetDestination(tank.GetRandomTankPosition());
+            movement.SetDestination(tank.GetRandomTankNode());
         }
+
+
         else if (activity is ShrimpSleeping)
         {
             ShrimpSleeping sleeping = (ShrimpSleeping) activity;
 
             sleeping.taskTime = Random.Range(4, 8);
         }
+
+
         else
         {
             Debug.Log("Activity logic is missing");
         }
 
+
         activity.shrimp = this;
         shrimpActivities.Add(activity);
     }
+
 
     public void ChangeTank(TankController t)
     {

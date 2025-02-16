@@ -106,6 +106,13 @@ public class TankController : MonoBehaviour
     }
 
 
+    public GridNode GetRandomTankNode()
+    {
+        List<GridNode> freePoints = TankGrid.Instance.GetFreePoints();
+        return freePoints[Random.Range(0, freePoints.Count)];
+    }
+
+
     public GameObject GetCam()
     {
         return camDock;

@@ -1,6 +1,7 @@
 using PathCreation;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,6 +33,7 @@ public class ShrimpAgent : MonoBehaviour
     [SerializeField] float _CornerSmooth;
 
     [HideInInspector] public AgentStatus Status = AgentStatus.Finished;
+    private int movingPathIndex;
 
 
 
@@ -161,7 +163,7 @@ public class ShrimpAgent : MonoBehaviour
                 if (!supressMovement)
                 {
                     Status = AgentStatus.InProgress;
-                    StartMoving();
+                    //StartMoving();
                 }
                 return Status;
             }
@@ -280,11 +282,11 @@ public class ShrimpAgent : MonoBehaviour
     }
 
 
-    private void StartMoving()
-    {
-        StopAllCoroutines();
-        StartCoroutine(Coroutine_CharacterFollowPath());
-    }
+    //private void StartMoving()
+    //{
+    //    StopAllCoroutines();
+    //    StartCoroutine(Coroutine_CharacterFollowPath());
+    //}
 
 
     IEnumerator Coroutine_CharacterFollowPath()
@@ -337,6 +339,57 @@ public class ShrimpAgent : MonoBehaviour
         }
 
         Status = AgentStatus.Finished;
+    }
+
+
+    public void StartMoving()
+    {
+        Status = AgentStatus.InProgress;
+        movingPathIndex = totalPath.Count - 1;
+    }
+
+
+    public void MoveShrimp(float elapsedTime)
+    {
+        Status = AgentStatus.InProgress;
+        for (int i = totalPath.Count - 1; i >= 0; i--)
+        {
+            SetPathColor();
+            float length = (transform.position - totalPath[i].worldPos).magnitude;
+            float l = 0;
+            while (l < length)
+            {
+                SetPathColor();
+                Vector3 forwardDirection = (totalPath[i].worldPos - transform.position).normalized;
+                if (curvePath)
+                {
+                    transform.position += transform.forward * Time.deltaTime * speed;
+                    transform.forward = Vector3.Slerp(transform.forward, forwardDirection, Time.deltaTime * turnSpeed);
+                }
+                else
+                {
+                    transform.forward = forwardDirection;
+                    transform.position = Vector3.MoveTowards(transform.position, totalPath[i].worldPos, Time.deltaTime * speed);
+                }
+                l += Time.deltaTime * speed;
+                //yield return new WaitForFixedUpdate();
+            }
+        }
+
+        Status = AgentStatus.Finished;
+    }
+
+
+    public float GetPathLength()
+    {
+        float dist = 0;
+        Vector3 lastPos = transform.position;
+        for (int i = totalPath.Count - 1; i >= 0; i--)
+        {
+            dist += Vector3.Distance(lastPos, totalPath[i].worldPos);
+            lastPos = totalPath[i].worldPos;
+        }
+        return dist;
     }
 
 
