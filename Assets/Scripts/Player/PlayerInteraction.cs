@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
 
             _input.SwitchCurrentActionMap("TankView");
 
-            tankController.SetTankView();
+            tankController.FocusTank();
         }
     }
 

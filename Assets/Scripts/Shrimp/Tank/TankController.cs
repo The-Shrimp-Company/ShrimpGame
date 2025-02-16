@@ -17,6 +17,7 @@ public class TankController : MonoBehaviour
     private bool _saleTank = false;
     [SerializeField] private GameObject sign;
 
+    [SerializeField] Transform shrimpParent;
     public TankGrid tankGrid;  // The grid used for pathfinding
 
     [SerializeField] private GameObject camDock;
@@ -30,6 +31,7 @@ public class TankController : MonoBehaviour
     void Start()
     {
         if (tankGrid == null) Debug.LogError("Pathfinding grid is missing");
+        if (shrimpParent == null) Debug.LogError("Shrimp Parent is missing");
 
 
         sign.SetActive(_saleTank);
@@ -69,11 +71,13 @@ public class TankController : MonoBehaviour
         }
     }
 
-    public void switchSale()
+
+    public void ToggleSaleTank()
     {
         _saleTank = !_saleTank;
         sign.SetActive(_saleTank);
     }
+
 
     private void SpawnRandomShrimp()
     {
@@ -83,6 +87,7 @@ public class TankController : MonoBehaviour
         s.stats = ShrimpManager.instance.CreateShrimp();
         s.ChangeTank(this);
         newShrimp.name = s.stats.name;
+        newShrimp.transform.parent = shrimpParent;
 
         shrimpInTank.Add(s);
     }
@@ -93,18 +98,21 @@ public class TankController : MonoBehaviour
         SpawnRandomShrimp();
     }
 
+
     public Vector3 GetRandomTankPosition()
     {
         List<GridNode> freePoints = TankGrid.Instance.GetFreePoints();
         return freePoints[Random.Range(0, freePoints.Count)].worldPos;
     }
 
+
     public GameObject GetCam()
     {
         return camDock;
     }
 
-    public void SetTankView()
+
+    public void FocusTank()
     {
         GameObject newView = Instantiate(tankViewPrefab, transform);
         UIManager.instance.ChangeFocus(newView.GetComponent<TabletInteraction>());

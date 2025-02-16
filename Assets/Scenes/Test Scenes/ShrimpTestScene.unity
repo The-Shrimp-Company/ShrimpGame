@@ -122,6 +122,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &100971778 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 48458378494084276, guid: a23975896a78f054f90dc35cb57f895f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2385820023350547930}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf93b530651ba140a87aa146cb539bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &101244689
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &234795925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,10 +378,12 @@ MonoBehaviour:
   spawnTime: 1
   updateTime: 0
   sign: {fileID: 0}
+  tankGrid: {fileID: 0}
   camDock: {fileID: 0}
   shrimpPrefab: {fileID: 8402780776056034104, guid: 9c37763690d5b354cb993c972810dd39,
     type: 3}
   tankViewPrefab: {fileID: 0}
+  autoSpawnTestShrimp: 0
 --- !u!65 &234795926
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2423,6 +2437,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shrimp
       objectReference: {fileID: 0}
+    - target: {fileID: 8402780776056034104, guid: 9c37763690d5b354cb993c972810dd39,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9038667343410755530, guid: 9c37763690d5b354cb993c972810dd39,
         type: 3}
       propertyPath: _PathCreatorPrefab
@@ -2496,6 +2515,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tank_20
       objectReference: {fileID: 0}
+    - target: {fileID: 8525724806375028851, guid: a23975896a78f054f90dc35cb57f895f,
+        type: 3}
+      propertyPath: tankGrid
+      value: 
+      objectReference: {fileID: 100971778}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

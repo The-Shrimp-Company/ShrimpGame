@@ -61,7 +61,7 @@ public class ShelfSpawn : MonoBehaviour
             if (_saleTank == null)
             {
                 _saleTank = fullShelfCheck.GetComponentInChildren<TankController>();
-                _saleTank.switchSale();
+                _saleTank.ToggleSaleTank();
             }
         }
     }
@@ -72,15 +72,15 @@ public class ShelfSpawn : MonoBehaviour
         if (_saleTank == null)
         {
             _saleTank = newTank;
-            _saleTank.switchSale();
+            _saleTank.ToggleSaleTank();
         }
         else if (_saleTank != newTank)
         {
             // Switch the old one
-            _saleTank.switchSale();
+            _saleTank.ToggleSaleTank();
             _saleTank = newTank;
             // Switch the new one
-            _saleTank.switchSale();
+            _saleTank.ToggleSaleTank();
         }
     }
 
