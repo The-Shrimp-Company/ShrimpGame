@@ -485,6 +485,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchTank",
+                    "type": "Value",
+                    "id": "3a9a61cf-447d-4c4e-bf94-0c8776c47432",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -531,6 +540,116 @@
                     "action": "MoveMouse",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "36201388-ca7c-4a16-8d45-1ebb0d3b1b24",
+                    "path": "2DVector(mode=1)",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "NormalizeVector2",
+                    "groups": "",
+                    "action": "SwitchTank",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "28f2285f-a7be-4008-98bb-be562425d1e2",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "SwitchTank",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "a952344b-28e0-40ec-b43c-cea95b9f1935",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "SwitchTank",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "b0a70dd1-148c-48d8-8c57-ce815f89479a",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "SwitchTank",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "16597a83-5a2d-4313-aeea-7b3fd1f2197b",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "SwitchTank",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Arrows",
+                    "id": "ffec496e-7643-4924-9dda-c334d9ec0906",
+                    "path": "2DVector",
+                    "interactions": "Press",
+                    "processors": "NormalizeVector2",
+                    "groups": "",
+                    "action": "SwitchTank",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "131caa1c-74a6-47e1-82b2-8129d8af727d",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "SwitchTank",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b5b575d1-57f8-4e57-a1ec-a79da4cf8670",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "SwitchTank",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "611f1fce-f506-4800-86ac-fa831ef553c0",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "SwitchTank",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "0dfb7eb9-0786-47c6-9a39-cfee4b625b5b",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "K&M",
+                    "action": "SwitchTank",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

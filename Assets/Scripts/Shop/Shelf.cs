@@ -7,19 +7,7 @@ public class Shelf : MonoBehaviour
 {
     private Transform[] _tanks;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-       
-    }
-
-    private void Awake()
-    {
-        
-    }
-
+    
 
     private void OnDisable()
     {
@@ -33,11 +21,6 @@ public class Shelf : MonoBehaviour
         {
             tank.gameObject.SetActive(false);
         }
-    }
-
-    private void OnEnable()
-    {
-        
     }
 
     public GameObject AddTank()

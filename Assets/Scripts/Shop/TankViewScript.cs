@@ -17,11 +17,9 @@ public class TankViewScript : TabletInteraction
 
     protected override void PressedButton()
     {
-        Debug.Log("Hello?");
         switch (_clickedButton)
         {
             case "Set Tank":
-                Debug.Log("Yeah");
                 shelves.SwitchSaleTank(tank);
                 break;
             default:

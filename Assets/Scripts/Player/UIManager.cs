@@ -8,7 +8,7 @@ public class UIManager
 
     private TabletInteraction _currentUI = null;
 
-    private List<PlayerTablet> _playerControllers = new List<PlayerTablet>();
+    private List<PlayerUIController> _playerControllers = new List<PlayerUIController>();
 
     private Rect _currentRect = new Rect();
 
@@ -24,6 +24,10 @@ public class UIManager
             _currentUI.Close();
         }
         _currentUI = null;
+        foreach(PlayerUIController controller in _playerControllers)
+        {
+            controller.SwitchFocus();
+        }
     }
 
     public void ChangeFocus(TabletInteraction newFocus)
@@ -40,7 +44,7 @@ public class UIManager
         }
         _currentUI = newFocus;
         _currentRect = customRect.rect;
-        foreach (PlayerTablet controller in _playerControllers)
+        foreach (PlayerUIController controller in _playerControllers)
         {
             controller.SwitchFocus();
         }
@@ -51,7 +55,7 @@ public class UIManager
         return _currentUI;
     }
 
-    public void Subscribe(PlayerTablet newController)
+    public void Subscribe(PlayerUIController newController)
     {
         _playerControllers.Add(newController);
     }

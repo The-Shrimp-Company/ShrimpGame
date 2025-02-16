@@ -17,7 +17,6 @@ public class Money
     {
         // Put loading function here
         _money = 0;
-        Debug.Log("Money Active");
     }
 
     public void AddMoney(int moneyToAdd)

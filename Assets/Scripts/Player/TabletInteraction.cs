@@ -42,8 +42,6 @@ public class TabletInteraction : MonoBehaviour
 
         if(clicked != null)
         {
-            Debug.Log("here");
-            
             _clickedButton = clicked.name;
         }
     }

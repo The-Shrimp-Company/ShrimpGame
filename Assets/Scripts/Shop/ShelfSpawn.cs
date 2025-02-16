@@ -49,7 +49,6 @@ public class ShelfSpawn : MonoBehaviour
                 if(_shelfIndex < _shelves.Length - 1 )
                 {
                     SpawnNextShelf();
-                    Debug.Log(_shelfIndex + "  " + _shelves.Length);
                     _shelfIndex++;
                 }
                 else
