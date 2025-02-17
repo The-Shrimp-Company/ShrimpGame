@@ -85,7 +85,8 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     public void OnExitView()
     {
-        transform.position = new Vector3(_camera.transform.position.x, transform.position.y, _camera.transform.position.z);
+        Vector3 v3 = _tankView.GetComponent<TankController>().GetCam().transform.position;
+        transform.position = new Vector3(v3.x, transform.position.y, v3.z);
         Debug.Log(transform.position);
         _camera.transform.localPosition = Vector3.up / 2;
         _input.SwitchCurrentActionMap("Move");
