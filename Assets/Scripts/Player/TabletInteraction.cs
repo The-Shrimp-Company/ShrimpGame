@@ -10,6 +10,7 @@ public class TabletInteraction : MonoBehaviour
     protected RectTransform[] buttons;
 
     protected string _clickedButton = null;
+    protected bool _clickedButtonUsed = false;
 
     [SerializeField]
     protected ShelfSpawn shelves;
@@ -20,8 +21,9 @@ public class TabletInteraction : MonoBehaviour
     }
 
 
-    public void MouseClick(Vector3 point) 
+    public virtual void MouseClick(Vector3 point) 
     {
+        _clickedButton = null;
         RectTransform clicked = null;
 
         List<RaycastResult> results = new List<RaycastResult>();
@@ -48,6 +50,7 @@ public class TabletInteraction : MonoBehaviour
 
     protected virtual void PressedButton()
     {
+        _clickedButtonUsed = true;
         switch (_clickedButton)
         {
             case "Buy Shrimp":
@@ -60,13 +63,16 @@ public class TabletInteraction : MonoBehaviour
                 Money.instance.AddMoney(20);
                 break;
             default:
-                Debug.Log("No");
+                _clickedButtonUsed = false;
                 break;
         }
-        _clickedButton = null;
+        if (_clickedButtonUsed)
+        {
+            _clickedButton = null;
+        }
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (_clickedButton != null) PressedButton();
     }
