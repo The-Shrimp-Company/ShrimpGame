@@ -1,6 +1,7 @@
 using PathCreation;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,7 @@ public class ShrimpAgent : MonoBehaviour
     Vector3 endPos;
     [HideInInspector] public List<GridNode> totalPath;
     [HideInInspector] public List<GridNode> cornerNodes;
+    [SerializeField] float nodeDetectionDistance;
 
     [SerializeField] bool debugPath;
     [SerializeField] UnityEngine.Color debugPathColour;
@@ -31,7 +33,9 @@ public class ShrimpAgent : MonoBehaviour
     [SerializeField] PathCreator _PathCreatorPrefab;
     [SerializeField] float _CornerSmooth;
 
-    [HideInInspector] public AgentStatus Status = AgentStatus.Finished;
+    [HideInInspector] public TankGrid tankGrid;
+    public AgentStatus Status = AgentStatus.Finished;
+    private int movingPathIndex;
 
 
 
@@ -41,11 +45,11 @@ public class ShrimpAgent : MonoBehaviour
         List<GridNode> totalPath = new List<GridNode>();
 
         NodeData currentPointData = dataSet[current.Coords.x][current.Coords.y][current.Coords.z];
-        GridNode currentPoint = TankGrid.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
+        GridNode currentPoint = tankGrid.grid[current.Coords.x][current.Coords.y][current.Coords.z];
 
         totalPath.Add(currentPoint);
 
-        GridNode cameFromPoint = TankGrid.Instance.grid[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
+        GridNode cameFromPoint = tankGrid.grid[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
 
         Vector3 direction = (currentPoint.coords - cameFromPoint.coords);
         direction = direction.normalized;
@@ -56,9 +60,9 @@ public class ShrimpAgent : MonoBehaviour
         while (current.CameFrom.x != -1 && count < 10000)
         {
 
-            currentPoint = TankGrid.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
+            currentPoint = tankGrid.grid[current.Coords.x][current.Coords.y][current.Coords.z];
             NodeData cameFromPointData = dataSet[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
-            cameFromPoint = TankGrid.Instance.grid[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
+            cameFromPoint = tankGrid.grid[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
 
             Vector3 dir = (currentPoint.coords - cameFromPoint.coords);
             if (dir != direction)
@@ -71,7 +75,7 @@ public class ShrimpAgent : MonoBehaviour
             current = dataSet[current.CameFrom.x][current.CameFrom.y][current.CameFrom.z];
         }
 
-        currentPoint = TankGrid.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
+        currentPoint = tankGrid.grid[current.Coords.x][current.Coords.y][current.Coords.z];
         cornerNodes.Add(currentPoint);
 
         return totalPath;
@@ -124,21 +128,21 @@ public class ShrimpAgent : MonoBehaviour
     {
         startPos = transform.position;
         endPos = goal;
-        startNode = TankGrid.Instance.GetClosestNode(transform.position);
-        endNode = TankGrid.Instance.GetClosestNode(goal);
+        startNode = tankGrid.GetClosestNode(transform.position);
+        endNode = tankGrid.GetClosestNode(goal);
         if (startNode == endNode || startNode.invalid || endNode.invalid)
         {
             Status = AgentStatus.Invalid;
             return Status;
         }
 
-        NodeData[][][] dataSet = new NodeData[TankGrid.Instance.grid.Length][][];
+        NodeData[][][] dataSet = new NodeData[tankGrid.grid.Length][][];
         for (int i = 0; i < dataSet.Length; i++)
         {
-            dataSet[i] = new NodeData[TankGrid.Instance.grid[i].Length][];
+            dataSet[i] = new NodeData[tankGrid.grid[i].Length][];
             for (int j = 0; j < dataSet[i].Length; j++)
             {
-                dataSet[i][j] = new NodeData[TankGrid.Instance.grid[i][j].Length];
+                dataSet[i][j] = new NodeData[tankGrid.grid[i][j].Length];
             }
         }
         List<NodeData> openSet = new List<NodeData>();
@@ -169,12 +173,12 @@ public class ShrimpAgent : MonoBehaviour
             openSet.RemoveAt(0);
             RemoveFromHeap(openSet, 0);
 
-            GridNode currentPoint = TankGrid.Instance.grid[current.Coords.x][current.Coords.y][current.Coords.z];
+            GridNode currentPoint = tankGrid.grid[current.Coords.x][current.Coords.y][current.Coords.z];
 
             for (int i = 0; i < currentPoint.neighbours.Count; i++)
             {
                 Vector3Int indexes = currentPoint.neighbours[i];
-                GridNode neighbour = TankGrid.Instance.grid[indexes.x][indexes.y][indexes.z];
+                GridNode neighbour = tankGrid.grid[indexes.x][indexes.y][indexes.z];
                 NodeData neighbourData = dataSet[indexes.x][indexes.y][indexes.z];
 
                 bool neighbourPassed = true;
@@ -187,7 +191,7 @@ public class ShrimpAgent : MonoBehaviour
 
                 if (!neighbour.invalid)
                 {
-                    float tenativeScore = current.GScore + TankGrid.Instance.pointDistance;
+                    float tenativeScore = current.GScore + tankGrid.pointDistance;
                     if (tenativeScore < neighbourData.GScore)
                     {
                         neighbourData.CameFrom = current.Coords;
@@ -202,6 +206,8 @@ public class ShrimpAgent : MonoBehaviour
                 }
             }
         }
+
+        Debug.LogError("Path Invalid - Start Node" + startNode.coords + " - End Node" + endNode.coords);
 
         Status = AgentStatus.Invalid;
 
@@ -223,7 +229,7 @@ public class ShrimpAgent : MonoBehaviour
     {
         Status = AgentStatus.NewPath;
 
-        GridNode p = TankGrid.Instance.GetClosestNode(transform.position);
+        GridNode p = tankGrid.GetClosestNode(transform.position);
 
         while (Status == AgentStatus.NewPath)
         {
@@ -280,11 +286,11 @@ public class ShrimpAgent : MonoBehaviour
     }
 
 
-    private void StartMoving()
-    {
-        StopAllCoroutines();
-        StartCoroutine(Coroutine_CharacterFollowPath());
-    }
+    //private void StartMoving()
+    //{
+    //    StopAllCoroutines();
+    //    StartCoroutine(Coroutine_CharacterFollowPath());
+    //}
 
 
     IEnumerator Coroutine_CharacterFollowPath()
@@ -337,6 +343,76 @@ public class ShrimpAgent : MonoBehaviour
         }
 
         Status = AgentStatus.Finished;
+    }
+
+
+    public void StartMoving()
+    {
+        Status = AgentStatus.InProgress;
+        movingPathIndex = totalPath.Count - 1;
+    }
+
+
+    public float MoveShrimp(float elapsedTime)
+    {
+        Status = AgentStatus.InProgress;
+        float usedTime = 0;
+        //Debug.Log(movingPathIndex);
+        for (int i = movingPathIndex; i >= 0; i--)
+        {
+            SetPathColor();
+            float length = (transform.position - totalPath[i].worldPos).magnitude;
+            float l = 0;
+            while (Vector3.Distance(transform.position, totalPath[i].worldPos) > nodeDetectionDistance)
+            {
+                SetPathColor();
+                Vector3 forwardDirection = (totalPath[i].worldPos - transform.position).normalized;
+                if (curvePath)
+                {
+                    transform.position += transform.forward * Time.deltaTime * speed;
+                    transform.forward = Vector3.Slerp(transform.forward, forwardDirection, Time.deltaTime * turnSpeed);
+                }
+                else
+                {
+                    transform.forward = forwardDirection;
+                    transform.position = Vector3.MoveTowards(transform.position, totalPath[i].worldPos, Time.deltaTime * speed);
+                }
+
+                l += Time.deltaTime * speed;
+
+                usedTime += Time.deltaTime;
+                if (usedTime >= elapsedTime)
+                {
+                    if (Vector3.Distance(transform.position, totalPath[i].worldPos) <= nodeDetectionDistance) movingPathIndex--;
+                    if (movingPathIndex == 0)
+                    {
+                        Status = AgentStatus.Finished;
+                        return usedTime;
+                    }
+
+                    return 0;
+                }
+            }
+
+            // Reach the node
+            movingPathIndex--;
+        }
+
+        Status = AgentStatus.Finished;
+        return usedTime;
+    }
+
+
+    public float GetPathLength()
+    {
+        float dist = 0;
+        Vector3 lastPos = transform.position;
+        for (int i = totalPath.Count - 1; i >= 0; i--)
+        {
+            dist += Vector3.Distance(lastPos, totalPath[i].worldPos);
+            lastPos = totalPath[i].worldPos;
+        }
+        return dist;
     }
 
 

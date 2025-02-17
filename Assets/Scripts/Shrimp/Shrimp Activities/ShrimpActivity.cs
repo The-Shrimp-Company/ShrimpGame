@@ -6,9 +6,11 @@ using UnityEngine;
 public class ShrimpActivity
 {
     public Shrimp shrimp;
-    public float taskTime;
-    protected float taskRemainingTime;
-    private float elapsedTimeRemaining;
+    public float taskTime;     // How long the task takes
+    protected float 
+        taskRemainingTime,     // How much time the task will need before it is finished
+        elapsedTimeThisFrame,  // How much time they have to use in this frame
+        elapsedTimeRemaining;  // How much time is left once they have finished their actions
     public bool taskStarted, taskComplete;
 
 
@@ -20,6 +22,7 @@ public class ShrimpActivity
 
         elapsedTimeRemaining = elapsedTime - taskRemainingTime;
         taskRemainingTime -= elapsedTime;
+        elapsedTimeThisFrame = elapsedTime;
 
 
         UpdateActivity();
@@ -55,5 +58,6 @@ public class ShrimpActivity
     public virtual void EndActivity()
     {
         taskComplete = true;
+        shrimp.agent.Status = AgentStatus.Finished;
     }
 }

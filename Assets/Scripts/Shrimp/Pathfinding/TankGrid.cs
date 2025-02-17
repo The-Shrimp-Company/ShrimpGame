@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TankGrid : MonoBehaviour
 {
-    public static TankGrid Instance { get; private set; }
     [SerializeField] GameObject gridPointPrefab;
     [SerializeField] int gridWidth;
     [SerializeField] int gridHeight;
@@ -19,13 +18,6 @@ public class TankGrid : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         InitializeGrid();
     }
 
@@ -46,7 +38,11 @@ public class TankGrid : MonoBehaviour
         startPoint = new Vector3(-gridWidth, -gridHeight, -gridLength) / 2f * pointDistance + transform.position;
 
         GameObject gridParent = null;
-        if (debugGrid) gridParent = new GameObject("Grid");
+        if (debugGrid)
+        {
+            gridParent = new GameObject("Grid Debug");
+            gridParent.transform.parent = transform;
+        }
 
         grid = new GridNode[gridWidth][][];
         for (int i = 0; i < gridWidth; i++)

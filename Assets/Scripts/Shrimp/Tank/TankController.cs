@@ -8,55 +8,44 @@ public class TankController : MonoBehaviour
 {
     public List<Shrimp> shrimpInTank;
 
-    private float spawnTimer;
-    public float spawnTime;
-
     private float updateTimer;
-    public float updateTime;                            // The time between each shrimp update, 0 will be every frame
+    public float updateTime;  // The time between each shrimp update, 0 will be every frame
 
     private bool _saleTank = false;
-    [SerializeField]
-    private GameObject sign;
+    [SerializeField] private GameObject sign;
 
-    private Vector3 tankPos;
-    private Vector3 tankSize;
+    [SerializeField] Transform shrimpParent;
+    public TankGrid tankGrid;  // The grid used for pathfinding
 
-    [SerializeField]
-    private GameObject camDock;
+    [SerializeField] private GameObject camDock;
 
     public GameObject shrimpPrefab;
 
-    [SerializeField]
-    private GameObject tankViewPrefab;
+    [SerializeField] private GameObject tankViewPrefab;
+
+    [SerializeField] bool autoSpawnTestShrimp;
 
     void Start()
     {
-        tankPos = transform.position;
+        if (tankGrid == null) Debug.LogError("Pathfinding grid is missing");
+        if (shrimpParent == null) Debug.LogError("Shrimp Parent is missing");
+
 
         sign.SetActive(_saleTank);
 
-        tankSize = GetComponent<Collider>().bounds.size / 2;
 
-        /*
-        for (int i = 0; i < 5; i++) 
+        if (autoSpawnTestShrimp)
         {
-            SpawnRandomShrimp();
-        }*/
+            for (int i = 0; i < 10; i++)
+            {
+                SpawnRandomShrimp();
+            }
+        }
     }
 
     void Update()
     {
-        spawnTimer += Time.deltaTime;
         updateTimer += Time.deltaTime;
-
-        if (spawnTimer >= spawnTime)
-        {
-            spawnTimer = 0;
-
-            //SpawnRandomShrimp();
-        }
-
-
 
         if (updateTimer >= updateTime)
         {
@@ -69,11 +58,13 @@ public class TankController : MonoBehaviour
         }
     }
 
-    public void switchSale()
+
+    public void ToggleSaleTank()
     {
         _saleTank = !_saleTank;
         sign.SetActive(_saleTank);
     }
+
 
     private void SpawnRandomShrimp()
     {
@@ -83,6 +74,7 @@ public class TankController : MonoBehaviour
         s.stats = ShrimpManager.instance.CreateShrimp();
         s.ChangeTank(this);
         newShrimp.name = s.stats.name;
+        newShrimp.transform.parent = shrimpParent;
 
         shrimpInTank.Add(s);
     }
@@ -93,20 +85,28 @@ public class TankController : MonoBehaviour
         SpawnRandomShrimp();
     }
 
+
     public Vector3 GetRandomTankPosition()
     {
-        float x = Random.Range(-tankSize.x, tankSize.x) + tankPos.x;
-        float y = Random.Range(0, tankSize.y*2) + tankPos.y;
-        float z = Random.Range(-tankSize.z, tankSize.z) + tankPos.z;
-        return new Vector3(x, y, z);
+        List<GridNode> freePoints = tankGrid.GetFreePoints();
+        return freePoints[Random.Range(0, freePoints.Count)].worldPos;
     }
+
+
+    public GridNode GetRandomTankNode()
+    {
+        List<GridNode> freePoints = tankGrid.GetFreePoints();
+        return freePoints[Random.Range(0, freePoints.Count)];
+    }
+
 
     public GameObject GetCam()
     {
         return camDock;
     }
 
-    public void SetTankView()
+
+    public void FocusTank()
     {
         GameObject newView = Instantiate(tankViewPrefab, transform);
         UIManager.instance.ChangeFocus(newView.GetComponent<TabletInteraction>());
