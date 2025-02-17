@@ -58,14 +58,12 @@ public class PlayerInteraction : MonoBehaviour
     /// <param name="Key"></param>
     public void OnSwitchTank(InputValue Key)
     {
-        Debug.Log(Key.Get<Vector2>());
         if (Key.Get<Vector2>().normalized != press)
         {
             press = Key.Get<Vector2>().normalized;
             if (press != Vector2.zero || press != null)
             {
                 RaycastHit hit;
-                Debug.DrawRay(_tankView.GetComponent<Collider>().bounds.center, _tankView.transform.TransformDirection(new Vector3(-press.x, press.y, 0) * 1), Color.red, 10000f);
                 if (Physics.Raycast(_tankView.GetComponent<Collider>().bounds.center, _tankView.transform.TransformDirection(new Vector3(-press.x, press.y, 0)), out hit, 1f, layerMask: LayerMask.GetMask("Tanks")))
                 {
                     //Debug.Log("YEah");
@@ -87,7 +85,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         Vector3 v3 = _tankView.GetComponent<TankController>().GetCam().transform.position;
         transform.position = new Vector3(v3.x, transform.position.y, v3.z);
-        Debug.Log(transform.position);
         _camera.transform.localPosition = Vector3.up / 2;
         _input.SwitchCurrentActionMap("Move");
         UIManager.instance.ChangeFocus();

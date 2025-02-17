@@ -46,7 +46,6 @@ public class ShrimpView : TankViewScript
         switch (_clickedButton)
         {
             case "Exit":
-                Debug.Log("Hello");
                 GameObject newitem = Instantiate(tankView, _shrimp.tank.transform);
                 Camera.main.transform.position = _shrimp.tank.GetCam().transform.position;
                 Camera.main.transform.rotation = _shrimp.tank.GetCam().transform.rotation;
