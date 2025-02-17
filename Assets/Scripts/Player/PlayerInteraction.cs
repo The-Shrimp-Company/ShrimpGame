@@ -42,13 +42,17 @@ public class PlayerInteraction : MonoBehaviour
 
     public void SetTankFocus(TankController tankController)
     {
-        _camera.transform.position = tankController.GetCam().transform.position;
-        _camera.transform.rotation = tankController.GetCam().transform.rotation;
+        if (tankController != null)
+        {
+            _camera.transform.position = tankController.GetCam().transform.position;
+            _camera.transform.rotation = tankController.GetCam().transform.rotation;
 
-        _input.SwitchCurrentActionMap("TankView");
+            _input.SwitchCurrentActionMap("TankView");
 
-        tankController.SetTankView();
-        _tankView = tankController.gameObject;
+            tankController.FocusTank();
+            _tankView = tankController.gameObject;
+        }
+        else Debug.LogError("Cannot find tank to focus");
     }
 
     /// <summary>

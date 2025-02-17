@@ -57,7 +57,8 @@ public class TankGrid : MonoBehaviour
                     grid[i][j][k] = new GridNode();
                     grid[i][j][k].coords = new Vector3Int(i, j, k);
                     grid[i][j][k].worldPos = pos;
-                    if (Physics.CheckBox(grid[i][j][k].worldPos, Vector3.one * pointDistance / 2f, Quaternion.identity))
+                    LayerMask layer = LayerMask.GetMask("Decoration");
+                    if (Physics.CheckBox(grid[i][j][k].worldPos, Vector3.one * pointDistance / 2f, Quaternion.identity, layer, QueryTriggerInteraction.Ignore))
                     {
                         grid[i][j][k].invalid = true;
 
