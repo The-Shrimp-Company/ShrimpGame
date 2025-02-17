@@ -10,6 +10,12 @@ public class ShrimpView : TankViewScript
     private TextMeshProUGUI title;
     [SerializeField]
     private GameObject tankView;
+    [SerializeField]
+    private TextMeshProUGUI age;
+    [SerializeField]
+    private TextMeshProUGUI gender;
+    [SerializeField]
+    private RenderTexture texture;
 
 
 
@@ -26,7 +32,10 @@ public class ShrimpView : TankViewScript
     public void Populate(Shrimp Shrimp)
     {
         _shrimp = Shrimp;
-        title.text = _shrimp.name;
+        title.text = _shrimp.stats.name;
+        age.text = "Age: " + _shrimp.stats.age.ToString();
+        gender.text = "Gender: " + (_shrimp.stats.gender == true ? "M" : "F");
+        
     }
 
     protected override void PressedButton()
