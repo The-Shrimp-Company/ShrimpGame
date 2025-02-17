@@ -363,7 +363,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shrimpInTank: []
-  spawnTime: 1
   updateTime: 0
   sign: {fileID: 0}
   shrimpParent: {fileID: 0}
@@ -2449,11 +2448,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 48458378494084276, guid: a23975896a78f054f90dc35cb57f895f,
-        type: 3}
-      propertyPath: debugGrid
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7020643424900095725, guid: a23975896a78f054f90dc35cb57f895f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2508,11 +2502,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tank_20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8525724806375028851, guid: a23975896a78f054f90dc35cb57f895f,
-        type: 3}
-      propertyPath: autoSpawnTestShrimp
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -82,7 +82,7 @@ public class ShrimpBreeding : ShrimpActivity
 
     private void MoveToOther(float dist)
     {
-        float moveTime = shrimp.GetComponent<Shrimp>().swimSpeed * dist;
+        float moveTime = shrimp.GetComponent<Shrimp>().agent.speed * dist;
 
         float t = taskRemainingTime / moveTime;
         t = -t + 1;

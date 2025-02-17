@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shrimp : MonoBehaviour
 {
     public ShrimpStats stats;
-    public float swimSpeed;
     public List<ShrimpActivity> shrimpActivities = new List<ShrimpActivity>();
     public TankController tank;
     private int minActivitiesInQueue = 2;
@@ -15,6 +14,7 @@ public class Shrimp : MonoBehaviour
     public void Start()
     {
         transform.position = tank.GetRandomTankPosition();
+        agent.tankGrid = tank.tankGrid;
 
         if (shrimpActivities.Count == 0)
         {
@@ -98,5 +98,6 @@ public class Shrimp : MonoBehaviour
     public void ChangeTank(TankController t)
     {
         tank = t;
+        agent.tankGrid = tank.tankGrid;
     }
 }

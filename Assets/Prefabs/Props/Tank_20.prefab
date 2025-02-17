@@ -768,7 +768,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shrimpInTank: []
-  spawnTime: 1
   updateTime: 0
   sign: {fileID: 799700468139745018}
   shrimpParent: {fileID: 4830377007816921091}

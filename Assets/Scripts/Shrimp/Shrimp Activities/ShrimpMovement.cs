@@ -10,11 +10,12 @@ public class ShrimpMovement : ShrimpActivity
     private bool simpleMove;
     public bool randomDestination;
     private float minRandDistance = 0.25f;
+    private int pathfindingAttempts = 5;
 
 
     // Simple Move
     // - If it is a straight path to destination
-    // - If pathfinding fails ~5 times
+    // X If pathfinding fails ~5 times 
     // - If the shrimp is off screen
 
 
@@ -25,22 +26,14 @@ public class ShrimpMovement : ShrimpActivity
         agent = shrimp.agent;
         start = shrimp.transform.position;
 
-        if (randomDestination) FindRandomDestination();
 
         if (simpleMove)
         {
-            float dist = Vector3.Distance(start, destination.worldPos);
-            taskTime = shrimp.GetComponent<Shrimp>().swimSpeed * dist;
+            SwitchToSimple();
         }
         else 
         {
-            do  // Look for a random free node until you find one that isn't the current node
-            {
-                if (randomDestination) FindRandomDestination();
-                agent.Pathfinding(destination.worldPos);
-            } while (agent.Status == AgentStatus.Invalid);
-
-            taskTime = 100;//agent.GetPathLength();
+            SwitchToAdvanced();
         }
 
         base.StartActivity();
@@ -71,32 +64,48 @@ public class ShrimpMovement : ShrimpActivity
         {
             elapsedTimeRemaining = elapsedTimeThisFrame - r;
             taskRemainingTime = 0;
-            Debug.Log("Reached destination");
+            //Debug.Log("Reached destination");
         }
     }
 
 
-    private void OnDrawGizmos()
-    {
-        // Set the color with custom alpha.
-        Gizmos.color = new Color(1f, 1f, 0f, 1f); // Red with custom alpha
-
-        // Draw the sphere.
-        Gizmos.DrawSphere(destination.worldPos, 1f);
-    }
 
     private void SwitchToSimple()
     {
-
+        simpleMove = true;
+        float dist = Vector3.Distance(start, destination.worldPos);
+        taskTime = shrimp.GetComponent<Shrimp>().agent.speed * dist * 500;
+        shrimp.transform.LookAt(destination.worldPos);
     }
 
 
     private void SwitchToAdvanced()
     {
-        Vector3 s = shrimp.tank.tankGrid.GetClosestNode(shrimp.transform.position).worldPos;
-        shrimp.transform.position = s;
-        start = s;
-        agent.Pathfinding(destination.worldPos);
+        if (simpleMove)
+        {
+            Vector3 s = shrimp.tank.tankGrid.GetClosestNode(shrimp.transform.position).worldPos;
+            shrimp.transform.position = s;
+            start = s;
+        }
+
+        taskTime = 100;
+        simpleMove = false;
+
+        int attempts = 0;
+        do  // Look for a random free node until you find one that isn't the current node
+        {
+            attempts++;
+            if (attempts > pathfindingAttempts)
+            {
+                Debug.Log("Switching to Simple Move");
+                SwitchToSimple();
+                break;
+            }
+
+            if (randomDestination) FindRandomDestination();
+            agent.Pathfinding(destination.worldPos);
+
+        } while (agent.Status == AgentStatus.Invalid);
     }
 
 

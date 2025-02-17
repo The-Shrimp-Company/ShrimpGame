@@ -271,7 +271,6 @@ MonoBehaviour:
     breedingHistory: 0
     illnessHistory: 0
     moltHistory: 0
-  swimSpeed: 2
   shrimpActivities: []
   tank: {fileID: 0}
   agent: {fileID: 9038667343410755530}
@@ -298,6 +297,7 @@ MonoBehaviour:
   PathCreator: {fileID: 0}
   _PathCreatorPrefab: {fileID: 0}
   _CornerSmooth: 0.1
+  tankGrid: {fileID: 0}
   Status: 2
 --- !u!1001 &895575375220183903
 PrefabInstance:

@@ -8,9 +8,6 @@ public class TankController : MonoBehaviour
 {
     public List<Shrimp> shrimpInTank;
 
-    private float spawnTimer;
-    public float spawnTime;
-
     private float updateTimer;
     public float updateTime;  // The time between each shrimp update, 0 will be every frame
 
@@ -48,17 +45,7 @@ public class TankController : MonoBehaviour
 
     void Update()
     {
-        spawnTimer += Time.deltaTime;
         updateTimer += Time.deltaTime;
-
-        if (spawnTimer >= spawnTime)
-        {
-            spawnTimer = 0;
-
-            //SpawnRandomShrimp();
-        }
-
-
 
         if (updateTimer >= updateTime)
         {
@@ -101,14 +88,14 @@ public class TankController : MonoBehaviour
 
     public Vector3 GetRandomTankPosition()
     {
-        List<GridNode> freePoints = TankGrid.Instance.GetFreePoints();
+        List<GridNode> freePoints = tankGrid.GetFreePoints();
         return freePoints[Random.Range(0, freePoints.Count)].worldPos;
     }
 
 
     public GridNode GetRandomTankNode()
     {
-        List<GridNode> freePoints = TankGrid.Instance.GetFreePoints();
+        List<GridNode> freePoints = tankGrid.GetFreePoints();
         return freePoints[Random.Range(0, freePoints.Count)];
     }
 

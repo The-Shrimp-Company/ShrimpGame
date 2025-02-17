@@ -17,7 +17,7 @@ public class SwimmingController : MonoBehaviour
 
     IEnumerator Coroutine_MoveRandom()
     {
-        List<GridNode> freePoints = TankGrid.Instance.GetFreePoints();
+        List<GridNode> freePoints = _Agent.tankGrid.GetFreePoints();
         GridNode start = freePoints[Random.Range(0, freePoints.Count)];
         transform.position = start.worldPos;
         while (true)
