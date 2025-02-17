@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class TankViewScript : TabletInteraction
@@ -13,6 +14,8 @@ public class TankViewScript : TabletInteraction
     protected GameObject shrimpView;
     private Vector3 panelresting;
     protected Shrimp _shrimp;
+    [SerializeField]
+    private TextMeshProUGUI tankPop;
 
     private void Start()
     {
@@ -22,6 +25,11 @@ public class TankViewScript : TabletInteraction
         panelresting = panel.transform.position;
     }
 
+    public override void Update()
+    {
+        base.Update();
+        tankPop.text = "Tank Population: " + tank.shrimpInTank.Count.ToString();
+    }
 
     protected override void PressedButton()
     {
