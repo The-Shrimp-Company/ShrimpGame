@@ -9,6 +9,8 @@ public class Shrimp : MonoBehaviour
     public TankController tank;
     private int minActivitiesInQueue = 2;
     public ShrimpAgent agent;
+    [SerializeField]
+    private Transform camDock;
 
 
     public void Start()
@@ -99,5 +101,11 @@ public class Shrimp : MonoBehaviour
     {
         tank = t;
         agent.tankGrid = tank.tankGrid;
+    }
+
+    public void SetCam()
+    {
+        UIManager.instance.GetCamera().transform.position = camDock.position;
+        UIManager.instance.GetCamera().transform.LookAt(transform.position);
     }
 }

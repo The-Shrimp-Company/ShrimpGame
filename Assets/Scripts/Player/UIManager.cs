@@ -12,6 +12,8 @@ public class UIManager
 
     private Rect _currentRect = new Rect();
 
+    private Camera SecondCamera;
+
     public UIManager()
     {
 
@@ -61,4 +63,11 @@ public class UIManager
     }
 
     public Rect GetCurrentRect() { return _currentRect; }
+
+    public void SetCamera(Camera cam)
+    {
+        SecondCamera = cam;
+    }
+
+    public Camera GetCamera() { return SecondCamera; }
 }

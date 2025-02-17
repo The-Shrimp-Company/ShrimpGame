@@ -26,6 +26,7 @@ public class ShrimpView : TankViewScript
         {
             Camera.main.transform.position = _shrimp.transform.position - Vector3.right;
             Camera.main.transform.LookAt(_shrimp.transform.position);
+            _shrimp.SetCam();
         }
     }
 
@@ -35,7 +36,7 @@ public class ShrimpView : TankViewScript
         title.text = _shrimp.stats.name;
         age.text = "Age: " + _shrimp.stats.age.ToString();
         gender.text = "Gender: " + (_shrimp.stats.gender == true ? "M" : "F");
-        
+        _shrimp.SetCam();
     }
 
     protected override void PressedButton()

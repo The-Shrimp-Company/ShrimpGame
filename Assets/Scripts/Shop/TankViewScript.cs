@@ -15,7 +15,7 @@ public class TankViewScript : TabletInteraction
     private Vector3 panelresting;
     protected Shrimp _shrimp;
     [SerializeField]
-    private TextMeshProUGUI tankPop;
+    protected TextMeshProUGUI tankPop;
 
     private void Start()
     {
@@ -28,7 +28,10 @@ public class TankViewScript : TabletInteraction
     public override void Update()
     {
         base.Update();
-        tankPop.text = "Tank Population: " + tank.shrimpInTank.Count.ToString();
+        if(tankPop != null)
+        {
+            tankPop.text = "Tank Population: " + tank.shrimpInTank.Count.ToString();
+        }
     }
 
     protected override void PressedButton()
@@ -72,8 +75,9 @@ public class TankViewScript : TabletInteraction
         {
             
             RaycastHit ray;
-            if(Physics.Raycast(Camera.main.transform.position, Camera.main.ScreenToWorldPoint(new Vector3(point.x, point.y, 30)) - Camera.main.transform.position, out ray, 3f, LayerMask.GetMask("Shrimp")))
+            if(Physics.Raycast(Camera.main.ScreenPointToRay(point), out ray, 3f, LayerMask.GetMask("Shrimp")))
             {
+                Debug.Log("Here");
                 _shrimp = ray.transform.GetComponent<Shrimp>();
                 GameObject newitem = Instantiate(shrimpView);
                 UIManager.instance.ChangeFocus(newitem.GetComponent<TabletInteraction>());
