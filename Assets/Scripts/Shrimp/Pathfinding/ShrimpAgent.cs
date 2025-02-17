@@ -23,6 +23,7 @@ public class ShrimpAgent : MonoBehaviour
     Vector3 endPos;
     [HideInInspector] public List<GridNode> totalPath;
     [HideInInspector] public List<GridNode> cornerNodes;
+    [SerializeField] float nodeDetectionDistance;
 
     [SerializeField] bool debugPath;
     [SerializeField] UnityEngine.Color debugPathColour;
@@ -32,7 +33,7 @@ public class ShrimpAgent : MonoBehaviour
     [SerializeField] PathCreator _PathCreatorPrefab;
     [SerializeField] float _CornerSmooth;
 
-    [HideInInspector] public AgentStatus Status = AgentStatus.Finished;
+    public AgentStatus Status = AgentStatus.Finished;
     private int movingPathIndex;
 
 
@@ -163,7 +164,7 @@ public class ShrimpAgent : MonoBehaviour
                 if (!supressMovement)
                 {
                     Status = AgentStatus.InProgress;
-                    //StartMoving();
+                    StartMoving();
                 }
                 return Status;
             }
@@ -204,7 +205,7 @@ public class ShrimpAgent : MonoBehaviour
                 }
             }
         }
-
+        Debug.LogError("Path invalid");
         Status = AgentStatus.Invalid;
 
         return Status;
@@ -346,18 +347,22 @@ public class ShrimpAgent : MonoBehaviour
     {
         Status = AgentStatus.InProgress;
         movingPathIndex = totalPath.Count - 1;
+        if (totalPath.Count == 0) Debug.LogError("PATH IS 0");
+        if (totalPath.Count == 1) Debug.LogError("PATH IS 1");
     }
 
 
-    public void MoveShrimp(float elapsedTime)
+    public float MoveShrimp(float elapsedTime)
     {
         Status = AgentStatus.InProgress;
-        for (int i = totalPath.Count - 1; i >= 0; i--)
+        float usedTime = 0;
+        Debug.Log(movingPathIndex);
+        for (int i = movingPathIndex; i >= 0; i--)
         {
             SetPathColor();
             float length = (transform.position - totalPath[i].worldPos).magnitude;
             float l = 0;
-            while (l < length)
+            while (Vector3.Distance(transform.position, totalPath[i].worldPos) > nodeDetectionDistance)
             {
                 SetPathColor();
                 Vector3 forwardDirection = (totalPath[i].worldPos - transform.position).normalized;
@@ -371,12 +376,29 @@ public class ShrimpAgent : MonoBehaviour
                     transform.forward = forwardDirection;
                     transform.position = Vector3.MoveTowards(transform.position, totalPath[i].worldPos, Time.deltaTime * speed);
                 }
+
                 l += Time.deltaTime * speed;
-                //yield return new WaitForFixedUpdate();
+
+                usedTime += Time.deltaTime;
+                if (usedTime >= elapsedTime)
+                {
+                    if (Vector3.Distance(transform.position, totalPath[i].worldPos) <= nodeDetectionDistance) movingPathIndex--;
+                    if (movingPathIndex == 0)
+                    {
+                        Status = AgentStatus.Finished;
+                        return usedTime;
+                    }
+
+                    return 0;
+                }
             }
+
+            // Reach the node
+            movingPathIndex--;
         }
 
         Status = AgentStatus.Finished;
+        return usedTime;
     }
 
 

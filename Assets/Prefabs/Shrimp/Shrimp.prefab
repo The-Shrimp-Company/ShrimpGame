@@ -121,7 +121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6654628543790586968
 Transform:
   m_ObjectHideFlags: 0
@@ -274,6 +274,7 @@ MonoBehaviour:
   swimSpeed: 2
   shrimpActivities: []
   tank: {fileID: 0}
+  agent: {fileID: 9038667343410755530}
 --- !u!114 &9038667343410755530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,10 +287,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02be6348c4c6eac4a8e43e87b5945116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  turnSpeed: 3
+  speed: 0.05
+  turnSpeed: 1.5
   totalPath: []
   cornerNodes: []
+  nodeDetectionDistance: 0.025
   debugPath: 1
   debugPathColour: {r: 0.8509804, g: 0.43659076, b: 0.38039216, a: 1}
   curvePath: 1
@@ -308,17 +310,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.05
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.05
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.05
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
@@ -383,7 +385,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

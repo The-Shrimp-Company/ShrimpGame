@@ -72,8 +72,7 @@ public class Shrimp : MonoBehaviour
         if (activity is ShrimpMovement)
         {
             ShrimpMovement movement = (ShrimpMovement) activity;  // Casts the activity to the derrived shrimpMovement activity
-
-            movement.SetDestination(tank.GetRandomTankNode());
+            movement.randomDestination = true;
         }
 
 
