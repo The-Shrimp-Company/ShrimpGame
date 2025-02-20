@@ -12,6 +12,9 @@ public class Shrimp : MonoBehaviour
     [SerializeField]
     private Transform camDock;
 
+    [Header("Breeding")]
+    public GameObject breedingHeartParticles;
+
 
     public void Start()
     {
@@ -53,7 +56,7 @@ public class Shrimp : MonoBehaviour
     {
         shrimpActivities.RemoveAt(0);
 
-        if (shrimpActivities.Count <= minActivitiesInQueue)  // If the shrimp has less 
+        if (shrimpActivities.Count <= minActivitiesInQueue)  // If the shrimp doesn't have enough tasks
         {
             AddActivity(GetRandomActivity());
         }
@@ -62,9 +65,10 @@ public class Shrimp : MonoBehaviour
 
     private ShrimpActivity GetRandomActivity()
     {
-        int i = Random.Range(0, 2);
+        int i = Random.Range(0, 3);
         if (i == 0) return new ShrimpMovement();
         if (i == 1) return new ShrimpSleeping();
+        if (i == 2) return new ShrimpBreeding();
         return (new ShrimpActivity());
     }
 
@@ -86,6 +90,44 @@ public class Shrimp : MonoBehaviour
         }
 
 
+        else if (activity is ShrimpBreeding)
+        {
+            // Find other shrimp
+            List<Shrimp> validShrimp = new List<Shrimp>();
+            foreach(Shrimp s in tank.shrimpInTank)
+            {
+                if (s.stats.gender != stats.gender)  // Get all shrimp of the opposite gender, also excludes this shrimp
+                {
+                    // Other logic for who can breed here
+                    // Once every molt for female
+
+                    validShrimp.Add(s);
+                }
+            }
+
+            if (validShrimp.Count == 0)  // If there are no valid shrimp
+            {
+                AddActivity(GetRandomActivity());
+                return;  // Cancel this and find a different activity
+            }
+
+            int i = Random.Range(0, validShrimp.Count);
+            Shrimp otherShrimp = validShrimp[i];
+
+            ShrimpBreeding otherBreeding = new ShrimpBreeding();
+            otherBreeding.instigator = false;
+            otherBreeding.shrimp = otherShrimp;
+            otherBreeding.otherShrimp = this;
+            otherShrimp.shrimpActivities.Add(otherBreeding);
+
+
+
+            ShrimpBreeding breeding = (ShrimpBreeding)activity;
+            breeding.instigator = true;
+            breeding.otherShrimp = otherShrimp;
+        }
+
+
         else
         {
             Debug.Log("Activity logic is missing");
@@ -101,6 +143,8 @@ public class Shrimp : MonoBehaviour
     {
         tank = t;
         agent.tankGrid = tank.tankGrid;
+
+        // Clear all activities
     }
 
     public void SetCam()

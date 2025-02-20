@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
-    public List<Shrimp> shrimpInTank;
+    public List<Shrimp> shrimpInTank = new List<Shrimp>();
+    private List<Shrimp> shrimpToAdd = new List<Shrimp>();
+    private List<Shrimp> shrimpToRemove = new List<Shrimp>();
 
     private float updateTimer;
     public float updateTime;  // The time between each shrimp update, 0 will be every frame
@@ -47,9 +49,32 @@ public class TankController : MonoBehaviour
     {
         updateTimer += Time.deltaTime;
 
-        if (updateTimer >= updateTime)
+        if (updateTimer >= updateTime) 
         {
-            foreach(Shrimp shrimp in shrimpInTank)
+
+            if (shrimpToAdd.Count > 0)  // Add shrimp to the tank
+            {
+                for (int i = shrimpToAdd.Count - 1; i >= 0; i--)
+                {
+                    shrimpInTank.Add(shrimpToAdd[i]);
+                    shrimpToAdd.RemoveAt(i);
+                }
+            }
+
+
+            if (shrimpToRemove.Count > 0)  // Remove shrimp from the tank
+            {
+                for (int i = shrimpToRemove.Count - 1; i >= 0; i--)
+                {
+                    if (shrimpInTank.Contains(shrimpToRemove[i]))
+                        shrimpInTank.Remove(shrimpToRemove[i]);
+
+                    shrimpToRemove.RemoveAt(i);
+                }
+            }
+
+
+            foreach (Shrimp shrimp in shrimpInTank)  // Update the shrimp in the tank
             {
                 shrimp.UpdateShrimp(updateTimer);
             }
@@ -71,12 +96,12 @@ public class TankController : MonoBehaviour
         GameObject newShrimp = Instantiate(shrimpPrefab, GetRandomTankPosition(), Quaternion.identity);
         Shrimp s = newShrimp.GetComponent<Shrimp>();
 
-        s.stats = ShrimpManager.instance.CreateShrimp();
+        s.stats = ShrimpManager.instance.CreateRandomShrimp();
         s.ChangeTank(this);
         newShrimp.name = s.stats.name;
         newShrimp.transform.parent = shrimpParent;
 
-        shrimpInTank.Add(s);
+        shrimpToAdd.Add(s);
     }
 
 

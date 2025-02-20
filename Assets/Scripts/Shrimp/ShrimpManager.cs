@@ -9,7 +9,6 @@ public class ShrimpManager : MonoBehaviour
     private int numberOfShrimp = 0;
 
 
-
     public void Awake()
     {
         instance = this;
@@ -22,7 +21,7 @@ public class ShrimpManager : MonoBehaviour
         ShrimpStats s = new ShrimpStats();
 
         s.name = "Shrimp " + numberOfShrimp;
-        s.gender = true;
+        s.gender = RandomGender();
         s.age = 0;
         s.hunger = 0;
         s.illness = 0;
@@ -34,5 +33,35 @@ public class ShrimpManager : MonoBehaviour
         s.moltHistory = 0;
 
         return s;
+    }
+
+
+    public ShrimpStats CreateRandomShrimp()
+    {
+        numberOfShrimp++;
+
+        ShrimpStats s = new ShrimpStats();
+
+        s.name = "Shrimp " + numberOfShrimp;
+        s.gender = RandomGender();
+        s.age = 0;
+        s.hunger = 0;
+        s.illness = 0;
+        s.temperament = 0;
+
+        s.fightHistory = 0;
+        s.breedingHistory = 0;
+        s.illnessHistory = 0;
+        s.moltHistory = 0;
+
+        return s;
+    }
+
+
+    private bool RandomGender()
+    {
+        int i = Random.Range(0, 2);
+        if (i == 0) return false;  // Female
+        else return true;  // Male
     }
 }
