@@ -55,9 +55,9 @@ public class ShrimpActivity
     }
 
 
-    protected virtual void EndActivity()
+    public virtual void EndActivity()
     {
         taskComplete = true;
-        shrimp.agent.Status = AgentStatus.Finished;
+        shrimp.agent.StopMoving();
     }
 }

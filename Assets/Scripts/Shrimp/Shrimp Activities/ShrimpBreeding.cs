@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShrimpBreeding : ShrimpActivity
 {
-    private float breedDistance = 3;
-    private float waitDistance = 6;
-    private float breedTime = 5;
+    private float breedDistance = 0.03f;
+    private float waitDistance = 0.15f;
+    private float breedTime = 10;
 
     public Shrimp otherShrimp;
     private ShrimpBreeding otherBreeding;  // The breeding script for the other shrimp
@@ -16,16 +15,9 @@ public class ShrimpBreeding : ShrimpActivity
     public bool instigator;  // If this is the shrimp that started it, they will move to the other shrimp
     private bool female;  // Whether this is the female shrimp or the male shrimp
     private bool breeding;  // If they are close enough and have started breeding
-    private Vector3 startPos;  // Where the instigator shrimp started moving from
     private ShrimpMovement movement = null;
-
-
-    // Movement
-    // Set instigator
-    // Find target
-    // Give target breeding script
-    // Get closest node again when the other shrimp becomes ready
-
+    private GameObject particles;
+    private bool debugBreeding = false;
 
 
 
@@ -35,15 +27,18 @@ public class ShrimpBreeding : ShrimpActivity
             female = true;
 
         breeding = false;
-        taskTime = Mathf.Infinity;  // The task time will not properly start until they start breeding
+        taskTime = 90;  // The task time will not properly start until they start breeding
 
         if (instigator)
         {
-            startPos = shrimp.transform.position;
             movement = new ShrimpMovement();
             movement.SetDestination(shrimp.tank.tankGrid.GetClosestNode(otherShrimp.transform.position));
+            movement.shrimp = shrimp;
+            movement.Activity(0);
         }
 
+        if (debugBreeding) Debug.Log("Breeding Start - " + shrimp.name + "-" + instigator + " - " + otherShrimp.name + "-" + !instigator);
+        
         base.StartActivity();
     }
 
@@ -52,13 +47,26 @@ public class ShrimpBreeding : ShrimpActivity
     {
         if (!breeding && instigator)
         {
-            float dist = Vector3.Distance(startPos, otherShrimp.transform.position);
+            float dist = Vector3.Distance(shrimp.transform.position, otherShrimp.transform.position);
 
             if (!otherIsReady)
             {
                 if (dist > waitDistance)
                 {
                     MoveToOther();  // Move over and wait for other
+                }
+
+                if (otherShrimp.shrimpActivities[0].GetType() == typeof(ShrimpBreeding))  // If the other shrimp's current task is breeding
+                {
+                    if (((ShrimpBreeding)otherShrimp.shrimpActivities[0]).otherShrimp == shrimp && ((ShrimpBreeding)otherShrimp.shrimpActivities[0]).instigator == false)
+                    {
+                        otherIsReady = true;
+                        otherBreeding = (ShrimpBreeding)otherShrimp.shrimpActivities[0];
+                        movement.SetDestination(shrimp.tank.tankGrid.GetClosestNode(otherShrimp.transform.position));  // Set the destination again incase they have moved
+                        movement.SwitchToAdvanced();
+
+                        if (debugBreeding) Debug.Log("Other is ready");
+                    }
                 }
             }
 
@@ -71,11 +79,10 @@ public class ShrimpBreeding : ShrimpActivity
 
                 else
                 {
-                    breeding = true;
-                    taskTime = breedTime;
+                    StartBreeding();
+                    otherBreeding.StartBreeding();
 
-                    otherBreeding.breeding = true;
-                    otherBreeding.taskTime = breedTime;
+                    if (debugBreeding) Debug.Log("Start Breeding");
                 }
             }
         }
@@ -88,6 +95,9 @@ public class ShrimpBreeding : ShrimpActivity
         else  // If they are breeding
         {
             // Whatever happens while they are breeding
+
+            if (otherShrimp.transform.position - shrimp.transform.position != Vector3.zero)
+                shrimp.transform.rotation = Quaternion.RotateTowards(shrimp.transform.rotation, Quaternion.LookRotation((otherShrimp.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.turnSpeed / 2);
         }
     }
 
@@ -98,9 +108,15 @@ public class ShrimpBreeding : ShrimpActivity
     }
 
 
-    protected override void EndActivity()
+    public override void EndActivity()
     {
-        if (female) LayEggs();
+        if (breeding)
+        {
+            if (female) LayEggs();
+            if (particles != null) Object.Destroy(particles);
+
+            if (debugBreeding) Debug.Log("Finished Breeding");
+        }
 
         base.EndActivity();
     }
@@ -108,12 +124,26 @@ public class ShrimpBreeding : ShrimpActivity
 
     public void StartBreeding()
     {
+        if (instigator)
+        {
+            // Delete the movement class
+            movement.EndActivity();
+            movement = null;  
 
+            // Spawn breeding particles
+            particles = GameObject.Instantiate(shrimp.breedingHeartParticles, shrimp.transform.position, Quaternion.identity);
+            particles.transform.parent = shrimp.transform;
+            particles.transform.position = (shrimp.transform.position + otherShrimp.transform.position) / 2;
+        }
+
+        breeding = true;
+        taskTime = breedTime;
+        taskRemainingTime = taskTime;
     }
 
 
     private void LayEggs()
     {
-
+        shrimp.tank.SpawnShrimp();
     }
 }

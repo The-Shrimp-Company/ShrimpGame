@@ -207,8 +207,6 @@ public class ShrimpAgent : MonoBehaviour
             }
         }
 
-        Debug.LogError("Path Invalid - Start Node" + startNode.coords + " - End Node" + endNode.coords);
-
         Status = AgentStatus.Invalid;
 
         return Status;

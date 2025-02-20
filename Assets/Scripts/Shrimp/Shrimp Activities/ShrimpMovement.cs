@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -15,6 +16,8 @@ public class ShrimpMovement : ShrimpActivity
 
     private float minRandDistance = 0.25f;
     private int pathfindingAttempts = 5;
+
+    private bool debugMovement = false;
 
 
     // Simple Move
@@ -56,7 +59,8 @@ public class ShrimpMovement : ShrimpActivity
         float t = taskRemainingTime / taskTime;
         t = -t + 1;
         shrimp.transform.position = Vector3.Lerp(start, destination.worldPos, t);
-        shrimp.transform.rotation = Quaternion.RotateTowards(shrimp.transform.rotation, Quaternion.LookRotation((destination.worldPos - shrimp.transform.position), Vector3.up), agent.turnSpeed / 2);
+        if (destination.worldPos - shrimp.transform.position != Vector3.zero)
+            shrimp.transform.rotation = Quaternion.RotateTowards(shrimp.transform.rotation, Quaternion.LookRotation((destination.worldPos - shrimp.transform.position), Vector3.up), agent.turnSpeed / 2);
     }
 
 
@@ -75,7 +79,7 @@ public class ShrimpMovement : ShrimpActivity
 
 
 
-    private void SwitchToSimple()
+    public void SwitchToSimple()
     {
         simpleMove = true;
         float dist = Vector3.Distance(start, destination.worldPos);
@@ -84,7 +88,7 @@ public class ShrimpMovement : ShrimpActivity
     }
 
 
-    private void SwitchToAdvanced()
+    public void SwitchToAdvanced()
     {
         if (simpleMove)
         {
@@ -102,7 +106,7 @@ public class ShrimpMovement : ShrimpActivity
             attempts++;
             if (attempts > pathfindingAttempts)  // Switch to simple if the pathfinding is taking too long
             {
-                Debug.Log("Switching to Simple Move");
+                if (debugMovement) Debug.Log("Switching to Simple Move");
                 SwitchToSimple();
                 break;
             }
@@ -122,8 +126,16 @@ public class ShrimpMovement : ShrimpActivity
                 }
             }
 
+            if (agent == null)
+            {
+                Debug.Log(agent + " - " + destination);
+            }
 
             agent.Pathfinding(destination.worldPos);  // Calculate the path
+
+
+            if (debugMovement && agent.Status == AgentStatus.Invalid)
+                Debug.LogError("Path Invalid - Start Node" + shrimp.transform.position + " - End Node" + destination);
 
         } while (agent.Status == AgentStatus.Invalid);  // Retry if the path was not found
     }
