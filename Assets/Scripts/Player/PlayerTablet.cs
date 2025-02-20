@@ -22,7 +22,6 @@ public class PlayerTablet : PlayerUIController
     {
         _tabletRect = tablet.GetComponent<RectTransform>();
         _input = GetComponent<PlayerInput>();
-        _cursorRect = cursor.GetComponent<RectTransform>();
         // Sets the tablets position to the resting position. It's already at that position, but just in case
         RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
         UIManager.instance.Subscribe(this);

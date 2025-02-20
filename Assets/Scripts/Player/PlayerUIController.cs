@@ -8,15 +8,9 @@ public class PlayerUIController : MonoBehaviour
 {
 
     protected Rect _currentAreaRect;
-    [SerializeField]
     protected GameObject cursor;
     protected RectTransform _cursorRect;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _cursorRect = cursor.GetComponent<RectTransform>();
-    }
 
     // Update is called once per frame
     void Update()
@@ -29,7 +23,8 @@ public class PlayerUIController : MonoBehaviour
         if (UIManager.instance.GetFocus() != null)
         {
             RectTransform[] temp = UIManager.instance.GetFocus().GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Cursor")).ToArray();
-            _cursorRect = temp[0];
+            cursor = UIManager.instance.GetCursor();
+            _cursorRect = cursor.GetComponent<RectTransform>();
             _currentAreaRect = UIManager.instance.GetCurrentRect();
         }
     }

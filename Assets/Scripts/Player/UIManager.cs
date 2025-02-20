@@ -14,6 +14,8 @@ public class UIManager
 
     private Camera SecondCamera;
 
+    private GameObject Cursor;
+
     public UIManager()
     {
 
@@ -26,6 +28,9 @@ public class UIManager
             _currentUI.Close();
         }
         _currentUI = null;
+
+        Cursor.transform.parent = null;
+
         foreach(PlayerUIController controller in _playerControllers)
         {
             controller.SwitchFocus();
@@ -46,6 +51,9 @@ public class UIManager
         }
         _currentUI = newFocus;
         _currentRect = customRect.rect;
+
+        Cursor.transform.SetParent(_currentUI.transform, false);
+
         foreach (PlayerUIController controller in _playerControllers)
         {
             controller.SwitchFocus();
@@ -70,4 +78,11 @@ public class UIManager
     }
 
     public Camera GetCamera() { return SecondCamera; }
+
+    public void SetCursor(GameObject cursor)
+    {
+        Cursor = cursor;
+    }
+
+    public GameObject GetCursor() { return Cursor; }
 }
