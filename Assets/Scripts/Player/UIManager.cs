@@ -6,7 +6,7 @@ public class UIManager
 {
     static public UIManager instance = new UIManager();
 
-    private TabletInteraction _currentUI = null;
+    private ScreenView _currentUI = null;
 
     private List<PlayerUIController> _playerControllers = new List<PlayerUIController>();
 
@@ -32,14 +32,14 @@ public class UIManager
         }
     }
 
-    public void ChangeFocus(TabletInteraction newFocus)
+    public void ChangeFocus(ScreenView newFocus)
     {
         ChangeFocus(newFocus, newFocus.GetComponent<RectTransform>());
 
     }
 
-    public void ChangeFocus(TabletInteraction newFocus, RectTransform customRect)
-    {
+    public void ChangeFocus(ScreenView newFocus, RectTransform customRect)
+     {
         if(_currentUI != null)
         {
             _currentUI.Close();
@@ -52,7 +52,7 @@ public class UIManager
         }
     }
 
-    public TabletInteraction GetFocus()
+    public ScreenView GetFocus()
     {
         return _currentUI;
     }

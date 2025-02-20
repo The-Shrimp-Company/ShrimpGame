@@ -5,50 +5,23 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class TabletInteraction : MonoBehaviour
+public class TabletInteraction : ScreenView
 {
-    protected RectTransform[] buttons;
 
-    protected string _clickedButton = null;
-    protected bool _clickedButtonUsed = false;
 
     [SerializeField]
-    protected ShelfSpawn shelves;
+    private GameObject SellScreen;
 
-    private void Start()
+    /*
+    protected override void Start()
     {
-        buttons = GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Button")).ToArray();
+        base.Start();
     }
+    */
 
+    
 
-    public virtual void MouseClick(Vector3 point) 
-    {
-        _clickedButton = null;
-        RectTransform clicked = null;
-
-        List<RaycastResult> results = new List<RaycastResult>();
-        PointerEventData ped = new PointerEventData(null);
-        ped.position = point;
-
-        UIManager.instance.GetFocus().GetComponent<GraphicRaycaster>().Raycast(ped, results);
-
-
-        foreach (RaycastResult r in results)
-        {
-            if (r.gameObject.CompareTag("Button"))
-            {
-                clicked = r.gameObject.GetComponent<RectTransform>();
-                break;
-            }
-        }
-
-        if(clicked != null)
-        {
-            _clickedButton = clicked.name;
-        }
-    }
-
-    protected virtual void PressedButton()
+    protected override void PressedButton()
     {
         _clickedButtonUsed = true;
         switch (_clickedButton)
@@ -62,6 +35,10 @@ public class TabletInteraction : MonoBehaviour
             case "Add Money":
                 Money.instance.AddMoney(20);
                 break;
+            case "Sell":
+                GameObject sellScreen = Instantiate(SellScreen, transform.parent.transform);
+                UIManager.instance.ChangeFocus(sellScreen.GetComponent<ScreenView>());
+                break;
             default:
                 _clickedButtonUsed = false;
                 break;
@@ -72,10 +49,7 @@ public class TabletInteraction : MonoBehaviour
         }
     }
 
-    public virtual void Update()
-    {
-        if (_clickedButton != null) PressedButton();
-    }
 
-    public virtual void Close() { }
+
+
 }

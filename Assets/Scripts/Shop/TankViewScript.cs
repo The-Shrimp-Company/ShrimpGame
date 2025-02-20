@@ -4,7 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class TankViewScript : TabletInteraction
+public class TankViewScript : ScreenView
 {
     
     private TankController tank;
@@ -17,7 +17,7 @@ public class TankViewScript : TabletInteraction
     [SerializeField]
     protected TextMeshProUGUI tankPop;
 
-    private void Start()
+    protected override void Start()
     {
         buttons = GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Button")).ToArray();
         shelves = GetComponentInParent<ShelfSpawn>();
@@ -68,9 +68,9 @@ public class TankViewScript : TabletInteraction
         }
     }
 
-    public override void MouseClick(Vector3 point)
+    public override void MouseClick(Vector3 point, bool pressed)
     {
-        base.MouseClick(point);
+        base.MouseClick(point, pressed);
         if(_clickedButton == null)
         {
             

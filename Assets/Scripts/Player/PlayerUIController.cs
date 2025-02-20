@@ -47,9 +47,11 @@ public class PlayerUIController : MonoBehaviour
         _cursorRect.localPosition = mouseClamp;
     }
 
-
-    public void OnClick()
+    public void OnClick(InputValue click)
     {
-        UIManager.instance.GetFocus().MouseClick(_cursorRect.transform.position);
+        if (UIManager.instance.GetFocus() != null)
+        {
+            UIManager.instance.GetFocus().MouseClick(_cursorRect.transform.position, click.isPressed);
+        }
     }
 }

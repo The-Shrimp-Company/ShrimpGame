@@ -8,6 +8,7 @@ TagManager:
   - Cursor
   - UIScreen
   - Tank
+  - UI
   layers:
   - Default
   - TransparentFX

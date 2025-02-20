@@ -10,9 +10,9 @@ public class PlayerTablet : PlayerUIController
     private GameObject tablet;
     private RectTransform _tabletRect;
     [SerializeField]
-    private float _tabletRestingCoord;
+    private RectTransform _tabletRestingCoord;
     [SerializeField]
-    private float _tabletActiveCoord;
+    private RectTransform _tabletActiveCoord;
     [SerializeField]
     private TabletInteraction _tabletInteraction;
     private PlayerInput _input;
@@ -24,14 +24,13 @@ public class PlayerTablet : PlayerUIController
         _input = GetComponent<PlayerInput>();
         _cursorRect = cursor.GetComponent<RectTransform>();
         // Sets the tablets position to the resting position. It's already at that position, but just in case
-        _tabletRect.position = new Vector3(_tabletRect.position.x, _tabletRestingCoord, 0);
+        RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
         UIManager.instance.Subscribe(this);
     }
 
     public void OnOpenTablet()
     {
-        // Switches the tablet position based on the current position. I love the ternary operator
-        _tabletRect.position = new Vector3(_tabletRect.position.x, _tabletActiveCoord, 0);
+        RectTools.ChangeRectTransform(_tabletRect, _tabletActiveCoord);
         UIManager.instance.ChangeFocus(_tabletInteraction);
 
         _input.SwitchCurrentActionMap("UI");
@@ -39,7 +38,7 @@ public class PlayerTablet : PlayerUIController
 
     public void OnCloseTablet() 
     {
-        _tabletRect.position = new Vector3(_tabletRect.position.x, _tabletRestingCoord, 0);
+        RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
         UIManager.instance.ChangeFocus();
 
         _input.SwitchCurrentActionMap("Move");
