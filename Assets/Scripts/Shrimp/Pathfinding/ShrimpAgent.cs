@@ -293,63 +293,69 @@ public class ShrimpAgent : MonoBehaviour
     //}
 
 
-    IEnumerator Coroutine_CharacterFollowPath()
-    {
-        Status = AgentStatus.InProgress;
-        for (int i = totalPath.Count - 1; i >= 0; i--)
-        {
-            SetPathColor();
-            float length = (transform.position - totalPath[i].worldPos).magnitude;
-            float l = 0;
-            while (l < length)
-            {
-                SetPathColor();
-                Vector3 forwardDirection = (totalPath[i].worldPos - transform.position).normalized;
-                if (curvePath)
-                {
-                    transform.position += transform.forward * Time.deltaTime * speed;
-                    transform.forward = Vector3.Slerp(transform.forward, forwardDirection, Time.deltaTime * turnSpeed);
-                }
-                else
-                {
-                    transform.forward = forwardDirection;
-                    transform.position = Vector3.MoveTowards(transform.position, totalPath[i].worldPos, Time.deltaTime * speed);
-                }
-                l += Time.deltaTime * speed;
-                yield return new WaitForFixedUpdate();
-            }
-        }
+    //IEnumerator Coroutine_CharacterFollowPath()
+    //{
+    //    Status = AgentStatus.InProgress;
+    //    for (int i = totalPath.Count - 1; i >= 0; i--)
+    //    {
+    //        SetPathColor();
+    //        float length = (transform.position - totalPath[i].worldPos).magnitude;
+    //        float l = 0;
+    //        while (l < length)
+    //        {
+    //            SetPathColor();
+    //            Vector3 forwardDirection = (totalPath[i].worldPos - transform.position).normalized;
+    //            if (curvePath)
+    //            {
+    //                transform.position += transform.forward * Time.deltaTime * speed;
+    //                transform.forward = Vector3.Slerp(transform.forward, forwardDirection, Time.deltaTime * turnSpeed);
+    //            }
+    //            else
+    //            {
+    //                transform.forward = forwardDirection;
+    //                transform.position = Vector3.MoveTowards(transform.position, totalPath[i].worldPos, Time.deltaTime * speed);
+    //            }
+    //            l += Time.deltaTime * speed;
+    //            yield return new WaitForFixedUpdate();
+    //        }
+    //    }
 
-        Status = AgentStatus.Finished;
-    }
+    //    Status = AgentStatus.Finished;
+    //}
 
 
-    IEnumerator Coroutine_CharacterFollowPathCurve()
-    {
-        Status = AgentStatus.InProgress;
-        CreateBezierPath();
+    //IEnumerator Coroutine_CharacterFollowPathCurve()
+    //{
+    //    Status = AgentStatus.InProgress;
+    //    CreateBezierPath();
 
-        float length = PathCreator.path.length;
-        float l = 0;
+    //    float length = PathCreator.path.length;
+    //    float l = 0;
 
-        while (l < length)
-        {
-            SetPathColor();
-            transform.position += transform.forward * Time.deltaTime * speed;
-            Vector3 forwardDirection = (PathCreator.path.GetPointAtDistance(l, EndOfPathInstruction.Stop) - transform.position).normalized;
-            transform.forward = Vector3.Slerp(transform.forward, forwardDirection, Time.deltaTime * turnSpeed);
-            l += Time.deltaTime * speed;
-            yield return new WaitForFixedUpdate();
-        }
+    //    while (l < length)
+    //    {
+    //        SetPathColor();
+    //        transform.position += transform.forward * Time.deltaTime * speed;
+    //        Vector3 forwardDirection = (PathCreator.path.GetPointAtDistance(l, EndOfPathInstruction.Stop) - transform.position).normalized;
+    //        transform.forward = Vector3.Slerp(transform.forward, forwardDirection, Time.deltaTime * turnSpeed);
+    //        l += Time.deltaTime * speed;
+    //        yield return new WaitForFixedUpdate();
+    //    }
 
-        Status = AgentStatus.Finished;
-    }
+    //    Status = AgentStatus.Finished;
+    //}
 
 
     public void StartMoving()
     {
         Status = AgentStatus.InProgress;
         movingPathIndex = totalPath.Count - 1;
+    }
+
+
+    public void StopMoving()
+    {
+        Status = AgentStatus.Finished;
     }
 
 

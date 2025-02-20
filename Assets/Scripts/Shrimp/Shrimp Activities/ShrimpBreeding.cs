@@ -17,9 +17,19 @@ public class ShrimpBreeding : ShrimpActivity
     private bool female;  // Whether this is the female shrimp or the male shrimp
     private bool breeding;  // If they are close enough and have started breeding
     private Vector3 startPos;  // Where the instigator shrimp started moving from
+    private ShrimpMovement movement = null;
 
 
-    public override void StartActivity()
+    // Movement
+    // Set instigator
+    // Find target
+    // Give target breeding script
+    // Get closest node again when the other shrimp becomes ready
+
+
+
+
+    protected override void StartActivity()
     {
         if (shrimp.stats.gender == false)  // Is female
             female = true;
@@ -30,13 +40,15 @@ public class ShrimpBreeding : ShrimpActivity
         if (instigator)
         {
             startPos = shrimp.transform.position;
+            movement = new ShrimpMovement();
+            movement.SetDestination(shrimp.tank.tankGrid.GetClosestNode(otherShrimp.transform.position));
         }
 
         base.StartActivity();
     }
 
 
-    public override void UpdateActivity()
+    protected override void UpdateActivity()
     {
         if (!breeding && instigator)
         {
@@ -46,7 +58,7 @@ public class ShrimpBreeding : ShrimpActivity
             {
                 if (dist > waitDistance)
                 {
-                    MoveToOther(dist);  // Move over and wait for other
+                    MoveToOther();  // Move over and wait for other
                 }
             }
 
@@ -54,7 +66,7 @@ public class ShrimpBreeding : ShrimpActivity
             {
                 if (dist > breedDistance)
                 {
-                    MoveToOther(dist);
+                    MoveToOther();
                 }
 
                 else
@@ -80,17 +92,13 @@ public class ShrimpBreeding : ShrimpActivity
     }
 
 
-    private void MoveToOther(float dist)
+    private void MoveToOther()
     {
-        float moveTime = shrimp.GetComponent<Shrimp>().agent.speed * dist;
-
-        float t = taskRemainingTime / moveTime;
-        t = -t + 1;
-        shrimp.transform.position = Vector3.Lerp(startPos, otherShrimp.transform.position, t);
+        movement.Activity(elapsedTimeThisFrame);
     }
 
 
-    public override void EndActivity()
+    protected override void EndActivity()
     {
         if (female) LayEggs();
 

@@ -40,7 +40,7 @@ public class ShrimpActivity
     }
 
 
-    public virtual void StartActivity()
+    protected virtual void StartActivity()
     {
         if (taskTime == 0) Debug.Log("Task is missing the taskTime value");
 
@@ -49,13 +49,13 @@ public class ShrimpActivity
     }
 
 
-    public virtual void UpdateActivity()
+    protected virtual void UpdateActivity()
     {
 
     }
 
 
-    public virtual void EndActivity()
+    protected virtual void EndActivity()
     {
         taskComplete = true;
         shrimp.agent.Status = AgentStatus.Finished;

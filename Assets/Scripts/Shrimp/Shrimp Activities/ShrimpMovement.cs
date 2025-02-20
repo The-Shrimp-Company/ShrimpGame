@@ -24,7 +24,7 @@ public class ShrimpMovement : ShrimpActivity
     // - Turn smoothly
 
 
-    public override void StartActivity()
+    protected override void StartActivity()
     {
         agent = shrimp.agent;
         start = shrimp.transform.position;
@@ -44,7 +44,7 @@ public class ShrimpMovement : ShrimpActivity
     }
 
 
-    public override void UpdateActivity()
+    protected override void UpdateActivity()
     {
         if (simpleMove) SimpleMove();
         else AdvancedMove();

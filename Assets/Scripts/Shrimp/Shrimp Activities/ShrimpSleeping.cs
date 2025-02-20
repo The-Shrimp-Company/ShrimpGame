@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShrimpSleeping : ShrimpActivity
 {
-    public override void UpdateActivity()
+    protected override void UpdateActivity()
     {
         
     }
