@@ -11,6 +11,8 @@ public class TabletInteraction : ScreenView
 
     [SerializeField]
     private GameObject SellScreen;
+    [SerializeField]
+    private GameObject BuyScreen;
 
     /*
     protected override void Start()
@@ -70,4 +72,9 @@ public class TabletInteraction : ScreenView
         UIManager.instance.ChangeFocus(sellScreen.GetComponent<ScreenView>());
     }
 
+    public void OpenBuy()
+    {
+        GameObject buyScreen = Instantiate(BuyScreen, transform.parent.transform);
+        UIManager.instance.ChangeFocus(buyScreen.GetComponent<ScreenView>());
+    }
 }

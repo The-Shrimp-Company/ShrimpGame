@@ -63,6 +63,7 @@ public class UIManager
 
         _cursor.transform.SetParent(newFocus.transform);
 
+        Cursor.visible = false;
 
         _cursor.transform.SetAsLastSibling();
 

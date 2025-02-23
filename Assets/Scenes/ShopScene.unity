@@ -11151,7 +11151,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1461927821}
         m_TargetAssemblyTypeName: TabletInteraction, Assembly-CSharp
-        m_MethodName: BuyShrimp
+        m_MethodName: OpenBuy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21225,6 +21225,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shelves: {fileID: 1826170790}
   SellScreen: {fileID: 5382316823195656821, guid: 6f93b301785f2f94cb03dc1e4e86748f,
+    type: 3}
+  BuyScreen: {fileID: 5382316823195656821, guid: 979402841e176254fb0a0d098f5e46f0,
     type: 3}
 --- !u!114 &1461927822
 MonoBehaviour:

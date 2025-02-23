@@ -16,11 +16,7 @@ public class PlayerUIController : MonoBehaviour
     protected RectTransform _cursorRect;
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     public virtual void SwitchFocus()
     {
@@ -37,8 +33,8 @@ public class PlayerUIController : MonoBehaviour
     {
         Vector2 pos = Mouse.current.position.value;
         RectTransform uiPanel = UIManager.instance.GetFocus().GetComponent<RectTransform>();
-        pos.x = Mathf.Clamp(pos.x, uiPanel.position.x - uiPanel.rect.width / 2, uiPanel.position.x + uiPanel.rect.width / 2);
-        pos.y = Mathf.Clamp(pos.y, uiPanel.position.y - uiPanel.rect.height / 2, uiPanel.position.y + uiPanel.rect.height / 2);
+        pos.x = Mathf.Clamp(pos.x, uiPanel.position.x - uiPanel.rect.width / 2 * UIManager.instance.GetCanvas().localScale.x, uiPanel.position.x + uiPanel.rect.width / 2 * UIManager.instance.GetCanvas().localScale.x);
+        pos.y = Mathf.Clamp(pos.y, uiPanel.position.y - uiPanel.rect.height / 2 * UIManager.instance.GetCanvas().localScale.y, uiPanel.position.y + uiPanel.rect.height / 2 * UIManager.instance.GetCanvas().localScale.y);
         Mouse.current.WarpCursorPosition(pos);
     }
 }
