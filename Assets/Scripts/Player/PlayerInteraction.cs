@@ -47,6 +47,8 @@ public class PlayerInteraction : MonoBehaviour
             _camera.transform.position = tankController.GetCam().transform.position;
             _camera.transform.rotation = tankController.GetCam().transform.rotation;
 
+            Debug.Log("GetHere");
+
             _input.SwitchCurrentActionMap("TankView");
 
             tankController.FocusTank();

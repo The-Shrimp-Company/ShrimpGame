@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2500374257291398373
+--- !u!1 &1163336056758823048
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5720410228497616947}
-  - component: {fileID: 5583550904279132440}
-  - component: {fileID: 3653090182992556359}
-  - component: {fileID: 748978486427506954}
-  - component: {fileID: 5621210245629117507}
+  - component: {fileID: 8179336890862345515}
+  - component: {fileID: 4716948029247590579}
+  - component: {fileID: 6670233595595968737}
+  - component: {fileID: 5427104954867220921}
   m_Layer: 5
-  m_Name: Cursor
-  m_TagString: Cursor
+  m_Name: Image
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5720410228497616947
+--- !u!224 &8179336890862345515
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2500374257291398373}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1163336056758823048}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 5720410228497616947}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.49065936, y: 0.47452018}
-  m_AnchorMax: {x: 0.5093407, y: 0.52547985}
-  m_AnchoredPosition: {x: -0.000061035156, y: -0.000009536743}
-  m_SizeDelta: {x: 0, y: 0.000015259}
-  m_Pivot: {x: 0.14457482, y: 0.9669048}
---- !u!222 &5583550904279132440
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1634.9451, y: 969.7188}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.13945067, y: 0.9671881}
+--- !u!222 &4716948029247590579
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2500374257291398373}
+  m_GameObject: {fileID: 1163336056758823048}
   m_CullTransparentMesh: 1
---- !u!114 &3653090182992556359
+--- !u!114 &6670233595595968737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2500374257291398373}
+  m_GameObject: {fileID: 1163336056758823048}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -77,6 +76,65 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5427104954867220921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163336056758823048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 1
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!1 &2500374257291398373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5720410228497616947}
+  - component: {fileID: 748978486427506954}
+  - component: {fileID: 5621210245629117507}
+  - component: {fileID: 141719763191188025}
+  m_Layer: 5
+  m_Name: Cursor
+  m_TagString: Cursor
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5720410228497616947
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2500374257291398373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 8179336890862345515}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.49065936, y: 0.47452018}
+  m_AnchorMax: {x: 0.5093407, y: 0.52547985}
+  m_AnchoredPosition: {x: -0.000061035156, y: -0.000009536743}
+  m_SizeDelta: {x: 0, y: 0.000015259}
+  m_Pivot: {x: 0.14457482, y: 0.9669048}
 --- !u!114 &748978486427506954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,10 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CursorMode: 0
-  m_CursorGraphic: {fileID: 3653090182992556359}
-  m_CursorTransform: {fileID: 5720410228497616947}
+  m_CursorGraphic: {fileID: 6670233595595968737}
+  m_CursorTransform: {fileID: 8179336890862345515}
   m_CursorSpeed: 100
-  m_ScrollSpeed: 45
+  m_ScrollSpeed: 106.3
   m_StickAction:
     m_UseReference: 0
     m_Action:
@@ -123,20 +181,36 @@ MonoBehaviour:
       m_Id: 85e4ca43-e161-45f8-baa3-7b138413e810
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 7e34af79-8864-40a2-b6b3-19b43de41709
+        m_Path: <Mouse>/delta
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Stick
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: -2579883525068243823, guid: 5a3155f016e553845bb153912327232e,
       type: 3}
   m_LeftButtonAction:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Left Button
-      m_Type: 0
+      m_Type: 2
       m_ExpectedControlType: 
       m_Id: e77f26ba-cc33-419b-8992-d86b9a0d0335
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: a3b7a956-a3f4-444d-99e7-1c9b38219eb4
+        m_Path: <Mouse>/leftButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Left Button
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 6880338960365591016, guid: 5a3155f016e553845bb153912327232e,
       type: 3}
@@ -144,12 +218,20 @@ MonoBehaviour:
     m_UseReference: 0
     m_Action:
       m_Name: Middle Button
-      m_Type: 0
+      m_Type: 2
       m_ExpectedControlType: 
       m_Id: d67c46a8-f402-4d40-a246-8fc07ab5fe5f
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 6498e0e1-2bc5-46ba-9e05-413c4688dc9e
+        m_Path: <Mouse>/middleButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Middle Button
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_RightButtonAction:
@@ -161,7 +243,15 @@ MonoBehaviour:
       m_Id: b1350564-9a76-4494-b3ee-59a5ccd9e8b2
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: e45e88da-4737-4e20-af5d-c2c6eb5e4fdf
+        m_Path: <Mouse>/rightButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Right Button
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_ForwardButtonAction:
@@ -173,7 +263,15 @@ MonoBehaviour:
       m_Id: b83191fb-e71f-4619-af37-25e989d7ba63
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 35232cbd-0d92-47b4-a902-fee12faac779
+        m_Path: <Mouse>/forwardButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Forward Button
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_BackButtonAction:
@@ -185,18 +283,47 @@ MonoBehaviour:
       m_Id: b692b6c8-2feb-4aba-a5d1-4dae52c30d35
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: d7079b94-d24c-4187-9c89-d6bc00ce16b1
+        m_Path: <Mouse>/backButton
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Back Button
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_ScrollWheelAction:
     m_UseReference: 0
     m_Action:
       m_Name: Scroll Wheel
-      m_Type: 0
+      m_Type: 2
       m_ExpectedControlType: 
       m_Id: e49c81df-e3a8-4404-b044-6954c248ddae
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 64041127-36cb-415f-a600-c2dc420891f4
+        m_Path: <Mouse>/scroll
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Scroll Wheel
+        m_Flags: 0
       m_Flags: 0
-    m_Reference: {fileID: 0}
+    m_Reference: {fileID: -4334548514302168627, guid: 5a3155f016e553845bb153912327232e,
+      type: 3}
+--- !u!114 &141719763191188025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2500374257291398373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72827ec498a27954c95e0f64040b4321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

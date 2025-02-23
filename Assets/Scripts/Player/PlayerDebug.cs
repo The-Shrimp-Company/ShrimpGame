@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerDebug : MonoBehaviour
 {
@@ -24,6 +25,11 @@ public class PlayerDebug : MonoBehaviour
         
     }
 
+
+    public void OnMouseMove(InputValue val)
+    {
+        Debug.Log(val.Get<Vector2>());
+    }
     /* Old Function to interact with tanks on click
     public void OnSpawnShrimp()
     {

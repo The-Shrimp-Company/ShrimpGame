@@ -14,7 +14,9 @@ public class UIManager
 
     private Camera SecondCamera;
 
-    private GameObject Cursor;
+    private GameObject _cursor;
+
+    private Transform MainCanvas;
 
     public UIManager()
     {
@@ -23,13 +25,20 @@ public class UIManager
 
     public void ChangeFocus()
     {
-        if(_currentUI != null)
+        _cursor.transform.SetParent(null);
+
+        _cursor.transform.SetAsLastSibling();
+
+        _cursor.SetActive(false);
+
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (_currentUI != null)
         {
             _currentUI.Close();
         }
         _currentUI = null;
 
-        Cursor.transform.parent = null;
 
         foreach(PlayerUIController controller in _playerControllers)
         {
@@ -52,7 +61,14 @@ public class UIManager
         _currentUI = newFocus;
         _currentRect = customRect.rect;
 
-        Cursor.transform.SetParent(_currentUI.transform, false);
+        _cursor.transform.SetParent(newFocus.transform);
+
+
+        _cursor.transform.SetAsLastSibling();
+
+        Cursor.lockState = CursorLockMode.Confined;
+
+        _cursor.SetActive(true);
 
         foreach (PlayerUIController controller in _playerControllers)
         {
@@ -81,8 +97,17 @@ public class UIManager
 
     public void SetCursor(GameObject cursor)
     {
-        Cursor = cursor;
+        _cursor = cursor;
+        Cursor.visible = false;
+        _cursor.SetActive(false);
     }
 
-    public GameObject GetCursor() { return Cursor; }
+    public GameObject GetCursor() { return _cursor; }
+
+    public void SetCanvas(Transform transform)
+    {
+        MainCanvas = transform;
+    }
+
+    public Transform GetCanvas() { return MainCanvas; }
 }

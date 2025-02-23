@@ -56,7 +56,12 @@ public class TankViewScript : ScreenView
     }
 
 
-    private void SlideMenu()
+    public void SetTank()
+    {
+        shelves.SwitchSaleTank(tank);
+    }
+
+    public void SlideMenu()
     {
         if((panel.transform.position - panelresting).magnitude < 1)
         {
@@ -67,6 +72,7 @@ public class TankViewScript : ScreenView
             panel.transform.position = panelresting;
         }
     }
+
 
     public override void MouseClick(Vector3 point, bool pressed)
     {

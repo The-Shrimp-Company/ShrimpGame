@@ -134,6 +134,7 @@ public class TankController : MonoBehaviour
     public void FocusTank()
     {
         GameObject newView = Instantiate(tankViewPrefab, transform);
-        UIManager.instance.ChangeFocus(newView.GetComponent<TabletInteraction>());
+        UIManager.instance.ChangeFocus(newView.GetComponent<ScreenView>());
+        Debug.Log(UIManager.instance.GetCurrentRect());
     }
 }

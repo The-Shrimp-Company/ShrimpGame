@@ -1,0 +1,34 @@
+{
+    "name": "UITest",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "bd0431b2-210c-44fd-89a6-01ad0fb92526",
+            "actions": [
+                {
+                    "name": "MouseMove",
+                    "type": "PassThrough",
+                    "id": "ccc31510-8902-459a-aff7-f4fa9e97eea9",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "bca02883-a7cb-47ba-9866-dcf5836b88d6",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

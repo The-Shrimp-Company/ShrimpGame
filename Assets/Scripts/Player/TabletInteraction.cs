@@ -49,7 +49,25 @@ public class TabletInteraction : ScreenView
         }
     }
 
+    public void AddTank()
+    {
+        shelves.SpawnNextTank();
+    }
 
+    public void BuyShrimp()
+    {
+        shelves.SpawnShrimp();
+    }
 
+    public void AddMoney()
+    {
+        Money.instance.AddMoney(20);
+    }
+
+    public void OpenSell()
+    {
+        GameObject sellScreen = Instantiate(SellScreen, transform.parent.transform);
+        UIManager.instance.ChangeFocus(sellScreen.GetComponent<ScreenView>());
+    }
 
 }

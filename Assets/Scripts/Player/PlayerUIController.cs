@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem.UI;
+using UnityEngine.UIElements;
+using static UnityEngine.Rendering.DebugUI;
 
 public class PlayerUIController : MonoBehaviour
 {
@@ -23,30 +27,18 @@ public class PlayerUIController : MonoBehaviour
         if (UIManager.instance.GetFocus() != null)
         {
             RectTransform[] temp = UIManager.instance.GetFocus().GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Cursor")).ToArray();
-            cursor = UIManager.instance.GetCursor();
-            _cursorRect = cursor.GetComponent<RectTransform>();
+            //cursor = UIManager.instance.GetCursor();
+            //_cursorRect = cursor.GetComponent<FakeCursor>().getCursorRect();
             _currentAreaRect = UIManager.instance.GetCurrentRect();
         }
     }
 
-    public void OnMoveMouse(InputValue Mouse)
+    public void OnMoveMouse()
     {
-        Vector2 mouseMove = Mouse.Get<Vector2>();
-        // Move the fake cursor to follow the players mouse movements
-        _cursorRect.localPosition += new Vector3(mouseMove.x, mouseMove.y, 0);
-        Vector3 mouseClamp = _cursorRect.localPosition;
-
-        // Clamp the cursor to the bounds of the tablet
-        mouseClamp.x = Mathf.Clamp(mouseClamp.x, _currentAreaRect.x, _currentAreaRect.x + _currentAreaRect.width);
-        mouseClamp.y = Mathf.Clamp(mouseClamp.y, _currentAreaRect.y, _currentAreaRect.y + _currentAreaRect.height);
-        _cursorRect.localPosition = mouseClamp;
-    }
-
-    public void OnClick(InputValue click)
-    {
-        if (UIManager.instance.GetFocus() != null)
-        {
-            UIManager.instance.GetFocus().MouseClick(_cursorRect.transform.position, click.isPressed);
-        }
+        Vector2 pos = Mouse.current.position.value;
+        RectTransform uiPanel = UIManager.instance.GetFocus().GetComponent<RectTransform>();
+        pos.x = Mathf.Clamp(pos.x, uiPanel.position.x - uiPanel.rect.width / 2, uiPanel.position.x + uiPanel.rect.width / 2);
+        pos.y = Mathf.Clamp(pos.y, uiPanel.position.y - uiPanel.rect.height / 2, uiPanel.position.y + uiPanel.rect.height / 2);
+        Mouse.current.WarpCursorPosition(pos);
     }
 }
