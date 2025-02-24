@@ -4,7 +4,7 @@ using UnityEngine;
 
 public struct Gene
 {
-    public int ID; 
+    public int ID;
     public string name;
     public int dominance;
     public int value;
