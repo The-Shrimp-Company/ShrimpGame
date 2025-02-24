@@ -78,22 +78,13 @@ public class TankViewScript : ScreenView
     
     public void MouseClick(Vector3 point, bool pressed)
     {
-        //base.MouseClick(point, pressed);
-        if(_clickedButton == null)
+        RaycastHit ray;
+        if(Physics.Raycast(Camera.main.ScreenPointToRay(point), out ray, 3f, LayerMask.GetMask("Shrimp")))
         {
-            
-            RaycastHit ray;
-            if(Physics.Raycast(Camera.main.ScreenPointToRay(point), out ray, 3f, LayerMask.GetMask("Shrimp")))
-            {
-                Debug.Log("Here");
-                _shrimp = ray.transform.GetComponent<Shrimp>();
-                GameObject newitem = Instantiate(shrimpView);
-                UIManager.instance.ChangeFocus(newitem.GetComponent<TabletInteraction>());
-                newitem.GetComponent<ShrimpView>().Populate(_shrimp);
-            }
+            _shrimp = ray.transform.GetComponent<Shrimp>();
+            GameObject newitem = Instantiate(shrimpView);
+            UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
+            newitem.GetComponent<ShrimpView>().Populate(_shrimp);
         }
     }
-    
-
-    
 }

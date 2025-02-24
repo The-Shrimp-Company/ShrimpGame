@@ -95,4 +95,13 @@ public class PlayerInteraction : MonoBehaviour
         _input.SwitchCurrentActionMap("Move");
         UIManager.instance.ChangeFocus();
     }
+
+    /// <summary>
+    /// Should only be called from the tank view action map. Used to interact with shrimp.
+    /// </summary>
+    /// <param name="point"></param>
+    public void OnTankClick(InputValue point)
+    {
+        UIManager.instance.GetFocus().GetComponent<TankViewScript>().MouseClick(Mouse.current.position.value, point.isPressed);
+    }
 }
