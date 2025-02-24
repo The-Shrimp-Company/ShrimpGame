@@ -25,15 +25,17 @@ public class TankViewScript : ScreenView
         panelresting = panel.transform.position;
     }
 
-    public override void Update()
+
+    public virtual void Update()
     {
-        base.Update();
+        //base.Update();
         if(tankPop != null)
         {
             tankPop.text = "Tank Population: " + tank.shrimpInTank.Count.ToString();
         }
     }
 
+    /*
     protected override void PressedButton()
     {
         _clickedButtonUsed = true;
@@ -54,7 +56,7 @@ public class TankViewScript : ScreenView
             _clickedButton = null;
         }
     }
-
+    */
 
     public void SetTank()
     {
@@ -65,7 +67,7 @@ public class TankViewScript : ScreenView
     {
         if((panel.transform.position - panelresting).magnitude < 1)
         {
-            panel.transform.position += Vector3.left * 250;
+            panel.transform.position += Vector3.left * 250 * UIManager.instance.GetCanvas().transform.localScale.x;
         }
         else
         {
@@ -73,10 +75,10 @@ public class TankViewScript : ScreenView
         }
     }
 
-
-    public override void MouseClick(Vector3 point, bool pressed)
+    
+    public void MouseClick(Vector3 point, bool pressed)
     {
-        base.MouseClick(point, pressed);
+        //base.MouseClick(point, pressed);
         if(_clickedButton == null)
         {
             
@@ -91,9 +93,7 @@ public class TankViewScript : ScreenView
             }
         }
     }
+    
 
-    public override void Close()
-    {
-        Destroy(gameObject);
-    }
+    
 }

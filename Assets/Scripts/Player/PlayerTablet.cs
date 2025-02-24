@@ -29,6 +29,7 @@ public class PlayerTablet : PlayerUIController
 
     public void OnOpenTablet()
     {
+        _tabletRect.gameObject.SetActive(true);
         RectTools.ChangeRectTransform(_tabletRect, _tabletActiveCoord);
         UIManager.instance.ChangeFocus(_tabletInteraction);
 
@@ -37,6 +38,7 @@ public class PlayerTablet : PlayerUIController
 
     public void OnCloseTablet() 
     {
+        _tabletRect.gameObject.SetActive(true);
         RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
         UIManager.instance.ChangeFocus();
 

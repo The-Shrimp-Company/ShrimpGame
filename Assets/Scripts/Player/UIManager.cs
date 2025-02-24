@@ -31,6 +31,8 @@ public class UIManager
 
         _cursor.SetActive(false);
 
+        MainCanvas.GetComponentInChildren<TabletInteraction>().gameObject.GetComponent<CanvasGroup>().interactable = true;
+
         Cursor.lockState = CursorLockMode.Locked;
 
         if (_currentUI != null)
@@ -53,19 +55,20 @@ public class UIManager
     }
 
     public void ChangeFocus(ScreenView newFocus, RectTransform customRect)
-     {
-        if(_currentUI != null)
+    {
+        _cursor.transform.SetParent(newFocus.transform);
+        _cursor.transform.SetAsLastSibling();
+
+        if (_currentUI != null)
         {
             _currentUI.Close();
         }
         _currentUI = newFocus;
         _currentRect = customRect.rect;
 
-        _cursor.transform.SetParent(newFocus.transform);
 
         Cursor.visible = false;
 
-        _cursor.transform.SetAsLastSibling();
 
         Cursor.lockState = CursorLockMode.Confined;
 

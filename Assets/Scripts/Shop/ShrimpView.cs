@@ -21,7 +21,7 @@ public class ShrimpView : TankViewScript
 
     public override void Update()
     {
-        base.Update();
+        //base.Update();
         if (_shrimp != null)
         {
             Camera.main.transform.position = _shrimp.transform.position - Vector3.right;
@@ -39,6 +39,7 @@ public class ShrimpView : TankViewScript
         _shrimp.SetCam();
     }
 
+    /*
     protected override void PressedButton()
     {
         _clickedButtonUsed = true;
@@ -61,4 +62,5 @@ public class ShrimpView : TankViewScript
             _clickedButton = null;
         }
     }
+    */
 }

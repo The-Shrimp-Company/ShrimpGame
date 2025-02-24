@@ -22,9 +22,6 @@ public class PlayerUIController : MonoBehaviour
     {
         if (UIManager.instance.GetFocus() != null)
         {
-            RectTransform[] temp = UIManager.instance.GetFocus().GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Cursor")).ToArray();
-            //cursor = UIManager.instance.GetCursor();
-            //_cursorRect = cursor.GetComponent<FakeCursor>().getCursorRect();
             _currentAreaRect = UIManager.instance.GetCurrentRect();
         }
     }

@@ -19,9 +19,10 @@ public class ScreenView : MonoBehaviour
 
     protected virtual void Start()
     {
-        buttons = GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Button")).ToArray();
+        //buttons = GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Button")).ToArray();
     }
 
+    /*
     public virtual void MouseClick(Vector3 point, bool pressed)
     {
         _clickedButton = null;
@@ -62,7 +63,10 @@ public class ScreenView : MonoBehaviour
     {
         if (_clickedButton != null) PressedButton();
     }
+    */
 
-
-    public virtual void Close() { }
+    public virtual void Close()
+    {
+        Destroy(gameObject);
+    }
 }

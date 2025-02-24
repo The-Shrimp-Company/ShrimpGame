@@ -13,6 +13,10 @@ public class TabletInteraction : ScreenView
     private GameObject SellScreen;
     [SerializeField]
     private GameObject BuyScreen;
+    [SerializeField]
+    private GameObject UpgradeScreen;
+    [SerializeField]
+    private GameObject InventoryScreen;
 
     /*
     protected override void Start()
@@ -21,35 +25,9 @@ public class TabletInteraction : ScreenView
     }
     */
 
-    
 
-    protected override void PressedButton()
-    {
-        _clickedButtonUsed = true;
-        switch (_clickedButton)
-        {
-            case "Buy Shrimp":
-                shelves.SpawnShrimp();
-                break;
-            case "Buy Tanks":
-                shelves.SpawnNextTank();
-                break;
-            case "Add Money":
-                Money.instance.AddMoney(20);
-                break;
-            case "Sell":
-                GameObject sellScreen = Instantiate(SellScreen, transform.parent.transform);
-                UIManager.instance.ChangeFocus(sellScreen.GetComponent<ScreenView>());
-                break;
-            default:
-                _clickedButtonUsed = false;
-                break;
-        }
-        if (_clickedButtonUsed)
-        {
-            _clickedButton = null;
-        }
-    }
+    public ShelfSpawn GetShelves() { return shelves; }
+    
 
     public void AddTank()
     {
@@ -68,13 +46,34 @@ public class TabletInteraction : ScreenView
 
     public void OpenSell()
     {
+        GetComponent<CanvasGroup>().interactable = false;
         GameObject sellScreen = Instantiate(SellScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(sellScreen.GetComponent<ScreenView>());
     }
 
     public void OpenBuy()
     {
+        GetComponent<CanvasGroup>().interactable = false;
         GameObject buyScreen = Instantiate(BuyScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(buyScreen.GetComponent<ScreenView>());
+    }
+
+    public void OpenUpgrades()
+    {
+        GetComponent<CanvasGroup>().interactable = false;
+        GameObject upgradeScreen = Instantiate(UpgradeScreen, transform.parent.transform);
+        UIManager.instance.ChangeFocus(upgradeScreen.GetComponent<ScreenView>());
+    }
+
+    public void OpenInventory()
+    {
+        GetComponent<CanvasGroup>().interactable = false;
+        GameObject inventoryScreen = Instantiate(InventoryScreen, transform.parent.transform);
+        UIManager.instance.ChangeFocus(inventoryScreen.GetComponent<ScreenView>());
+    }
+
+    public override void Close()
+    {
+
     }
 }
