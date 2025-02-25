@@ -11435,6 +11435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667b26c26b8630d41a99be8e12445af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1790987988}
 --- !u!114 &794203976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23049,6 +23050,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 1826170790}
+  inventory: {fileID: 5382316823195656821, guid: c29da088fc2fef14f876125e5190d3b3,
+    type: 3}
 --- !u!4 &1799615986 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5946505491789412438, guid: d89a1442439b0724197218a1826a105a,
