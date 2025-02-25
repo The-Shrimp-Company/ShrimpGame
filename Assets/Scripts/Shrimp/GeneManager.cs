@@ -179,35 +179,35 @@ public class GeneManager : MonoBehaviour
     }
 
 
-    public int TraitGene(InheritanceType type, int upperBound, Trait parentAVal, Trait parentBVal)
-    {
-        switch (type)
-        {
-            case InheritanceType.FullRandom:
-                {
-                    return FullyRandomInt(upperBound);
-                }
+    //public int TraitGene(InheritanceType type, int upperBound, Trait parentAVal, Trait parentBVal)
+    //{
+    //    switch (type)
+    //    {
+    //        case InheritanceType.FullRandom:
+    //            {
+    //                return FullyRandomInt(upperBound);
+    //            }
 
-            case InheritanceType.WeightedRandom:
-                {
-                    return WeightedRandomInt(upperBound, geneWeightingPercentage, parentAVal, parentBVal);
-                }
+    //        case InheritanceType.WeightedRandom:
+    //            {
+    //                return WeightedRandomInt(upperBound, geneWeightingPercentage, parentAVal, parentBVal);
+    //            }
 
-            case InheritanceType.Punnett:
-                {
-                    Debug.LogError("Punnet squares are not supported for integer genes, please ask Aaron to implement this");
-                    return FullyRandomInt(upperBound);
-                }
+    //        case InheritanceType.Punnett:
+    //            {
+    //                Debug.LogError("Punnet squares are not supported for integer genes, please ask Aaron to implement this");
+    //                return FullyRandomInt(upperBound);
+    //            }
 
-            case InheritanceType.FlatAverage:
-                {
-                    return FlatAverageInt(parentAVal, parentBVal);
-                }
+    //        case InheritanceType.FlatAverage:
+    //            {
+    //                return FlatAverageInt(parentAVal, parentBVal);
+    //            }
 
-            default:  // Error case
-                {
-                    return FullyRandomInt(upperBound);
-                }
-        }
-    }
+    //        default:  // Error case
+    //            {
+    //                return FullyRandomInt(upperBound);
+    //            }
+    //    }
+    //}
 }
