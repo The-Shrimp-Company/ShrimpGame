@@ -9,11 +9,11 @@ public struct ShrimpStats
     public string name;
     public bool gender;  // True = male, False = female
     public int age;
-    public UInt16 hunger;  // Value from 0-100
-    public UInt16 illness;  // Value from 0-100
-    public UInt16 temperament;  // Value from 0-100
-
-    public Trait geneticSize;
+    public int hunger;  // Value from 0-100
+    public int illness;  // Value from 0-100
+    public int temperament;  // Value from 0-100
+          
+    public int geneticSize;
     public int actualSize;
 
     public Trait primaryColour;

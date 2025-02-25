@@ -14,4 +14,10 @@ public struct Trait
 {
     public Gene activeGene;
     public Gene inactiveGene;
+
+    public Trait(Gene a, Gene i)
+    {
+        this.activeGene = a;
+        this.inactiveGene = i;
+    }
 }
