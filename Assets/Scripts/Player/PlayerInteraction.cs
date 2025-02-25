@@ -8,6 +8,9 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField]
     private ShelfSpawn shelves;
 
+    [SerializeField]
+    private GameObject inventory;
+
     private CameraLookCheck lookCheck;
     private Camera _camera;
     private PlayerInput _input;
@@ -36,7 +39,16 @@ public class PlayerInteraction : MonoBehaviour
 
         if (target != null)
         {
-            SetTankFocus(target.GetComponent<TankController>());
+            if (target.GetComponent<TankController>())
+            {
+                SetTankFocus(target.GetComponent<TankController>());
+            }
+            else
+            {
+                GameObject invenScreen = UIManager.instance.GetCanvas().GetComponent<MainCanvas>().RaiseScreen(inventory);
+                invenScreen.GetComponentInChildren<InventoryContent>().TankAssignment(target);
+
+            }
         }
     }
 

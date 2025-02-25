@@ -29,16 +29,6 @@ public class TabletInteraction : ScreenView
     public ShelfSpawn GetShelves() { return shelves; }
     
 
-    public void AddTank()
-    {
-        shelves.SpawnNextTank();
-    }
-
-    public void BuyShrimp()
-    {
-        shelves.SpawnShrimp();
-    }
-
     public void AddMoney()
     {
         Money.instance.AddMoney(20);

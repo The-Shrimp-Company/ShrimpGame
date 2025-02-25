@@ -5,6 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+/// <summary>
+/// Root content block class. Content blocks are the individual items on
+/// the various tablet screens.
+/// </summary>
 public class ContentBlock : MonoBehaviour
 {
     [SerializeField]
@@ -17,6 +21,11 @@ public class ContentBlock : MonoBehaviour
     {
         text.text = textToSet;
         text.fontSize = GetComponent<RectTransform>().rect.width;
+    }
+
+    public TextMeshProUGUI GetText()
+    {
+        return text;
     }
 
     public void AssignFunction(UnityAction func)

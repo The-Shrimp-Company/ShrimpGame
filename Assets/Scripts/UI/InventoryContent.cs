@@ -7,7 +7,32 @@ public class InventoryContent : ContentPopulation
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(contentBlock, transform);
+        
+    }
+
+    private void Awake()
+    {
+        CreateContent(Inventory.instance.GetItemCount());
+        foreach (ContentBlock block in contentBlocks)
+        {
+            block.SetText("Tank");
+        }
+    }
+
+    public void TankAssignment(GameObject tankSocket)
+    {
+        foreach(ContentBlock block in contentBlocks)
+        {
+            if (!block.GetText().text.Contains("Tank"))
+            {
+                Destroy(block.gameObject);
+            }
+            else
+            {
+                block.AssignFunction(tankSocket.GetComponent<TankSocket>().SetTankActive);
+                block.AssignFunction(UIManager.instance.GetCanvas().GetComponent<MainCanvas>().LowerScreen);
+            }
+        }
     }
 
     // Update is called once per frame

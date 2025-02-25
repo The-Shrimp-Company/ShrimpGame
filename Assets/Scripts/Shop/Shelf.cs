@@ -5,31 +5,27 @@ using UnityEngine;
 
 public class Shelf : MonoBehaviour
 {
-    private Transform[] _tanks;
+    private TankSocket[] _tanks;
 
     
 
     private void OnDisable()
     {
-        _tanks = GetComponentsInChildren<Transform>();
+        _tanks = GetComponentsInChildren<TankSocket>();
 
-
-
-        _tanks = _tanks.Where(x => x.name.Contains("TankSocket")).ToArray();
-
-        foreach (Transform tank in _tanks)
+        foreach (TankSocket tank in _tanks)
         {
-            tank.gameObject.SetActive(false);
+            tank.SetTankActive(false);
         }
     }
 
     public GameObject AddTank()
     {
-        foreach(Transform tank in _tanks)
+        foreach(TankSocket tank in _tanks)
         {
-            if (!tank.gameObject.activeSelf)
+            if (!tank.GetTankActive())
             {
-                tank.gameObject.SetActive(true);
+                tank.SetTankActive(true);
                 return tank.gameObject;
             }
         }

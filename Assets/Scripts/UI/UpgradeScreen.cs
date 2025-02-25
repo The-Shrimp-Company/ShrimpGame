@@ -11,6 +11,6 @@ public class UpgradeScreen : ScreenView
 
     public void BuyTanks()
     {
-        shelves.SpawnNextTank();
+        Inventory.instance.AddItem(ItemNames.SmallTank);
     }
 }
