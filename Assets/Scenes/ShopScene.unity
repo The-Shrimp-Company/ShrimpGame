@@ -8593,6 +8593,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705895234}
   - component: {fileID: 705895233}
+  - component: {fileID: 705895235}
   m_Layer: 0
   m_Name: Shrimp Manager
   m_TagString: Untagged
@@ -8612,6 +8613,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a280a4dd24c20ca499b4b9e5bec81afe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxShrimpAge: 100
+  shrimpNaturalDeathAge:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.97064155
+      value: 0.2358564
+      inSlope: 0.914016
+      outSlope: 0.914016
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.069290414
+      outWeight: 1
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &705895234
 Transform:
   m_ObjectHideFlags: 0
@@ -8627,6 +8662,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &705895235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705895232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cef58e4d6dc96c4eb0a032ff6bea2e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  geneWeightingPercentage: 10
+  mutationChance: 5
+  sizeInheritance: 1
+  temperamentInheritance: 1
+  colourInheritance: 2
+  patternInheritance: 2
+  bodyPartInheritance: 2
+  sizeCanMutate: 0
+  temperamentCanMutate: 0
+  colourCanMutate: 1
+  patternCanMutate: 1
+  bodyPartCanMutate: 1
 --- !u!43 &706526439
 Mesh:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     public List<Shrimp> shrimpInTank = new List<Shrimp>();
-    private List<Shrimp> shrimpToAdd = new List<Shrimp>();
+    [HideInInspector] public List<Shrimp> shrimpToAdd = new List<Shrimp>();
     private List<Shrimp> shrimpToRemove = new List<Shrimp>();
 
     private float updateTimer;
@@ -16,7 +16,7 @@ public class TankController : MonoBehaviour
     private bool _saleTank = false;
     [SerializeField] private GameObject sign;
 
-    [SerializeField] Transform shrimpParent;
+    public Transform shrimpParent;
     public TankGrid tankGrid;  // The grid used for pathfinding
 
     [SerializeField] private GameObject camDock;

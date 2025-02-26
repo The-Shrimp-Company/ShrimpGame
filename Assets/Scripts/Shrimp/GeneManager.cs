@@ -14,42 +14,28 @@ public class GeneManager : MonoBehaviour
     public static GeneManager instance;
 
 
-    [SerializeField] [Range(0, 100)] int geneWeightingPercentage = 10;
+    [SerializeField] [Range(0, 100)] int geneWeightingPercentage = 10;  // When using weighted random, how much should it be weighted by?
+    [SerializeField][Range(0, 100)] float mutationChance = 5;  // Will pick a random number under 100, if it is under this, the trait will mutate
 
-    public InheritanceType sizeInheritance;
-    public InheritanceType temperamentInheritance;
-    public InheritanceType patternInheritance;
-    public InheritanceType bodyPartInheritance;
+    [Header("Inheritance")]
+    public InheritanceType sizeInheritance = InheritanceType.WeightedRandom;
+    public InheritanceType temperamentInheritance = InheritanceType.WeightedRandom;
+    public InheritanceType colourInheritance = InheritanceType.Punnett;
+    public InheritanceType patternInheritance = InheritanceType.Punnett;
+    public InheritanceType bodyPartInheritance = InheritanceType.Punnett;
+
+    [Header("Mutation")]
+    public bool sizeCanMutate;
+    public bool temperamentCanMutate;
+    public bool colourCanMutate = true;
+    public bool patternCanMutate = true;
+    public bool bodyPartCanMutate = true;
 
 
     public void Awake()
     {
         instance = this;
-
-        // Bind the corresponding inheritance functions to the gene types
-        //genderRandom += BindInheritance(genderInheritance);
-        //sizeRandom += BindInheritance(sizeInheritance);
-        //temperamentRandom += BindInheritance(temperamentInheritance);
-        //patternRandom += BindInheritance(patternInheritance);
-        //bodyPartRandom += BindInheritance(bodyPartInheritance);
     }
-
-    //private System.Action BindInheritance(InheritanceType type)
-    //{
-    //    switch(type)
-    //    {
-    //        case InheritanceType.FullRandom:
-    //            return FullyRandom;
-    //        case InheritanceType.WeightedRandom:
-    //            return WeightedRandom;
-    //        case InheritanceType.Punnett:
-    //            return PunnetSquare;
-    //        case InheritanceType.FlatAverage:
-    //            return FlatAverage;
-    //        default:
-    //            return FullyRandom;
-    //    }
-    //}
 
 
     private bool FullyRandomBool()
@@ -85,13 +71,13 @@ public class GeneManager : MonoBehaviour
         Gene BB = parentBTrait.inactiveGene;
 
 
-        Trait[] c = new Trait[3];
+        Trait[] c = new Trait[4];
         c[0] = new Trait(AA, BA);
         c[1] = new Trait(AA, BB);
         c[2] = new Trait(AB, BA);
         c[3] = new Trait(AB, BB);
 
-        int[] d = new int[3];
+        int[] d = new int[4];
         d[0] = c[0].activeGene.dominance + c[0].inactiveGene.dominance;
         d[1] = c[1].activeGene.dominance + c[1].inactiveGene.dominance;
         d[2] = c[2].activeGene.dominance + c[2].inactiveGene.dominance;
@@ -146,8 +132,13 @@ public class GeneManager : MonoBehaviour
     }
 
 
-    public int IntGene(InheritanceType type, int upperBound, int parentAVal, int parentBVal)
+    public int IntGene(InheritanceType type, int upperBound, int parentAVal, int parentBVal, bool canMutate)
     {
+        if (Random.value * 100 < mutationChance)  // Gene mutation
+        {
+            type = InheritanceType.FullRandom;
+        }
+
         switch (type)
         {
             case InheritanceType.FullRandom:
@@ -179,35 +170,42 @@ public class GeneManager : MonoBehaviour
     }
 
 
-    //public int TraitGene(InheritanceType type, int upperBound, Trait parentAVal, Trait parentBVal)
-    //{
-    //    switch (type)
-    //    {
-    //        case InheritanceType.FullRandom:
-    //            {
-    //                return FullyRandomInt(upperBound);
-    //            }
+    public Trait TraitGene(InheritanceType type, int upperBound, Trait parentAVal, Trait parentBVal, bool canMutate)
+    {
+        if (Random.value * 100 < mutationChance)  // Gene mutation
+        {
+            type = InheritanceType.FullRandom;
+        }
 
-    //        case InheritanceType.WeightedRandom:
-    //            {
-    //                return WeightedRandomInt(upperBound, geneWeightingPercentage, parentAVal, parentBVal);
-    //            }
+        switch (type)
+        {
+            case InheritanceType.FullRandom:
+            {
+                /// ADD RANDOM TRAIT -----------------------------------------------------------
+                return PunnetSquareTrait(parentAVal, parentBVal);
+            }
 
-    //        case InheritanceType.Punnett:
-    //            {
-    //                Debug.LogError("Punnet squares are not supported for integer genes, please ask Aaron to implement this");
-    //                return FullyRandomInt(upperBound);
-    //            }
+            case InheritanceType.WeightedRandom:
+            {
+                Debug.LogError("Weighted Random is not supported for traits, please ask Aaron to implement this");
+                return PunnetSquareTrait(parentAVal, parentBVal);
+            }
 
-    //        case InheritanceType.FlatAverage:
-    //            {
-    //                return FlatAverageInt(parentAVal, parentBVal);
-    //            }
+            case InheritanceType.Punnett:
+            {
+                return PunnetSquareTrait(parentAVal, parentBVal);
+            }
 
-    //        default:  // Error case
-    //            {
-    //                return FullyRandomInt(upperBound);
-    //            }
-    //    }
-    //}
+            case InheritanceType.FlatAverage:
+            {
+                Debug.LogError("Flat Average is not supported for traits, please ask Aaron to implement this");
+                return PunnetSquareTrait(parentAVal, parentBVal);
+            }
+
+            default:  // Error case
+            {
+                return PunnetSquareTrait(parentAVal, parentBVal);
+            }
+        }
+    }
 }

@@ -144,6 +144,17 @@ public class ShrimpBreeding : ShrimpActivity
 
     private void LayEggs()
     {
-        shrimp.tank.SpawnShrimp();
+        //shrimp.tank.SpawnShrimp();
+
+        GameObject newShrimp = GameObject.Instantiate(shrimp.tank.shrimpPrefab, shrimp.tank.GetRandomTankPosition(), Quaternion.identity);
+        Shrimp s = newShrimp.GetComponent<Shrimp>();
+
+        s.stats = ShrimpManager.instance.CreateShrimpThroughBreeding(shrimp.stats, otherShrimp.stats);
+        s.ChangeTank(shrimp.tank);
+        newShrimp.name = s.stats.name;
+        newShrimp.transform.parent = shrimp.tank.shrimpParent;
+        newShrimp.transform.position = (shrimp.transform.position + otherShrimp.transform.position) / 2;  // Spawn inbetween the two shrimp
+
+        shrimp.tank.shrimpToAdd.Add(s);
     }
 }
