@@ -998,28 +998,6 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "ff02dd7a-c9a7-420d-ab69-050ce62123c6",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ExitView",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "79871006-94b0-4511-9ea8-b5cb13df028f",
-                    "path": "<Keyboard>/m",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ExitView",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dfe65da8-e84b-4983-b3b7-b596bf51d6a3",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -1149,6 +1127,39 @@
                     "action": "SwitchTank",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ff02dd7a-c9a7-420d-ab69-050ce62123c6",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitView",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79871006-94b0-4511-9ea8-b5cb13df028f",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitView",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6679e497-f52c-419b-ab2f-53edcefed80f",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ExitView",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

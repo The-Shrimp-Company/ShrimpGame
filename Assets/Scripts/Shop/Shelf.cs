@@ -7,10 +7,12 @@ public class Shelf : MonoBehaviour
 {
     private TankSocket[] _tanks;
 
-    
+    private ShelfSpawn shelves;
 
     private void OnDisable()
     {
+        shelves = GetComponentInParent<ShelfSpawn>();
+
         _tanks = GetComponentsInChildren<TankSocket>();
 
         foreach (TankSocket tank in _tanks)
@@ -32,4 +34,7 @@ public class Shelf : MonoBehaviour
         return null;
     }
 
+    public ShelfSpawn GetShelves() { return shelves; }
+
+    
 }

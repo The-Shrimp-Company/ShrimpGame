@@ -46,17 +46,4 @@ public class PlayerMovement : MonoBehaviour
         move = Move.Get<Vector2>() / 2;
         move *= Speed;
     }
-
-    /*
-    public void OnCrouch(InputValue Crouch)
-    {
-        if (Crouch.isPressed)
-        {
-            cam.transform.localPosition = new Vector3(0, 0, 0);
-        }else if (!Crouch.isPressed)
-        {
-            cam.transform.localPosition = Vector3.up/2;
-        }
-    }
-    */
 }

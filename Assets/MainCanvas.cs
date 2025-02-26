@@ -9,6 +9,8 @@ public class MainCanvas : MonoBehaviour
 
     private GameObject lastCreated;
 
+    private ShelfSpawn shelves;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,5 +31,10 @@ public class MainCanvas : MonoBehaviour
         player.GetComponent<PlayerTablet>().OnCloseTablet();
         Destroy(lastCreated);
         UIManager.instance.ChangeFocus();
+    }
+
+    public ShelfSpawn GetShelves()
+    {
+        return shelves;
     }
 }

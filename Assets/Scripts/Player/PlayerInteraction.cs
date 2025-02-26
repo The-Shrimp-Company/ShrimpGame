@@ -35,7 +35,7 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     public void OnPlayerClick()
     {
-        GameObject target = lookCheck.LookCheck(5, "Tanks");
+        GameObject target = lookCheck.LookCheck(3, "Tanks");
 
         if (target != null)
         {
