@@ -19,6 +19,6 @@ public class FakeCursor : MonoBehaviour
 
     private void Update()
     {
-        rect.position = Mouse.current.position.value;
+        rect.position = Mouse.current.position.value / rect.localScale;
     }
 }

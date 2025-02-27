@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -63,4 +64,13 @@ public class ShrimpView : TankViewScript
         }
     }
     */
+
+    public void Exit()
+    {
+        GameObject newitem = Instantiate(tankView, _shrimp.tank.transform);
+        TankController tank = _shrimp.tank.GetComponent<TankController>();
+        Camera.main.transform.position = tank.GetCam().transform.position;
+        Camera.main.transform.rotation = tank.GetCam().transform.rotation;
+        UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
+    }
 }

@@ -21,6 +21,8 @@ public class InventoryContent : ContentPopulation
 
     public void TankAssignment(GameObject tankSocket)
     {
+        transform.parent.GetComponentInChildren<BackButton>().gameObject.SetActive(false);
+
         foreach(ContentBlock block in contentBlocks)
         {
             if (!block.GetText().text.Contains("Tank"))

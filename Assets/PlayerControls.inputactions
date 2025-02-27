@@ -969,7 +969,7 @@
                 },
                 {
                     "name": "TankClick",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "cf3cca3b-a08e-42a8-9d4d-a14340c9516d",
                     "expectedControlType": "Button",
                     "processors": "",

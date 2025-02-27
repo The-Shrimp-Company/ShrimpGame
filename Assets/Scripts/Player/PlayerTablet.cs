@@ -32,7 +32,7 @@ public class PlayerTablet : PlayerUIController
         _tabletRect.gameObject.SetActive(true);
         RectTools.ChangeRectTransform(_tabletRect, _tabletActiveCoord);
         UIManager.instance.ChangeFocus(_tabletInteraction);
-
+        _tabletInteraction.GetComponent<CanvasGroup>().interactable = true;
         _input.SwitchCurrentActionMap("UI");
     }
 
@@ -41,10 +41,9 @@ public class PlayerTablet : PlayerUIController
         _tabletRect.gameObject.SetActive(true);
         RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
         UIManager.instance.ChangeFocus();
-
+        _tabletInteraction.GetComponent<CanvasGroup>().interactable = false;
         _input.SwitchCurrentActionMap("Move");
     }
 
-    
 
 }

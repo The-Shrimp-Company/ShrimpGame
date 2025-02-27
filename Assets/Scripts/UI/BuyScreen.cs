@@ -13,4 +13,6 @@ public class BuyScreen : ScreenView
     {
         shelves.SpawnShrimp();
     }
+
+    
 }

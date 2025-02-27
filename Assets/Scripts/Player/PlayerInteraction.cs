@@ -39,11 +39,11 @@ public class PlayerInteraction : MonoBehaviour
 
         if (target != null)
         {
-            if (target.GetComponent<TankController>())
+            if (target.GetComponent<TankController>() != null)
             {
                 SetTankFocus(target.GetComponent<TankController>());
             }
-            else
+            else if(target.GetComponent<TankSocket>())
             {
                 GameObject invenScreen = UIManager.instance.GetCanvas().GetComponent<MainCanvas>().RaiseScreen(inventory);
                 invenScreen.GetComponentInChildren<InventoryContent>().TankAssignment(target);
@@ -66,7 +66,7 @@ public class PlayerInteraction : MonoBehaviour
             tankController.FocusTank();
             _tankView = tankController.gameObject;
         }
-        else Debug.LogError("Cannot find tank to focus");
+        else Debug.LogError("Cannot find tank to focus. This should be impossible");
     }
 
     /// <summary>
@@ -114,6 +114,9 @@ public class PlayerInteraction : MonoBehaviour
     /// <param name="point"></param>
     public void OnTankClick(InputValue point)
     {
-        UIManager.instance.GetFocus().GetComponent<TankViewScript>().MouseClick(Mouse.current.position.value, point.isPressed);
+        if (point.isPressed)
+        {
+            UIManager.instance.GetFocus().GetComponent<TankViewScript>().MouseClick(Mouse.current.position.value, point.isPressed);
+        }
     }
 }

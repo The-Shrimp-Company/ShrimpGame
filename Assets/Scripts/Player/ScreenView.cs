@@ -17,6 +17,8 @@ public class ScreenView : MonoBehaviour
     [SerializeField]
     protected ShelfSpawn shelves;
 
+    protected GameObject player;
+
     protected RectTransform[] buttons;
 
     protected string _clickedButton = null;
@@ -24,7 +26,7 @@ public class ScreenView : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     
@@ -32,5 +34,10 @@ public class ScreenView : MonoBehaviour
     public virtual void Close()
     {
         Destroy(gameObject);
+    }
+
+    public void Exit()
+    {
+        player.GetComponent<PlayerTablet>().OnOpenTablet();
     }
 }

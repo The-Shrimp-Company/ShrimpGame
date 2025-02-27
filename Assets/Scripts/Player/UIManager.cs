@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,9 @@ public class UIManager
 
         MainCanvas.GetComponentInChildren<TabletInteraction>().gameObject.GetComponent<CanvasGroup>().interactable = true;
 
+        
+        
+
         Cursor.lockState = CursorLockMode.Locked;
 
         if (_currentUI != null)
@@ -66,6 +70,7 @@ public class UIManager
         _currentUI = newFocus;
         _currentRect = customRect.rect;
 
+        _cursor.transform.localScale = Vector3.one;
 
         Cursor.visible = false;
 
