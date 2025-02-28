@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -6,6 +7,7 @@ public class ShrimpManager : MonoBehaviour
     public static ShrimpManager instance;
     private GeneManager geneManager;
 
+    public List<Shrimp> allShrimp = new List<Shrimp>();
     private int numberOfShrimp = 0;
 
 

@@ -57,6 +57,7 @@ public class TankController : MonoBehaviour
                 for (int i = shrimpToAdd.Count - 1; i >= 0; i--)
                 {
                     shrimpInTank.Add(shrimpToAdd[i]);
+                    ShrimpManager.instance.allShrimp.Add(shrimpToAdd[i]);
                     shrimpToAdd.RemoveAt(i);
                 }
             }
@@ -67,7 +68,10 @@ public class TankController : MonoBehaviour
                 for (int i = shrimpToRemove.Count - 1; i >= 0; i--)
                 {
                     if (shrimpInTank.Contains(shrimpToRemove[i]))
+                    {
                         shrimpInTank.Remove(shrimpToRemove[i]);
+                        ShrimpManager.instance.allShrimp.Remove(shrimpToRemove[i]);
+                    }
 
                     shrimpToRemove.RemoveAt(i);
                 }
