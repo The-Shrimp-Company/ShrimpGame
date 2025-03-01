@@ -23,6 +23,11 @@ public class ShrimpBreeding : ShrimpActivity
 
     protected override void StartActivity()
     {
+        if(otherShrimp == null)
+        {
+            EndActivity();
+            return;
+        }
         if (shrimp.stats.gender == false)  // Is female
             female = true;
 
@@ -45,6 +50,11 @@ public class ShrimpBreeding : ShrimpActivity
 
     protected override void UpdateActivity()
     {
+        if(otherShrimp == null)
+        {
+            EndActivity();
+            return;
+        }
         if (!breeding && instigator)
         {
             float dist = Vector3.Distance(shrimp.transform.position, otherShrimp.transform.position);
@@ -112,7 +122,7 @@ public class ShrimpBreeding : ShrimpActivity
     {
         if (breeding)
         {
-            if (female) LayEggs();
+            if (female && otherShrimp != null) LayEggs();
             if (particles != null) Object.Destroy(particles);
 
             if (debugBreeding) Debug.Log("Finished Breeding");

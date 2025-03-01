@@ -69,6 +69,7 @@ public class TankController : MonoBehaviour
                 {
                     if (shrimpInTank.Contains(shrimpToRemove[i]))
                     {
+                        shrimpToRemove[i].Destroy();
                         shrimpInTank.Remove(shrimpToRemove[i]);
                         ShrimpManager.instance.allShrimp.Remove(shrimpToRemove[i]);
                     }
@@ -87,6 +88,7 @@ public class TankController : MonoBehaviour
         }
     }
 
+    
 
     public void ToggleSaleTank()
     {

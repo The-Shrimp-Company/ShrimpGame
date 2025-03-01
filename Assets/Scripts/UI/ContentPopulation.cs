@@ -18,7 +18,7 @@ public class ContentPopulation : MonoBehaviour
 
     
 
-    protected void CreateContent(int quantity)
+    protected virtual void CreateContent(int quantity)
     {
         for (int i = 0; i < quantity; i++)
         {

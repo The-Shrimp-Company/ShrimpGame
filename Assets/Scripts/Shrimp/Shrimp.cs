@@ -11,6 +11,8 @@ public class Shrimp : MonoBehaviour
     public ShrimpAgent agent;
     public Transform camDock;
 
+    private bool ToKill = false;
+
     [Header("Breeding")]
     public GameObject breedingHeartParticles;
 
@@ -28,6 +30,13 @@ public class Shrimp : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (ToKill)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void UpdateShrimp(float elapsedTime)
     {
@@ -146,5 +155,9 @@ public class Shrimp : MonoBehaviour
         // Clear all activities
     }
 
+    public void Destroy()
+    {
+        ToKill = true;
+    }
 
 }
