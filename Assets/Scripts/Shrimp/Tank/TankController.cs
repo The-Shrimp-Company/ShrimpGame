@@ -8,7 +8,7 @@ public class TankController : MonoBehaviour
 {
     public List<Shrimp> shrimpInTank = new List<Shrimp>();
     [HideInInspector] public List<Shrimp> shrimpToAdd = new List<Shrimp>();
-    private List<Shrimp> shrimpToRemove = new List<Shrimp>();
+    public List<Shrimp> shrimpToRemove = new List<Shrimp>();
 
     private float updateTimer;
     public float updateTime;  // The time between each shrimp update, 0 will be every frame
