@@ -36,7 +36,7 @@ public class ScreenView : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Exit()
+    public virtual void Exit()
     {
         player.GetComponent<PlayerTablet>().OnOpenTablet();
     }

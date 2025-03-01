@@ -19,7 +19,6 @@ public class TankViewScript : ScreenView
 
     protected override void Start()
     {
-        buttons = GetComponentsInChildren<RectTransform>().Where(x => x.CompareTag("Button")).ToArray();
         shelves = GetComponentInParent<ShelfSpawn>();
         tank = GetComponentInParent<TankController>();
         panelresting = panel.transform.position;
@@ -85,6 +84,7 @@ public class TankViewScript : ScreenView
             GameObject newitem = Instantiate(shrimpView);
             UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
             newitem.GetComponent<ShrimpView>().Populate(_shrimp);
+            _shrimp.GetComponentInChildren<ShrimpCam>().SetCam(); 
         }
     }
 }

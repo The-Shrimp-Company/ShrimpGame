@@ -66,7 +66,7 @@ public class PlayerInteraction : MonoBehaviour
             tankController.FocusTank();
             _tankView = tankController.gameObject;
         }
-        else Debug.LogError("Cannot find tank to focus. This should be impossible");
+        else Debug.LogError("Cannot find tank to focus.");
     }
 
     /// <summary>
@@ -76,21 +76,24 @@ public class PlayerInteraction : MonoBehaviour
     /// <param name="Key"></param>
     public void OnSwitchTank(InputValue Key)
     {
-        if (Key.Get<Vector2>().normalized != press)
+        if (UIManager.instance.GetFocus().GetComponent<TankViewScript>() != null)
         {
-            press = Key.Get<Vector2>().normalized;
-            if (press != Vector2.zero || press != null)
+            if (Key.Get<Vector2>().normalized != press)
             {
-                RaycastHit hit;
-                if (Physics.Raycast(_tankView.GetComponent<Collider>().bounds.center, _tankView.transform.TransformDirection(new Vector3(-press.x, press.y, 0)), out hit, 1f, layerMask: LayerMask.GetMask("Tanks")))
+                press = Key.Get<Vector2>().normalized;
+                if (press != Vector2.zero || press != null)
                 {
-                    //Debug.Log("YEah");
-                    SetTankFocus(hit.transform.GetComponent<TankController>());
+                    RaycastHit hit;
+                    if (Physics.Raycast(_tankView.GetComponent<Collider>().bounds.center, _tankView.transform.TransformDirection(new Vector3(-press.x, press.y, 0)), out hit, 1f, layerMask: LayerMask.GetMask("Tanks")))
+                    {
+                        //Debug.Log("YEah");
+                        SetTankFocus(hit.transform.GetComponent<TankController>());
+                    }
                 }
-            }
-            else
-            {
-                //Debug.Log("HJEHFSDHFSD");
+                else
+                {
+                    //Debug.Log("HJEHFSDHFSD");
+                }
             }
         }
     }

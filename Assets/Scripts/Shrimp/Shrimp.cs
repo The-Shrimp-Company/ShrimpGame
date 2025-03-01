@@ -9,8 +9,7 @@ public class Shrimp : MonoBehaviour
     public TankController tank;
     private int minActivitiesInQueue = 2;
     public ShrimpAgent agent;
-    [SerializeField]
-    private Transform camDock;
+    public Transform camDock;
 
     [Header("Breeding")]
     public GameObject breedingHeartParticles;
@@ -147,9 +146,5 @@ public class Shrimp : MonoBehaviour
         // Clear all activities
     }
 
-    public void SetCam()
-    {
-        UIManager.instance.GetCamera().transform.position = camDock.position;
-        UIManager.instance.GetCamera().transform.LookAt(transform.position);
-    }
+
 }

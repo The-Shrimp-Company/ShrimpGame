@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController CC;
 
-    Camera cam;
-
 
     [Header("Movement Modifier")]
     public float Speed;
@@ -26,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         CC = GetComponent<CharacterController>();
-        cam = GetComponentInChildren<Camera>();
     }
 
     private void FixedUpdate()

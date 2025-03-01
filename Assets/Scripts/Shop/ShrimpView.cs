@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ShrimpView : TankViewScript
+public class ShrimpView : ScreenView
 {
 
     [SerializeField]
@@ -17,17 +17,21 @@ public class ShrimpView : TankViewScript
     private TextMeshProUGUI gender;
     [SerializeField]
     private RenderTexture texture;
+    protected Shrimp _shrimp;
 
+    protected override void Start()
+    {
+        player = GameObject.Find("Player");
+    }
 
-
-    public override void Update()
+    public void Update()
     {
         //base.Update();
         if (_shrimp != null)
         {
-            Camera.main.transform.position = _shrimp.transform.position - Vector3.right;
-            Camera.main.transform.LookAt(_shrimp.transform.position);
-            _shrimp.SetCam();
+            player.GetComponent<PlayerUIController>().SetShrimpCam(_shrimp.GetComponentInChildren<ShrimpCam>());
+            //Camera.main.transform.position = _shrimp.camDock.transform.position;
+            //Camera.main.transform.LookAt(_shrimp.transform.position);
         }
     }
 
@@ -37,7 +41,6 @@ public class ShrimpView : TankViewScript
         title.text = _shrimp.stats.name;
         age.text = "Age: " + _shrimp.stats.age.ToString();
         gender.text = "Gender: " + (_shrimp.stats.gender == true ? "M" : "F");
-        _shrimp.SetCam();
     }
 
     /*
@@ -65,8 +68,10 @@ public class ShrimpView : TankViewScript
     }
     */
 
-    public void Exit()
+    public override void Exit()
     {
+        _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
+        player.GetComponent<PlayerUIController>().UnsetShrimpCam();
         GameObject newitem = Instantiate(tankView, _shrimp.tank.transform);
         TankController tank = _shrimp.tank.GetComponent<TankController>();
         Camera.main.transform.position = tank.GetCam().transform.position;
