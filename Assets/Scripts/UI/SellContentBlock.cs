@@ -14,7 +14,7 @@ public class SellContentBlock : ContentBlock
 
     public void SellShrimp()
     {
-        Money.instance.AddMoney(10);
+        Money.instance.AddMoney(_shrimp.FindValue());
         _shrimp.tank.shrimpToRemove.Add(_shrimp);
         Destroy(gameObject);
     }

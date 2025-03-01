@@ -160,4 +160,9 @@ public class Shrimp : MonoBehaviour
         ToKill = true;
     }
 
+    public int FindValue()
+    {
+        // Put value funtion here
+        return 11;
+    }
 }

@@ -16,12 +16,20 @@ public class TankViewScript : ScreenView
     protected Shrimp _shrimp;
     [SerializeField]
     protected TextMeshProUGUI tankPop;
+    [SerializeField]
+    private GameObject _content;
+    [SerializeField]
+    private GameObject _contentBlock;
 
     protected override void Start()
     {
         shelves = GetComponentInParent<ShelfSpawn>();
         tank = GetComponentInParent<TankController>();
         panelresting = panel.transform.position;
+        foreach(Shrimp shrimp in tank.shrimpInTank)
+        {
+            Instantiate(_contentBlock, _content.transform).GetComponent<ContentBlock>().SetText(shrimp.name);
+        }
     }
 
 
