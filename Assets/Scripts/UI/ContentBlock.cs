@@ -19,8 +19,10 @@ public class ContentBlock : MonoBehaviour
 
     public void SetText(string textToSet)
     {
+        Canvas.ForceUpdateCanvases();
         text.text = textToSet;
-        text.fontSize = GetComponent<RectTransform>().rect.width;
+        text.fontSize = GetComponent<RectTransform>().rect.width > GetComponent<RectTransform>().rect.height ? GetComponent<RectTransform>().rect.height : GetComponent<RectTransform>().rect.width;
+        text.fontSize = text.fontSize * 0.9f;
     }
 
     public TextMeshProUGUI GetText()

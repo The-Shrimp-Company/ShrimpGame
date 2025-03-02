@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShrimpView : ScreenView
 {
@@ -77,5 +78,29 @@ public class ShrimpView : ScreenView
         Camera.main.transform.position = tank.GetCam().transform.position;
         Camera.main.transform.rotation = tank.GetCam().transform.rotation;
         UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
+    }
+
+    public void SetName(TextMeshProUGUI input)
+    {
+        Debug.Log(input.text);
+
+    }
+
+    public void UISelect()
+    {
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Empty");
+    }
+
+    public void UIUnselect()
+    {
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("TankView");
+    }
+
+    public override void Close()
+    {
+
+        _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
+        player.GetComponent<PlayerUIController>().UnsetShrimpCam();
+        base.Close();
     }
 }
