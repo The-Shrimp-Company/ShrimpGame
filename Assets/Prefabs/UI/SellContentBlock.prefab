@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backSprites: []
   text: {fileID: 3881294762427055595}
+  _salePrice: {fileID: 1073953717147184646}
 --- !u!1 &8894877893168884364
 GameObject:
   m_ObjectHideFlags: 0

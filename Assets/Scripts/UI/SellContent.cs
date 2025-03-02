@@ -17,6 +17,7 @@ public class SellContent : ContentPopulation
             SellContentBlock tempBlock = Instantiate(contentBlock, transform).GetComponent<SellContentBlock>();
             tempBlock.SetText(shrimp.name);
             tempBlock.SetShrimp(shrimp);
+            tempBlock.SetSalePrice();
             contentBlocks.Add(tempBlock);
         }
     }

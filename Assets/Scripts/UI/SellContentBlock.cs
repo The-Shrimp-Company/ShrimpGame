@@ -24,7 +24,8 @@ public class SellContentBlock : ContentBlock
 
     public void SetSalePrice()
     {
+        Canvas.ForceUpdateCanvases();
         _salePrice.text = _shrimp.FindValue().ToString();
-        //_salePrice.fontSize = 
+        _salePrice.fontSize = _salePrice.GetComponent<RectTransform>().rect.height;
     }
 }
