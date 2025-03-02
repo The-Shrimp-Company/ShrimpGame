@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class ShrimpBreeding : ShrimpActivity
 {
-    private float breedDistance = 0.03f;
+    private float breedDistance = 0.0375f;
     private float waitDistance = 0.15f;
     private float breedTime = 10;
+
+    // While waiting for instigator
+    private float bobSpeed = 0.5f;
+    private float bobMagnitude = 0.1f;
 
     public Shrimp otherShrimp;
     private ShrimpBreeding otherBreeding;  // The breeding script for the other shrimp
@@ -17,7 +21,7 @@ public class ShrimpBreeding : ShrimpActivity
     private bool breeding;  // If they are close enough and have started breeding
     private ShrimpMovement movement = null;
     private GameObject particles;
-    private bool debugBreeding = false;
+    private bool debugBreeding = true;
 
 
 
@@ -99,7 +103,7 @@ public class ShrimpBreeding : ShrimpActivity
 
         else if (!breeding && !instigator)  // Other shimp is waiting for the instigator
         {
-            
+            shrimp.transform.position = shrimp.transform.position + shrimp.transform.up * Mathf.Sin(Time.time * bobSpeed) * (bobMagnitude / 5000);
         }
 
         else  // If they are breeding
