@@ -107,7 +107,7 @@ public class ShrimpBreeding : ShrimpActivity
             // Whatever happens while they are breeding
 
             if (otherShrimp.transform.position - shrimp.transform.position != Vector3.zero)
-                shrimp.transform.rotation = Quaternion.RotateTowards(shrimp.transform.rotation, Quaternion.LookRotation((otherShrimp.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.turnSpeed / 2);
+                shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((otherShrimp.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.turnSpeed / 2);
         }
     }
 

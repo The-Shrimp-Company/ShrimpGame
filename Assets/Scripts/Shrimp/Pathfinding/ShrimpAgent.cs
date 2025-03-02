@@ -37,6 +37,8 @@ public class ShrimpAgent : MonoBehaviour
     public AgentStatus Status = AgentStatus.Finished;
     private int movingPathIndex;
 
+    public Transform shrimpModel;  // The part of the prefab that should rotate and hold the shrimp model
+
 
 
     private List<GridNode> RetracePath(NodeData start, NodeData current, NodeData[][][] dataSet)
@@ -373,12 +375,12 @@ public class ShrimpAgent : MonoBehaviour
                 Vector3 forwardDirection = (totalPath[i].worldPos - transform.position).normalized;
                 if (curvePath)
                 {
-                    transform.position += transform.forward * Time.deltaTime * speed;
-                    transform.forward = Vector3.Slerp(transform.forward, forwardDirection, Time.deltaTime * turnSpeed);
+                    transform.position += shrimpModel.forward * Time.deltaTime * speed;
+                    shrimpModel.forward = Vector3.Slerp(shrimpModel.forward, forwardDirection, Time.deltaTime * turnSpeed);
                 }
                 else
                 {
-                    transform.forward = forwardDirection;
+                    shrimpModel.forward = forwardDirection;
                     transform.position = Vector3.MoveTowards(transform.position, totalPath[i].worldPos, Time.deltaTime * speed);
                 }
 
