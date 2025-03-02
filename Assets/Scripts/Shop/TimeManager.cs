@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private float totalTime;
+    [SerializeField] float secondsInADay;
+    public int day = 1;
+    public float hour;
+    public int minute;
+
     void Start()
     {
         
@@ -13,6 +18,10 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        totalTime += Time.deltaTime / secondsInADay;
+
+        day = 1 + Mathf.FloorToInt(totalTime);
+        hour = Mathf.FloorToInt(totalTime * 24 % 24);
+        minute = Mathf.FloorToInt(totalTime * 24 * 60 % 60);// 1440;
     }
 }
