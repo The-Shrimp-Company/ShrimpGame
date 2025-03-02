@@ -21,7 +21,7 @@ public class ShrimpBreeding : ShrimpActivity
     private bool breeding;  // If they are close enough and have started breeding
     private ShrimpMovement movement = null;
     private GameObject particles;
-    private bool debugBreeding = true;
+    private bool debugBreeding = false;
 
 
 
@@ -111,7 +111,7 @@ public class ShrimpBreeding : ShrimpActivity
             // Whatever happens while they are breeding
 
             if (otherShrimp.transform.position - shrimp.transform.position != Vector3.zero)
-                shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((otherShrimp.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.turnSpeed / 2);
+                shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((otherShrimp.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.turnSpeed);
         }
     }
 

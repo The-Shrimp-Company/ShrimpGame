@@ -11,7 +11,7 @@ public class Shrimp : MonoBehaviour
     public ShrimpAgent agent;
     public Transform camDock;
 
-    private bool ToKill = false;
+    private bool toKill = false;  // If it should be destroyed at the end of this frame
 
     [Header("Breeding")]
     public GameObject breedingHeartParticles;
@@ -32,7 +32,7 @@ public class Shrimp : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (ToKill)
+        if (toKill)
         {
             Destroy(gameObject);
         }
@@ -157,7 +157,7 @@ public class Shrimp : MonoBehaviour
 
     public void Destroy()
     {
-        ToKill = true;
+        toKill = true;
     }
 
     public int FindValue()

@@ -25,20 +25,35 @@ public class TankViewScript : ScreenView
     {
         shelves = GetComponentInParent<ShelfSpawn>();
         tank = GetComponentInParent<TankController>();
+        tank.tankViewScript = this;
         panelresting = panel.transform.position;
-        foreach(Shrimp shrimp in tank.shrimpInTank)
-        {
-            TankContentBlock temp = Instantiate(_contentBlock, _content.transform).GetComponent<TankContentBlock>();
-            temp.SetShrimp(shrimp);
-            temp.SetText(shrimp.name);
-        }
+
+        UpdateContent();
     }
 
 
     public virtual void Update()
     {
         //base.Update();
-        if(tankPop != null)
+
+    }
+
+    public void UpdateContent()
+    {
+        foreach (Transform child in _content.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+
+        foreach (Shrimp shrimp in tank.shrimpInTank)
+        {
+            TankContentBlock temp = Instantiate(_contentBlock, _content.transform).GetComponent<TankContentBlock>();
+            temp.SetShrimp(shrimp);
+            temp.SetText(shrimp.name);
+        }
+
+
+        if (tankPop != null)
         {
             tankPop.text = "Tank Population: " + tank.shrimpInTank.Count.ToString();
         }

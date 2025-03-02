@@ -24,6 +24,7 @@ public class TankController : MonoBehaviour
     public GameObject shrimpPrefab;
 
     [SerializeField] private GameObject tankViewPrefab;
+    [HideInInspector] public TankViewScript tankViewScript;
 
     [SerializeField] bool autoSpawnTestShrimp;
 
@@ -59,6 +60,8 @@ public class TankController : MonoBehaviour
                     shrimpInTank.Add(shrimpToAdd[i]);
                     ShrimpManager.instance.allShrimp.Add(shrimpToAdd[i]);
                     shrimpToAdd.RemoveAt(i);
+
+                    if (tankViewScript != null) tankViewScript.UpdateContent();
                 }
             }
 
@@ -69,9 +72,12 @@ public class TankController : MonoBehaviour
                 {
                     if (shrimpInTank.Contains(shrimpToRemove[i]))
                     {
-                        shrimpToRemove[i].Destroy();
                         shrimpInTank.Remove(shrimpToRemove[i]);
                         ShrimpManager.instance.allShrimp.Remove(shrimpToRemove[i]);
+
+                        if (tankViewScript != null) tankViewScript.UpdateContent();
+
+                        shrimpToRemove[i].Destroy();
                     }
 
                     shrimpToRemove.RemoveAt(i);
