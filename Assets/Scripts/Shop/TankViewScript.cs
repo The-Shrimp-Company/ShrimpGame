@@ -28,7 +28,9 @@ public class TankViewScript : ScreenView
         panelresting = panel.transform.position;
         foreach(Shrimp shrimp in tank.shrimpInTank)
         {
-            Instantiate(_contentBlock, _content.transform).GetComponent<ContentBlock>().SetText(shrimp.name);
+            TankContentBlock temp = Instantiate(_contentBlock, _content.transform).GetComponent<TankContentBlock>();
+            temp.SetShrimp(shrimp);
+            temp.SetText(shrimp.name);
         }
     }
 
