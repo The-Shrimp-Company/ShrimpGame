@@ -25695,6 +25695,7 @@ GameObject:
   - component: {fileID: 705895234}
   - component: {fileID: 705895233}
   - component: {fileID: 705895235}
+  - component: {fileID: 705895236}
   m_Layer: 0
   m_Name: Shrimp Manager
   m_TagString: Untagged
@@ -25788,6 +25789,22 @@ MonoBehaviour:
   colourCanMutate: 1
   patternCanMutate: 1
   bodyPartCanMutate: 1
+--- !u!114 &705895236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705895232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66106b5073db29d4698ebb695ce09dd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsInADay: 300
+  day: 0
+  hour: 0
+  minute: 0
 --- !u!43 &706526439
 Mesh:
   m_ObjectHideFlags: 0
@@ -70623,6 +70640,24 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1943119477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2921838707910892596, guid: da7cc99513db8fb4fb67737c87e0604e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6480602380772640825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1943119482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943119477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e29334c5cf86854eae1d268376d97a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1947766606
 Mesh:
   m_ObjectHideFlags: 0
@@ -78167,7 +78202,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2921838707910892596, guid: da7cc99513db8fb4fb67737c87e0604e,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1943119482}
   m_SourcePrefab: {fileID: 100100000, guid: da7cc99513db8fb4fb67737c87e0604e, type: 3}
 --- !u!114 &7433465067905762936
 MonoBehaviour:

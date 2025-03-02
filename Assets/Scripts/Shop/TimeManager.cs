@@ -1,27 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
-    private float totalTime;
+    public static TimeManager instance;
+
     [SerializeField] float secondsInADay;
-    public int day = 1;
+
+    private float totalTime;
+    public int day;
     public float hour;
     public int minute;
 
-    void Start()
+
+    public void Awake()
     {
-        
+        instance = this;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         totalTime += Time.deltaTime / secondsInADay;
 
         day = 1 + Mathf.FloorToInt(totalTime);
         hour = Mathf.FloorToInt(totalTime * 24 % 24);
-        minute = Mathf.FloorToInt(totalTime * 24 * 60 % 60);// 1440;
+        minute = Mathf.FloorToInt(totalTime * 1440 % 60);
     }
 }
