@@ -20,9 +20,10 @@ public class ShrimpManager : MonoBehaviour
     [Header("Illness")]
     private int maxShrimpIllness = 100;
 
-    [Header("Death")]
+    [Header("Age")]
     [SerializeField] int maxShrimpAge;
     [SerializeField] AnimationCurve shrimpNaturalDeathAge;
+    [SerializeField] AnimationCurve moltSpeed;  // In minutes, realtime
 
     [Header("Temperament")]
     private int maxShrimpTemperament = 100;
@@ -43,7 +44,7 @@ public class ShrimpManager : MonoBehaviour
 
         s.name = "Shrimp " + numberOfShrimp;
         s.gender = geneManager.RandomGender();
-        s.age = 0;
+        s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 0;
         s.illness = 0;
         s.geneticSize = geneManager.IntGene(geneManager.sizeInheritance, maxShrimpSize, parentA.geneticSize, parentB.geneticSize, geneManager.sizeCanMutate);
@@ -78,7 +79,7 @@ public class ShrimpManager : MonoBehaviour
 
         s.name = "Shrimp " + numberOfShrimp;
         s.gender = geneManager.RandomGender();
-        s.age = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+        s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpSize, 0, 0, false);
         s.hunger = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
@@ -115,7 +116,7 @@ public class ShrimpManager : MonoBehaviour
 
         s.name = "Shrimp " + numberOfShrimp;
         s.gender = geneManager.RandomGender();
-        s.age = 0;
+        s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 0;
         s.illness = 0;
         s.temperament = 0;
@@ -132,8 +133,13 @@ public class ShrimpManager : MonoBehaviour
 
 
 
-    public bool CheckForNaturalDeath(int age)  // Decides whether the shrimp dies of old age today. Will return true if it should.
+    public bool CheckForMoltFail(int age)  // Decides whether the shrimp dies of old age today. Will return true if it should.
     {
-        return (Random.value > shrimpNaturalDeathAge.Evaluate(age / maxShrimpAge));
+        return (Random.value < shrimpNaturalDeathAge.Evaluate(age / maxShrimpAge));
+    }
+
+    public float GetMoltTime(int age)
+    {
+        return moltSpeed.Evaluate(age / maxShrimpAge);
     }
 }

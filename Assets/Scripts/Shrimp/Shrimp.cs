@@ -10,6 +10,7 @@ public class Shrimp : MonoBehaviour
     private int minActivitiesInQueue = 2;
     public ShrimpAgent agent;
     public Transform camDock;
+    private float moltTimer;
 
     private bool toKill = false;  // If it should be destroyed at the end of this frame
 
@@ -40,9 +41,11 @@ public class Shrimp : MonoBehaviour
 
     public void UpdateShrimp(float elapsedTime)
     {
+        // Activities
         float timeRemaining = elapsedTime;  // The time since the last update
         do
         {
+
             if (shrimpActivities.Count > 0 && shrimpActivities[0] != null)
             {
                 timeRemaining = shrimpActivities[0].Activity(timeRemaining);
@@ -57,6 +60,25 @@ public class Shrimp : MonoBehaviour
             }
         }
         while (timeRemaining > 0);
+
+
+
+        // Molting
+        moltTimer += elapsedTime;
+        float moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
+        while (moltTimer >= moltSpeed)
+        {
+            moltTimer -= moltSpeed;
+            stats.moltHistory++;
+
+            if (ShrimpManager.instance.CheckForMoltFail(TimeManager.instance.GetShrimpAge(stats.birthTime)))
+            {
+                // Molt has failed, the shrimp will now die
+                KillShrimp();
+            }
+
+            moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
+        }
     }
 
 
@@ -153,6 +175,13 @@ public class Shrimp : MonoBehaviour
         agent.tankGrid = tank.tankGrid;
 
         // Clear all activities
+    }
+
+    private void KillShrimp()
+    {
+        tank.shrimpToRemove.Add(this);
+        // Spawn dead body
+        // Notification message
     }
 
     public void Destroy()

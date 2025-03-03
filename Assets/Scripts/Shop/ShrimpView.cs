@@ -46,7 +46,7 @@ public class ShrimpView : ScreenView
         _shrimp = Shrimp;
         title.text = _shrimp.stats.name;
         //title.placeholder.GetComponent<TextMeshProUGUI>().text = _shrimp.stats.name;
-        age.text = "Age: " + _shrimp.stats.age.ToString();
+        age.text = "Age: " + TimeManager.instance.GetShrimpAge(_shrimp.stats.birthTime).ToString();
         gender.text = "Gender: " + (_shrimp.stats.gender == true ? "M" : "F");
     }
 
