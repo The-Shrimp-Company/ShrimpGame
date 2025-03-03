@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ShrimpView : ScreenView
 {
 
     [SerializeField]
-    private TextMeshProUGUI title;
+    private TMP_InputField title;
     [SerializeField]
     private GameObject tankView;
     [SerializeField]
@@ -36,38 +37,19 @@ public class ShrimpView : ScreenView
         }
     }
 
+    /// <summary>
+    /// Fills the shrimp view with the information about shrimp
+    /// </summary>
+    /// <param name="Shrimp"></param>
     public void Populate(Shrimp Shrimp)
     {
         _shrimp = Shrimp;
         title.text = _shrimp.stats.name;
+        //title.placeholder.GetComponent<TextMeshProUGUI>().text = _shrimp.stats.name;
         age.text = "Age: " + _shrimp.stats.age.ToString();
         gender.text = "Gender: " + (_shrimp.stats.gender == true ? "M" : "F");
     }
 
-    /*
-    protected override void PressedButton()
-    {
-        _clickedButtonUsed = true;
-        base.PressedButton();
-        _clickedButtonUsed = true;
-        switch (_clickedButton)
-        {
-            case "Exit":
-                GameObject newitem = Instantiate(tankView, _shrimp.tank.transform);
-                Camera.main.transform.position = _shrimp.tank.GetCam().transform.position;
-                Camera.main.transform.rotation = _shrimp.tank.GetCam().transform.rotation;
-                UIManager.instance.ChangeFocus(newitem.GetComponent<TabletInteraction>());
-                break;
-            default:
-                _clickedButtonUsed = false;
-                break;
-        }
-        if (_clickedButtonUsed)
-        {
-            _clickedButton = null;
-        }
-    }
-    */
 
     public override void Exit()
     {
