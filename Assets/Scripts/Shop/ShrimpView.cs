@@ -82,7 +82,9 @@ public class ShrimpView : ScreenView
 
     public void SetName(TextMeshProUGUI input)
     {
-        Debug.Log(input.text);
+        _shrimp.name = input.text;
+        _shrimp.stats.name = input.text;
+        title.text = input.text;
 
     }
 

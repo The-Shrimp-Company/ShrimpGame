@@ -17,8 +17,7 @@ public class SellContentBlock : ContentBlock
 
     public void SellShrimp()
     {
-        Money.instance.AddMoney(_shrimp.FindValue());
-        _shrimp.tank.shrimpToRemove.Add(_shrimp);
+        CustomerManager.Instance.PurchaseShrimp(_shrimp);
         Destroy(gameObject);
     }
 
@@ -26,6 +25,8 @@ public class SellContentBlock : ContentBlock
     {
         Canvas.ForceUpdateCanvases();
         _salePrice.text = _shrimp.FindValue().ToString();
-        _salePrice.fontSize = _salePrice.GetComponent<RectTransform>().rect.height;
+        int stringLength = _salePrice.text.Length;
+        Rect textRect = _salePrice.GetComponent<RectTransform>().rect;
+        _salePrice.fontSize = textRect.height < textRect.width / stringLength ? textRect.height : textRect.width / stringLength;
     }
 }
