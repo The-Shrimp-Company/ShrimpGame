@@ -119,7 +119,12 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (point.isPressed)
         {
-            UIManager.instance.GetFocus().GetComponent<TankViewScript>().MouseClick(Mouse.current.position.value, point.isPressed);
+            if (UIManager.instance.GetFocus().TryGetComponent<TankViewScript>(out TankViewScript tv))
+            {
+                tv.MouseClick(Mouse.current.position.value, point.isPressed);
+            }
+
+            //UIManager.instance.GetFocus().GetComponent<TankViewScript>().MouseClick(Mouse.current.position.value, point.isPressed);
         }
     }
 }
