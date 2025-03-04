@@ -25760,7 +25760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allShrimp: []
-  maxShrimpAge: 100
+  maxShrimpAge: 380
   shrimpNaturalDeathAge:
     serializedVersion: 2
     m_Curve:
@@ -25774,13 +25774,22 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.97064155
-      value: 0.2358564
-      inSlope: 0.914016
-      outSlope: 0.914016
+      time: 0.5000082
+      value: -0.00030253176
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.069290414
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.85882515
+      value: 0.26942575
+      inSlope: 1.8675907
+      outSlope: 1.8675907
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.085205376
       outWeight: 1
     - serializedVersion: 3
       time: 1
@@ -25790,6 +25799,39 @@ MonoBehaviour:
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  moltSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 7.994361
+      outSlope: 7.994361
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.50035024
+      value: 4.9999804
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06772844
+    - serializedVersion: 3
+      time: 1
+      value: 5.000305
+      inSlope: 0.00064990745
+      outSlope: 0.00064990745
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -25845,7 +25887,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66106b5073db29d4698ebb695ce09dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsInADay: 300
+  secondsInADay: 98
+  year: 0
   day: 0
   hour: 0
   minute: 0
