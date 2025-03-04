@@ -109,7 +109,7 @@ public class TankViewScript : ScreenView
             GameObject newitem = Instantiate(shrimpView);
             UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
             newitem.GetComponent<ShrimpView>().Populate(_shrimp);
-            _shrimp.GetComponentInChildren<ShrimpCam>().SetCam(); 
+            //_shrimp.GetComponentInChildren<ShrimpCam>().SetCam(); 
         }
     }
 }

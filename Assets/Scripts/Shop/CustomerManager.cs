@@ -6,6 +6,8 @@ public class CustomerManager : MonoBehaviour
 {
     static public CustomerManager Instance;
 
+    private int lastDay = 0;
+
     public List<Shrimp> ToPurchase { get; private set; } = new List<Shrimp>();
 
     private void Start()
@@ -18,13 +20,22 @@ public class CustomerManager : MonoBehaviour
 
     private void Update()
     {
-        if (ShrimpManager.instance.allShrimp.Count > 0)
+        if (TimeManager.instance.day != lastDay)
         {
-            if (Random.Range(0, 100) == 1)
+            lastDay = TimeManager.instance.day;
+            Debug.Log("Attempting To Add Shrimp To Sell");
+            if (ShrimpManager.instance.allShrimp.Count > 0)
             {
-                int RandShrimp = Random.Range(0, ShrimpManager.instance.allShrimp.Count);
-                if (!ToPurchase.Contains(ShrimpManager.instance.allShrimp[RandShrimp]))
-                AddShrimpToPurchase(ShrimpManager.instance.allShrimp[RandShrimp]);
+                float numToSell = Random.Range(0, ShrimpManager.instance.allShrimp.Count / 2 + 1);
+                for (int i = 0; i < numToSell; i++)
+                {
+                    int RandShrimp = Random.Range(0, ShrimpManager.instance.allShrimp.Count);
+                    if (!ToPurchase.Contains(ShrimpManager.instance.allShrimp[RandShrimp]))
+                    {
+                        Debug.Log("Adding shrimp to sell");
+                        AddShrimpToPurchase(ShrimpManager.instance.allShrimp[RandShrimp]);
+                    }
+                }
             }
         }
     }
