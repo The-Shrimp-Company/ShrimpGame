@@ -65,8 +65,8 @@ public class Shrimp : MonoBehaviour
 
         // Molting
         moltTimer += elapsedTime;
-        float moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
-        while (moltTimer >= moltSpeed)
+        float moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime)) * 60;
+        while (moltTimer >= moltSpeed && moltSpeed != 0)
         {
             moltTimer -= moltSpeed;
             stats.moltHistory++;
