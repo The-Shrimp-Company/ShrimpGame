@@ -16,7 +16,7 @@ public class Inventory
 
     public static Inventory instance = new Inventory();
 
-    
+    public List<TankController> activeTanks { get; private set; } = new List<TankController>();
 
     public Inventory()
     {

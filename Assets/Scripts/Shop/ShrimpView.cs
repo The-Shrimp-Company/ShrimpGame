@@ -20,6 +20,15 @@ public class ShrimpView : ScreenView
     [SerializeField]
     private RenderTexture texture;
     protected Shrimp _shrimp;
+    [SerializeField]
+    private GameObject currentTankScreen;
+
+    public void Click()
+    {
+        CurrentTankScreen screen = Instantiate(currentTankScreen, UIManager.instance.GetCanvas()).GetComponent<CurrentTankScreen>();
+        UIManager.instance.ChangeFocus(screen);
+        screen.SetShrimp(_shrimp);
+    }
 
     protected override void Start()
     {

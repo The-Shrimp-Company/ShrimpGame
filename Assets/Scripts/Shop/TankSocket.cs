@@ -31,6 +31,7 @@ public class TankSocket : MonoBehaviour
             tank.SetActive(true);
             GetComponent<BoxCollider>().enabled = false;
             shelves.SwitchSaleTank(tank.GetComponent<TankController>());
+            Inventory.instance.activeTanks.Add(tank.GetComponent<TankController>());
         }
     }
 

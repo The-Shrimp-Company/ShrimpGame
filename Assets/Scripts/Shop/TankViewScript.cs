@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TankViewScript : ScreenView
 {
@@ -20,14 +21,17 @@ public class TankViewScript : ScreenView
     private GameObject _content;
     [SerializeField]
     private GameObject _contentBlock;
+    [SerializeField]
+    private TMP_InputField Name;
 
     protected override void Start()
     {
+        player = GameObject.Find("Player");
         shelves = GetComponentInParent<ShelfSpawn>();
         tank = GetComponentInParent<TankController>();
         tank.tankViewScript = this;
         panelresting = panel.transform.position;
-
+        Name.text = tank.tankName;
         UpdateContent();
     }
 
@@ -42,7 +46,7 @@ public class TankViewScript : ScreenView
     {
         foreach (Transform child in _content.transform)
         {
-            GameObject.Destroy(child.gameObject);
+            Destroy(child.gameObject);
         }
 
         foreach (Shrimp shrimp in tank.shrimpInTank)
@@ -58,29 +62,6 @@ public class TankViewScript : ScreenView
             tankPop.text = "Tank Population: " + tank.shrimpInTank.Count.ToString();
         }
     }
-
-    /*
-    protected override void PressedButton()
-    {
-        _clickedButtonUsed = true;
-        switch (_clickedButton)
-        {
-            case "Set Tank":
-                shelves.SwitchSaleTank(tank);
-                break;
-            case "Hide Tank":
-                SlideMenu();
-                break;
-            default:
-                _clickedButtonUsed = false;
-                break;
-        }
-        if (_clickedButtonUsed)
-        {
-            _clickedButton = null;
-        }
-    }
-    */
 
     public void SetTank()
     {
@@ -111,5 +92,22 @@ public class TankViewScript : ScreenView
             newitem.GetComponent<ShrimpView>().Populate(_shrimp);
             //_shrimp.GetComponentInChildren<ShrimpCam>().SetCam(); 
         }
+    }
+
+    public void SetName(TextMeshProUGUI input)
+    {
+        tank.tankName = input.text;
+        Name.text = input.text;
+
+    }
+
+    public void UISelect()
+    {
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("Empty");
+    }
+
+    public void UIUnselect()
+    {
+        player.GetComponent<PlayerInput>().SwitchCurrentActionMap("TankView");
     }
 }

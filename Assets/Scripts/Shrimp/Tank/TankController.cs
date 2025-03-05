@@ -10,6 +10,8 @@ public class TankController : MonoBehaviour
     [HideInInspector] public List<Shrimp> shrimpToAdd = new List<Shrimp>();
     public List<Shrimp> shrimpToRemove = new List<Shrimp>();
 
+    public string tankName = null;
+
     private float updateTimer;
     public float updateTime;  // The time between each shrimp update, 0 will be every frame
 
@@ -33,6 +35,10 @@ public class TankController : MonoBehaviour
         if (tankGrid == null) Debug.LogError("Pathfinding grid is missing");
         if (shrimpParent == null) Debug.LogError("Shrimp Parent is missing");
 
+        if (string.IsNullOrEmpty(tankName))
+        {
+            tankName = gameObject.name;
+        }
 
         sign.SetActive(_saleTank);
 
@@ -122,6 +128,14 @@ public class TankController : MonoBehaviour
         SpawnRandomShrimp();
     }
 
+    public void MoveShrimp(Shrimp shrimp)
+    {
+        shrimp.tank.shrimpInTank.Remove(shrimp);
+        shrimp.transform.parent = shrimpParent;
+        shrimp.transform.position = GetRandomTankPosition();
+        shrimp.ChangeTank(this);
+        shrimpToAdd.Add(shrimp);
+    }
 
     public Vector3 GetRandomTankPosition()
     {
@@ -141,7 +155,11 @@ public class TankController : MonoBehaviour
     {
         return camDock;
     }
-
+    
+    public void Ref()
+    {
+        Debug.Log("Yes");
+    }
 
     public void FocusTank()
     {

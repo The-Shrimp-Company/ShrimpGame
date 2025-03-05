@@ -19,10 +19,6 @@ public class ScreenView : MonoBehaviour
 
     protected GameObject player;
 
-    protected RectTransform[] buttons;
-
-    protected string _clickedButton = null;
-    protected bool _clickedButtonUsed = false;
 
     protected virtual void Start()
     {
