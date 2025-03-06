@@ -18,14 +18,14 @@ public struct ShrimpStats
 
     public Trait primaryColour;
     public Trait secondaryColour;
-    public Trait type;
+    public Trait body;
+    public Trait head;
     public Trait eyes;
     public Trait pattern;
     public Trait tail;
     public Trait tailFan;
     public Trait antenna;
-    public Trait face;
-    public Trait frontLegs;
+    public Trait legs;
 
     public int fightHistory;
     public int breedingHistory;

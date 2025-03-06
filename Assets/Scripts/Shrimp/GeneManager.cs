@@ -31,10 +31,25 @@ public class GeneManager : MonoBehaviour
     public bool patternCanMutate = true;
     public bool bodyPartCanMutate = true;
 
+    [Header("Traits")]
+    public List<TraitSO> colourSOs = new List<TraitSO>();
+    public List<TraitSO> patternSOs = new List<TraitSO>();
+    public List<TraitSO> bodySOs = new List<TraitSO>();
+    public List<TraitSO> headSOs = new List<TraitSO>();
+    public List<TraitSO> eyeSOs = new List<TraitSO>();
+    public List<TraitSO> tailSOs = new List<TraitSO>();
+    public List<TraitSO> tailFanSOs = new List<TraitSO>();
+    public List<TraitSO> antennaSOs = new List<TraitSO>();
+    public List<TraitSO> legsSOs = new List<TraitSO>();
+
+    private List<Gene> loadedGlobalGenes = new List<Gene>();
+
+
 
     public void Awake()
     {
         instance = this;
+        LoadGenes();
     }
 
 
@@ -61,10 +76,6 @@ public class GeneManager : MonoBehaviour
 
     private Trait PunnetSquareTrait(Trait parentATrait, Trait parentBTrait)
     {
-        /*
-         * 
-         */
-
         Gene AA = parentATrait.activeGene;
         Gene AB = parentATrait.inactiveGene;
         Gene BA = parentBTrait.activeGene;
@@ -207,5 +218,114 @@ public class GeneManager : MonoBehaviour
                 return PunnetSquareTrait(parentAVal, parentBVal);
             }
         }
+    }
+
+
+
+    private void LoadGenes()
+    {
+        loadedGlobalGenes.Clear();
+
+        LoadTraitType(colourSOs);
+        LoadTraitType(patternSOs);
+        LoadTraitType(bodySOs);
+        LoadTraitType(headSOs);
+        LoadTraitType(eyeSOs);
+        LoadTraitType(tailSOs);
+        LoadTraitType(tailFanSOs);
+        LoadTraitType(antennaSOs);
+        LoadTraitType(legsSOs);
+    }
+
+    private void LoadTraitType(List<TraitSO> l)
+    {
+        foreach (TraitSO t in l)
+        {
+            Gene g = new Gene();
+            g.ID = t.ID;
+            g.dominance = (t.minDominance + t.maxDominance) / 2;
+            g.value = (t.minValue + t.maxValue) / 2;
+            loadedGlobalGenes.Add(g);
+        }
+    }
+
+
+    public TraitSO GetTraitSO(string ID)
+    {
+        TraitSO t = null;
+
+        if (ID[0] == 'C')
+            t = GetSOFromList(colourSOs, ID);
+
+        else if (ID[0] == 'P')
+            t = GetSOFromList(patternSOs, ID);
+
+        else if (ID[0] == 'B')
+            t = GetSOFromList(bodySOs, ID);
+
+        else if (ID[0] == 'H')
+            t = GetSOFromList(headSOs, ID);
+
+        else if (ID[0] == 'E')
+            t = GetSOFromList(eyeSOs, ID);
+
+        else if (ID[0] == 'T')
+            t = GetSOFromList(tailSOs, ID);
+
+        else if (ID[0] == 'F')
+            t = GetSOFromList(tailFanSOs, ID);
+
+        else if (ID[0] == 'A')
+            t = GetSOFromList(antennaSOs, ID);
+
+        else if (ID[0] == 'L')
+            t = GetSOFromList(legsSOs, ID);
+
+        else 
+            Debug.Log("ID " +  ID + " prefix could not be found");
+
+
+
+        if (t == null)
+        {
+            Debug.LogError("Trait SO with ID " + ID + " could not be found");
+        }
+
+        return t;
+    }
+
+    private TraitSO GetSOFromList(List<TraitSO> l, string ID)
+    {
+        foreach (TraitSO t in l)
+        {
+            if (t.ID == ID)
+            {
+                return t;
+            }
+        }
+
+        return null;
+    }
+
+
+    public Gene GetGlobalGene(string ID)
+    {
+        Gene r = new Gene();
+
+        foreach (Gene g in loadedGlobalGenes)
+        {
+            if (g.ID == ID)
+            {
+                r = g; 
+                break;
+            }
+        }
+
+        if (r.ID == null || r.ID == "")
+        {
+            Debug.LogError("Global gene with ID " + ID + " could not be found");
+        }
+
+        return r;
     }
 }
