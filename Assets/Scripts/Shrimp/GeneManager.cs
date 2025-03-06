@@ -74,6 +74,50 @@ public class GeneManager : MonoBehaviour
     }
 
 
+    private Trait FullyRandomTrait(Trait parentATrait, Trait parentBTrait)
+    {
+        char type = parentATrait.activeGene.ID[0];
+        Trait t = new Trait();
+
+        if (type == 'C')
+            t = RandomTraitFromList(colourSOs);
+
+        else if (type == 'P')
+            t = RandomTraitFromList(patternSOs);
+
+        else if (type == 'B')
+            t = RandomTraitFromList(bodySOs);
+
+        else if (type == 'H')
+            t = RandomTraitFromList(headSOs);
+
+        else if (type == 'E')
+            t = RandomTraitFromList(eyeSOs);
+
+        else if (type == 'T')
+            t = RandomTraitFromList(tailSOs);
+
+        else if (type == 'F')
+            t = RandomTraitFromList(tailFanSOs);
+
+        else if (type == 'A')
+            t = RandomTraitFromList(antennaSOs);
+
+        else if (type == 'L')
+            t = RandomTraitFromList(legsSOs);
+
+        else
+            Debug.Log("ID prefix " + type + " could not be found");
+
+        if (t.activeGene.ID == null || t.activeGene.ID == "")
+        {
+            Debug.LogError("Fully Random Trait using ID " + t.activeGene.ID + " could not be found");
+        }
+
+        return t;
+    }
+
+
     private Trait PunnetSquareTrait(Trait parentATrait, Trait parentBTrait)
     {
         Gene AA = parentATrait.activeGene;
@@ -185,21 +229,20 @@ public class GeneManager : MonoBehaviour
     {
         if (Random.value * 100 < mutationChance)  // Gene mutation
         {
-            type = InheritanceType.FullRandom;
+            type = InheritanceType.WeightedRandom;
         }
 
         switch (type)
         {
             case InheritanceType.FullRandom:
             {
-                /// ADD RANDOM TRAIT -----------------------------------------------------------
-                return PunnetSquareTrait(parentAVal, parentBVal);
+                return FullyRandomTrait(parentAVal, parentBVal);
             }
 
             case InheritanceType.WeightedRandom:
             {
-                Debug.LogError("Weighted Random is not supported for traits, please ask Aaron to implement this");
-                return PunnetSquareTrait(parentAVal, parentBVal);
+                /// ------------------------------------------- Implement Weighted random to give traits rarities
+                return FullyRandomTrait(parentAVal, parentBVal);
             }
 
             case InheritanceType.Punnett:
@@ -305,6 +348,14 @@ public class GeneManager : MonoBehaviour
         }
 
         return null;
+    }
+
+
+    private Trait RandomTraitFromList(List<TraitSO> l)
+    {
+        return new Trait(
+            GetGlobalGene(l[Random.Range(0, l.Count)].ID), 
+            GetGlobalGene(l[Random.Range(0, l.Count)].ID));
     }
 
 

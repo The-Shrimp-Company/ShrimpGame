@@ -101,10 +101,8 @@ public class TraitSO : ScriptableObject
 
 
 /*
- * Create structs in manager for each trait to save values
- * Function to get the SO using the trait ID
- * Function to get the manager version of the trait using the trait ID
  * Modifiers
+ * Random Trait with rarity
  */
 
 
