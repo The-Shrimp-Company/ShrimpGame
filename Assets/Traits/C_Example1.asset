@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: C_Example1
+  m_EditorClassIdentifier: Assembly-CSharp::TraitSO
+  ID: C001
+  traitName: Red
+  minValue: 20
+  maxValue: 50
+  statModifiers:
+  - type: 0
+    effect: -20
+  type: 0
+  color: {r: 1, g: 0, b: 0, a: 1}
+  texture: {fileID: 0}
+  part: {fileID: 0}
