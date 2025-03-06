@@ -90,32 +90,32 @@ public class ShrimpManager : MonoBehaviour
 
         Trait t = new Trait();
         t.activeGene.ID = "C";
-        s.primaryColour = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
-        s.secondaryColour = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.primaryColour = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
+        s.secondaryColour = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "P";
-        s.pattern = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.pattern = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "B";
-        s.body = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.body = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "H";
-        s.head = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.head = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "E";
-        s.eyes = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.eyes = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "T";
-        s.tail = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.tail = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "F";
-        s.tailFan = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.tailFan = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "A";
-        s.antenna = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.antenna = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "L";
-        s.legs = geneManager.TraitGene(InheritanceType.FullRandom, 0, t, t, false);
+        s.legs = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         s.fightHistory = 0;
         s.breedingHistory = 0;

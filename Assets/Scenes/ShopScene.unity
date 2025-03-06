@@ -25734,7 +25734,10 @@ MonoBehaviour:
   colourCanMutate: 1
   patternCanMutate: 1
   bodyPartCanMutate: 1
-  colourSOs: []
+  colourSOs:
+  - {fileID: 11400000, guid: 18356efa134f65a45b6b0ecdd9adea6b, type: 2}
+  - {fileID: 11400000, guid: 6f6ca498d37f4694ca5e6948eb933502, type: 2}
+  - {fileID: 11400000, guid: a46b3a3b82cd71f43ba9fc700a6ae00a, type: 2}
   patternSOs: []
   bodySOs: []
   headSOs: []

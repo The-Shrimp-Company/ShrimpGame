@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: C_Example
   m_EditorClassIdentifier: Assembly-CSharp::TraitSO
-  ID: 
-  traitName: 
+  ID: C003
+  traitName: Pink
   set: 0
-  minValue: 0
-  maxValue: 0
+  traitRarity: 50
+  minValue: 50
+  maxValue: 80
   minDominance: 0
   maxDominance: 0
-  statModifiers: []
+  statModifiers:
+  - type: 0
+    effect: 0
   type: 0
-  color: {r: 1, g: 1, b: 1, a: 1}
+  color: {r: 0.8, g: 0.11764703, b: 0.5289703, a: 1}
   texture: {fileID: 0}
   part: {fileID: 0}

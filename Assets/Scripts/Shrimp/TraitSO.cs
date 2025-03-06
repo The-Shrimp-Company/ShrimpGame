@@ -76,6 +76,9 @@ public class TraitSO : ScriptableObject
     public TraitSet set;
 
     [Space(10)]
+    public int traitRarity;
+
+    [Space(10)]
     public int minValue;
     public int maxValue;
 
@@ -101,8 +104,7 @@ public class TraitSO : ScriptableObject
 
 
 /*
- * Modifiers
- * Random Trait with rarity
+ * Values
  */
 
 

@@ -14,11 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TraitSO
   ID: C002
   traitName: Blue
+  set: 0
+  traitRarity: 15
   minValue: 30
   maxValue: 50
+  minDominance: 0
+  maxDominance: 0
   statModifiers:
   - type: 0
-    effect: 20
+    effect: 0
   type: 0
   color: {r: 0.24056602, g: 0.42279106, b: 1, a: 1}
   texture: {fileID: 0}

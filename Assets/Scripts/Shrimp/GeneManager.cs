@@ -80,31 +80,31 @@ public class GeneManager : MonoBehaviour
         Trait t = new Trait();
 
         if (type == 'C')
-            t = RandomTraitFromList(colourSOs);
+            t = RandomTraitsFromList(colourSOs);
 
         else if (type == 'P')
-            t = RandomTraitFromList(patternSOs);
+            t = RandomTraitsFromList(patternSOs);
 
         else if (type == 'B')
-            t = RandomTraitFromList(bodySOs);
+            t = RandomTraitsFromList(bodySOs);
 
         else if (type == 'H')
-            t = RandomTraitFromList(headSOs);
+            t = RandomTraitsFromList(headSOs);
 
         else if (type == 'E')
-            t = RandomTraitFromList(eyeSOs);
+            t = RandomTraitsFromList(eyeSOs);
 
         else if (type == 'T')
-            t = RandomTraitFromList(tailSOs);
+            t = RandomTraitsFromList(tailSOs);
 
         else if (type == 'F')
-            t = RandomTraitFromList(tailFanSOs);
+            t = RandomTraitsFromList(tailFanSOs);
 
         else if (type == 'A')
-            t = RandomTraitFromList(antennaSOs);
+            t = RandomTraitsFromList(antennaSOs);
 
         else if (type == 'L')
-            t = RandomTraitFromList(legsSOs);
+            t = RandomTraitsFromList(legsSOs);
 
         else
             Debug.Log("ID prefix " + type + " could not be found");
@@ -112,6 +112,50 @@ public class GeneManager : MonoBehaviour
         if (t.activeGene.ID == null || t.activeGene.ID == "")
         {
             Debug.LogError("Fully Random Trait using ID " + t.activeGene.ID + " could not be found");
+        }
+
+        return t;
+    }
+
+
+    private Trait WeightedRandomTrait(Trait parentATrait, Trait parentBTrait)
+    {
+        char type = parentATrait.activeGene.ID[0];
+        Trait t = new Trait();
+
+        if (type == 'C')
+            t = WeightedRandomTraitsFromList(colourSOs);
+
+        else if (type == 'P')
+            t = WeightedRandomTraitsFromList(patternSOs);
+
+        else if (type == 'B')
+            t = WeightedRandomTraitsFromList(bodySOs);
+
+        else if (type == 'H')
+            t = WeightedRandomTraitsFromList(headSOs);
+
+        else if (type == 'E')
+            t = WeightedRandomTraitsFromList(eyeSOs);
+
+        else if (type == 'T')
+            t = WeightedRandomTraitsFromList(tailSOs);
+
+        else if (type == 'F')
+            t = WeightedRandomTraitsFromList(tailFanSOs);
+
+        else if (type == 'A')
+            t = WeightedRandomTraitsFromList(antennaSOs);
+
+        else if (type == 'L')
+            t = WeightedRandomTraitsFromList(legsSOs);
+
+        else
+            Debug.Log("ID prefix " + type + " could not be found");
+
+        if (t.activeGene.ID == null || t.activeGene.ID == "")
+        {
+            Debug.LogError("Weighted Random Trait using ID " + t.activeGene.ID + " could not be found");
         }
 
         return t;
@@ -241,8 +285,7 @@ public class GeneManager : MonoBehaviour
 
             case InheritanceType.WeightedRandom:
             {
-                /// ------------------------------------------- Implement Weighted random to give traits rarities
-                return FullyRandomTrait(parentAVal, parentBVal);
+                return WeightedRandomTrait(parentAVal, parentBVal);
             }
 
             case InheritanceType.Punnett:
@@ -297,36 +340,38 @@ public class GeneManager : MonoBehaviour
     {
         TraitSO t = null;
 
-        if (ID[0] == 'C')
-            t = GetSOFromList(colourSOs, ID);
+        if (ID != null && ID != "")
+        {
+            if (ID[0] == 'C')
+                t = GetSOFromList(colourSOs, ID);
 
-        else if (ID[0] == 'P')
-            t = GetSOFromList(patternSOs, ID);
+            else if (ID[0] == 'P')
+                t = GetSOFromList(patternSOs, ID);
 
-        else if (ID[0] == 'B')
-            t = GetSOFromList(bodySOs, ID);
+            else if (ID[0] == 'B')
+                t = GetSOFromList(bodySOs, ID);
 
-        else if (ID[0] == 'H')
-            t = GetSOFromList(headSOs, ID);
+            else if (ID[0] == 'H')
+                t = GetSOFromList(headSOs, ID);
 
-        else if (ID[0] == 'E')
-            t = GetSOFromList(eyeSOs, ID);
+            else if (ID[0] == 'E')
+                t = GetSOFromList(eyeSOs, ID);
 
-        else if (ID[0] == 'T')
-            t = GetSOFromList(tailSOs, ID);
+            else if (ID[0] == 'T')
+                t = GetSOFromList(tailSOs, ID);
 
-        else if (ID[0] == 'F')
-            t = GetSOFromList(tailFanSOs, ID);
+            else if (ID[0] == 'F')
+                t = GetSOFromList(tailFanSOs, ID);
 
-        else if (ID[0] == 'A')
-            t = GetSOFromList(antennaSOs, ID);
+            else if (ID[0] == 'A')
+                t = GetSOFromList(antennaSOs, ID);
 
-        else if (ID[0] == 'L')
-            t = GetSOFromList(legsSOs, ID);
+            else if (ID[0] == 'L')
+                t = GetSOFromList(legsSOs, ID);
 
-        else 
-            Debug.Log("ID " +  ID + " prefix could not be found");
-
+            else
+                Debug.Log("ID " + ID + " prefix could not be found");
+        }
 
 
         if (t == null)
@@ -351,13 +396,70 @@ public class GeneManager : MonoBehaviour
     }
 
 
-    private Trait RandomTraitFromList(List<TraitSO> l)
+    private Trait RandomTraitsFromList(List<TraitSO> l)
     {
         if (l.Count == 0) return new Trait();
 
         return new Trait(
             GetGlobalGene(l[Random.Range(0, l.Count)].ID), 
             GetGlobalGene(l[Random.Range(0, l.Count)].ID));
+    }
+
+
+    private Trait RandomTraitFromList(List<TraitSO> l)
+    {
+        if (l.Count == 0) return new Trait();
+
+        return GeneToTrait(GetGlobalGene(l[Random.Range(0, l.Count)].ID));
+    }
+
+
+    private Trait WeightedRandomTraitsFromList(List<TraitSO> l)
+    {
+        Trait r = new Trait();
+        if (l.Count == 0) return r;
+
+        // Total rarity
+        int totalRarity = 0;
+        foreach(TraitSO t in l)
+        {
+            totalRarity += t.traitRarity;
+        }
+
+
+        // Active gene
+        int rand = Random.Range(0, totalRarity);
+        int i = 0;
+        foreach (TraitSO t in l)
+        {
+            i += t.traitRarity;
+            if (rand <= i)
+            {
+                r.activeGene = GetGlobalGene(t.ID);
+                break;
+            }
+        }
+
+        // Inactive gene
+        rand = Random.Range(0, totalRarity);
+        i = 0;
+        foreach (TraitSO t in l)
+        {
+            i += t.traitRarity;
+            if (rand <= i)
+            {
+                r.inactiveGene = GetGlobalGene(t.ID);
+                break;
+            }
+        }
+
+        // Error message
+        if (r.activeGene.ID == null || r.activeGene.ID == "" || r.inactiveGene.ID == null || r.inactiveGene.ID == "")
+        {
+            Debug.LogError("Weighted Random Trait failed. Rand - " + rand + ". Total Rarity - " + totalRarity);
+        }
+
+        return r;
     }
 
 
@@ -410,20 +512,23 @@ public class GeneManager : MonoBehaviour
 
     private ShrimpStats ApplyStatModifier(string ID, ShrimpStats s)
     {
-        foreach (Modifier m in GetTraitSO(ID).statModifiers)
+        if (ID != null && ID != "")
         {
-            switch (m.type)
+            foreach (Modifier m in GetTraitSO(ID).statModifiers)
             {
-                case ModifierEffects.temperament:
+                switch (m.type)
                 {
-                    s.temperament += m.effect;
-                    break;
-                }
+                    case ModifierEffects.temperament:
+                        {
+                            s.temperament += m.effect;
+                            break;
+                        }
 
-                case ModifierEffects.geneticSize:
-                {
-                    s.geneticSize += m.effect;
-                    break;
+                    case ModifierEffects.geneticSize:
+                        {
+                            s.geneticSize += m.effect;
+                            break;
+                        }
                 }
             }
         }
