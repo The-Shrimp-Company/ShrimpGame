@@ -68,6 +68,8 @@ public class ShrimpManager : MonoBehaviour
         s.illnessHistory = 0;
         s.moltHistory = 0;
 
+        geneManager.ApplyStatModifiers(s);
+
         return s;
     }
 
@@ -120,6 +122,19 @@ public class ShrimpManager : MonoBehaviour
         s.illnessHistory = 0;
         s.moltHistory = 0;
 
+        geneManager.ApplyStatModifiers(s);
+
+        return s;
+    }
+
+
+
+    public ShrimpStats LoadShrimp()
+    {
+        numberOfShrimp++;
+
+        ShrimpStats s = new ShrimpStats();
+
         return s;
     }
 
@@ -138,7 +153,18 @@ public class ShrimpManager : MonoBehaviour
         s.illness = 0;
         s.temperament = 0;
 
-        /// Set colour, pattern and body parts to the first options
+        s.primaryColour = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.colourSOs[0].ID));
+        s.secondaryColour = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.colourSOs[0].ID));
+
+        s.pattern = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.patternSOs[0].ID));
+
+        s.body = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.bodySOs[0].ID));
+        s.head = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.headSOs[0].ID));
+        s.eyes = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.eyeSOs[0].ID));
+        s.tail = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.tailSOs[0].ID));
+        s.tailFan = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.tailFanSOs[0].ID));
+        s.antenna = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.antennaSOs[0].ID));
+        s.legs = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.legsSOs[0].ID));
 
         s.fightHistory = 0;
         s.breedingHistory = 0;

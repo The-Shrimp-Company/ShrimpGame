@@ -381,4 +381,53 @@ public class GeneManager : MonoBehaviour
 
         return r;
     }
+
+
+    public Trait GeneToTrait(Gene gene)
+    {
+        return new Trait(gene, gene);
+    }
+
+
+    public ShrimpStats ApplyStatModifiers(ShrimpStats s)
+    {
+        s = ApplyStatModifier(s.primaryColour.activeGene.ID, s);
+        s = ApplyStatModifier(s.secondaryColour.activeGene.ID, s);
+
+        s = ApplyStatModifier(s.pattern.activeGene.ID, s);
+
+        s = ApplyStatModifier(s.body.activeGene.ID, s);
+        s = ApplyStatModifier(s.head.activeGene.ID, s);
+        s = ApplyStatModifier(s.eyes.activeGene.ID, s);
+        s = ApplyStatModifier(s.tail.activeGene.ID, s);
+        s = ApplyStatModifier(s.tailFan.activeGene.ID, s);
+        s = ApplyStatModifier(s.antenna.activeGene.ID, s);
+        s = ApplyStatModifier(s.legs.activeGene.ID, s);
+
+        return s;
+    }
+
+
+    private ShrimpStats ApplyStatModifier(string ID, ShrimpStats s)
+    {
+        foreach (Modifier m in GetTraitSO(ID).statModifiers)
+        {
+            switch (m.type)
+            {
+                case ModifierEffects.temperament:
+                {
+                    s.temperament += m.effect;
+                    break;
+                }
+
+                case ModifierEffects.geneticSize:
+                {
+                    s.geneticSize += m.effect;
+                    break;
+                }
+            }
+        }
+
+        return s;
+    }
 }

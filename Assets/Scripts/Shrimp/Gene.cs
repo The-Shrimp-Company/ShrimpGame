@@ -63,7 +63,7 @@ public enum ModifierEffects
 public struct Modifier
 {
     public ModifierEffects type;
-    [Range(-100, 100)] public float effect;  // How strong of an effect it will have on that stat. The stats are generally a value from 0-100, this will just add the effect to the stat that was already there
+    [Range(-100, 100)] public int effect;  // How strong of an effect it will have on that stat. The stats are generally a value from 0-100, this will just add the effect to the stat that was already there
 }
 
 
