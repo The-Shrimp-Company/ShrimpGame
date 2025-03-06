@@ -353,6 +353,8 @@ public class GeneManager : MonoBehaviour
 
     private Trait RandomTraitFromList(List<TraitSO> l)
     {
+        if (l.Count == 0) return new Trait();
+
         return new Trait(
             GetGlobalGene(l[Random.Range(0, l.Count)].ID), 
             GetGlobalGene(l[Random.Range(0, l.Count)].ID));
