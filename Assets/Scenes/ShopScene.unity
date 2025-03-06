@@ -25734,6 +25734,15 @@ MonoBehaviour:
   colourCanMutate: 1
   patternCanMutate: 1
   bodyPartCanMutate: 1
+  colourSOs: []
+  patternSOs: []
+  bodySOs: []
+  headSOs: []
+  eyeSOs: []
+  tailSOs: []
+  tailFanSOs: []
+  antennaSOs: []
+  legsSOs: []
 --- !u!114 &705895236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57964,6 +57973,8 @@ MonoBehaviour:
     type: 3}
   InventoryScreen: {fileID: 5382316823195656821, guid: c29da088fc2fef14f876125e5190d3b3,
     type: 3}
+  EmailScreen: {fileID: 5382316823195656821, guid: 78416fd31a74e5f4b85db71ebce2fd41,
+    type: 3}
 --- !u!223 &1461927823
 Canvas:
   m_ObjectHideFlags: 0
@@ -58865,6 +58876,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1501870177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3151953496987954442, guid: da7cc99513db8fb4fb67737c87e0604e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6480602380772640825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1506531946
 Mesh:
   m_ObjectHideFlags: 0
@@ -66288,6 +66311,11 @@ PrefabInstance:
       propertyPath: tablet
       value: 
       objectReference: {fileID: 625308365}
+    - target: {fileID: 2294150799693192735, guid: 95854f16d1017c34eaac405f4651506b,
+        type: 3}
+      propertyPath: notifBar
+      value: 
+      objectReference: {fileID: 1501870177}
     - target: {fileID: 2294150799693192735, guid: 95854f16d1017c34eaac405f4651506b,
         type: 3}
       propertyPath: _tabletActiveCoord
@@ -76715,7 +76743,7 @@ GameObject:
   - component: {fileID: 2096616243}
   - component: {fileID: 2096616244}
   m_Layer: 5
-  m_Name: Add Money
+  m_Name: Email
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76844,7 +76872,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1461927821}
         m_TargetAssemblyTypeName: TabletInteraction, Assembly-CSharp
-        m_MethodName: AddMoney
+        m_MethodName: OpenEmails
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

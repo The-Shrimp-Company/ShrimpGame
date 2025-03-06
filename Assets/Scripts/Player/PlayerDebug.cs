@@ -22,7 +22,7 @@ public class PlayerDebug : MonoBehaviour
 
     public void OnTestingFunctions()
     {
-        
+        Money.instance.AddMoney(20);
     }
 
 

@@ -37,7 +37,7 @@ public class TankController : MonoBehaviour
 
         if (string.IsNullOrEmpty(tankName))
         {
-            tankName = gameObject.name;
+            tankName = "Tank";
         }
 
         sign.SetActive(_saleTank);

@@ -23,6 +23,12 @@ public class Shrimp : MonoBehaviour
         transform.position = tank.GetRandomTankPosition();
         agent.tankGrid = tank.tankGrid;
 
+        Email email = new Email();
+        email.title = "New Shrimp!!@!";
+        email.subjectLine = "WOOOOOOWWWWW";
+        email.mainText = "The shrimp is in: " + tank.tankName;
+        EmailManager.SendEmail(email);
+
         if (shrimpActivities.Count == 0)
         {
             AddActivity(GetRandomActivity());

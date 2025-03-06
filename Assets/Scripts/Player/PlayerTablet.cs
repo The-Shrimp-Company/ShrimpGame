@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,6 +18,8 @@ public class PlayerTablet : PlayerUIController
     private TabletInteraction _tabletInteraction;
     private PlayerInput _input;
 
+    [SerializeField] private TextMeshProUGUI notifBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class PlayerTablet : PlayerUIController
 
     public void OnOpenTablet()
     {
+        UIManager.instance.AssignNotifBar(notifBar);
         _tabletRect.gameObject.SetActive(true);
         RectTools.ChangeRectTransform(_tabletRect, _tabletActiveCoord);
         UIManager.instance.ChangeFocus(_tabletInteraction);
@@ -36,8 +40,9 @@ public class PlayerTablet : PlayerUIController
         _input.SwitchCurrentActionMap("UI");
     }
 
-    public void OnCloseTablet() 
+    public void OnCloseTablet()
     {
+        UIManager.instance.AssignNotifBar(notifBar);
         _tabletRect.gameObject.SetActive(true);
         RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
         UIManager.instance.ChangeFocus();

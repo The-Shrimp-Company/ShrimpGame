@@ -1,6 +1,7 @@
 using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager
@@ -18,6 +19,10 @@ public class UIManager
     private GameObject _cursor;
 
     private Transform MainCanvas;
+
+    private TextMeshProUGUI notifBar;
+
+    private string _currentText = "Notifications Online";
 
     public UIManager()
     {
@@ -119,4 +124,16 @@ public class UIManager
     }
 
     public Transform GetCanvas() { return MainCanvas; }
+
+    public void AssignNotifBar(TextMeshProUGUI notif)
+    {
+        notifBar = notif;
+        notifBar.text = _currentText;
+    }
+
+    public void SendNotification(string notif)
+    {
+        _currentText = notif;
+        notifBar.text = notif;
+    }
 }

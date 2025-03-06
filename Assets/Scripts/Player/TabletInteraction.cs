@@ -17,22 +17,15 @@ public class TabletInteraction : ScreenView
     private GameObject UpgradeScreen;
     [SerializeField]
     private GameObject InventoryScreen;
+    [SerializeField]
+    private GameObject EmailScreen;
 
-    /*
-    protected override void Start()
-    {
-        base.Start();
-    }
-    */
+    
 
 
     public ShelfSpawn GetShelves() { return shelves; }
     
 
-    public void AddMoney()
-    {
-        Money.instance.AddMoney(20);
-    }
 
     public void OpenSell()
     {
@@ -60,6 +53,13 @@ public class TabletInteraction : ScreenView
         GetComponent<CanvasGroup>().interactable = false;
         GameObject inventoryScreen = Instantiate(InventoryScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(inventoryScreen.GetComponent<ScreenView>());
+    }
+
+    public void OpenEmails()
+    {
+        GetComponent<CanvasGroup>().interactable = false;
+        GameObject emailScreen = Instantiate(EmailScreen, transform.parent.transform);
+        UIManager.instance.ChangeFocus(emailScreen.GetComponent<ScreenView>());
     }
 
     public override void Close()

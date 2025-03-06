@@ -21,9 +21,7 @@ public class ContentBlock : MonoBehaviour
     {
         Canvas.ForceUpdateCanvases();
         text.text = textToSet;
-        Rect textRect = text.GetComponent<RectTransform>().rect;
-        int textLength = text.text.Length;
-        text.fontSize = textRect.width / textLength > textRect.height ? textRect.height : textRect.width / textLength;
+        FontTools.SizeFont(text);
         text.fontSize = text.fontSize * 0.9f;
     }
 
