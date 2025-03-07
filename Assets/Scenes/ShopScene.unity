@@ -25598,6 +25598,7 @@ GameObject:
   - component: {fileID: 705895234}
   - component: {fileID: 705895233}
   - component: {fileID: 705895235}
+  - component: {fileID: 705895237}
   - component: {fileID: 705895236}
   m_Layer: 0
   m_Name: Shrimp Manager
@@ -25766,6 +25767,53 @@ MonoBehaviour:
   day: 0
   hour: 0
   minute: 0
+--- !u!114 &705895237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705895232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a738ffe8f38fd444b883c2fdf6581e46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTraitValue: 5
+  maxTraitValue: 30
+  valueFluctuationStrength:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -1.0002804
+      value: 0.0032322109
+      inSlope: 3.210838
+      outSlope: 3.210838
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.037965264
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.0016108453
+      outSlope: -0.0016108453
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.000289917
+      inSlope: -3.0783935
+      outSlope: -3.0783935
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.042199314
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!43 &706526439
 Mesh:
   m_ObjectHideFlags: 0

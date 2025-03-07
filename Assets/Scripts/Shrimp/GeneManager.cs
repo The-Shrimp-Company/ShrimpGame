@@ -31,7 +31,6 @@ public class GeneManager : MonoBehaviour
     public bool colourCanMutate = true;
     public bool patternCanMutate = true;
     public bool bodyPartCanMutate = true;
-
     [Space(10)]
     public int dominanceWeighting;
 
