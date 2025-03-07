@@ -111,7 +111,7 @@ public class GeneManager : MonoBehaviour
 
         if (t.activeGene.ID == null || t.activeGene.ID == "")
         {
-            Debug.LogError("Fully Random Trait using ID " + t.activeGene.ID + " could not be found");
+            Debug.LogWarning("Fully Random Trait using ID " + t.activeGene.ID + " could not be found");
         }
 
         return t;
@@ -155,7 +155,7 @@ public class GeneManager : MonoBehaviour
 
         if (t.activeGene.ID == null || t.activeGene.ID == "")
         {
-            Debug.LogError("Weighted Random Trait using ID " + t.activeGene.ID + " could not be found");
+            //Debug.LogWarning("Weighted Random Trait using ID prefix " + type + " could not be found");
         }
 
         return t;
@@ -252,7 +252,7 @@ public class GeneManager : MonoBehaviour
 
             case InheritanceType.Punnett:
             {
-                Debug.LogError("Punnet squares are not supported for integer genes, please ask Aaron to implement this");
+                Debug.LogWarning("Punnet squares are not supported for integer genes, please ask Aaron to implement this");
                 return FullyRandomInt(upperBound);
             }
 
@@ -295,7 +295,7 @@ public class GeneManager : MonoBehaviour
 
             case InheritanceType.FlatAverage:
             {
-                Debug.LogError("Flat Average is not supported for traits, please ask Aaron to implement this");
+                Debug.LogWarning("Flat Average is not supported for traits, please ask Aaron to implement this");
                 return PunnetSquareTrait(parentAVal, parentBVal);
             }
 
@@ -376,7 +376,7 @@ public class GeneManager : MonoBehaviour
 
         if (t == null)
         {
-            Debug.LogError("Trait SO with ID " + ID + " could not be found");
+            Debug.LogWarning("Trait SO with ID " + ID + " could not be found");
         }
 
         return t;
@@ -456,7 +456,7 @@ public class GeneManager : MonoBehaviour
         // Error message
         if (r.activeGene.ID == null || r.activeGene.ID == "" || r.inactiveGene.ID == null || r.inactiveGene.ID == "")
         {
-            Debug.LogError("Weighted Random Trait failed. Rand - " + rand + ". Total Rarity - " + totalRarity);
+            Debug.LogWarning("Weighted Random Trait failed. Rand - " + rand + ". Total Rarity - " + totalRarity);
         }
 
         return r;
@@ -478,7 +478,7 @@ public class GeneManager : MonoBehaviour
 
         if (r.ID == null || r.ID == "")
         {
-            Debug.LogError("Global gene with ID " + ID + " could not be found");
+            Debug.LogWarning("Global gene with ID " + ID + " could not be found");
         }
 
         return r;
