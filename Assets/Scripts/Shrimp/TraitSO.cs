@@ -76,15 +76,11 @@ public class TraitSO : ScriptableObject
     public TraitSet set;
 
     [Space(10)]
-    public int traitRarity;
-
-    [Space(10)]
     public int minValue;
     public int maxValue;
 
     [Space(10)]
-    public int minDominance;
-    public int maxDominance;
+    public int weightDominanceTowards;
 
     [Space(20)]
     public List<Modifier> statModifiers;
@@ -101,11 +97,6 @@ public class TraitSO : ScriptableObject
     [Header("Body Part Trait")]  // Only needs to be filled out if the trait is of type body part
     public GameObject part;
 }
-
-
-/*
- * Values
- */
 
 
 

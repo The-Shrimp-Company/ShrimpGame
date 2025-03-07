@@ -15,11 +15,9 @@ MonoBehaviour:
   ID: C001
   traitName: Red
   set: 0
-  traitRarity: 10
   minValue: 20
   maxValue: 50
-  minDominance: 0
-  maxDominance: 0
+  weightDominanceTowards: 50
   statModifiers:
   - type: 0
     effect: 0

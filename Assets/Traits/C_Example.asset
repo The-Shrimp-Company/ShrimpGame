@@ -15,11 +15,9 @@ MonoBehaviour:
   ID: C003
   traitName: Pink
   set: 0
-  traitRarity: 50
   minValue: 50
   maxValue: 80
-  minDominance: 0
-  maxDominance: 0
+  weightDominanceTowards: 30
   statModifiers:
   - type: 0
     effect: 0

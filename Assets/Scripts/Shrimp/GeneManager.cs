@@ -13,8 +13,8 @@ public class GeneManager : MonoBehaviour
 {
     public static GeneManager instance;
 
-
     [SerializeField] [Range(0, 100)] int geneWeightingPercentage = 10;  // When using weighted random, how much should it be weighted by?
+    [SerializeField][Range(0, 100)] int dominanceWeightingPercentage = 50;  // When using weighted random, how much should it be weighted by?
     [SerializeField][Range(0, 100)] float mutationChance = 5;  // Will pick a random number under 100, if it is under this, the trait will mutate
 
     [Header("Inheritance")]
@@ -25,11 +25,15 @@ public class GeneManager : MonoBehaviour
     public InheritanceType bodyPartInheritance = InheritanceType.Punnett;
 
     [Header("Mutation")]
+    public bool dominanceCanMutate;
     public bool sizeCanMutate;
     public bool temperamentCanMutate;
     public bool colourCanMutate = true;
     public bool patternCanMutate = true;
     public bool bodyPartCanMutate = true;
+
+    [Space(10)]
+    public int dominanceWeighting;
 
     [Header("Traits")]
     public List<TraitSO> colourSOs = new List<TraitSO>();
@@ -271,39 +275,63 @@ public class GeneManager : MonoBehaviour
 
     public Trait TraitGene(InheritanceType type, int upperBound, Trait parentAVal, Trait parentBVal, bool canMutate)
     {
+        bool mutating = false;
         if (Random.value * 100 < mutationChance)  // Gene mutation
         {
             type = InheritanceType.WeightedRandom;
         }
 
+        Trait t = new Trait();
+
         switch (type)
         {
             case InheritanceType.FullRandom:
             {
-                return FullyRandomTrait(parentAVal, parentBVal);
+                t = FullyRandomTrait(parentAVal, parentBVal);
+                break;
             }
 
             case InheritanceType.WeightedRandom:
             {
-                return WeightedRandomTrait(parentAVal, parentBVal);
+                t = WeightedRandomTrait(parentAVal, parentBVal);
+                break;
             }
 
             case InheritanceType.Punnett:
             {
-                return PunnetSquareTrait(parentAVal, parentBVal);
+                t = PunnetSquareTrait(parentAVal, parentBVal);
+                break;
             }
 
             case InheritanceType.FlatAverage:
             {
                 Debug.LogWarning("Flat Average is not supported for traits, please ask Aaron to implement this");
-                return PunnetSquareTrait(parentAVal, parentBVal);
+                t = PunnetSquareTrait(parentAVal, parentBVal);
+                break;
             }
 
             default:  // Error case
             {
-                return PunnetSquareTrait(parentAVal, parentBVal);
+                t = PunnetSquareTrait(parentAVal, parentBVal);
+                break;
             }
         }
+
+        if (t.activeGene.ID != null && t.activeGene.ID != "")  // If the trait actually exists
+        {
+            if (mutating && dominanceCanMutate)
+            {
+                t.activeGene.dominance = WeightDominance(GetTraitSO(t.activeGene.ID).weightDominanceTowards);
+                t.inactiveGene.dominance = WeightDominance(GetTraitSO(t.inactiveGene.ID).weightDominanceTowards);
+            }
+            else
+            {
+                if (t.activeGene.dominance == 0) t.activeGene.dominance = WeightDominance(GetTraitSO(t.activeGene.ID).weightDominanceTowards);
+                if (t.inactiveGene.dominance == 0) t.inactiveGene.dominance = WeightDominance(GetTraitSO(t.inactiveGene.ID).weightDominanceTowards);
+            }
+        }
+
+        return t;
     }
 
 
@@ -329,7 +357,7 @@ public class GeneManager : MonoBehaviour
         {
             Gene g = new Gene();
             g.ID = t.ID;
-            g.dominance = (t.minDominance + t.maxDominance) / 2;
+            g.dominance = WeightDominance(t.weightDominanceTowards);
             g.value = (t.minValue + t.maxValue) / 2;
             loadedGlobalGenes.Add(g);
         }
@@ -423,7 +451,7 @@ public class GeneManager : MonoBehaviour
         int totalRarity = 0;
         foreach(TraitSO t in l)
         {
-            totalRarity += t.traitRarity;
+            totalRarity += GetGlobalGene(t.ID).dominance;
         }
 
 
@@ -432,7 +460,7 @@ public class GeneManager : MonoBehaviour
         int i = 0;
         foreach (TraitSO t in l)
         {
-            i += t.traitRarity;
+            i += GetGlobalGene(t.ID).dominance;
             if (rand <= i)
             {
                 r.activeGene = GetGlobalGene(t.ID);
@@ -445,7 +473,7 @@ public class GeneManager : MonoBehaviour
         i = 0;
         foreach (TraitSO t in l)
         {
-            i += t.traitRarity;
+            i += GetGlobalGene(t.ID).dominance;
             if (rand <= i)
             {
                 r.inactiveGene = GetGlobalGene(t.ID);
@@ -534,5 +562,14 @@ public class GeneManager : MonoBehaviour
         }
 
         return s;
+    }
+
+
+    public int WeightDominance(int w)
+    {
+        float val = Random.Range(1, 101);
+        float weighting = dominanceWeightingPercentage / 100;  // Convert percentage to decimal
+        val += (w - val) * weighting;
+        return Mathf.RoundToInt(val);
     }
 }

@@ -15,11 +15,9 @@ MonoBehaviour:
   ID: C002
   traitName: Blue
   set: 0
-  traitRarity: 15
   minValue: 30
   maxValue: 50
-  minDominance: 0
-  maxDominance: 0
+  weightDominanceTowards: 70
   statModifiers:
   - type: 0
     effect: 0

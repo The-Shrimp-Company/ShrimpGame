@@ -25723,17 +25723,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   geneWeightingPercentage: 10
+  dominanceWeightingPercentage: 30
   mutationChance: 5
   sizeInheritance: 1
   temperamentInheritance: 1
   colourInheritance: 2
   patternInheritance: 2
   bodyPartInheritance: 2
+  dominanceCanMutate: 0
   sizeCanMutate: 0
   temperamentCanMutate: 0
   colourCanMutate: 1
   patternCanMutate: 1
   bodyPartCanMutate: 1
+  dominanceWeighting: 0
   colourSOs:
   - {fileID: 11400000, guid: 18356efa134f65a45b6b0ecdd9adea6b, type: 2}
   - {fileID: 11400000, guid: 6f6ca498d37f4694ca5e6948eb933502, type: 2}
