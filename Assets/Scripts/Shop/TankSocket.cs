@@ -26,7 +26,7 @@ public class TankSocket : MonoBehaviour
 
     public void SetTankActive()
     {
-        if (Inventory.instance.RemoveItem(ItemNames.SmallTank))
+        if (Inventory.instance.RemoveItem(Items.items[0]))
         {
             tank.SetActive(true);
             GetComponent<BoxCollider>().enabled = false;

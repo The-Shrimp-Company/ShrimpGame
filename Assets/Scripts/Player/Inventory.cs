@@ -3,16 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class ItemNames
+public static class Items
 {
-    public static string SmallTank = "Small Tank";
+    public static Item[] items = { new Item("Small Tank", 50), new Item("Shelf", 100) };
 }
 
+public struct Item
+{
+    public Item(string newName, int newValue)
+    {
+        name = newName;
+        value = newValue;
+    }
+
+    public static implicit operator string(Item item)
+    {
+        return item.name;
+    }
+
+    public string name;
+    public int value;
+}
 
 
 public class Inventory
 {
-    private Dictionary<string, int> inventory = new Dictionary<string, int>();
+    private Dictionary<Item, int> inventory = new Dictionary<Item, int>();
 
     public static Inventory instance = new Inventory();
 
@@ -23,7 +39,7 @@ public class Inventory
         
     }
 
-    public void AddItem(string newItem, int quantity = 1)
+    public void AddItem(Item newItem, int quantity = 1)
     {
         if (inventory.ContainsKey(newItem))
         {
@@ -35,7 +51,7 @@ public class Inventory
         }
     }
 
-    public bool RemoveItem(string item, int quantity = 1)
+    public bool RemoveItem(Item item, int quantity = 1)
     {
         if (inventory.ContainsKey(item))
         {
@@ -54,7 +70,7 @@ public class Inventory
 
     public int GetItemCount() { return  inventory.Count; }
 
-    public Dictionary<string, int> GetInventory()
+    public Dictionary<Item, int> GetInventory()
     {
         return inventory;
     }
