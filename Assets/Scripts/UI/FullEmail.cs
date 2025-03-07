@@ -17,7 +17,7 @@ public class FullEmail : MonoBehaviour
         TextMeshProUGUI text = GetComponentInChildren<TextMeshProUGUI>();
         text.text = email.mainText;
         FontTools.SizeFont(text);
-        if(email.buttons.Count > 0)
+        if(email.buttons != null)
         {
             foreach(MyButton button in email.buttons)
             {

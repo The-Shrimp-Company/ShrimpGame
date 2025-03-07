@@ -9,7 +9,7 @@ public class EmailContent : ContentPopulation
     {
         foreach (Email email in EmailManager.instance.emails)
         {
-            ContentBlock block = Instantiate(contentBlock, transform).GetComponent<ContentBlock>();
+            ContentBlock block = Instantiate(contentBlock, transform).transform.GetChild(0).GetComponent<ContentBlock>();
             block.GetComponent<EmailContentBlock>().SetEmail(email);
             contentBlocks.Add(block);
         }
