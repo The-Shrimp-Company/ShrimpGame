@@ -19,6 +19,8 @@ public class TabletInteraction : ScreenView
     private GameObject InventoryScreen;
     [SerializeField]
     private GameObject EmailScreen;
+    [SerializeField]
+    private GameObject SettingsScreen;
 
     
 
@@ -60,6 +62,13 @@ public class TabletInteraction : ScreenView
         GetComponent<CanvasGroup>().interactable = false;
         GameObject emailScreen = Instantiate(EmailScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(emailScreen.GetComponent<ScreenView>());
+    }
+
+    public void OpenSettings()
+    {
+        GetComponent<CanvasGroup>().interactable = false;
+        GameObject settingsScreen = Instantiate(EmailScreen, transform.parent.transform);
+        UIManager.instance.ChangeFocus(settingsScreen.GetComponent<ScreenView>());
     }
 
     public override void Close()

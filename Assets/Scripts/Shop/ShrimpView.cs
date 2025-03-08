@@ -22,6 +22,7 @@ public class ShrimpView : ScreenView
     protected Shrimp _shrimp;
     [SerializeField]
     private GameObject currentTankScreen;
+    [SerializeField] private Image primaryColour, secondaryColour;
 
     public void Click()
     {
@@ -57,6 +58,8 @@ public class ShrimpView : ScreenView
         //title.placeholder.GetComponent<TextMeshProUGUI>().text = _shrimp.stats.name;
         age.text = "Age: " + TimeManager.instance.GetShrimpAge(_shrimp.stats.birthTime).ToString();
         gender.text = "Gender: " + (_shrimp.stats.gender == true ? "M" : "F");
+        primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.primaryColour.activeGene.ID).color;
+        secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.secondaryColour.activeGene.ID).color;
     }
 
 

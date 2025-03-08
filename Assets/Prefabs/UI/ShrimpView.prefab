@@ -908,6 +908,8 @@ MonoBehaviour:
   texture: {fileID: 8400000, guid: 66cc7fa8a9074a041992fa4bb8241f01, type: 2}
   currentTankScreen: {fileID: 5382316823195656821, guid: aedca3e0cb3f7a147a3c8877339b6ac3,
     type: 3}
+  primaryColour: {fileID: 2376940187439495515}
+  secondaryColour: {fileID: 1489016657286172719}
 --- !u!1 &4992998009482329976
 GameObject:
   m_ObjectHideFlags: 0
