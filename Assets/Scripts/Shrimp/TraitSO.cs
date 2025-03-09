@@ -92,7 +92,7 @@ public class TraitSO : ScriptableObject
     public Color color = Color.white;
 
     [Header("Pattern Trait")]  // Only needs to be filled out if the trait is of type pattern
-    public Sprite texture;
+    public Material texture;
 
     [Header("Body Part Trait")]  // Only needs to be filled out if the trait is of type body part
     public GameObject part;

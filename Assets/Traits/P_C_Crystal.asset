@@ -9,15 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: P_Example
-  m_EditorClassIdentifier: Assembly-CSharp::TraitSO
-  ID: P001
-  traitName: Harlequin
-  minValue: 50
-  maxValue: 100
+  m_Script: {fileID: 11500000, guid: fafabb4e1f2ee9248a4cf28b273a998e, type: 3}
+  m_Name: P_C_Crystal
+  m_EditorClassIdentifier: 
+  ID: P004
+  traitName: Crystal
+  set: 1
+  minValue: 0
+  maxValue: 0
+  weightDominanceTowards: 0
   statModifiers: []
   type: 1
   color: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: -293465382, guid: 97a37d7a43994d94198b1fef5ec50d18, type: 3}
+  texture: {fileID: -876546973899608171, guid: 5ec7d27fde7588e4db5200799c75a1ce, type: 3}
   part: {fileID: 0}
