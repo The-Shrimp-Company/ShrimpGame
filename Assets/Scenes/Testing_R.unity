@@ -7668,7 +7668,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.7100005
+      value: 4.866
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
@@ -12912,7 +12912,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5000005
+      value: 7.669
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
@@ -12922,7 +12922,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.936
+      value: -5.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c92cd989a1ac7184f8881ff0a4327efb,
         type: 3}
@@ -50086,6 +50086,7 @@ MonoBehaviour:
   InventoryScreen: {fileID: 5382316823195656821, guid: c29da088fc2fef14f876125e5190d3b3,
     type: 3}
   EmailScreen: {fileID: 0}
+  SettingsScreen: {fileID: 0}
 --- !u!223 &1461927823
 Canvas:
   m_ObjectHideFlags: 0
