@@ -23,7 +23,7 @@ public class TankController : MonoBehaviour
 
     [SerializeField] private GameObject camDock;
 
-    public GameObject shrimpPrefab;
+    //public GameObject shrimpPrefab;
 
     [SerializeField] private GameObject tankViewPrefab;
     [HideInInspector] public TankViewScript tankViewScript;
@@ -111,10 +111,11 @@ public class TankController : MonoBehaviour
 
     private void SpawnRandomShrimp()
     {
-        GameObject newShrimp = Instantiate(shrimpPrefab, GetRandomTankPosition(), Quaternion.identity);
+        GameObject newShrimp = Instantiate(ShrimpManager.instance.shrimpPrefab, GetRandomTankPosition(), Quaternion.identity);
         Shrimp s = newShrimp.GetComponent<Shrimp>();
 
         s.stats = ShrimpManager.instance.CreateRandomShrimp();
+        s.ConstructShrimp();
         s.ChangeTank(this);
         newShrimp.name = s.stats.name;
         newShrimp.transform.parent = shrimpParent;

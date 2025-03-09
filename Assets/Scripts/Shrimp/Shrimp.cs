@@ -45,6 +45,12 @@ public class Shrimp : MonoBehaviour
         }
     }
 
+    public void ConstructShrimp()
+    {
+        Instantiate(GeneManager.instance.GetTraitSO(stats.body.activeGene.ID).part, transform).GetComponent<Body>().Construct(stats);
+
+    }
+
     public void UpdateShrimp(float elapsedTime)
     {
         // Activities

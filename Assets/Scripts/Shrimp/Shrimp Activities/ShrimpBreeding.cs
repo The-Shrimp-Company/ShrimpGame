@@ -160,7 +160,7 @@ public class ShrimpBreeding : ShrimpActivity
     {
         //shrimp.tank.SpawnShrimp();
 
-        GameObject newShrimp = GameObject.Instantiate(shrimp.tank.shrimpPrefab, shrimp.tank.GetRandomTankPosition(), Quaternion.identity);
+        GameObject newShrimp = GameObject.Instantiate(ShrimpManager.instance.shrimpPrefab, shrimp.tank.GetRandomTankPosition(), Quaternion.identity);
         Shrimp s = newShrimp.GetComponent<Shrimp>();
 
         s.stats = ShrimpManager.instance.CreateShrimpThroughBreeding(shrimp.stats, otherShrimp.stats);

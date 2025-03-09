@@ -100,7 +100,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3108750780446526798}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.24865079, y: -0.5659939, z: 0.18188442, w: 0.764684}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
@@ -136,7 +136,7 @@ Transform:
   m_GameObject: {fileID: 8402780776056034104}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.122, y: 1.005, z: -6.83}
+  m_LocalPosition: {x: -0.015514457, y: 0.7968596, z: -6.073854}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -159,12 +159,102 @@ MonoBehaviour:
   stats:
     name: 
     gender: 0
-    age: 0
+    birthTime: 0
     hunger: 0
     illness: 0
     temperament: 0
     geneticSize: 0
     actualSize: 0
+    primaryColour:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    secondaryColour:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    body:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    head:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    eyes:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    pattern:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    tail:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    tailFan:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    antenna:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    legs:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
     fightHistory: 0
     breedingHistory: 0
     illnessHistory: 0
@@ -189,8 +279,484 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.05
   turnSpeed: 1.5
-  totalPath: []
-  cornerNodes: []
+  totalPath:
+  - coords: {x: 17, y: 15, z: 0}
+    worldPos: {x: 4.7549996, y: 2.0670002, z: 8.4595}
+    neighbours:
+    - {x: 16, y: 14, z: 0}
+    - {x: 16, y: 14, z: 1}
+    - {x: 16, y: 15, z: 0}
+    - {x: 16, y: 15, z: 1}
+    - {x: 17, y: 14, z: 0}
+    - {x: 17, y: 14, z: 1}
+    - {x: 17, y: 15, z: 0}
+    - {x: 17, y: 15, z: 1}
+    - {x: 18, y: 14, z: 0}
+    - {x: 18, y: 14, z: 1}
+    - {x: 18, y: 15, z: 0}
+    - {x: 18, y: 15, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 16, y: 14, z: 0}
+    worldPos: {x: 4.7299995, y: 2.042, z: 8.4595}
+    neighbours:
+    - {x: 15, y: 13, z: 0}
+    - {x: 15, y: 13, z: 1}
+    - {x: 15, y: 14, z: 0}
+    - {x: 15, y: 14, z: 1}
+    - {x: 15, y: 15, z: 0}
+    - {x: 15, y: 15, z: 1}
+    - {x: 16, y: 13, z: 0}
+    - {x: 16, y: 13, z: 1}
+    - {x: 16, y: 14, z: 0}
+    - {x: 16, y: 14, z: 1}
+    - {x: 16, y: 15, z: 0}
+    - {x: 16, y: 15, z: 1}
+    - {x: 17, y: 13, z: 0}
+    - {x: 17, y: 13, z: 1}
+    - {x: 17, y: 14, z: 0}
+    - {x: 17, y: 14, z: 1}
+    - {x: 17, y: 15, z: 0}
+    - {x: 17, y: 15, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 15, y: 15, z: 0}
+    worldPos: {x: 4.7049994, y: 2.0670002, z: 8.4595}
+    neighbours:
+    - {x: 14, y: 14, z: 0}
+    - {x: 14, y: 14, z: 1}
+    - {x: 14, y: 15, z: 0}
+    - {x: 14, y: 15, z: 1}
+    - {x: 15, y: 14, z: 0}
+    - {x: 15, y: 14, z: 1}
+    - {x: 15, y: 15, z: 0}
+    - {x: 15, y: 15, z: 1}
+    - {x: 16, y: 14, z: 0}
+    - {x: 16, y: 14, z: 1}
+    - {x: 16, y: 15, z: 0}
+    - {x: 16, y: 15, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 14, y: 14, z: 0}
+    worldPos: {x: 4.6799994, y: 2.042, z: 8.4595}
+    neighbours:
+    - {x: 13, y: 13, z: 0}
+    - {x: 13, y: 13, z: 1}
+    - {x: 13, y: 14, z: 0}
+    - {x: 13, y: 14, z: 1}
+    - {x: 13, y: 15, z: 0}
+    - {x: 13, y: 15, z: 1}
+    - {x: 14, y: 13, z: 0}
+    - {x: 14, y: 13, z: 1}
+    - {x: 14, y: 14, z: 0}
+    - {x: 14, y: 14, z: 1}
+    - {x: 14, y: 15, z: 0}
+    - {x: 14, y: 15, z: 1}
+    - {x: 15, y: 13, z: 0}
+    - {x: 15, y: 13, z: 1}
+    - {x: 15, y: 14, z: 0}
+    - {x: 15, y: 14, z: 1}
+    - {x: 15, y: 15, z: 0}
+    - {x: 15, y: 15, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 13, y: 13, z: 0}
+    worldPos: {x: 4.6549993, y: 2.0170002, z: 8.4595}
+    neighbours:
+    - {x: 12, y: 12, z: 0}
+    - {x: 12, y: 12, z: 1}
+    - {x: 12, y: 13, z: 0}
+    - {x: 12, y: 13, z: 1}
+    - {x: 12, y: 14, z: 0}
+    - {x: 12, y: 14, z: 1}
+    - {x: 13, y: 12, z: 0}
+    - {x: 13, y: 12, z: 1}
+    - {x: 13, y: 13, z: 0}
+    - {x: 13, y: 13, z: 1}
+    - {x: 13, y: 14, z: 0}
+    - {x: 13, y: 14, z: 1}
+    - {x: 14, y: 12, z: 0}
+    - {x: 14, y: 12, z: 1}
+    - {x: 14, y: 13, z: 0}
+    - {x: 14, y: 13, z: 1}
+    - {x: 14, y: 14, z: 0}
+    - {x: 14, y: 14, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 12, y: 12, z: 0}
+    worldPos: {x: 4.6299996, y: 1.9920001, z: 8.4595}
+    neighbours:
+    - {x: 11, y: 11, z: 0}
+    - {x: 11, y: 11, z: 1}
+    - {x: 11, y: 12, z: 0}
+    - {x: 11, y: 12, z: 1}
+    - {x: 11, y: 13, z: 0}
+    - {x: 11, y: 13, z: 1}
+    - {x: 12, y: 11, z: 0}
+    - {x: 12, y: 11, z: 1}
+    - {x: 12, y: 12, z: 0}
+    - {x: 12, y: 12, z: 1}
+    - {x: 12, y: 13, z: 0}
+    - {x: 12, y: 13, z: 1}
+    - {x: 13, y: 11, z: 0}
+    - {x: 13, y: 11, z: 1}
+    - {x: 13, y: 12, z: 0}
+    - {x: 13, y: 12, z: 1}
+    - {x: 13, y: 13, z: 0}
+    - {x: 13, y: 13, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 11, y: 11, z: 0}
+    worldPos: {x: 4.6049995, y: 1.9670001, z: 8.4595}
+    neighbours:
+    - {x: 10, y: 10, z: 0}
+    - {x: 10, y: 10, z: 1}
+    - {x: 10, y: 11, z: 0}
+    - {x: 10, y: 11, z: 1}
+    - {x: 10, y: 12, z: 0}
+    - {x: 10, y: 12, z: 1}
+    - {x: 11, y: 10, z: 0}
+    - {x: 11, y: 10, z: 1}
+    - {x: 11, y: 11, z: 0}
+    - {x: 11, y: 11, z: 1}
+    - {x: 11, y: 12, z: 0}
+    - {x: 11, y: 12, z: 1}
+    - {x: 12, y: 10, z: 0}
+    - {x: 12, y: 10, z: 1}
+    - {x: 12, y: 11, z: 0}
+    - {x: 12, y: 11, z: 1}
+    - {x: 12, y: 12, z: 0}
+    - {x: 12, y: 12, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 10, y: 10, z: 0}
+    worldPos: {x: 4.5799994, y: 1.9420002, z: 8.4595}
+    neighbours:
+    - {x: 9, y: 9, z: 0}
+    - {x: 9, y: 9, z: 1}
+    - {x: 9, y: 10, z: 0}
+    - {x: 9, y: 10, z: 1}
+    - {x: 9, y: 11, z: 0}
+    - {x: 9, y: 11, z: 1}
+    - {x: 10, y: 9, z: 0}
+    - {x: 10, y: 9, z: 1}
+    - {x: 10, y: 10, z: 0}
+    - {x: 10, y: 10, z: 1}
+    - {x: 10, y: 11, z: 0}
+    - {x: 10, y: 11, z: 1}
+    - {x: 11, y: 9, z: 0}
+    - {x: 11, y: 9, z: 1}
+    - {x: 11, y: 10, z: 0}
+    - {x: 11, y: 10, z: 1}
+    - {x: 11, y: 11, z: 0}
+    - {x: 11, y: 11, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 9, y: 9, z: 0}
+    worldPos: {x: 4.5549994, y: 1.9170002, z: 8.4595}
+    neighbours:
+    - {x: 8, y: 8, z: 0}
+    - {x: 8, y: 8, z: 1}
+    - {x: 8, y: 9, z: 0}
+    - {x: 8, y: 9, z: 1}
+    - {x: 8, y: 10, z: 0}
+    - {x: 8, y: 10, z: 1}
+    - {x: 9, y: 8, z: 0}
+    - {x: 9, y: 8, z: 1}
+    - {x: 9, y: 9, z: 0}
+    - {x: 9, y: 9, z: 1}
+    - {x: 9, y: 10, z: 0}
+    - {x: 9, y: 10, z: 1}
+    - {x: 10, y: 8, z: 0}
+    - {x: 10, y: 8, z: 1}
+    - {x: 10, y: 9, z: 0}
+    - {x: 10, y: 9, z: 1}
+    - {x: 10, y: 10, z: 0}
+    - {x: 10, y: 10, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 8, y: 8, z: 0}
+    worldPos: {x: 4.5299993, y: 1.8920002, z: 8.4595}
+    neighbours:
+    - {x: 7, y: 7, z: 0}
+    - {x: 7, y: 7, z: 1}
+    - {x: 7, y: 8, z: 0}
+    - {x: 7, y: 8, z: 1}
+    - {x: 7, y: 9, z: 0}
+    - {x: 7, y: 9, z: 1}
+    - {x: 8, y: 7, z: 0}
+    - {x: 8, y: 7, z: 1}
+    - {x: 8, y: 8, z: 0}
+    - {x: 8, y: 8, z: 1}
+    - {x: 8, y: 9, z: 0}
+    - {x: 8, y: 9, z: 1}
+    - {x: 9, y: 7, z: 0}
+    - {x: 9, y: 7, z: 1}
+    - {x: 9, y: 8, z: 0}
+    - {x: 9, y: 8, z: 1}
+    - {x: 9, y: 9, z: 0}
+    - {x: 9, y: 9, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 7, y: 7, z: 0}
+    worldPos: {x: 4.5049996, y: 1.8670001, z: 8.4595}
+    neighbours:
+    - {x: 6, y: 6, z: 0}
+    - {x: 6, y: 6, z: 1}
+    - {x: 6, y: 7, z: 0}
+    - {x: 6, y: 7, z: 1}
+    - {x: 6, y: 8, z: 0}
+    - {x: 6, y: 8, z: 1}
+    - {x: 7, y: 6, z: 0}
+    - {x: 7, y: 6, z: 1}
+    - {x: 7, y: 7, z: 0}
+    - {x: 7, y: 7, z: 1}
+    - {x: 7, y: 8, z: 0}
+    - {x: 7, y: 8, z: 1}
+    - {x: 8, y: 6, z: 0}
+    - {x: 8, y: 6, z: 1}
+    - {x: 8, y: 7, z: 0}
+    - {x: 8, y: 7, z: 1}
+    - {x: 8, y: 8, z: 0}
+    - {x: 8, y: 8, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 6, y: 6, z: 0}
+    worldPos: {x: 4.4799995, y: 1.8420001, z: 8.4595}
+    neighbours:
+    - {x: 5, y: 5, z: 0}
+    - {x: 5, y: 5, z: 1}
+    - {x: 5, y: 6, z: 0}
+    - {x: 5, y: 6, z: 1}
+    - {x: 5, y: 7, z: 0}
+    - {x: 5, y: 7, z: 1}
+    - {x: 6, y: 5, z: 0}
+    - {x: 6, y: 5, z: 1}
+    - {x: 6, y: 6, z: 0}
+    - {x: 6, y: 6, z: 1}
+    - {x: 6, y: 7, z: 0}
+    - {x: 6, y: 7, z: 1}
+    - {x: 7, y: 5, z: 0}
+    - {x: 7, y: 5, z: 1}
+    - {x: 7, y: 6, z: 0}
+    - {x: 7, y: 6, z: 1}
+    - {x: 7, y: 7, z: 0}
+    - {x: 7, y: 7, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 5, y: 5, z: 0}
+    worldPos: {x: 4.4549994, y: 1.8170002, z: 8.4595}
+    neighbours:
+    - {x: 4, y: 4, z: 0}
+    - {x: 4, y: 4, z: 1}
+    - {x: 4, y: 5, z: 0}
+    - {x: 4, y: 5, z: 1}
+    - {x: 4, y: 6, z: 0}
+    - {x: 4, y: 6, z: 1}
+    - {x: 5, y: 4, z: 0}
+    - {x: 5, y: 4, z: 1}
+    - {x: 5, y: 5, z: 0}
+    - {x: 5, y: 5, z: 1}
+    - {x: 5, y: 6, z: 0}
+    - {x: 5, y: 6, z: 1}
+    - {x: 6, y: 4, z: 0}
+    - {x: 6, y: 4, z: 1}
+    - {x: 6, y: 5, z: 0}
+    - {x: 6, y: 5, z: 1}
+    - {x: 6, y: 6, z: 0}
+    - {x: 6, y: 6, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 4, y: 4, z: 0}
+    worldPos: {x: 4.4299994, y: 1.7920002, z: 8.4595}
+    neighbours:
+    - {x: 3, y: 3, z: 0}
+    - {x: 3, y: 3, z: 1}
+    - {x: 3, y: 4, z: 0}
+    - {x: 3, y: 4, z: 1}
+    - {x: 3, y: 5, z: 0}
+    - {x: 3, y: 5, z: 1}
+    - {x: 4, y: 3, z: 0}
+    - {x: 4, y: 3, z: 1}
+    - {x: 4, y: 4, z: 0}
+    - {x: 4, y: 4, z: 1}
+    - {x: 4, y: 5, z: 0}
+    - {x: 4, y: 5, z: 1}
+    - {x: 5, y: 3, z: 0}
+    - {x: 5, y: 3, z: 1}
+    - {x: 5, y: 4, z: 0}
+    - {x: 5, y: 4, z: 1}
+    - {x: 5, y: 5, z: 0}
+    - {x: 5, y: 5, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 3, y: 3, z: 0}
+    worldPos: {x: 4.4049993, y: 1.7670002, z: 8.4595}
+    neighbours:
+    - {x: 2, y: 2, z: 0}
+    - {x: 2, y: 2, z: 1}
+    - {x: 2, y: 3, z: 0}
+    - {x: 2, y: 3, z: 1}
+    - {x: 2, y: 4, z: 0}
+    - {x: 2, y: 4, z: 1}
+    - {x: 3, y: 2, z: 0}
+    - {x: 3, y: 2, z: 1}
+    - {x: 3, y: 3, z: 0}
+    - {x: 3, y: 3, z: 1}
+    - {x: 3, y: 4, z: 0}
+    - {x: 3, y: 4, z: 1}
+    - {x: 4, y: 2, z: 0}
+    - {x: 4, y: 2, z: 1}
+    - {x: 4, y: 3, z: 0}
+    - {x: 4, y: 3, z: 1}
+    - {x: 4, y: 4, z: 0}
+    - {x: 4, y: 4, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 2, y: 2, z: 0}
+    worldPos: {x: 4.3799996, y: 1.7420001, z: 8.4595}
+    neighbours:
+    - {x: 1, y: 1, z: 0}
+    - {x: 1, y: 1, z: 1}
+    - {x: 1, y: 2, z: 0}
+    - {x: 1, y: 2, z: 1}
+    - {x: 1, y: 3, z: 0}
+    - {x: 1, y: 3, z: 1}
+    - {x: 2, y: 1, z: 0}
+    - {x: 2, y: 1, z: 1}
+    - {x: 2, y: 2, z: 0}
+    - {x: 2, y: 2, z: 1}
+    - {x: 2, y: 3, z: 0}
+    - {x: 2, y: 3, z: 1}
+    - {x: 3, y: 1, z: 0}
+    - {x: 3, y: 1, z: 1}
+    - {x: 3, y: 2, z: 0}
+    - {x: 3, y: 2, z: 1}
+    - {x: 3, y: 3, z: 0}
+    - {x: 3, y: 3, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 1, y: 1, z: 0}
+    worldPos: {x: 4.3549995, y: 1.7170001, z: 8.4595}
+    neighbours:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 1}
+    - {x: 0, y: 1, z: 0}
+    - {x: 0, y: 1, z: 1}
+    - {x: 0, y: 2, z: 0}
+    - {x: 0, y: 2, z: 1}
+    - {x: 1, y: 0, z: 0}
+    - {x: 1, y: 0, z: 1}
+    - {x: 1, y: 1, z: 0}
+    - {x: 1, y: 1, z: 1}
+    - {x: 1, y: 2, z: 0}
+    - {x: 1, y: 2, z: 1}
+    - {x: 2, y: 0, z: 0}
+    - {x: 2, y: 0, z: 1}
+    - {x: 2, y: 1, z: 1}
+    - {x: 2, y: 2, z: 0}
+    - {x: 2, y: 2, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 0, y: 0, z: 0}
+    worldPos: {x: 4.3299994, y: 1.6920002, z: 8.4595}
+    neighbours:
+    - {x: 0, y: 0, z: 1}
+    - {x: 0, y: 1, z: 0}
+    - {x: 0, y: 1, z: 1}
+    - {x: 1, y: 0, z: 0}
+    - {x: 1, y: 0, z: 1}
+    - {x: 1, y: 1, z: 0}
+    - {x: 1, y: 1, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  cornerNodes:
+  - coords: {x: 17, y: 15, z: 0}
+    worldPos: {x: 4.7549996, y: 2.0670002, z: 8.4595}
+    neighbours:
+    - {x: 16, y: 14, z: 0}
+    - {x: 16, y: 14, z: 1}
+    - {x: 16, y: 15, z: 0}
+    - {x: 16, y: 15, z: 1}
+    - {x: 17, y: 14, z: 0}
+    - {x: 17, y: 14, z: 1}
+    - {x: 17, y: 15, z: 0}
+    - {x: 17, y: 15, z: 1}
+    - {x: 18, y: 14, z: 0}
+    - {x: 18, y: 14, z: 1}
+    - {x: 18, y: 15, z: 0}
+    - {x: 18, y: 15, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 17, y: 15, z: 0}
+    worldPos: {x: 4.7549996, y: 2.0670002, z: 8.4595}
+    neighbours:
+    - {x: 16, y: 14, z: 0}
+    - {x: 16, y: 14, z: 1}
+    - {x: 16, y: 15, z: 0}
+    - {x: 16, y: 15, z: 1}
+    - {x: 17, y: 14, z: 0}
+    - {x: 17, y: 14, z: 1}
+    - {x: 17, y: 15, z: 0}
+    - {x: 17, y: 15, z: 1}
+    - {x: 18, y: 14, z: 0}
+    - {x: 18, y: 14, z: 1}
+    - {x: 18, y: 15, z: 0}
+    - {x: 18, y: 15, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 16, y: 14, z: 0}
+    worldPos: {x: 4.7299995, y: 2.042, z: 8.4595}
+    neighbours:
+    - {x: 15, y: 13, z: 0}
+    - {x: 15, y: 13, z: 1}
+    - {x: 15, y: 14, z: 0}
+    - {x: 15, y: 14, z: 1}
+    - {x: 15, y: 15, z: 0}
+    - {x: 15, y: 15, z: 1}
+    - {x: 16, y: 13, z: 0}
+    - {x: 16, y: 13, z: 1}
+    - {x: 16, y: 14, z: 0}
+    - {x: 16, y: 14, z: 1}
+    - {x: 16, y: 15, z: 0}
+    - {x: 16, y: 15, z: 1}
+    - {x: 17, y: 13, z: 0}
+    - {x: 17, y: 13, z: 1}
+    - {x: 17, y: 14, z: 0}
+    - {x: 17, y: 14, z: 1}
+    - {x: 17, y: 15, z: 0}
+    - {x: 17, y: 15, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 15, y: 15, z: 0}
+    worldPos: {x: 4.7049994, y: 2.0670002, z: 8.4595}
+    neighbours:
+    - {x: 14, y: 14, z: 0}
+    - {x: 14, y: 14, z: 1}
+    - {x: 14, y: 15, z: 0}
+    - {x: 14, y: 15, z: 1}
+    - {x: 15, y: 14, z: 0}
+    - {x: 15, y: 14, z: 1}
+    - {x: 15, y: 15, z: 0}
+    - {x: 15, y: 15, z: 1}
+    - {x: 16, y: 14, z: 0}
+    - {x: 16, y: 14, z: 1}
+    - {x: 16, y: 15, z: 0}
+    - {x: 16, y: 15, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
+  - coords: {x: 0, y: 0, z: 0}
+    worldPos: {x: 4.3299994, y: 1.6920002, z: 8.4595}
+    neighbours:
+    - {x: 0, y: 0, z: 1}
+    - {x: 0, y: 1, z: 0}
+    - {x: 0, y: 1, z: 1}
+    - {x: 1, y: 0, z: 0}
+    - {x: 1, y: 0, z: 1}
+    - {x: 1, y: 1, z: 0}
+    - {x: 1, y: 1, z: 1}
+    invalid: 0
+    distanceFactor: 0.5
   nodeDetectionDistance: 0.025
   debugPath: 1
   debugPathColour: {r: 0.8509804, g: 0.43659076, b: 0.38039216, a: 1}

@@ -7,6 +7,8 @@ public class ShrimpManager : MonoBehaviour
     public static ShrimpManager instance;
     private GeneManager geneManager;
 
+    public GameObject shrimpPrefab;
+
     public List<Shrimp> allShrimp = new List<Shrimp>();
     private int numberOfShrimp = 0;
 

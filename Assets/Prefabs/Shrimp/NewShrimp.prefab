@@ -1,0 +1,282 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &54720155993976486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8214714820716463435}
+  - component: {fileID: 7581051015072408217}
+  - component: {fileID: 797484481638392343}
+  - component: {fileID: 8620922433178466521}
+  m_Layer: 0
+  m_Name: NewShrimp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8214714820716463435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54720155993976486}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 7141970734001583480}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7581051015072408217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54720155993976486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f178cd02e9a006a4489501c1e92c3339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    name: 
+    gender: 0
+    birthTime: 0
+    hunger: 0
+    illness: 0
+    temperament: 0
+    geneticSize: 0
+    actualSize: 0
+    primaryColour:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    secondaryColour:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    body:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    head:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    eyes:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    pattern:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    tail:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    tailFan:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    antenna:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    legs:
+      activeGene:
+        ID: 
+        dominance: 0
+        value: 0
+      inactiveGene:
+        ID: 
+        dominance: 0
+        value: 0
+    fightHistory: 0
+    breedingHistory: 0
+    illnessHistory: 0
+    moltHistory: 0
+  shrimpActivities: []
+  tank: {fileID: 0}
+  agent: {fileID: 9038667343410755530, guid: 9c37763690d5b354cb993c972810dd39, type: 3}
+  camDock: {fileID: 3154724589825782822, guid: 9c37763690d5b354cb993c972810dd39, type: 3}
+  breedingHeartParticles: {fileID: 6702105809018823241, guid: 6631f23106340f44d827d4b785375ec7,
+    type: 3}
+--- !u!114 &797484481638392343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54720155993976486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02be6348c4c6eac4a8e43e87b5945116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.05
+  turnSpeed: 1.5
+  totalPath: []
+  cornerNodes: []
+  nodeDetectionDistance: 0.025
+  debugPath: 1
+  debugPathColour: {r: 0.8509804, g: 0.43659076, b: 0.38039216, a: 1}
+  curvePath: 1
+  PathCreator: {fileID: 0}
+  _PathCreatorPrefab: {fileID: 0}
+  _CornerSmooth: 0.1
+  tankGrid: {fileID: 0}
+  Status: 2
+  shrimpModel: {fileID: 47259463101934435, guid: 9c37763690d5b354cb993c972810dd39,
+    type: 3}
+--- !u!135 &8620922433178466521
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54720155993976486}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &2512777263875629905
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7141970734001583480}
+  m_Layer: 7
+  m_Name: CamRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7141970734001583480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2512777263875629905}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8227024751326275044}
+  m_Father: {fileID: 8214714820716463435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3390697710964008321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8227024751326275044}
+  - component: {fileID: 7717687791338540456}
+  m_Layer: 7
+  m_Name: CamDock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8227024751326275044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3390697710964008321}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.29820508, z: -0, w: 0.95450187}
+  m_LocalPosition: {x: -180, y: 0, z: -95}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7141970734001583480}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7717687791338540456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3390697710964008321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c18ec4e7a03bee49b70eb4504dfb0c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
