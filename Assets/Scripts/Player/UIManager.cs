@@ -31,9 +31,9 @@ public class UIManager
 
     public void ChangeFocus()
     {
-        _cursor.transform.SetParent(null);
+        //_cursor.transform.SetParent(null);
 
-        _cursor.transform.SetAsLastSibling();
+        //_cursor.transform.SetAsLastSibling();
 
         _cursor.SetActive(false);
 
@@ -65,8 +65,8 @@ public class UIManager
 
     public void ChangeFocus(ScreenView newFocus, RectTransform customRect)
     {
-        _cursor.transform.SetParent(newFocus.transform);
-        _cursor.transform.SetAsLastSibling();
+        //_cursor.transform.SetParent(newFocus.transform);
+        //_cursor.transform.SetAsLastSibling();
 
         if (_currentUI != null)
         {
@@ -75,7 +75,7 @@ public class UIManager
         _currentUI = newFocus;
         _currentRect = customRect.rect;
 
-        _cursor.transform.localScale = Vector3.one;
+        //_cursor.transform.localScale = Vector3.one;
 
         Cursor.visible = false;
 

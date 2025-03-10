@@ -58,10 +58,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2718795182072498722, guid: a2040757e7cc7834dbb6751e770d945d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -888447324491273448, guid: a2040757e7cc7834dbb6751e770d945d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a2040757e7cc7834dbb6751e770d945d,
         type: 3}
       propertyPath: m_Name
       value: Shrimp_Fan_Cherry
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2040757e7cc7834dbb6751e770d945d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438431771704056418, guid: a2040757e7cc7834dbb6751e770d945d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887624331615564697, guid: a2040757e7cc7834dbb6751e770d945d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6621109608897284253, guid: a2040757e7cc7834dbb6751e770d945d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
