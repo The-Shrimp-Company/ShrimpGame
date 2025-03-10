@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainCanvas : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class MainCanvas : MonoBehaviour
         GetComponentInChildren<TabletInteraction>().gameObject.GetComponent<CanvasGroup>().interactable = false;
         lastCreated = Instantiate(screen, GetComponentInChildren<TabletInteraction>().transform.parent.transform);
         UIManager.instance.ChangeFocus(lastCreated.GetComponent<ScreenView>());
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
         return lastCreated;
     }
 
@@ -30,6 +32,7 @@ public class MainCanvas : MonoBehaviour
     {
         player.GetComponent<PlayerTablet>().OnCloseTablet();
         Destroy(lastCreated);
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
         UIManager.instance.ChangeFocus();
     }
 

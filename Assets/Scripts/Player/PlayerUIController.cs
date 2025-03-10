@@ -61,8 +61,18 @@ public class PlayerUIController : MonoBehaviour
     {
         Vector2 pos = Mouse.current.position.value;
         RectTransform uiPanel = UIManager.instance.GetFocus().GetComponent<RectTransform>();
-        pos.x = Mathf.Clamp(pos.x, uiPanel.position.x - uiPanel.rect.width / 2 * UIManager.instance.GetCanvas().localScale.x, uiPanel.position.x + uiPanel.rect.width / 2 * UIManager.instance.GetCanvas().localScale.x);
-        pos.y = Mathf.Clamp(pos.y, uiPanel.position.y - uiPanel.rect.height / 2 * UIManager.instance.GetCanvas().localScale.y, uiPanel.position.y + uiPanel.rect.height / 2 * UIManager.instance.GetCanvas().localScale.y);
+        float localScale = UIManager.instance.GetCanvas().GetComponent<Canvas>().scaleFactor;
+        Vector2 scale = UIManager.instance.GetCanvas().GetComponent<RectTransform>().localScale;
+
+        //Vector2 bottomCorner = new Vector2(uiPanel.anchorMin, centre.center.y * localScale - (uiPanel.rect.height * localScale) / 2);
+        //ector2 topCorner = new Vector2(centre.center.x * localScale + (uiPanel.rect.width * localScale) /2, centre.center.y * localScale + (uiPanel.rect.height * localScale) / 2);
+
+        Vector2 bottomCorner = Camera.main.WorldToScreenPoint(uiPanel.anchorMin * localScale);
+        Vector2 topCorner = Camera.main.WorldToScreenPoint(uiPanel.anchorMax * localScale);
+
+        pos.x = Mathf.Clamp(pos.x, bottomCorner.x * (1/scale.x), topCorner.x * (1/scale.x));
+        pos.y = Mathf.Clamp(pos.y, bottomCorner.y * (1/scale.y), topCorner.y * (1/scale.y));
+
         Mouse.current.WarpCursorPosition(pos);
     }
 
