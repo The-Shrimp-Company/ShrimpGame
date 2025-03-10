@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Money
 {
-    private int _money = 0;
+    private float _money = 0;
 
     static public Money instance = new Money();
 
-    public int money
+    public float money
     {
         get { return _money; }
     }
@@ -19,12 +19,12 @@ public class Money
         _money = 0;
     }
 
-    public void AddMoney(int moneyToAdd)
+    public void AddMoney(float moneyToAdd)
     {
         _money += moneyToAdd;
     }
 
-    public bool WithdrawMoney(int amountToTake)
+    public bool WithdrawMoney(float amountToTake)
     {
         if(_money >= amountToTake)
         {

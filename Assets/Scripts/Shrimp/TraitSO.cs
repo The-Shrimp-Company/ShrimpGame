@@ -8,7 +8,17 @@ public struct Gene
 {
     public string ID;
     public int dominance;
-    public int value;
+}
+
+
+// Information that applies to every instance of a gene, it is saved in the gene manager
+[System.Serializable]
+public struct GlobalGene
+{
+    public string ID;
+    public int dominance;
+    public float startingValue;
+    public float currentValue;
 }
 
 
@@ -23,6 +33,11 @@ public struct Trait
     {
         this.activeGene = a;
         this.inactiveGene = i;
+    }
+    public Trait(GlobalGene a, GlobalGene i)
+    {
+        this.activeGene = GeneManager.instance.GlobalGeneToGene(a);
+        this.inactiveGene = GeneManager.instance.GlobalGeneToGene(i);
     }
 }
 

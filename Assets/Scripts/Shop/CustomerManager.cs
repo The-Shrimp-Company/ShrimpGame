@@ -58,6 +58,7 @@ public class CustomerManager : MonoBehaviour
             ToPurchase.Remove(shrimp);
             shrimp.tank.shrimpToRemove.Add(shrimp);
             Money.instance.AddMoney(shrimp.FindValue());
+            EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
         }
         else
         {
