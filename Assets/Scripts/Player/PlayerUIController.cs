@@ -67,11 +67,14 @@ public class PlayerUIController : MonoBehaviour
         //Vector2 bottomCorner = new Vector2(uiPanel.anchorMin, centre.center.y * localScale - (uiPanel.rect.height * localScale) / 2);
         //ector2 topCorner = new Vector2(centre.center.x * localScale + (uiPanel.rect.width * localScale) /2, centre.center.y * localScale + (uiPanel.rect.height * localScale) / 2);
 
-        Vector2 centre = Camera.main.WorldToScreenPoint(uiPanel.position);
+        Vector2 centre = uiPanel.position;
         float left = centre.x - uiPanel.rect.width / 2 * localScale * (1 / scale.x);
         float right = centre.x + uiPanel.rect.width / 2 * localScale * (1 / scale.x);
         float bottom = centre.y - uiPanel.rect.height / 2 * localScale * (1 / scale.y);
         float top = centre.y + uiPanel.rect.height / 2 * localScale * (1 / scale.y);
+
+        Debug.Log(left + " " + right + " " + bottom + " " + top);
+        Debug.Log(centre);
 
 
         pos.x = Mathf.Clamp(pos.x, left, right);
