@@ -15,6 +15,10 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] float valueFluctuation;  // How much the value is changed when a shrimp is sold. Will be multiplied by the valueFluctuationStrength
     [SerializeField] AnimationCurve valueFluctuationStrength;  // 0 is the starting value
 
+    [Header("Value Multipliers")]
+    [SerializeField] float pureShrimpMultiplier = 1.5f;
+    [SerializeField] AnimationCurve healthMultiplier;
+
     public void Awake()
     {
         instance = this;
@@ -22,45 +26,65 @@ public class EconomyManager : MonoBehaviour
 
     public void UpdateTraitValues(bool purchased, ShrimpStats traits)
     {
-        UpdateValue(purchased, traits.primaryColour.activeGene);
-        UpdateValue(purchased, traits.secondaryColour.activeGene);
-        UpdateValue(purchased, traits.pattern.activeGene);
+        UpdateValueOfGene(purchased, traits.primaryColour.activeGene);
+        UpdateValueOfGene(purchased, traits.secondaryColour.activeGene);
+        UpdateValueOfGene(purchased, traits.pattern.activeGene);
 
-        UpdateValue(purchased, traits.body.activeGene);
-        UpdateValue(purchased, traits.head.activeGene);
-        UpdateValue(purchased, traits.eyes.activeGene);
-        UpdateValue(purchased, traits.tail.activeGene);
-        UpdateValue(purchased, traits.tailFan.activeGene);
-        UpdateValue(purchased, traits.antenna.activeGene);
-        UpdateValue(purchased, traits.legs.activeGene);
+        UpdateValueOfGene(purchased, traits.body.activeGene);
+        UpdateValueOfGene(purchased, traits.head.activeGene);
+        UpdateValueOfGene(purchased, traits.eyes.activeGene);
+        UpdateValueOfGene(purchased, traits.tail.activeGene);
+        UpdateValueOfGene(purchased, traits.tailFan.activeGene);
+        UpdateValueOfGene(purchased, traits.antenna.activeGene);
+        UpdateValueOfGene(purchased, traits.legs.activeGene);
     }
 
-    private void UpdateValue(bool purchased, Gene g)
+    private void UpdateValueOfGene(bool purchased, Gene g)
     {
-        // 
+        GlobalGene global = GeneManager.instance.GetGlobalGene(g.ID);
+        float x = (minTraitValue + maxTraitValue) / 2;
+        float min = global.startingValue - x;
+        float max = global.startingValue + x;
+        float l = Mathf.InverseLerp(min, max, global.currentValue);
 
-        //Gene global = GeneManager.instance.GetGlobalGene(g.ID)
-        //float x = (minTraitValue + maxTraitValue) / 2;
-        //float min = global.value - x;
-        //float max = global.value + x;
+        if (purchased)
+        {
+            global.currentValue = Mathf.Clamp(global.currentValue + (valueFluctuation * valueFluctuationStrength.Evaluate(l)), minTraitValue, maxTraitValue);
+        }
 
-        //if (purchased)
-        //{
+        else if (!purchased)
+        {
+            global.currentValue = Mathf.Clamp(global.currentValue - (valueFluctuation * valueFluctuationStrength.Evaluate(l)), minTraitValue, maxTraitValue);
+        }
 
-        //    g.value = Mathf.Clamp(g.value + (valueFluctuation * valueFluctuationStrength.Evaluate()), minTraitValue, maxTraitValue);
-        //}
-
-        //else if (!purchased)
-        //{
-
-        //}
+        GeneManager.instance.SetGlobalGene(global);
     }
 
-    public void GetShrimpValue()
+    public float GetShrimpValue(ShrimpStats s)
     {
         // Add trait values
+        float t = 0;
+        t += GeneManager.instance.GetGlobalGene(s.primaryColour.activeGene.ID).currentValue;
+        t += GeneManager.instance.GetGlobalGene(s.secondaryColour.activeGene.ID).currentValue;
+        t += GeneManager.instance.GetGlobalGene(s.pattern.activeGene.ID).currentValue;
 
-        // Apply multipliers for things like pure shrimp and health
+        t += GeneManager.instance.GetGlobalGene(s.body.activeGene.ID).currentValue;
+        t += GeneManager.instance.GetGlobalGene(s.head.activeGene.ID).currentValue;
+        t += GeneManager.instance.GetGlobalGene(s.eyes.activeGene.ID).currentValue;
+        t += GeneManager.instance.GetGlobalGene(s.tail.activeGene.ID).currentValue;
+        t += GeneManager.instance.GetGlobalGene(s.tailFan.activeGene.ID).currentValue;
+        t += GeneManager.instance.GetGlobalGene(s.antenna.activeGene.ID).currentValue;
+        t += GeneManager.instance.GetGlobalGene(s.legs.activeGene.ID).currentValue;
+
+
+        // Apply multipliers
+
+        if (GeneManager.instance.CheckForPureShrimp(s)) t *= pureShrimpMultiplier;  // Pure Shrimp
+
+        t *= healthMultiplier.Evaluate(s.illness / ShrimpManager.instance.maxShrimpIllness);  // Shrimp Health
+
+
+        return t;
     }
 }
 

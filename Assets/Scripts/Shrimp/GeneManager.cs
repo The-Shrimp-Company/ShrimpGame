@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public enum InheritanceType
 {
@@ -45,7 +46,7 @@ public class GeneManager : MonoBehaviour
     public List<TraitSO> antennaSOs = new List<TraitSO>();
     public List<TraitSO> legsSOs = new List<TraitSO>();
 
-    private List<Gene> loadedGlobalGenes = new List<Gene>();
+    private List<GlobalGene> loadedGlobalGenes = new List<GlobalGene>();
 
 
 
@@ -123,38 +124,41 @@ public class GeneManager : MonoBehaviour
 
     private Trait WeightedRandomTrait(Trait parentATrait, Trait parentBTrait)
     {
-        char type = parentATrait.activeGene.ID[0];
         Trait t = new Trait();
+        if (parentATrait.activeGene.ID != null)
+        {
+            char type = parentATrait.activeGene.ID[0];
 
-        if (type == 'C')
-            t = WeightedRandomTraitsFromList(colourSOs);
+            if (type == 'C')
+                t = WeightedRandomTraitsFromList(colourSOs);
 
-        else if (type == 'P')
-            t = WeightedRandomTraitsFromList(patternSOs);
+            else if (type == 'P')
+                t = WeightedRandomTraitsFromList(patternSOs);
 
-        else if (type == 'B')
-            t = WeightedRandomTraitsFromList(bodySOs);
+            else if (type == 'B')
+                t = WeightedRandomTraitsFromList(bodySOs);
 
-        else if (type == 'H')
-            t = WeightedRandomTraitsFromList(headSOs);
+            else if (type == 'H')
+                t = WeightedRandomTraitsFromList(headSOs);
 
-        else if (type == 'E')
-            t = WeightedRandomTraitsFromList(eyeSOs);
+            else if (type == 'E')
+                t = WeightedRandomTraitsFromList(eyeSOs);
 
-        else if (type == 'T')
-            t = WeightedRandomTraitsFromList(tailSOs);
+            else if (type == 'T')
+                t = WeightedRandomTraitsFromList(tailSOs);
 
-        else if (type == 'F')
-            t = WeightedRandomTraitsFromList(tailFanSOs);
+            else if (type == 'F')
+                t = WeightedRandomTraitsFromList(tailFanSOs);
 
-        else if (type == 'A')
-            t = WeightedRandomTraitsFromList(antennaSOs);
+            else if (type == 'A')
+                t = WeightedRandomTraitsFromList(antennaSOs);
 
-        else if (type == 'L')
-            t = WeightedRandomTraitsFromList(legsSOs);
+            else if (type == 'L')
+                t = WeightedRandomTraitsFromList(legsSOs);
 
-        else
-            Debug.Log("ID prefix " + type + " could not be found");
+            else
+                Debug.Log("ID prefix " + type + " could not be found");
+        }
 
         if (t.activeGene.ID == null || t.activeGene.ID == "")
         {
@@ -354,10 +358,11 @@ public class GeneManager : MonoBehaviour
     {
         foreach (TraitSO t in l)
         {
-            Gene g = new Gene();
+            GlobalGene g = new GlobalGene();
             g.ID = t.ID;
             g.dominance = WeightDominance(t.weightDominanceTowards);
-            g.value = (t.minValue + t.maxValue) / 2;
+            g.startingValue = (t.minValue + t.maxValue) / 2;
+            g.currentValue = g.startingValue;
             loadedGlobalGenes.Add(g);
         }
     }
@@ -437,7 +442,7 @@ public class GeneManager : MonoBehaviour
     {
         if (l.Count == 0) return new Trait();
 
-        return GeneToTrait(GetGlobalGene(l[Random.Range(0, l.Count)].ID));
+        return GlobalGeneToTrait(GetGlobalGene(l[Random.Range(0, l.Count)].ID));
     }
 
 
@@ -462,7 +467,7 @@ public class GeneManager : MonoBehaviour
             i += GetGlobalGene(t.ID).dominance;
             if (rand <= i)
             {
-                r.activeGene = GetGlobalGene(t.ID);
+                r.activeGene = GlobalGeneToGene(GetGlobalGene(t.ID));
                 break;
             }
         }
@@ -475,7 +480,7 @@ public class GeneManager : MonoBehaviour
             i += GetGlobalGene(t.ID).dominance;
             if (rand <= i)
             {
-                r.inactiveGene = GetGlobalGene(t.ID);
+                r.inactiveGene = GlobalGeneToGene(GetGlobalGene(t.ID));
                 break;
             }
         }
@@ -490,11 +495,11 @@ public class GeneManager : MonoBehaviour
     }
 
 
-    public Gene GetGlobalGene(string ID)
+    public GlobalGene GetGlobalGene(string ID)
     {
-        Gene r = new Gene();
+        GlobalGene r = new GlobalGene();
 
-        foreach (Gene g in loadedGlobalGenes)
+        foreach (GlobalGene g in loadedGlobalGenes)
         {
             if (g.ID == ID)
             {
@@ -509,6 +514,35 @@ public class GeneManager : MonoBehaviour
         }
 
         return r;
+    }
+
+
+    public void SetGlobalGene(GlobalGene g)
+    {
+        for (int i = 0; i < loadedGlobalGenes.Count - 1; i++)
+        {
+            if (loadedGlobalGenes[i].ID == g.ID)
+            {
+                loadedGlobalGenes[i] = g;
+                return;
+            }
+        }
+    }
+
+
+    public Gene GlobalGeneToGene(GlobalGene gene)
+    {
+        Gene g = new Gene();
+        g.ID = gene.ID;
+        //g.value = gene.currentValue;
+        g.dominance = gene.dominance;
+        return g;
+    }
+
+
+    public Trait GlobalGeneToTrait(GlobalGene gene)
+    {
+        return new Trait(gene, gene);
     }
 
 
@@ -570,5 +604,21 @@ public class GeneManager : MonoBehaviour
         float weighting = dominanceWeightingPercentage / 100;  // Convert percentage to decimal
         val += (w - val) * weighting;
         return Mathf.RoundToInt(val);
+    }
+
+
+    public bool CheckForPureShrimp(ShrimpStats s)
+    {
+        TraitSet ts = GetTraitSO(s.body.activeGene.ID).set;
+
+        if (GetTraitSO(s.head.activeGene.ID).set != ts) return false;
+        if (GetTraitSO(s.eyes.activeGene.ID).set != ts) return false;
+        if (GetTraitSO(s.tail.activeGene.ID).set != ts) return false;
+        if (GetTraitSO(s.tailFan.activeGene.ID).set != ts) return false;
+        //if (GetTraitSO(s.antenna.activeGene.ID).set != ts) return false;
+        if (GetTraitSO(s.legs.activeGene.ID).set != ts) return false;
+
+        Debug.Log("Pure Shrimp!");
+        return true;
     }
 }

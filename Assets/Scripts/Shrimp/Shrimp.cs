@@ -201,9 +201,8 @@ public class Shrimp : MonoBehaviour
         toKill = true;
     }
 
-    public int FindValue()
+    public float FindValue()
     {
-        // Put value funtion here
-        return 11;
+        return (EconomyManager.instance.GetShrimpValue(stats));
     }
 }

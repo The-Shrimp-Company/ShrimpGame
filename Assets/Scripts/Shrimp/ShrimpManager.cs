@@ -14,13 +14,15 @@ public class ShrimpManager : MonoBehaviour
 
 
     [Header("Size")]
-    private int maxShrimpSize = 100;
+    [SerializeField] float maxSizeOfShrimp = 0.75f;
+    private int maxGeneticShrimpSize = 100;
+    [SerializeField] AnimationCurve sizeThroughChildhood;  // Childhood ends when moltSpeed levels out
 
     [Header("Hunger")]
     private int maxShrimpHunger = 100;
 
     [Header("Illness")]
-    private int maxShrimpIllness = 100;
+    [HideInInspector] public int maxShrimpIllness = 100;
 
     [Header("Age")]
     [SerializeField] int maxShrimpAge;
@@ -49,7 +51,7 @@ public class ShrimpManager : MonoBehaviour
         s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 0;
         s.illness = 0;
-        s.geneticSize = geneManager.IntGene(geneManager.sizeInheritance, maxShrimpSize, parentA.geneticSize, parentB.geneticSize, geneManager.sizeCanMutate);
+        s.geneticSize = geneManager.IntGene(geneManager.sizeInheritance, maxGeneticShrimpSize, parentA.geneticSize, parentB.geneticSize, geneManager.sizeCanMutate);
         s.temperament = geneManager.IntGene(geneManager.temperamentInheritance, maxShrimpTemperament, parentA.temperament, parentB.temperament, geneManager.temperamentCanMutate);
 
         s.primaryColour = geneManager.TraitGene(geneManager.colourInheritance, 0, parentA.primaryColour, parentB.primaryColour, geneManager.colourCanMutate);
@@ -86,7 +88,7 @@ public class ShrimpManager : MonoBehaviour
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
-        s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpSize, 0, 0, false);
+        s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
         s.hunger = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
         s.illness = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
 
@@ -155,18 +157,17 @@ public class ShrimpManager : MonoBehaviour
         s.illness = 0;
         s.temperament = 0;
 
-        s.primaryColour = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.colourSOs[0].ID));
-        s.secondaryColour = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.colourSOs[0].ID));
+        s.primaryColour = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.colourSOs[0].ID));
+        s.secondaryColour = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.colourSOs[0].ID));
+        s.pattern = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.patternSOs[0].ID));
 
-        s.pattern = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.patternSOs[0].ID));
-
-        s.body = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.bodySOs[0].ID));
-        s.head = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.headSOs[0].ID));
-        s.eyes = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.eyeSOs[0].ID));
-        s.tail = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.tailSOs[0].ID));
-        s.tailFan = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.tailFanSOs[0].ID));
-        s.antenna = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.antennaSOs[0].ID));
-        s.legs = geneManager.GeneToTrait(geneManager.GetGlobalGene(geneManager.legsSOs[0].ID));
+        s.body = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.bodySOs[0].ID));
+        s.head = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.headSOs[0].ID));
+        s.eyes = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.eyeSOs[0].ID));
+        s.tail = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.tailSOs[0].ID));
+        s.tailFan = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.tailFanSOs[0].ID));
+        s.antenna = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.antennaSOs[0].ID));
+        s.legs = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.legsSOs[0].ID));
 
         s.fightHistory = 0;
         s.breedingHistory = 0;
@@ -187,4 +188,9 @@ public class ShrimpManager : MonoBehaviour
     {
         return moltSpeed.Evaluate(age / maxShrimpAge);
     }
+
+    //public float GetShrimpSize(int )
+    //{
+    //    return sizeThroughChildhood.Evaluate()
+    //}
 }
