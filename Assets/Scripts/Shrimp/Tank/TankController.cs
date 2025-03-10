@@ -115,10 +115,11 @@ public class TankController : MonoBehaviour
         Shrimp s = newShrimp.GetComponent<Shrimp>();
 
         s.stats = ShrimpManager.instance.CreateRandomShrimp();
-        s.ConstructShrimp();
         s.ChangeTank(this);
         newShrimp.name = s.stats.name;
         newShrimp.transform.parent = shrimpParent;
+        newShrimp.transform.position = GetRandomTankPosition();
+        s.ConstructShrimp();
 
         shrimpToAdd.Add(s);
     }

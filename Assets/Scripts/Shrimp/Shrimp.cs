@@ -20,7 +20,6 @@ public class Shrimp : MonoBehaviour
 
     public void Start()
     {
-        transform.position = tank.GetRandomTankPosition();
         agent.tankGrid = tank.tankGrid;
 
         Email email = new Email();
@@ -47,10 +46,9 @@ public class Shrimp : MonoBehaviour
 
     public void ConstructShrimp()
     {
-        Transform shrimpTransform = Instantiate(GeneManager.instance.GetTraitSO(stats.body.activeGene.ID).part, transform).transform;
-        shrimpTransform.gameObject.GetComponent<Body>().Construct(stats);
-        GetComponent<ShrimpAgent>().shrimpModel = shrimpTransform;
-
+        GameObject newShrimp = Instantiate<GameObject>(GeneManager.instance.GetTraitSO(stats.body.activeGene.ID).part, agent.shrimpModel);
+        newShrimp.GetComponent<Body>().Construct(stats);
+        //GetComponent<ShrimpAgent>().shrimpModel = newShrimp.transform;
     }
 
     public void UpdateShrimp(float elapsedTime)

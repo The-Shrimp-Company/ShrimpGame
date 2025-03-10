@@ -69,7 +69,7 @@ public class ShrimpMovement : ShrimpActivity
         {
             elapsedTimeRemaining = elapsedTimeThisFrame - r;
             taskRemainingTime = 0;
-            //Debug.Log("Reached destination");
+            if (debugMovement) Debug.Log("Reached destination");
         }
     }
 

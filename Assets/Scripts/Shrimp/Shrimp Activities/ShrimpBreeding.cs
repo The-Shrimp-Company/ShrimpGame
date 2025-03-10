@@ -168,6 +168,7 @@ public class ShrimpBreeding : ShrimpActivity
         newShrimp.name = s.stats.name;
         newShrimp.transform.parent = shrimp.tank.shrimpParent;
         newShrimp.transform.position = (shrimp.transform.position + otherShrimp.transform.position) / 2;  // Spawn inbetween the two shrimp
+        s.ConstructShrimp();
 
         shrimp.tank.shrimpToAdd.Add(s);
     }
