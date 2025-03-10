@@ -31,4 +31,5 @@ public struct ShrimpStats
     public int breedingHistory;
     public int illnessHistory;
     public int moltHistory;
+    public bool canBreed;
 }

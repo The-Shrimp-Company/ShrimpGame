@@ -28,6 +28,8 @@ public class ShrimpManager : MonoBehaviour
     [SerializeField] int maxShrimpAge;
     [SerializeField] AnimationCurve shrimpNaturalDeathAge;
     [SerializeField] AnimationCurve moltSpeed;  // In minutes, realtime
+    [SerializeField] float moltSpeedRequiredToBeAdult = 5;
+    private int adultAge;
 
     [Header("Temperament")]
     private int maxShrimpTemperament = 100;
@@ -187,6 +189,26 @@ public class ShrimpManager : MonoBehaviour
     public float GetMoltTime(int age)
     {
         return moltSpeed.Evaluate(age / maxShrimpAge);
+    }
+
+    public int GetAdultAge()
+    {
+        if (adultAge == 0)
+        {
+            float e = 0;
+            do
+            {
+                if (moltSpeed.Evaluate(e) >= moltSpeedRequiredToBeAdult)
+                {
+                    adultAge = Mathf.RoundToInt(e * maxShrimpAge);
+                    break;
+                }
+
+                e += 0.01f;
+            } while (e < 1);
+        }
+        Debug.Log(adultAge);
+        return adultAge;
     }
 
     //public float GetShrimpSize(int )

@@ -83,6 +83,9 @@ public class Shrimp : MonoBehaviour
             moltTimer -= moltSpeed;
             stats.moltHistory++;
 
+            if (TimeManager.instance.GetShrimpAge(stats.birthTime) >= ShrimpManager.instance.GetAdultAge())  // If the shrimp is considered an adult
+                stats.canBreed = true;  // The shrimp can breed
+
             if (ShrimpManager.instance.CheckForMoltFail(TimeManager.instance.GetShrimpAge(stats.birthTime)))
             {
                 // Molt has failed, the shrimp will now die
@@ -142,8 +145,11 @@ public class Shrimp : MonoBehaviour
                 {
                     // Other logic for who can breed here
                     // Once every molt for female
-
-                    validShrimp.Add(s);
+                    if (stats.canBreed &&
+                        s.stats.canBreed)
+                    {
+                        validShrimp.Add(s);
+                    }
                 }
             }
 
