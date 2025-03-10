@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3464964283020374581}
   - component: {fileID: 1730048063619764928}
   - component: {fileID: 3804399993549321429}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 1631595310263070684}
   - component: {fileID: 409959096952176509}
   - component: {fileID: 6407192599670451702}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 4990269403307857069}
   - component: {fileID: 2772321523489911076}
   - component: {fileID: 8662618630762520872}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 7885595697019795113}
   - component: {fileID: 2541413600787694656}
   - component: {fileID: 3136391278506741601}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Set Tank
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 1661525689144566334}
   - component: {fileID: 5981766343327679801}
   - component: {fileID: 533647483450577743}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 1160506725339480958}
   - component: {fileID: 5277279160094674048}
   - component: {fileID: 5893835037990872777}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 7290124253464088627}
   - component: {fileID: 4833082234602232034}
   - component: {fileID: 443259104569308961}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Hide Tank
   m_TagString: Button
   m_Icon: {fileID: 0}
@@ -840,7 +840,7 @@ GameObject:
   - component: {fileID: 7366412942090577449}
   - component: {fileID: 7980642890986439462}
   - component: {fileID: 7709272729642021991}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 8862721570316287926}
   - component: {fileID: 131927633617552070}
   - component: {fileID: 6387445573526290414}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TankView
   m_TagString: UIScreen
   m_Icon: {fileID: 0}
@@ -955,7 +955,7 @@ Canvas:
   m_GameObject: {fileID: 4927723591345053280}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 5286274558930652174}
   - component: {fileID: 4577490547199252926}
   - component: {fileID: 4720198625650587878}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scroll View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1150,7 +1150,7 @@ GameObject:
   - component: {fileID: 6140817719169408435}
   - component: {fileID: 3321332015383039479}
   - component: {fileID: 9199025524054111098}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InputField (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1359,7 +1359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4633780556295041357}
   - component: {fileID: 470269605383405270}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 7344497753112551640}
   - component: {fileID: 1462661620906560821}
   - component: {fileID: 2809092592419367347}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1565,7 +1565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6836488521953768003}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1603,7 +1603,7 @@ GameObject:
   - component: {fileID: 5881836059078495782}
   - component: {fileID: 1900227542814873913}
   - component: {fileID: 3693816031302594156}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1678,7 +1678,7 @@ GameObject:
   - component: {fileID: 8298180450452148524}
   - component: {fileID: 2408735790176514536}
   - component: {fileID: 5825084647942320984}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tank Population
   m_TagString: Untagged
   m_Icon: {fileID: 0}

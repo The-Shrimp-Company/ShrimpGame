@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class TankController : MonoBehaviour
@@ -167,5 +168,8 @@ public class TankController : MonoBehaviour
     {
         GameObject newView = Instantiate(tankViewPrefab, transform);
         UIManager.instance.ChangeFocus(newView.GetComponent<ScreenView>());
+        newView.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
+        newView.GetComponent<Canvas>().planeDistance = 1;
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
     }
 }

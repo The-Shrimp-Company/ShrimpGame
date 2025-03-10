@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6865154156691704219}
   - component: {fileID: 6403806524343145704}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 8563151924602563706}
   - component: {fileID: 7377661464124955715}
   - component: {fileID: 227670464874101174}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Email
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 288067985052828065}
   - component: {fileID: 5943990434954828580}
   - component: {fileID: 3398177639995632962}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

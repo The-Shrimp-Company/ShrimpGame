@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TankContentBlock : ContentBlock
 {
@@ -16,5 +17,8 @@ public class TankContentBlock : ContentBlock
         UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
         newitem.GetComponent<ShrimpView>().Populate(_shrimp);
         _shrimp.GetComponentInChildren<ShrimpCam>().SetCam();
+        newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
+        newitem.GetComponent<Canvas>().planeDistance = 1;
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
     }
 }

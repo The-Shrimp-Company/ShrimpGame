@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4372018708950222720}
   - component: {fileID: 1003153029015567220}
   - component: {fileID: 8819082686906508558}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 7364206833111185286}
   - component: {fileID: 5818514226666178512}
   - component: {fileID: 1542876720286965567}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SubjectLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 8915073801132228996}
   - component: {fileID: 8037437212776005837}
   - component: {fileID: 5708236426535675597}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EmailContentBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 3388233995610724686}
   - component: {fileID: 800253607088482103}
   - component: {fileID: 4998953396862410015}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EmailContentBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

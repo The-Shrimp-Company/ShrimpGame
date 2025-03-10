@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 
 public class TankViewScript : ScreenView
 {
@@ -90,6 +92,9 @@ public class TankViewScript : ScreenView
             GameObject newitem = Instantiate(shrimpView);
             UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
             newitem.GetComponent<ShrimpView>().Populate(_shrimp);
+            newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
+            newitem.GetComponent<Canvas>().planeDistance = 1;
+            UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
             //_shrimp.GetComponentInChildren<ShrimpCam>().SetCam(); 
         }
     }
@@ -109,5 +114,12 @@ public class TankViewScript : ScreenView
     public void UIUnselect()
     {
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("TankView");
+    }
+
+    public override void Close()
+    {
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
+        base.Close();
+        
     }
 }
