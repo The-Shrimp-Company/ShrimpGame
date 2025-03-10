@@ -67,11 +67,18 @@ public class PlayerUIController : MonoBehaviour
         //Vector2 bottomCorner = new Vector2(uiPanel.anchorMin, centre.center.y * localScale - (uiPanel.rect.height * localScale) / 2);
         //ector2 topCorner = new Vector2(centre.center.x * localScale + (uiPanel.rect.width * localScale) /2, centre.center.y * localScale + (uiPanel.rect.height * localScale) / 2);
 
-        Vector2 bottomCorner = Camera.main.WorldToScreenPoint(uiPanel.anchorMin * localScale);
-        Vector2 topCorner = Camera.main.WorldToScreenPoint(uiPanel.anchorMax * localScale);
+        Vector2 centre = uiPanel.position;
+        float left = centre.x - uiPanel.rect.width / 2 * localScale * (1 / scale.x);
+        float right = centre.x + uiPanel.rect.width / 2 * localScale * (1 / scale.x);
+        float bottom = centre.y - uiPanel.rect.height / 2 * localScale * (1 / scale.y);
+        float top = centre.y + uiPanel.rect.height / 2 * localScale * (1 / scale.y);
 
-        pos.x = Mathf.Clamp(pos.x, bottomCorner.x * (1/scale.x), topCorner.x * (1/scale.x));
-        pos.y = Mathf.Clamp(pos.y, bottomCorner.y * (1/scale.y), topCorner.y * (1/scale.y));
+        Debug.Log(left + " " + right + " " + bottom + " " + top);
+        Debug.Log(centre);
+
+
+        pos.x = Mathf.Clamp(pos.x, left, right);
+        pos.y = Mathf.Clamp(pos.y, bottom, top);
 
         Mouse.current.WarpCursorPosition(pos);
     }
