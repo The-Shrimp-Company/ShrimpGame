@@ -15,6 +15,7 @@ public class EconomyManager : MonoBehaviour
     [Header("Value Fluctuation")]
     [SerializeField] float valueFluctuation;  // How much the value is changed when a shrimp is sold. Will be multiplied by the valueFluctuationStrength
     [SerializeField] AnimationCurve valueFluctuationStrength;  // 0 is the starting value
+    [SerializeField] float valueReturnSpeed = 0.2f;
 
     [Header("Value Multipliers")]
     [SerializeField] float pureShrimpMultiplier = 1.5f;
@@ -104,6 +105,25 @@ public class EconomyManager : MonoBehaviour
         t = Mathf.Round(t * 100f) / 100f;  // Round to 2 decimal places
 
         return t;
+    }
+
+    public void DailyValueUpdate(GlobalGene g)
+    {
+
+    }
+
+    public void ValueReturn(GlobalGene g)
+    {
+        if (g.currentValue == g.startingValue) return;
+
+        float rand = Random.Range(0, 10);
+        float r = valueReturnSpeed / rand;
+
+        if (g.currentValue > g.startingValue) 
+            g.currentValue = Mathf.Clamp(g.currentValue - r, g.startingValue, Mathf.Infinity);
+
+        else if (g.currentValue < g.startingValue)
+            g.currentValue = Mathf.Clamp(g.currentValue + r, g.startingValue, Mathf.Infinity);
     }
 }
 

@@ -61,96 +61,77 @@ MonoBehaviour:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     secondaryColour:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     body:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     head:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     eyes:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     pattern:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     tail:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     tailFan:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     antenna:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     legs:
       activeGene:
         ID: 
         dominance: 0
-        value: 0
       inactiveGene:
         ID: 
         dominance: 0
-        value: 0
     fightHistory: 0
     breedingHistory: 0
     illnessHistory: 0
     moltHistory: 0
+    canBreed: 0
   shrimpActivities: []
   tank: {fileID: 0}
   agent: {fileID: 797484481638392343}
@@ -202,7 +183,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1361947038524904301
 GameObject:
