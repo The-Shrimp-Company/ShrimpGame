@@ -356,12 +356,13 @@ public class GeneManager : MonoBehaviour
 
     private void LoadTraitType(List<TraitSO> l)
     {
+        EconomyManager em = GetComponent<EconomyManager>();
         foreach (TraitSO t in l)
         {
             GlobalGene g = new GlobalGene();
             g.ID = t.ID;
             g.dominance = WeightDominance(t.weightDominanceTowards);
-            g.startingValue = EconomyManager.instance.SetInitialGeneValue(g.dominance);
+            g.startingValue = em.SetInitialGeneValue(g.dominance);
             g.currentValue = g.startingValue;
             loadedGlobalGenes.Add(g);
         }

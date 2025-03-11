@@ -27,10 +27,17 @@ public class EconomyManager : MonoBehaviour
 
     public float SetInitialGeneValue(int dominance)
     {
-        float val = Random.Range(minTraitValue, maxTraitValue);
+        float val = Random.Range(minTraitValue, maxTraitValue);  // Pick a random initial value for the gene
+
+        float d = Mathf.InverseLerp(0, 100, (float)dominance);
+        d = Mathf.Lerp(minTraitValue, maxTraitValue, d);  // Convert dominance from the dominance range to the value range
+
         float weighting = weightTowardsDominancePercentage / 100;  // Convert percentage to decimal
-        val += (dominance - val) * weighting;
-        return Mathf.RoundToInt(val);
+        val += (d - val) * weighting;  // Weight the value towards the dominance
+
+        val = Mathf.Round(val * 100f) / 100f;  // Round to 2 decimal places
+
+        return val;
     }
 
     public void UpdateTraitValues(bool purchased, ShrimpStats traits)
