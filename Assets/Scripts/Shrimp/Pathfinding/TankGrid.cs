@@ -121,9 +121,9 @@ public class TankGrid : MonoBehaviour
         int y = Mathf.Clamp(Mathf.RoundToInt(percentageY * gridHeight), 0, gridHeight - 1);
         int z = Mathf.Clamp(Mathf.RoundToInt(percentageZ * gridLength), 0, gridLength - 1);
         GridNode result = grid[x][y][z];
+        int step = 1;
         while (result.invalid)
         {
-            int step = 1;
             List<GridNode> freePoints = new List<GridNode>();
             for (int p = -step; p <= step; p++)
             {
@@ -160,6 +160,12 @@ public class TankGrid : MonoBehaviour
                     result = freePoints[i];
                     dist = distance;
                 }
+            }
+
+            if (freePoints.Count == 0)
+            {
+                //Debug.Log("Step - " + step);
+                step++;
             }
         }
         return result;

@@ -75,9 +75,9 @@ public class TankController : MonoBehaviour
 
         if (updateTimer >= updateTime)
         {
-            FoodUpdates();
-            ShrimpUpdates();
-
+            AddItems();
+            RemoveItems();
+            UpdateItems();
             updateTimer = 0;
         }
 
@@ -93,9 +93,17 @@ public class TankController : MonoBehaviour
         }
     }
 
-
-    private void ShrimpUpdates()
+    private void AddItems()
     {
+        if (foodToAdd.Count > 0)  // Add food to the tank
+        {
+            for (int i = foodToAdd.Count - 1; i >= 0; i--)
+            {
+                foodInTank.Add(foodToAdd[i]);
+                foodToAdd.RemoveAt(i);
+            }
+        }
+
         if (shrimpToAdd.Count > 0)  // Add shrimp to the tank
         {
             for (int i = shrimpToAdd.Count - 1; i >= 0; i--)
@@ -107,7 +115,24 @@ public class TankController : MonoBehaviour
                 if (tankViewScript != null) tankViewScript.UpdateContent();
             }
         }
+    }
 
+    private void RemoveItems()
+    {
+        if (foodToRemove.Count > 0)  // Remove food from the tank
+        {
+            for (int i = foodToRemove.Count - 1; i >= 0; i--)
+            {
+                if (foodInTank.Contains(foodToRemove[i]))
+                {
+                    foodInTank.Remove(foodToRemove[i]);
+
+                    Destroy(foodToRemove[i].gameObject);
+                }
+
+                foodToRemove.RemoveAt(i);
+            }
+        }
 
         if (shrimpToRemove.Count > 0)  // Remove shrimp from the tank
         {
@@ -126,7 +151,14 @@ public class TankController : MonoBehaviour
                 shrimpToRemove.RemoveAt(i);
             }
         }
+    }
 
+    private void UpdateItems()
+    {
+        foreach (ShrimpFood food in foodInTank)  // Update the food in the tank
+        {
+            food.UpdateFood(updateTimer);
+        }
 
         foreach (Shrimp shrimp in shrimpInTank)  // Update the shrimp in the tank
         {
@@ -134,38 +166,6 @@ public class TankController : MonoBehaviour
         }
     }
 
-
-    private void FoodUpdates()
-    {
-        if (foodToAdd.Count > 0)  // Add food to the tank
-        {
-            for (int i = foodToAdd.Count - 1; i >= 0; i--)
-            {
-                foodInTank.Add(foodToAdd[i]);
-                foodToAdd.RemoveAt(i);
-            }
-        }
-
-        if (foodToRemove.Count > 0)  // Remove food from the tank
-        {
-            for (int i = foodToRemove.Count - 1; i >= 0; i--)
-            {
-                if (foodInTank.Contains(foodToRemove[i]))
-                {
-                    foodInTank.Remove(foodToRemove[i]);
-
-                    Destroy(foodToRemove[i].gameObject);
-                }
-
-                foodToRemove.RemoveAt(i);
-            }
-        }
-
-        foreach (ShrimpFood food in foodInTank)  // Update the food in the tank
-        {
-            food.UpdateFood(updateTimer);
-        }
-    }
 
 
     public void ToggleSaleTank()

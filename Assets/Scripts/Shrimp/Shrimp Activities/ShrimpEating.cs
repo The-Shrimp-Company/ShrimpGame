@@ -12,9 +12,13 @@ public class ShrimpEating : ShrimpActivity
     private bool eating;
     private ShrimpMovement movement = null;
     private GameObject particles;
-    private bool debugEating = true;
+    private bool debugEating = false;
 
 
+    public override void CreateActivity()
+    {
+        activityName = "Eating";
+    }
 
     protected override void StartActivity()
     {
@@ -26,13 +30,10 @@ public class ShrimpEating : ShrimpActivity
 
         eating = false;
         taskTime = 30;  // The task time will not properly start until they start breeding
-
         movement = new ShrimpMovement();
         movement.SetDestination(shrimp.tank.tankGrid.GetClosestNode(new Vector3(food.transform.position.x, food.landingPosition, food.transform.position.z)));
         movement.shrimp = shrimp;
         movement.Activity(0);
-
-        if (debugEating) Debug.Log("Eating Start - " + shrimp.name + "-" + food.name);
         
         base.StartActivity();
     }

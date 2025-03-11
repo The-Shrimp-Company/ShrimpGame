@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hungerFillAmount: 10
-  eatingTime: 1
+  eatingTime: 2
   shrimpEating: {fileID: 0}
   sinkSpeed: 1
   decorationLayer:

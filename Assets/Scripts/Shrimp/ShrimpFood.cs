@@ -49,7 +49,11 @@ public class ShrimpFood : MonoBehaviour
         {
             sinkTimer += sinkSpeed * Time.deltaTime;
             transform.position = new Vector3(transform.position.x, Mathf.Lerp(surfacePosition, landingPosition, sinkTimer), transform.position.z);
-            if (transform.position.y <= landingPosition) settled = true;
+            if (transform.position.y <= landingPosition)
+            {
+                settled = true;
+                transform.position = new Vector3(transform.position.x, landingPosition, transform.position.z);
+            }
         }
 
         // Despawning

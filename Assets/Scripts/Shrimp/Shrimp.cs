@@ -57,11 +57,10 @@ public class Shrimp : MonoBehaviour
 
     public void UpdateShrimp(float elapsedTime)
     {
-        // Activities
+        // Activities      
         float timeRemaining = elapsedTime;  // The time since the last update
         do
         {
-
             if (shrimpActivities.Count > 0 && shrimpActivities[0] != null)
             {
                 timeRemaining = shrimpActivities[0].Activity(timeRemaining);
@@ -76,7 +75,6 @@ public class Shrimp : MonoBehaviour
             }
         }
         while (timeRemaining > 0);
-
 
 
         // Molting
@@ -209,8 +207,8 @@ public class Shrimp : MonoBehaviour
             Debug.Log("Activity logic is missing");
         }
 
-
         activity.shrimp = this;
+        activity.CreateActivity();
         shrimpActivities.Add(activity);
     }
 

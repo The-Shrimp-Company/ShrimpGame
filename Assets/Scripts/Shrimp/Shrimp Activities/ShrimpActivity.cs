@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ShrimpActivity
 {
+    public string activityName;
     public Shrimp shrimp;
     public float taskTime;     // How long the task takes
     protected float 
@@ -24,9 +25,7 @@ public class ShrimpActivity
         taskRemainingTime -= elapsedTime;
         elapsedTimeThisFrame = elapsedTime;
 
-
         UpdateActivity();
-
 
         if (elapsedTimeRemaining > 0)  // They complete the task 
         {
@@ -39,6 +38,11 @@ public class ShrimpActivity
         }
     }
 
+
+    public virtual void CreateActivity()
+    {
+
+    }
 
     protected virtual void StartActivity()
     {

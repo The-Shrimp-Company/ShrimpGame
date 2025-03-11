@@ -23,6 +23,11 @@ public class ShrimpMovement : ShrimpActivity
     // - If the shrimp is off screen
     // - Turn smoothly
 
+    public override void CreateActivity()
+    {
+        activityName = "Moving";
+    }
+
 
     protected override void StartActivity()
     {

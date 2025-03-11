@@ -24,6 +24,11 @@ public class ShrimpBreeding : ShrimpActivity
     private bool debugBreeding = false;
 
 
+    public override void CreateActivity()
+    {
+        activityName = "Breeding";
+    }
+
 
     protected override void StartActivity()
     {
