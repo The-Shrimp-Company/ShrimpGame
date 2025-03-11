@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 
@@ -14,9 +15,10 @@ public class ShrimpManager : MonoBehaviour
 
 
     [Header("Size")]
-    [SerializeField] float maxSizeOfShrimp = 0.75f;
-    private int maxGeneticShrimpSize = 100;
+    [SerializeField][Range(0.15f, 0.75f)] float childSize = 0.25f;
+    [SerializeField][Range(0.15f, 0.75f)] float adultSize = 0.65f;
     [SerializeField] AnimationCurve sizeThroughChildhood;  // Childhood ends when moltSpeed levels out
+    private int maxGeneticShrimpSize = 100;
 
     [Header("Hunger")]
     private int maxShrimpHunger = 100;
@@ -207,12 +209,23 @@ public class ShrimpManager : MonoBehaviour
                 e += 0.01f;
             } while (e < 1);
         }
-        Debug.Log(adultAge);
+
         return adultAge;
     }
 
-    //public float GetShrimpSize(int )
-    //{
-    //    return sizeThroughChildhood.Evaluate()
-    //}
+    public Vector3 GetShrimpSize(int age)
+    {
+        float s = 0;
+        if (age >= GetAdultAge())
+            s = adultSize;
+
+        else
+        {
+            float l = Mathf.InverseLerp(0, GetAdultAge(), age);
+            l = sizeThroughChildhood.Evaluate(l);
+            s = Mathf.Lerp(childSize, adultSize, l);
+        }
+
+        return new Vector3(s, s, s);
+    }
 }
