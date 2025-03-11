@@ -188,7 +188,7 @@ public class ShrimpManager : MonoBehaviour
 
     public float GetMoltTime(int age)
     {
-        return moltSpeed.Evaluate(age / maxShrimpAge);
+        return moltSpeed.Evaluate((float)age / (float)maxShrimpAge) * 60;
     }
 
     public int GetAdultAge()

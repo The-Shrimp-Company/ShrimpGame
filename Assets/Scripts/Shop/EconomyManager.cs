@@ -84,6 +84,9 @@ public class EconomyManager : MonoBehaviour
         t *= healthMultiplier.Evaluate(s.illness / ShrimpManager.instance.maxShrimpIllness);  // Shrimp Health
 
 
+
+        t = Mathf.Round(t * 100f) / 100f;  // Round to 2 decimal places
+
         return t;
     }
 }

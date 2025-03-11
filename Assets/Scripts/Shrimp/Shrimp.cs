@@ -11,6 +11,7 @@ public class Shrimp : MonoBehaviour
     public ShrimpAgent agent;
     public Transform camDock;
     private float moltTimer;
+    private float moltSpeed;
 
     private bool toKill = false;  // If it should be destroyed at the end of this frame
 
@@ -34,6 +35,8 @@ public class Shrimp : MonoBehaviour
             AddActivity(GetRandomActivity());
             AddActivity(GetRandomActivity());
         }
+
+        moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
     }
 
     private void LateUpdate()
@@ -77,7 +80,6 @@ public class Shrimp : MonoBehaviour
 
         // Molting
         moltTimer += elapsedTime;
-        float moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime)) * 60;
         while (moltTimer >= moltSpeed && moltSpeed != 0)
         {
             moltTimer -= moltSpeed;
@@ -87,10 +89,7 @@ public class Shrimp : MonoBehaviour
                 stats.canBreed = true;  // The shrimp can breed
 
             if (ShrimpManager.instance.CheckForMoltFail(TimeManager.instance.GetShrimpAge(stats.birthTime)))
-            {
-                // Molt has failed, the shrimp will now die
-                KillShrimp();
-            }
+                KillShrimp();  // Molt has failed, the shrimp will now die
 
             moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
         }
