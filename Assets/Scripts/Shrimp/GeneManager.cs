@@ -48,28 +48,11 @@ public class GeneManager : MonoBehaviour
 
     private List<GlobalGene> loadedGlobalGenes = new List<GlobalGene>();
 
-    [Header("Updates")]
-    [SerializeField] float timeBetweenValueUpdates = 30;  // How often the values of traits will automatically be updated
-    private float valueUpdateTimer;
-    [SerializeField][Range(0, 100)] public int percentageOfTraitsToUpdateValue = 15;  // How many of the traits will have their values updated
-
-
 
     public void Awake()
     {
         instance = this;
         LoadGenes();
-    }
-
-
-    public void Update()
-    {
-        valueUpdateTimer += Time.deltaTime;
-        if (valueUpdateTimer >= timeBetweenValueUpdates)
-        {
-            valueUpdateTimer = 0;
-            UpdateGeneValues();
-        }
     }
 
 
@@ -640,14 +623,25 @@ public class GeneManager : MonoBehaviour
     }
 
 
-    private void UpdateGeneValues()
+    public void ReturnGeneValues(int p)
     {
-        int numberOfGenesToUpdate = Mathf.RoundToInt(Mathf.Lerp(0, loadedGlobalGenes.Count - 1, percentageOfTraitsToUpdateValue / 100));
+        int numberOfGenesToUpdate = Mathf.RoundToInt(Mathf.Lerp(0, loadedGlobalGenes.Count - 1, p / 100));
 
         for (int i = numberOfGenesToUpdate; i >= 0; i--)
         {
             int rand = Random.Range(0, loadedGlobalGenes.Count);
             EconomyManager.instance.ValueReturn(loadedGlobalGenes[rand]);
+        }
+    }
+
+    public void DailyGeneValueUpdate(int p)
+    {
+        int numberOfGenesToUpdate = Mathf.RoundToInt(Mathf.Lerp(0, loadedGlobalGenes.Count - 1, p / 100));
+
+        for (int i = numberOfGenesToUpdate; i >= 0; i--)
+        {
+            int rand = Random.Range(0, loadedGlobalGenes.Count);
+            EconomyManager.instance.DailyValueUpdate(loadedGlobalGenes[rand]);
         }
     }
 }

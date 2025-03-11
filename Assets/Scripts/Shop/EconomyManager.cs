@@ -21,9 +21,28 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] float pureShrimpMultiplier = 1.5f;
     [SerializeField] AnimationCurve healthMultiplier;
 
+    [Header("Value Return")]
+    [SerializeField] float timeBetweenValueReturnUpdates = 30;  // How often the values of traits will automatically be updated
+    private float valueReturnUpdateTimer;
+    [SerializeField][Range(0, 100)] public int percentageOfTraitsToReturnValue = 15;  // How many of the traits will have their values updated
+
+    [Header("Daily Value Updates")]
+    [SerializeField][Range(0, 100)] public int percentageOfTraitsToUpdateDaily = 25;  // How many of the traits will have their values updated
+    [SerializeField] float maxDailyValueUpdateAmount = 7.5f;
+
     public void Awake()
     {
         instance = this;
+    }
+
+    public void Update()
+    {
+        valueReturnUpdateTimer += Time.deltaTime;
+        if (valueReturnUpdateTimer >= timeBetweenValueReturnUpdates)
+        {
+            valueReturnUpdateTimer = 0;
+            GeneManager.instance.ReturnGeneValues(percentageOfTraitsToReturnValue);
+        }
     }
 
     public float SetInitialGeneValue(int dominance)
@@ -107,9 +126,15 @@ public class EconomyManager : MonoBehaviour
         return t;
     }
 
+    public void DailyUpdate()
+    {
+        GeneManager.instance.DailyGeneValueUpdate(percentageOfTraitsToUpdateDaily);
+    }
+
     public void DailyValueUpdate(GlobalGene g)
     {
-
+        float rand = Random.Range(-maxDailyValueUpdateAmount, maxDailyValueUpdateAmount);
+        g.currentValue += rand;
     }
 
     public void ValueReturn(GlobalGene g)
