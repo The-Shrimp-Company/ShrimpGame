@@ -91,10 +91,6 @@ public class TraitSO : ScriptableObject
     public TraitSet set;
 
     [Space(10)]
-    public int minValue;
-    public int maxValue;
-
-    [Space(10)]
     public int weightDominanceTowards;
 
     [Space(20)]

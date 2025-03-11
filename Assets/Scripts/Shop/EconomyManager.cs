@@ -10,6 +10,7 @@ public class EconomyManager : MonoBehaviour
     [Header("Starting Trait Values")]
     [SerializeField] float minTraitValue = 5;
     [SerializeField] float maxTraitValue = 30;
+    [SerializeField][Range(0, 100)] float weightTowardsDominancePercentage = 20;
 
     [Header("Value Fluctuation")]
     [SerializeField] float valueFluctuation;  // How much the value is changed when a shrimp is sold. Will be multiplied by the valueFluctuationStrength
@@ -22,6 +23,14 @@ public class EconomyManager : MonoBehaviour
     public void Awake()
     {
         instance = this;
+    }
+
+    public float SetInitialGeneValue(int dominance)
+    {
+        float val = Random.Range(minTraitValue, maxTraitValue);
+        float weighting = weightTowardsDominancePercentage / 100;  // Convert percentage to decimal
+        val += (dominance - val) * weighting;
+        return Mathf.RoundToInt(val);
     }
 
     public void UpdateTraitValues(bool purchased, ShrimpStats traits)

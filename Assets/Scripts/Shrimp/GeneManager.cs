@@ -14,7 +14,7 @@ public class GeneManager : MonoBehaviour
 {
     public static GeneManager instance;
 
-    [SerializeField] [Range(0, 100)] int geneWeightingPercentage = 10;  // When using weighted random, how much should it be weighted by?
+    [SerializeField][Range(0, 100)] int geneWeightingPercentage = 10;  // When using weighted random, how much should it be weighted by?
     [SerializeField][Range(0, 100)] int dominanceWeightingPercentage = 50;  // When using weighted random, how much should it be weighted by?
     [SerializeField][Range(0, 100)] float mutationChance = 5;  // Will pick a random number under 100, if it is under this, the trait will mutate
 
@@ -361,7 +361,7 @@ public class GeneManager : MonoBehaviour
             GlobalGene g = new GlobalGene();
             g.ID = t.ID;
             g.dominance = WeightDominance(t.weightDominanceTowards);
-            g.startingValue = (t.minValue + t.maxValue) / 2;
+            g.startingValue = EconomyManager.instance.SetInitialGeneValue(g.dominance);
             g.currentValue = g.startingValue;
             loadedGlobalGenes.Add(g);
         }
