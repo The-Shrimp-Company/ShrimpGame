@@ -15,7 +15,6 @@ public class EconomyManager : MonoBehaviour
     [Header("Value Fluctuation")]
     [SerializeField] float valueFluctuation;  // How much the value is changed when a shrimp is sold. Will be multiplied by the valueFluctuationStrength
     [SerializeField] AnimationCurve valueFluctuationStrength;  // 0 is the starting value
-    [SerializeField] float valueReturnSpeed = 0.2f;
 
     [Header("Value Multipliers")]
     [SerializeField] float pureShrimpMultiplier = 1.5f;
@@ -24,11 +23,12 @@ public class EconomyManager : MonoBehaviour
     [Header("Value Return")]
     [SerializeField] float timeBetweenValueReturnUpdates = 30;  // How often the values of traits will automatically be updated
     private float valueReturnUpdateTimer;
+    [SerializeField] float valueReturnAmount = 0.2f;
     [SerializeField][Range(0, 100)] public int percentageOfTraitsToReturnValue = 15;  // How many of the traits will have their values updated
 
     [Header("Daily Value Updates")]
     [SerializeField][Range(0, 100)] public int percentageOfTraitsToUpdateDaily = 25;  // How many of the traits will have their values updated
-    [SerializeField] float maxDailyValueUpdateAmount = 7.5f;
+    [SerializeField] float maxDailyValueUpdateAmount = 3.5f;
 
     public void Awake()
     {
@@ -142,7 +142,7 @@ public class EconomyManager : MonoBehaviour
         if (g.currentValue == g.startingValue) return;
 
         float rand = Random.Range(0, 10);
-        float r = valueReturnSpeed / rand;
+        float r = valueReturnAmount / rand;
 
         if (g.currentValue > g.startingValue) 
             g.currentValue = Mathf.Clamp(g.currentValue - r, g.startingValue, Mathf.Infinity);

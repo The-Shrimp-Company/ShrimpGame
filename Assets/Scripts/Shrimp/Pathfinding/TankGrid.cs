@@ -166,6 +166,22 @@ public class TankGrid : MonoBehaviour
     }
 
 
+    public List<GridNode> GetPoints()  // Returns a list of all of the points
+    {
+        List<GridNode> points = new List<GridNode>();
+        for (int i = 0; i < grid.Length; i++)
+        {
+            for (int j = 0; j < grid[i].Length; j++)
+            {
+                for (int k = 0; k < grid[i][j].Length; k++)
+                {
+                    points.Add(grid[i][j][k]);
+                }
+            }
+        }
+        return points;
+    }
+
     public List<GridNode> GetFreePoints()  // Returns a list of all of the free points
     {
         List<GridNode> freePoints = new List<GridNode>();
@@ -183,5 +199,19 @@ public class TankGrid : MonoBehaviour
             }
         }
         return freePoints;
+    }
+
+    public List<GridNode> GetSurfacePoints()  // Returns a list of all of the free surface points
+    {
+        int topLayer = grid[0].Length - 1;
+        List<GridNode> points = new List<GridNode>();
+        for (int i = 0; i < grid.Length; i++)
+        {
+            for (int k = 0; k < grid[i][topLayer].Length; k++)
+            {
+                points.Add(grid[i][topLayer][k]);
+            }
+        }
+        return points;
     }
 }

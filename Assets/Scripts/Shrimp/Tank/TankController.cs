@@ -7,29 +7,45 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
+    [Header("Shrimp")]
     public List<Shrimp> shrimpInTank = new List<Shrimp>();
     [HideInInspector] public List<Shrimp> shrimpToAdd = new List<Shrimp>();
-    public List<Shrimp> shrimpToRemove = new List<Shrimp>();
+    [HideInInspector] public List<Shrimp> shrimpToRemove = new List<Shrimp>();
+    public Transform shrimpParent;
 
+    [Header("Tank")]
     public string tankName = null;
 
+    [Header("Updates")]
     private float updateTimer;
     public float updateTime;  // The time between each shrimp update, 0 will be every frame
 
-    private bool _saleTank = false;
-    [SerializeField] private GameObject sign;
+    [Header("Food")]
+    public List<ShrimpFood> foodInTank = new List<ShrimpFood>();
+    [HideInInspector] public List<ShrimpFood> foodToAdd = new List<ShrimpFood>();
+    [HideInInspector] public List<ShrimpFood> foodToRemove = new List<ShrimpFood>();
+    public Transform foodParent;
 
-    public Transform shrimpParent;
+    //[Header("Upgrades")]
+
+    [Header("Sale Tank")]
+    [SerializeField] private GameObject sign;
+    private bool _saleTank = false;
+
+    [Header("Pathfinding")]
     public TankGrid tankGrid;  // The grid used for pathfinding
 
+    [Header("Tank Focus")]
     [SerializeField] private GameObject camDock;
-
-    //public GameObject shrimpPrefab;
-
     [SerializeField] private GameObject tankViewPrefab;
     [HideInInspector] public TankViewScript tankViewScript;
 
+    [Header("Debugging")]
     [SerializeField] bool autoSpawnTestShrimp;
+    [SerializeField] float autoSpawnFoodTime;
+    private float autoSpawnFoodTimer;
+    [SerializeField] GameObject autoSpawnFoodPrefab;
+
 
     void Start()
     {
@@ -57,51 +73,100 @@ public class TankController : MonoBehaviour
     {
         updateTimer += Time.deltaTime;
 
-        if (updateTimer >= updateTime) 
+        if (updateTimer >= updateTime)
         {
-
-            if (shrimpToAdd.Count > 0)  // Add shrimp to the tank
-            {
-                for (int i = shrimpToAdd.Count - 1; i >= 0; i--)
-                {
-                    shrimpInTank.Add(shrimpToAdd[i]);
-                    ShrimpManager.instance.allShrimp.Add(shrimpToAdd[i]);
-                    shrimpToAdd.RemoveAt(i);
-
-                    if (tankViewScript != null) tankViewScript.UpdateContent();
-                }
-            }
-
-
-            if (shrimpToRemove.Count > 0)  // Remove shrimp from the tank
-            {
-                for (int i = shrimpToRemove.Count - 1; i >= 0; i--)
-                {
-                    if (shrimpInTank.Contains(shrimpToRemove[i]))
-                    {
-                        shrimpInTank.Remove(shrimpToRemove[i]);
-                        ShrimpManager.instance.allShrimp.Remove(shrimpToRemove[i]);
-
-                        if (tankViewScript != null) tankViewScript.UpdateContent();
-
-                        shrimpToRemove[i].Destroy();
-                    }
-
-                    shrimpToRemove.RemoveAt(i);
-                }
-            }
-
-
-            foreach (Shrimp shrimp in shrimpInTank)  // Update the shrimp in the tank
-            {
-                shrimp.UpdateShrimp(updateTimer);
-            }
+            FoodUpdates();
+            ShrimpUpdates();
 
             updateTimer = 0;
         }
+
+
+        autoSpawnFoodTimer += Time.deltaTime;
+
+        if (autoSpawnFoodTimer >= autoSpawnFoodTime && autoSpawnFoodTime != 0)
+        {
+            GameObject newFood = GameObject.Instantiate(autoSpawnFoodPrefab, GetRandomSurfacePosition(), Quaternion.identity);
+            newFood.GetComponent<ShrimpFood>().CreateFood(this);
+
+            autoSpawnFoodTimer = 0;
+        }
     }
 
-    
+
+    private void ShrimpUpdates()
+    {
+        if (shrimpToAdd.Count > 0)  // Add shrimp to the tank
+        {
+            for (int i = shrimpToAdd.Count - 1; i >= 0; i--)
+            {
+                shrimpInTank.Add(shrimpToAdd[i]);
+                ShrimpManager.instance.allShrimp.Add(shrimpToAdd[i]);
+                shrimpToAdd.RemoveAt(i);
+
+                if (tankViewScript != null) tankViewScript.UpdateContent();
+            }
+        }
+
+
+        if (shrimpToRemove.Count > 0)  // Remove shrimp from the tank
+        {
+            for (int i = shrimpToRemove.Count - 1; i >= 0; i--)
+            {
+                if (shrimpInTank.Contains(shrimpToRemove[i]))
+                {
+                    shrimpInTank.Remove(shrimpToRemove[i]);
+                    ShrimpManager.instance.allShrimp.Remove(shrimpToRemove[i]);
+
+                    if (tankViewScript != null) tankViewScript.UpdateContent();
+
+                    shrimpToRemove[i].Destroy();
+                }
+
+                shrimpToRemove.RemoveAt(i);
+            }
+        }
+
+
+        foreach (Shrimp shrimp in shrimpInTank)  // Update the shrimp in the tank
+        {
+            shrimp.UpdateShrimp(updateTimer);
+        }
+    }
+
+
+    private void FoodUpdates()
+    {
+        if (foodToAdd.Count > 0)  // Add food to the tank
+        {
+            for (int i = foodToAdd.Count - 1; i >= 0; i--)
+            {
+                foodInTank.Add(foodToAdd[i]);
+                foodToAdd.RemoveAt(i);
+            }
+        }
+
+        if (foodToRemove.Count > 0)  // Remove food from the tank
+        {
+            for (int i = foodToRemove.Count - 1; i >= 0; i--)
+            {
+                if (foodInTank.Contains(foodToRemove[i]))
+                {
+                    foodInTank.Remove(foodToRemove[i]);
+
+                    Destroy(foodToRemove[i].gameObject);
+                }
+
+                foodToRemove.RemoveAt(i);
+            }
+        }
+
+        foreach (ShrimpFood food in foodInTank)  // Update the food in the tank
+        {
+            food.UpdateFood(updateTimer);
+        }
+    }
+
 
     public void ToggleSaleTank()
     {
@@ -143,6 +208,13 @@ public class TankController : MonoBehaviour
     public Vector3 GetRandomTankPosition()
     {
         List<GridNode> freePoints = tankGrid.GetFreePoints();
+        return freePoints[Random.Range(0, freePoints.Count)].worldPos;
+    }
+
+
+    public Vector3 GetRandomSurfacePosition()
+    {
+        List<GridNode> freePoints = tankGrid.GetSurfacePoints();
         return freePoints[Random.Range(0, freePoints.Count)].worldPos;
     }
 

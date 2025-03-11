@@ -406,6 +406,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4423233220053350138}
+  - {fileID: 1724462573742006033}
   - {fileID: 7520952786031948379}
   - {fileID: 7039431492400252942}
   - {fileID: 3236464512067332295}
@@ -431,16 +432,23 @@ MonoBehaviour:
   shrimpInTank: []
   shrimpToAdd: []
   shrimpToRemove: []
+  shrimpParent: {fileID: 4423233220053350138}
   tankName: 
   updateTime: 0
+  foodInTank: []
+  foodToAdd: []
+  foodToRemove: []
+  foodParent: {fileID: 1724462573742006033}
   sign: {fileID: 8463268863104399363}
-  shrimpParent: {fileID: 4423233220053350138}
   tankGrid: {fileID: 9135166761670337101}
   camDock: {fileID: 4595576537860867106}
   tankViewPrefab: {fileID: 4927723591345053280, guid: 89d7b0e4c6dd7814aa2cc254ba712ae0,
     type: 3}
   tankViewScript: {fileID: 0}
   autoSpawnTestShrimp: 0
+  autoSpawnFoodTime: 5
+  autoSpawnFoodPrefab: {fileID: 2843780405674553184, guid: 02d275baf18747b43a519e27d1ecd2cd,
+    type: 3}
 --- !u!65 &1496647126932978228
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1518,6 +1526,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -703414606969745859, guid: 85b6fa1703d798847aebf4bb8b43ee47, type: 3}
+--- !u!1 &4248767832484376250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724462573742006033}
+  m_Layer: 6
+  m_Name: Food
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1724462573742006033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4248767832484376250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2235153865005791252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4595576537860867106
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,67 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class ShrimpFood : MonoBehaviour
+{
+    private TankController tank;
+
+    public int hungerFillAmount = 10;
+    public float eatingTime = 2;
+
+    private bool settled = false;  // If it has landed
+    [SerializeField] float sinkSpeed = 1;  // How quickly it sinks, 0 will float
+    private float sinkTimer = 0;
+    [SerializeField] LayerMask decorationLayer;
+    [SerializeField] Vector3 landingPositionOffset;  // How high off the ground it will sit
+    private float surfacePosition;
+    private float landingPosition;
+
+    [SerializeField] float despawnTime = 120;
+    private float despawnTimer = 0;
+
+    public void CreateFood(TankController t)
+    {
+        tank = t;
+        tank.foodToAdd.Add(this);
+        transform.parent = tank.foodParent;
+        surfacePosition = transform.position.y;
+        FindLandingPosition();
+    }
+
+
+    public void UpdateFood(float elapsedTime)
+    {
+        // Sinking
+        if (!settled && landingPosition != 0)
+        {
+            sinkTimer += sinkSpeed * Time.deltaTime;
+            transform.position = new Vector3(transform.position.x, Mathf.Lerp(surfacePosition, landingPosition, sinkTimer), transform.position.z);
+            if (transform.position.y <= landingPosition) settled = true;
+        }
+
+        // Despawning
+        despawnTimer += elapsedTime;
+        if (despawnTimer >= despawnTime)
+        {
+            tank.foodToRemove.Add(this);
+        }
+    }
+
+    private void FindLandingPosition()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 10, decorationLayer))
+        {
+            landingPosition = hit.point.y + landingPositionOffset.y;
+            //transform.position = landingPosition;
+
+            float dist = surfacePosition - landingPosition;
+            sinkSpeed /= dist * 10;
+
+            transform.rotation = Quaternion.FromToRotation(transform.up, hit.normal);
+        }
+    }
+}
