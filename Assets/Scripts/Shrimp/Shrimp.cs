@@ -113,10 +113,11 @@ public class Shrimp : MonoBehaviour
 
     private ShrimpActivity GetRandomActivity()
     {
-        int i = Random.Range(0, 3);
+        int i = Random.Range(0, 4);
         if (i == 0) return new ShrimpMovement();
         if (i == 1) return new ShrimpSleeping();
         if (i == 2) return new ShrimpBreeding();
+        if (i == 3) return new ShrimpEating();
         return (new ShrimpActivity());
     }
 
@@ -176,6 +177,30 @@ public class Shrimp : MonoBehaviour
             ShrimpBreeding breeding = (ShrimpBreeding)activity;
             breeding.instigator = true;
             breeding.otherShrimp = otherShrimp;
+        }
+
+
+        else if (activity is ShrimpEating)
+        {
+            if (tank.foodInTank.Count == 0)  // If there are no valid shrimp
+            {
+                AddActivity(GetRandomActivity());
+                return;  // Cancel this and find a different activity
+            }
+
+            int i = Random.Range(0, tank.foodInTank.Count);
+            ShrimpFood food = tank.foodInTank[i];
+
+            if (food.shrimpEating != null)  // If a shrimp is already eating it
+            {
+                AddActivity(GetRandomActivity());
+                return;  // Cancel this and find a different activity
+            }
+
+            food.shrimpEating = this;
+
+            ShrimpEating eating = (ShrimpEating)activity;
+            eating.food = food;
         }
 
 

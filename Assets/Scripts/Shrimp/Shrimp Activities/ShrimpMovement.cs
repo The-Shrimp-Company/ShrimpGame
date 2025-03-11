@@ -4,9 +4,10 @@ public class ShrimpMovement : ShrimpActivity
 {
     private ShrimpAgent agent;
     private Vector3 start;
-    private GridNode destination;
+    private GridNode destinationNode;
+    public Vector3 destinationPos;
 
-    private bool simpleMove = false;
+    public bool simpleMove = false;
     public bool randomDestination;
     private bool simpleIfStraightPath = true;
 
@@ -54,9 +55,9 @@ public class ShrimpMovement : ShrimpActivity
     {
         float t = taskRemainingTime / taskTime;
         t = -t + 1;
-        shrimp.transform.position = Vector3.Lerp(start, destination.worldPos, t);
-        if (destination.worldPos - shrimp.transform.position != Vector3.zero)
-            shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((destination.worldPos - shrimp.transform.position), Vector3.up), agent.turnSpeed);
+        shrimp.transform.position = Vector3.Lerp(start, destinationPos, t);
+        if (destinationPos - shrimp.transform.position != Vector3.zero)
+            shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((destinationPos - shrimp.transform.position), Vector3.up), agent.turnSpeed);
     }
 
 
@@ -78,9 +79,8 @@ public class ShrimpMovement : ShrimpActivity
     public void SwitchToSimple()
     {
         simpleMove = true;
-        float dist = Vector3.Distance(start, destination.worldPos);
+        float dist = Vector3.Distance(start, destinationPos);
         taskTime = shrimp.GetComponent<Shrimp>().agent.speed * dist * 500;
-        //shrimp.transform.LookAt(destination.worldPos);
     }
 
 
@@ -114,7 +114,7 @@ public class ShrimpMovement : ShrimpActivity
                 if (simpleIfStraightPath)
                 {
                     LayerMask layer = LayerMask.GetMask("Decoration");
-                    if (!Physics.Linecast(shrimp.transform.position, destination.worldPos, layer, QueryTriggerInteraction.Ignore))  // Switch to simple if the path has no obstacles
+                    if (!Physics.Linecast(shrimp.transform.position, destinationNode.worldPos, layer, QueryTriggerInteraction.Ignore))  // Switch to simple if the path has no obstacles
                     {
                         SwitchToSimple();
                         break;
@@ -124,14 +124,14 @@ public class ShrimpMovement : ShrimpActivity
 
             if (agent == null)
             {
-                Debug.Log(agent + " - " + destination);
+                Debug.Log(agent + " - " + destinationNode);
             }
 
-            agent.Pathfinding(destination.worldPos);  // Calculate the path
+            agent.Pathfinding(destinationNode.worldPos);  // Calculate the path
 
 
             if (debugMovement && agent.Status == AgentStatus.Invalid)
-                Debug.LogError("Path Invalid - Start Node" + shrimp.transform.position + " - End Node" + destination);
+                Debug.LogError("Path Invalid - Start Node" + shrimp.transform.position + " - End Node" + destinationNode);
 
         } while (agent.Status == AgentStatus.Invalid);  // Retry if the path was not found
     }
@@ -148,5 +148,9 @@ public class ShrimpMovement : ShrimpActivity
     }
 
 
-    public void SetDestination(GridNode n) { destination = n; }
+    public void SetDestination(GridNode n) 
+    { 
+        destinationNode = n; 
+        destinationPos = destinationNode.worldPos;
+    }
 }

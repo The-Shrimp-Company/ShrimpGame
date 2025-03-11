@@ -7,19 +7,30 @@ public class ShrimpFood : MonoBehaviour
 {
     private TankController tank;
 
+    [Header("Eating")]
     public int hungerFillAmount = 10;
     public float eatingTime = 2;
+    [HideInInspector] public Shrimp shrimpEating; 
 
-    private bool settled = false;  // If it has landed
+    [Header("Sinking")]
     [SerializeField] float sinkSpeed = 1;  // How quickly it sinks, 0 will float
     private float sinkTimer = 0;
     [SerializeField] LayerMask decorationLayer;
-    [SerializeField] Vector3 landingPositionOffset;  // How high off the ground it will sit
-    private float surfacePosition;
-    private float landingPosition;
 
+    [Header("Landing")]
+    [HideInInspector] public bool settled = false;  // If it has landed
+    private float surfacePosition;
+    [HideInInspector] public float landingPosition;
+    [SerializeField] Vector3 landingPositionOffset;  // How high off the ground it will sit
+
+    [Header("Despawning")]
     [SerializeField] float despawnTime = 120;
     private float despawnTimer = 0;
+
+    [Header("Particles")]
+    public GameObject eatingParticles;
+    public GameObject finishedParticles;
+
 
     public void CreateFood(TankController t)
     {
@@ -43,7 +54,7 @@ public class ShrimpFood : MonoBehaviour
 
         // Despawning
         despawnTimer += elapsedTime;
-        if (despawnTimer >= despawnTime)
+        if (shrimpEating == null && despawnTimer >= despawnTime)
         {
             tank.foodToRemove.Add(this);
         }
