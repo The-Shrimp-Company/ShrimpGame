@@ -37,7 +37,7 @@ public class Shrimp : MonoBehaviour
         }
 
         moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
-        agent.shrimpModel.localScale = ShrimpManager.instance.GetShrimpSize(TimeManager.instance.GetShrimpAge(stats.birthTime));
+        agent.shrimpModel.localScale = ShrimpManager.instance.GetShrimpSize(TimeManager.instance.GetShrimpAge(stats.birthTime), stats.geneticSize);
     }
 
     private void LateUpdate()
@@ -87,7 +87,7 @@ public class Shrimp : MonoBehaviour
 
             moltTimer -= moltSpeed;
             stats.moltHistory++;
-            agent.shrimpModel.localScale = ShrimpManager.instance.GetShrimpSize(age);
+            agent.shrimpModel.localScale = ShrimpManager.instance.GetShrimpSize(age, stats.geneticSize);
 
             if (age >= ShrimpManager.instance.GetAdultAge())  // If the shrimp is considered an adult
                 stats.canBreed = true;  // The shrimp can breed

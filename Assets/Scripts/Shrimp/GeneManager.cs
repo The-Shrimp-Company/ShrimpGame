@@ -65,13 +65,13 @@ public class GeneManager : MonoBehaviour
 
     private int FullyRandomInt(int upperBound)
     {
-        return (Random.Range(0, upperBound + 1));
+        return (Random.Range(1, upperBound + 1));
     }
 
 
     private int WeightedRandomInt(int upperBound, float weight, int parentAVal, int parentBVal)
     {
-        float val = Random.Range(0, upperBound + 1);
+        float val = Random.Range(1, upperBound + 1);
         weight = weight / 100;  // Convert percentage to decimal
         val += (((parentAVal + parentBVal) / 2) - val) * weight;
         return Mathf.RoundToInt(val);
