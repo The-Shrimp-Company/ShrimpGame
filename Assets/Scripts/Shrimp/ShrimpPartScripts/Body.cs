@@ -15,8 +15,8 @@ public class Body : PartScript
             s = ShrimpManager.instance.CreateRandomShrimp();
 
             Instantiate(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).part, headNode).GetComponent<Head>().Construct(s);
-            Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, headNode).GetComponent<Legs>().Construct(s);
-            Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, headNode).GetComponent<Tail>().Construct(s);
+            Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);
+            Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s);
 
             SetMaterials();
         }
@@ -27,8 +27,8 @@ public class Body : PartScript
         this.s = s;
 
         Instantiate(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).part, headNode).GetComponent<Head>().Construct(s);
-        Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, headNode).GetComponent<Legs>().Construct(s);
-        Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, headNode).GetComponent<Tail>().Construct(s);
+        Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);
+        Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s);
 
         SetMaterials();
     }

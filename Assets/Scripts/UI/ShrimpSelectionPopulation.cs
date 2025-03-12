@@ -15,7 +15,7 @@ public class ShrimpSelectionPopulation : ContentPopulation
         foreach ( Shrimp shrimp in ShrimpManager.instance.allShrimp)
         {
             GameObject block = Instantiate(contentBlock, transform);
-            block.GetComponent<ShrimpSelectionBlock>().Populate(shrimp);
+            block.GetComponent<ShrimpSelectionBlock>().Populate(shrimp.stats);
             contentBlocks.Add(block.GetComponent<ContentBlock>());
         }
     }

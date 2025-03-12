@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 797484481638392343}
   - component: {fileID: 8620922433178466521}
   m_Layer: 7
-  m_Name: NewShrimp
+  m_Name: ActiveShrimp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

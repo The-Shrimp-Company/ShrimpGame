@@ -392,6 +392,7 @@ MonoBehaviour:
   head: {fileID: 126591857048677362}
   primaryColour: {fileID: 7006993561192794563}
   secondaryColour: {fileID: 1850688169095785294}
+  shrimpModel: {fileID: 0}
 --- !u!1 &1132189114767990819
 GameObject:
   m_ObjectHideFlags: 0
