@@ -312,17 +312,20 @@ public class TankController : MonoBehaviour
                 }
             case LODLevel.Mid:
                 {
-                    updateTime = 0;
+                    updateTime = 0.01f;
+                    updateTime *= ((ShrimpManager.instance.allShrimp.Count / 200) + 1);
                     break;
                 }
             case LODLevel.Low:
                 {
-                    updateTime = 0.15f;
+                    updateTime = 0.1f;
+                    updateTime *= ((ShrimpManager.instance.allShrimp.Count / 200) + 1);
                     break;
                 }
             case LODLevel.SuperLow:
                 {
-                    updateTime = 1.5f;
+                    updateTime = 1.0f;
+                    updateTime *= ((ShrimpManager.instance.allShrimp.Count / 200) + 1);
                     break;
                 }
         }
