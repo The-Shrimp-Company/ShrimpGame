@@ -76,6 +76,8 @@ public class ShrimpView : ScreenView
         player.GetComponent<PlayerUIController>().UnsetShrimpCam();
         GameObject newitem = Instantiate(tankView, _shrimp.tank.transform);
         TankController tank = _shrimp.tank.GetComponent<TankController>();
+        newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
+        newitem.GetComponent<Canvas>().planeDistance = 1;
         Camera.main.transform.position = tank.GetCam().transform.position;
         Camera.main.transform.rotation = tank.GetCam().transform.rotation;
         UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());

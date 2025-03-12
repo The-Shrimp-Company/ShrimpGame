@@ -95,7 +95,7 @@ public class TankViewScript : ScreenView
             newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
             newitem.GetComponent<Canvas>().planeDistance = 1;
             UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
-            //_shrimp.GetComponentInChildren<ShrimpCam>().SetCam(); 
+            _shrimp.GetComponentInChildren<ShrimpCam>().SetCam(); 
         }
     }
 
