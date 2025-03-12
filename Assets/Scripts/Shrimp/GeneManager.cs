@@ -349,7 +349,7 @@ public class GeneManager : MonoBehaviour
         LoadTraitType(eyeSOs);
         LoadTraitType(tailSOs);
         LoadTraitType(tailFanSOs);
-        LoadTraitType(antennaSOs);
+        //LoadTraitType(antennaSOs);
         LoadTraitType(legsSOs);
     }
 

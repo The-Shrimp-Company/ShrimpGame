@@ -15,6 +15,8 @@ public class Shrimp : MonoBehaviour
 
     private bool toKill = false;  // If it should be destroyed at the end of this frame
 
+    public Transform particleParent;
+
     [Header("Breeding")]
     public GameObject breedingHeartParticles;
 
@@ -236,5 +238,68 @@ public class Shrimp : MonoBehaviour
     public float FindValue()
     {
         return (EconomyManager.instance.GetShrimpValue(stats));
+    }
+
+
+    public void FocusShrimp()
+    {
+        tank.SwitchLODLevel(LODLevel.High);
+    }
+
+    public void StopFocussingShrimp()
+    {
+        tank.SwitchLODLevel(LODLevel.Mid);
+    }
+
+
+    public void SwitchLODLevel(LODLevel level)  // Focused on shrimp
+    {
+        switch(level)
+        {
+            case LODLevel.High:
+            {
+                SwitchToHighLOD();
+                break;
+            }
+            case LODLevel.Mid:
+            {
+                SwitchToMidLOD();
+                break;
+            }
+            case LODLevel.Low:
+            {
+                SwitchToLowLOD();
+                break;
+            }
+            case LODLevel.SuperLow:
+            {
+                SwitchToSuperLowLOD();
+                break;
+            }
+        }
+    }
+
+    public void SwitchToHighLOD()  // Focused on Shrimp
+    {
+        agent.shrimpModel.gameObject.SetActive(true);
+        particleParent.gameObject.SetActive(true);
+    }
+
+    public void SwitchToMidLOD()  // Focused on tank
+    {
+        agent.shrimpModel.gameObject.SetActive(true);
+        particleParent.gameObject.SetActive(true);
+    }
+
+    public void SwitchToLowLOD()  // Near tank
+    {
+        agent.shrimpModel.gameObject.SetActive(true);
+        particleParent.gameObject.SetActive(false);
+    }
+
+    public void SwitchToSuperLowLOD()  // Far from tank
+    {
+        agent.shrimpModel.gameObject.SetActive(false);
+        particleParent.gameObject.SetActive(false);
     }
 }

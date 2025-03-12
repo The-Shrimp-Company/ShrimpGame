@@ -40,6 +40,12 @@ public class TankController : MonoBehaviour
     [SerializeField] private GameObject tankViewPrefab;
     [HideInInspector] public TankViewScript tankViewScript;
 
+    [Header("Optimisation")]
+    private LODLevel currentLODLevel;
+    [SerializeField] float distanceCheckTime = 1;
+    private float distanceCheckTimer;
+    private Transform player;
+
     [Header("Debugging")]
     [SerializeField] bool autoSpawnTestShrimp;
     [SerializeField] float autoSpawnFoodTime;
@@ -67,6 +73,8 @@ public class TankController : MonoBehaviour
                 SpawnRandomShrimp();
             }
         }
+
+        SwitchLODLevel(LODLevel.Low);
     }
 
     void Update()
@@ -79,10 +87,21 @@ public class TankController : MonoBehaviour
             RemoveItems();
             UpdateItems();
             updateTimer = 0;
+
+
         }
 
 
-        autoSpawnFoodTimer += Time.deltaTime;
+        distanceCheckTimer += Time.deltaTime;
+
+        if (distanceCheckTimer >= distanceCheckTime)
+        {
+            CheckLODDistance();
+            distanceCheckTimer = 0;
+        }
+
+
+         autoSpawnFoodTimer += Time.deltaTime;
 
         if (autoSpawnFoodTimer >= autoSpawnFoodTime && autoSpawnFoodTime != 0)
         {
@@ -110,6 +129,7 @@ public class TankController : MonoBehaviour
             {
                 shrimpInTank.Add(shrimpToAdd[i]);
                 ShrimpManager.instance.allShrimp.Add(shrimpToAdd[i]);
+                shrimpToAdd[i].SwitchLODLevel(currentLODLevel);
                 shrimpToAdd.RemoveAt(i);
 
                 if (tankViewScript != null) tankViewScript.UpdateContent();
@@ -230,7 +250,7 @@ public class TankController : MonoBehaviour
     {
         return camDock;
     }
-    
+
     public void Ref()
     {
         Debug.Log("Yes");
@@ -243,5 +263,76 @@ public class TankController : MonoBehaviour
         newView.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
         newView.GetComponent<Canvas>().planeDistance = 1;
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
+        SwitchLODLevel(LODLevel.Mid);
     }
+
+    public void StopFocussingTank()
+    {
+        SwitchLODLevel(LODLevel.Low);
+        CheckLODDistance();
+    }
+
+    private void CheckLODDistance()
+    {
+        if (currentLODLevel != LODLevel.High)
+        {
+            if (player == null) player = GameObject.Find("Player").transform;
+
+            float dist = Vector3.Distance(player.position, transform.position);
+
+
+            if (dist < 4)
+                SwitchLODLevel(LODLevel.Mid);
+
+            else if (dist < 10)
+                SwitchLODLevel(LODLevel.Low);
+
+            else
+                SwitchLODLevel(LODLevel.SuperLow);
+        }
+    }
+
+    public void SwitchLODLevel(LODLevel level)  // Focused on shrimp
+    {
+        if (currentLODLevel == level) return;
+
+        currentLODLevel = level;
+
+        foreach (Shrimp s in shrimpInTank)
+        {
+            s.SwitchLODLevel(level);
+        }
+
+        switch (level)
+        {
+            case LODLevel.High:
+                {
+                    updateTime = 0;
+                    break;
+                }
+            case LODLevel.Mid:
+                {
+                    updateTime = 0;
+                    break;
+                }
+            case LODLevel.Low:
+                {
+                    updateTime = 0.15f;
+                    break;
+                }
+            case LODLevel.SuperLow:
+                {
+                    updateTime = 1.5f;
+                    break;
+                }
+        }
+    }
+}
+
+public enum LODLevel
+{
+    High,
+    Mid,
+    Low,
+    SuperLow
 }

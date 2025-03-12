@@ -56,6 +56,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (tankController != null)
         {
+            if (_tankView != null) _tankView.GetComponent<TankController>().StopFocussingTank();
+
             _camera.transform.position = tankController.GetCam().transform.position;
             _camera.transform.rotation = tankController.GetCam().transform.rotation;
 
@@ -104,6 +106,7 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     public void OnExitView()
     {
+        _tankView.GetComponent<TankController>().StopFocussingTank();
         Vector3 v3 = _tankView.GetComponent<TankController>().GetCam().transform.position;
         transform.position = new Vector3(v3.x, transform.position.y, v3.z);
         _camera.transform.localPosition = Vector3.up / 2;

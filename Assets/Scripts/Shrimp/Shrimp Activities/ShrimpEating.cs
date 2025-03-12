@@ -73,7 +73,7 @@ public class ShrimpEating : ShrimpActivity
             // Whatever happens while they are eating
 
             if (food.transform.position - shrimp.transform.position != Vector3.zero)
-                shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((food.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.turnSpeed);
+                shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((food.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.simpleTurnSpeed * elapsedTimeThisFrame);
         }
     }
 
@@ -82,9 +82,12 @@ public class ShrimpEating : ShrimpActivity
     {
         if (shrimp.agent.Status != AgentStatus.Finished)
             movement.Activity(elapsedTimeThisFrame);
-            
+
         else
+        {
             shrimp.transform.position = Vector3.MoveTowards(shrimp.transform.position, food.transform.position, shrimp.agent.speed * elapsedTimeThisFrame);
+            shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((food.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.simpleTurnSpeed * elapsedTimeThisFrame);
+        }
     }
 
 
@@ -101,7 +104,7 @@ public class ShrimpEating : ShrimpActivity
         if (food.eatingParticles != null)
         {
             particles = GameObject.Instantiate(food.eatingParticles, food.transform.position, food.transform.rotation);
-            particles.transform.parent = food.transform;
+            particles.transform.parent = shrimp.transform;
         }
 
         eating = true;

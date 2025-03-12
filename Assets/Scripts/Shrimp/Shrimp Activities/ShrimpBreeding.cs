@@ -116,14 +116,15 @@ public class ShrimpBreeding : ShrimpActivity
             // Whatever happens while they are breeding
 
             if (otherShrimp.transform.position - shrimp.transform.position != Vector3.zero)
-                shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((otherShrimp.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.turnSpeed);
+                shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((otherShrimp.transform.position - shrimp.transform.position), Vector3.up), shrimp.agent.simpleTurnSpeed * elapsedTimeThisFrame);
         }
     }
 
 
     private void MoveToOther()
     {
-        movement.Activity(elapsedTimeThisFrame);
+        if (movement != null)
+            movement.Activity(elapsedTimeThisFrame);
     }
 
 
@@ -148,8 +149,11 @@ public class ShrimpBreeding : ShrimpActivity
         if (instigator)
         {
             // Delete the movement class
-            movement.EndActivity();
-            movement = null;  
+            if (movement != null)
+            {
+                movement.EndActivity();
+                movement = null;
+            }
 
             // Spawn breeding particles
             particles = GameObject.Instantiate(shrimp.breedingHeartParticles, shrimp.transform.position, Quaternion.identity);

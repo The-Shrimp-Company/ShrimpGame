@@ -17,6 +17,7 @@ public class ShrimpAgent : MonoBehaviour
 {
     public float speed;
     public float turnSpeed;
+    public float simpleTurnSpeed;
     GridNode startNode;
     GridNode endNode;
     Vector3 startPos;

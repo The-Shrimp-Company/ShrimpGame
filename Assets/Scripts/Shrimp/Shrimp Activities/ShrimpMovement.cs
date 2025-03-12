@@ -62,7 +62,7 @@ public class ShrimpMovement : ShrimpActivity
         t = -t + 1;
         shrimp.transform.position = Vector3.Lerp(start, destinationPos, t);
         if (destinationPos - shrimp.transform.position != Vector3.zero)
-            shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((destinationPos - shrimp.transform.position), Vector3.up), agent.turnSpeed);
+            shrimp.agent.shrimpModel.rotation = Quaternion.RotateTowards(shrimp.agent.shrimpModel.rotation, Quaternion.LookRotation((destinationPos - shrimp.transform.position), Vector3.up), agent.simpleTurnSpeed * elapsedTimeThisFrame);
     }
 
 

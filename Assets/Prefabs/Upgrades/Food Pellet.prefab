@@ -48,7 +48,7 @@ MonoBehaviour:
   hungerFillAmount: 10
   eatingTime: 2
   shrimpEating: {fileID: 0}
-  sinkSpeed: 1
+  sinkSpeed: 60
   decorationLayer:
     serializedVersion: 2
     m_Bits: 512

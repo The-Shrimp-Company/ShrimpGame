@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: C_Example
   m_EditorClassIdentifier: Assembly-CSharp::TraitSO
-  ID: C003
+  ID: C001
   traitName: Pink
   set: 0
-  minValue: 50
-  maxValue: 80
   weightDominanceTowards: 30
   statModifiers:
   - type: 0

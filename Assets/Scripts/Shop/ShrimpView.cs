@@ -66,6 +66,7 @@ public class ShrimpView : ScreenView
         tailFan.text = "Tail Fan: " + GeneManager.instance.GetTraitSO(_shrimp.stats.tailFan.activeGene.ID).set;
         primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.primaryColour.activeGene.ID).color;
         secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.secondaryColour.activeGene.ID).color;
+        _shrimp.FocusShrimp();
     }
 
 
@@ -102,6 +103,7 @@ public class ShrimpView : ScreenView
     {
 
         _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
+        _shrimp.StopFocussingShrimp();
         player.GetComponent<PlayerUIController>().UnsetShrimpCam();
         base.Close();
     }

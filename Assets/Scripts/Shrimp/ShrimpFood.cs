@@ -47,7 +47,7 @@ public class ShrimpFood : MonoBehaviour
         // Sinking
         if (!settled && landingPosition != 0)
         {
-            sinkTimer += sinkSpeed * Time.deltaTime;
+            sinkTimer += sinkSpeed * elapsedTime * Time.deltaTime;
             transform.position = new Vector3(transform.position.x, Mathf.Lerp(surfacePosition, landingPosition, sinkTimer), transform.position.z);
             if (transform.position.y <= landingPosition)
             {
