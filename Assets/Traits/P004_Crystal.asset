@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafabb4e1f2ee9248a4cf28b273a998e, type: 3}
-  m_Name: P_N_Tiger
+  m_Name: P004_Crystal
   m_EditorClassIdentifier: 
-  ID: P007
-  traitName: Tiger
-  set: 4
+  ID: P004
+  traitName: Crystal
+  set: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 1
   color: {r: 1, g: 1, b: 1, a: 1}
-  cherryPattern: {fileID: -876546973899608171, guid: 39dca2d524ffb3a4093c8b5927b7d34b,
+  cherryPattern: {fileID: -876546973899608171, guid: 5ec7d27fde7588e4db5200799c75a1ce,
     type: 3}
   anomalisPattern: {fileID: 0}
   carididPattern: {fileID: 0}
-  nylonPattern: {fileID: 0}
+  nylonPattern: {fileID: -876546973899608171, guid: 7d57b9af4d5fb0b40a9e8b510d9c289a,
+    type: 3}
   part: {fileID: 0}

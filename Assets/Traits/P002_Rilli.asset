@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafabb4e1f2ee9248a4cf28b273a998e, type: 3}
-  m_Name: P006_C_BOA
+  m_Name: P002_Rilli
   m_EditorClassIdentifier: 
-  ID: P006
-  traitName: BOA
-  set: 1
+  ID: P002
+  traitName: Rilli
+  set: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 1
   color: {r: 1, g: 1, b: 1, a: 1}
-  cherryPattern: {fileID: -876546973899608171, guid: 284d273d7d47e0c45972ea4f91cddc25,
+  cherryPattern: {fileID: -876546973899608171, guid: c87710a8c222efe4abbf559b1dfe075c,
     type: 3}
   anomalisPattern: {fileID: 0}
   carididPattern: {fileID: 0}
-  nylonPattern: {fileID: 0}
+  nylonPattern: {fileID: -876546973899608171, guid: 6026c3d2ed8d53642bb59c2982e1dc5a,
+    type: 3}
   part: {fileID: 0}

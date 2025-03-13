@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafabb4e1f2ee9248a4cf28b273a998e, type: 3}
-  m_Name: P004_C_Crystal
+  m_Name: P005_Bolt
   m_EditorClassIdentifier: 
-  ID: P004
-  traitName: Crystal
-  set: 1
+  ID: P005
+  traitName: Bolt
+  set: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 1
   color: {r: 1, g: 1, b: 1, a: 1}
-  cherryPattern: {fileID: -876546973899608171, guid: 5ec7d27fde7588e4db5200799c75a1ce,
+  cherryPattern: {fileID: -876546973899608171, guid: 7a11230ed7307d2438986f919b2b0c8a,
     type: 3}
   anomalisPattern: {fileID: 0}
   carididPattern: {fileID: 0}
-  nylonPattern: {fileID: 0}
+  nylonPattern: {fileID: -876546973899608171, guid: 10657e8287939014bb78af006d9a435a,
+    type: 3}
   part: {fileID: 0}
