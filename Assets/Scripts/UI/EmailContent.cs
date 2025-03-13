@@ -14,4 +14,15 @@ public class EmailContent : ContentPopulation
             contentBlocks.Add(block);
         }
     }
+
+    public void ClearSpam()
+    {
+        foreach(ContentBlock block in contentBlocks)
+        {
+            if (!block.GetComponent<EmailContentBlock>().isImportant())
+            {
+                block.GetComponent<EmailContentBlock>().DeleteEmail();
+            }
+        }
+    }
 }

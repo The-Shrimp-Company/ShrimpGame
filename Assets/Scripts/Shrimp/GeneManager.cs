@@ -221,6 +221,7 @@ public class GeneManager : MonoBehaviour
             RT.activeGene = c[chosenTrait].inactiveGene;
             RT.inactiveGene = c[chosenTrait].activeGene;
         }
+        RT.obfuscated = false;
         return RT;
     }
 

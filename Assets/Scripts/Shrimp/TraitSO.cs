@@ -30,15 +30,19 @@ public struct Trait
     public Gene activeGene;
     public Gene inactiveGene;
 
+    public bool obfuscated;
+
     public Trait(Gene a, Gene i)
     {
         this.activeGene = a;
         this.inactiveGene = i;
+        obfuscated = false;
     }
     public Trait(GlobalGene a, GlobalGene i)
     {
         this.activeGene = GeneManager.instance.GlobalGeneToGene(a);
         this.inactiveGene = GeneManager.instance.GlobalGeneToGene(i);
+        obfuscated = false;
     }
 }
 
@@ -90,6 +94,7 @@ public class TraitSO : ScriptableObject
     public string ID;  // Matches the trait with the saved genes, do not change once we are able to save the game
     public string traitName;
     public TraitSet set;
+
 
     [Space(10)]
     public int weightDominanceTowards;

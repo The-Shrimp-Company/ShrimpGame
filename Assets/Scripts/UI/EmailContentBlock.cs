@@ -42,4 +42,15 @@ public class EmailContentBlock : ContentBlock
             Destroy(_fullEmail);
         }
     }
+
+    public bool isImportant()
+    {
+        return _email.important;
+    }
+
+    public void DeleteEmail()
+    {
+        EmailManager.instance.emails.Remove(_email);
+        Destroy(transform.parent.gameObject);
+    }
 }

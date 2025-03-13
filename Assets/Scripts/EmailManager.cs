@@ -33,8 +33,11 @@ public class EmailManager
         instance.emails.Add(email);
         UIManager.instance.SendNotification(email.title);
     }
+}
 
-    static public void CreateEmailButton(Email email, string text, UnityAction action)
+public static class EmailTools
+{
+    static public void CreateEmailButton(ref this Email email, string text, UnityAction action)
     {
         if(email.buttons == null)
         {
@@ -44,5 +47,6 @@ public class EmailManager
         button.text = text;
         button.action = action;
         email.buttons.Add(button);
+        Debug.Log("Added button");
     }
 }

@@ -51,4 +51,9 @@ public class PlayerDebug : MonoBehaviour
         Money.instance.AddMoney(5);
     }
     */
+
+    public void OnAddRequest()
+    {
+        CustomerManager.Instance.MakeRequest();
+    }
 }
