@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.ParticleSystem;
 
 public enum InheritanceType
@@ -7,7 +8,8 @@ public enum InheritanceType
     FullRandom,
     WeightedRandom,
     Punnett,
-    FlatAverage
+    FlatAverage,
+    RandomInStore
 }
 
 public class GeneManager : MonoBehaviour
@@ -34,6 +36,9 @@ public class GeneManager : MonoBehaviour
     public bool bodyPartCanMutate = true;
     [Space(10)]
     public int dominanceWeighting;
+
+    [Header("Owned Genes")]
+    public bool weightRandomOwnedGene;
 
     [Header("Traits")]
     public List<TraitSO> colourSOs = new List<TraitSO>();
@@ -77,7 +82,7 @@ public class GeneManager : MonoBehaviour
     }
 
 
-    private Trait FullyRandomTrait(Trait parentATrait, Trait parentBTrait)
+    private Trait FullyRandomTrait(Trait parentATrait)
     {
         char type = parentATrait.activeGene.ID[0];
         Trait t = new Trait();
@@ -121,7 +126,7 @@ public class GeneManager : MonoBehaviour
     }
 
 
-    private Trait WeightedRandomTrait(Trait parentATrait, Trait parentBTrait)
+    private Trait WeightedRandomTrait(Trait parentATrait)
     {
         Trait t = new Trait();
         if (parentATrait.activeGene.ID != null)
@@ -226,6 +231,31 @@ public class GeneManager : MonoBehaviour
     }
 
 
+    private Trait RandomOwnedTrait(Trait parentATrait)
+    {
+        Trait t = new Trait();
+        if (parentATrait.activeGene.ID != null)
+        {
+            int errorCheck = 0;
+
+            do
+            {
+                if (weightRandomOwnedGene)
+                    t = WeightedRandomTrait(parentATrait);
+                else
+                    t = FullyRandomTrait(parentATrait);
+
+                errorCheck++;
+                if (errorCheck > 100)
+                    break;
+            }
+            while (GetGlobalGene(t.activeGene.ID).instancesInStore > 0);
+        }
+
+        return t;
+    }
+
+
     private int FlatAverageInt(int parentAVal, int parentBVal)
     {
         return Mathf.RoundToInt((parentAVal + parentBVal) / 2);
@@ -290,13 +320,13 @@ public class GeneManager : MonoBehaviour
         {
             case InheritanceType.FullRandom:
             {
-                t = FullyRandomTrait(parentAVal, parentBVal);
+                t = FullyRandomTrait(parentAVal);
                 break;
             }
 
             case InheritanceType.WeightedRandom:
             {
-                t = WeightedRandomTrait(parentAVal, parentBVal);
+                t = WeightedRandomTrait(parentAVal);
                 break;
             }
 
@@ -310,6 +340,12 @@ public class GeneManager : MonoBehaviour
             {
                 Debug.LogWarning("Flat Average is not supported for traits, please ask Aaron to implement this");
                 t = PunnetSquareTrait(parentAVal, parentBVal);
+                break;
+            }
+
+            case InheritanceType.RandomInStore:
+            {
+                t = RandomOwnedTrait(parentAVal);
                 break;
             }
 
@@ -518,6 +554,30 @@ public class GeneManager : MonoBehaviour
     }
 
 
+    public int GetGlobalGeneIndex(string ID)
+    {
+        int r = -1;
+
+        int i = 0;
+        foreach (GlobalGene g in loadedGlobalGenes)
+        {
+            if (g.ID == ID)
+            {
+                r = i;
+                break;
+            }
+            i++;
+        }
+
+        if (r == -1)
+        {
+            Debug.LogWarning("Global gene with ID " + ID + " could not be found");
+        }
+
+        return r;
+    }
+
+
     public void SetGlobalGene(GlobalGene g)
     {
         for (int i = 0; i < loadedGlobalGenes.Count - 1; i++)
@@ -643,6 +703,32 @@ public class GeneManager : MonoBehaviour
         {
             int rand = Random.Range(0, loadedGlobalGenes.Count);
             EconomyManager.instance.DailyValueUpdate(loadedGlobalGenes[rand]);
+        }
+    }
+
+    public void AddInstancesOfGenes(ShrimpStats s, bool add)
+    {
+        AddInstanceOfGene(GetGlobalGeneIndex(s.primaryColour.activeGene.ID), add);
+        AddInstanceOfGene(GetGlobalGeneIndex(s.secondaryColour.activeGene.ID), add);
+        AddInstanceOfGene(GetGlobalGeneIndex(s.pattern.activeGene.ID), add);
+
+        AddInstanceOfGene(GetGlobalGeneIndex(s.body.activeGene.ID), add);
+        AddInstanceOfGene(GetGlobalGeneIndex(s.head.activeGene.ID), add);
+        AddInstanceOfGene(GetGlobalGeneIndex(s.eyes.activeGene.ID), add);
+        AddInstanceOfGene(GetGlobalGeneIndex(s.tail.activeGene.ID), add);
+        AddInstanceOfGene(GetGlobalGeneIndex(s.tailFan.activeGene.ID), add);
+        //AddInstanceOfGene(GetGlobalGeneIndex(s.antenna.activeGene.ID), add);
+        AddInstanceOfGene(GetGlobalGeneIndex(s.legs.activeGene.ID), add);
+    }
+
+    private void AddInstanceOfGene(int i, bool add)
+    {
+        if (i != -1)
+        {
+            GlobalGene g;
+            g = loadedGlobalGenes[i];
+            g.instancesInStore += add ? 1 : -1;
+            loadedGlobalGenes[i] = g;
         }
     }
 }

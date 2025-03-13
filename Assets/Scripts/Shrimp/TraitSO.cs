@@ -20,6 +20,7 @@ public struct GlobalGene
     public int dominance;
     public float startingValue;
     public float currentValue;
+    public int instancesInStore;
 }
 
 
@@ -29,7 +30,6 @@ public struct Trait
 {
     public Gene activeGene;
     public Gene inactiveGene;
-
     public bool obfuscated;
 
     public Trait(Gene a, Gene i)
@@ -94,7 +94,6 @@ public class TraitSO : ScriptableObject
     public string ID;  // Matches the trait with the saved genes, do not change once we are able to save the game
     public string traitName;
     public TraitSet set;
-
 
     [Space(10)]
     public int weightDominanceTowards;

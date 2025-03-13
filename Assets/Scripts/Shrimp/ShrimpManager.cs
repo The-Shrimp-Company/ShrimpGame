@@ -38,6 +38,8 @@ public class ShrimpManager : MonoBehaviour
     private int maxShrimpTemperament = 100;
 
 
+
+
     public void Awake()
     {
         instance = this;
@@ -47,11 +49,9 @@ public class ShrimpManager : MonoBehaviour
 
     public ShrimpStats CreateShrimpThroughBreeding(ShrimpStats parentA, ShrimpStats parentB)
     {
-        numberOfShrimp++;
-
         ShrimpStats s = new ShrimpStats();
 
-        s.name = "Shrimp " + numberOfShrimp;
+        s.name = "Shrimp " + (numberOfShrimp + 1);
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 0;
@@ -85,11 +85,9 @@ public class ShrimpManager : MonoBehaviour
 
     public ShrimpStats CreateRandomShrimp()
     {
-        numberOfShrimp++;
-
         ShrimpStats s = new ShrimpStats();
 
-        s.name = "Shrimp " + numberOfShrimp;
+        s.name = "Shrimp " + (numberOfShrimp + 1);
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
@@ -138,11 +136,64 @@ public class ShrimpManager : MonoBehaviour
 
 
 
-    public ShrimpStats LoadShrimp()
+    public ShrimpStats CreateRequestShrimp(int percentageChanceOfObfuscatingTrait)
     {
-        numberOfShrimp++;
-
         ShrimpStats s = new ShrimpStats();
+
+        s.name = "Shrimp " + (numberOfShrimp + 1);
+        s.gender = geneManager.RandomGender();
+        s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
+        s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
+        s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
+        s.hunger = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+        s.illness = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+
+        Trait t = new Trait();
+        t.activeGene.ID = "C";
+        s.primaryColour = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.primaryColour.obfuscated = true;
+
+        s.secondaryColour = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.secondaryColour.obfuscated = true;
+
+        t.activeGene.ID = "P";
+        s.pattern = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.pattern.obfuscated = true;
+
+        t.activeGene.ID = "B";
+        s.body = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.body.obfuscated = true;
+
+        t.activeGene.ID = "H";
+        s.head = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.head.obfuscated = true;
+
+        t.activeGene.ID = "E";
+        s.eyes = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.eyes.obfuscated = true;
+
+        t.activeGene.ID = "T";
+        s.tail = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.tail.obfuscated = true;
+
+        t.activeGene.ID = "F";
+        s.tailFan = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.tailFan.obfuscated = true;
+
+        t.activeGene.ID = "A";
+        s.antenna = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.antenna.obfuscated = true;
+
+        t.activeGene.ID = "L";
+        s.legs = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.legs.obfuscated = true;
+
+        s.fightHistory = 0;
+        s.breedingHistory = 0;
+        s.illnessHistory = 0;
+        s.moltHistory = 0;
+
+        geneManager.ApplyStatModifiers(s);
 
         return s;
     }
@@ -151,11 +202,9 @@ public class ShrimpManager : MonoBehaviour
 
     public ShrimpStats CreateBlankShrimp()
     {
-        numberOfShrimp++;
-
         ShrimpStats s = new ShrimpStats();
 
-        s.name = "Shrimp " + numberOfShrimp;
+        s.name = "Shrimp " + (numberOfShrimp + 1);
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 0;
@@ -180,6 +229,29 @@ public class ShrimpManager : MonoBehaviour
         s.moltHistory = 0;
 
         return s;
+    }
+
+
+    public ShrimpStats LoadShrimp()
+    {
+        ShrimpStats s = new ShrimpStats();
+
+        return s;
+    }
+
+
+
+    public void AddShrimpToStore(ShrimpStats s)
+    {
+        numberOfShrimp++;
+
+        geneManager.AddInstancesOfGenes(s, true);
+    }
+
+
+    public void RemoveShrimpFromStore(ShrimpStats s)
+    {
+        geneManager.AddInstancesOfGenes(s, false);
     }
 
 
