@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafabb4e1f2ee9248a4cf28b273a998e, type: 3}
-  m_Name: P003_C_Harlequin
+  m_Name: P003_Harlequin
   m_EditorClassIdentifier: 
   ID: P003
   traitName: Harlequin
-  set: 1
+  set: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 1
@@ -23,5 +23,6 @@ MonoBehaviour:
     type: 3}
   anomalisPattern: {fileID: 0}
   carididPattern: {fileID: 0}
-  nylonPattern: {fileID: 0}
+  nylonPattern: {fileID: -876546973899608171, guid: 9c431be552155fc49866890922a266c9,
+    type: 3}
   part: {fileID: 0}
