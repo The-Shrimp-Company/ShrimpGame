@@ -15,11 +15,13 @@ MonoBehaviour:
   ID: P005
   traitName: Bolt
   set: 1
-  minValue: 0
-  maxValue: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 1
   color: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: -876546973899608171, guid: 7a11230ed7307d2438986f919b2b0c8a, type: 3}
+  cherryPattern: {fileID: -876546973899608171, guid: 7a11230ed7307d2438986f919b2b0c8a,
+    type: 3}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
   part: {fileID: 0}

@@ -15,11 +15,13 @@ MonoBehaviour:
   ID: P006
   traitName: BOA
   set: 1
-  minValue: 0
-  maxValue: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 1
   color: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: -876546973899608171, guid: 284d273d7d47e0c45972ea4f91cddc25, type: 3}
+  cherryPattern: {fileID: -876546973899608171, guid: 284d273d7d47e0c45972ea4f91cddc25,
+    type: 3}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
   part: {fileID: 0}

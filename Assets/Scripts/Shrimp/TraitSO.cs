@@ -108,7 +108,10 @@ public class TraitSO : ScriptableObject
     public Color color = Color.white;
 
     [Header("Pattern Trait")]  // Only needs to be filled out if the trait is of type pattern
-    public Material texture;
+    public Material cherryPattern;
+    public Material anomalisPattern;
+    public Material carididPattern;
+    public Material nylonPattern;
 
     [Header("Body Part Trait")]  // Only needs to be filled out if the trait is of type body part
     public GameObject part;

@@ -13,7 +13,7 @@ public class PartScript : MonoBehaviour
         foreach (GameObject obj in objs)
         {
             List<Material> mat = new List<Material>();
-            mat.Add(GeneManager.instance.GetTraitSO(s.pattern.activeGene.ID).texture);
+            mat.Add(GeneManager.instance.GetTraitSO(s.pattern.activeGene.ID).cherryPattern);
             if (obj.GetComponent<MeshRenderer>() != null)
             {
                 obj.GetComponent<MeshRenderer>().SetMaterials(mat);

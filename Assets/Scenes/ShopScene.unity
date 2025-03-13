@@ -28678,11 +28678,19 @@ MonoBehaviour:
   patternCanMutate: 1
   bodyPartCanMutate: 1
   dominanceWeighting: 0
+  weightRandomOwnedGene: 0
   colourSOs:
-  - {fileID: 11400000, guid: 18356efa134f65a45b6b0ecdd9adea6b, type: 2}
-  - {fileID: 11400000, guid: 6f6ca498d37f4694ca5e6948eb933502, type: 2}
-  - {fileID: 11400000, guid: a46b3a3b82cd71f43ba9fc700a6ae00a, type: 2}
+  - {fileID: 11400000, guid: 0c8d181e25939744692352003705ef54, type: 2}
+  - {fileID: 11400000, guid: 4e3304b89c8fc184cb2b28607c1f761e, type: 2}
+  - {fileID: 11400000, guid: e65a977504c41ff4b8a6f1b4b00f26c4, type: 2}
+  - {fileID: 11400000, guid: 6fbd4d0fdc1237f4c8e67ff4ecd201b7, type: 2}
   - {fileID: 11400000, guid: 51764cd1bbfc68e46b5703725d0dc926, type: 2}
+  - {fileID: 11400000, guid: b79a148271aaf5c4fac8c115434f829b, type: 2}
+  - {fileID: 11400000, guid: 77aaaa610c630c14899edac7f4501e6c, type: 2}
+  - {fileID: 11400000, guid: c7bc9a9bbf752274db51dd272a3af933, type: 2}
+  - {fileID: 11400000, guid: 72b8e20ce21c5374dbfc478186ecf31d, type: 2}
+  - {fileID: 11400000, guid: 1a51037f309316847a2e79de85d91d80, type: 2}
+  - {fileID: 11400000, guid: 20b667cffe9cc214992bd669bc41bd8d, type: 2}
   patternSOs:
   - {fileID: 11400000, guid: 31566aa4c1a5ac546b1167fb9d1c1e5f, type: 2}
   - {fileID: 11400000, guid: 7f36dee4fe4b5934bb85106b8099413c, type: 2}
