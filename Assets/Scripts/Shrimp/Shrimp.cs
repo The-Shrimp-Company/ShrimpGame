@@ -235,6 +235,11 @@ public class Shrimp : MonoBehaviour
         toKill = true;
     }
 
+    public void SellThis()
+    {
+        CustomerManager.Instance.PurchaseShrimp(this);
+    }
+
     public float FindValue()
     {
         return (EconomyManager.instance.GetShrimpValue(stats));

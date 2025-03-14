@@ -14,10 +14,13 @@ public class EmailContentBlock : ContentBlock
     private Email _email;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
+        if (!EmailManager.instance.emails.Contains(_email))
+        {
+            Debug.Log("aaaa");
+            Destroy(transform.parent.gameObject);
+        }
     }
 
     public void SetEmail(Email email)

@@ -8,6 +8,6 @@ public class ShrimpSelectionWindow : MonoBehaviour
 
     public void Populate(Request request)
     {
-        screen.Populate(request);
+        screen.Populate(request, gameObject);
     }
 }
