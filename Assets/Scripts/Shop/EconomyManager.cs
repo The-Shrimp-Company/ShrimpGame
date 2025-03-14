@@ -18,6 +18,7 @@ public class EconomyManager : MonoBehaviour
 
     [Header("Value Multipliers")]
     [SerializeField] float pureShrimpMultiplier = 1.5f;
+    [SerializeField] float pureColourShrimpMultiplier = 0.5f;
     [SerializeField] AnimationCurve healthMultiplier;
 
     [Header("Value Return")]
@@ -116,6 +117,8 @@ public class EconomyManager : MonoBehaviour
         // Apply multipliers
 
         if (GeneManager.instance.CheckForPureShrimp(s)) t *= pureShrimpMultiplier;  // Pure Shrimp
+
+        if (GeneManager.instance.CheckForPureColourShrimp(s)) t *= pureColourShrimpMultiplier;  // Pure Colour Shrimp
 
         t *= healthMultiplier.Evaluate(s.illness / ShrimpManager.instance.maxShrimpIllness);  // Shrimp Health
 

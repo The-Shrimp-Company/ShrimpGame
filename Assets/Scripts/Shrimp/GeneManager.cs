@@ -684,6 +684,15 @@ public class GeneManager : MonoBehaviour
     }
 
 
+    public bool CheckForPureColourShrimp(ShrimpStats s)
+    {
+        if (s.primaryColour.activeGene.ID != s.secondaryColour.activeGene.ID) return false;
+
+        Debug.Log("Pure Colour Shrimp!");
+        return true;
+    }
+
+
     public void ReturnGeneValues(int p)
     {
         int numberOfGenesToUpdate = Mathf.RoundToInt(Mathf.Lerp(0, loadedGlobalGenes.Count - 1, p / 100));
