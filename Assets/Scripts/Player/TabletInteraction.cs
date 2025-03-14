@@ -67,7 +67,7 @@ public class TabletInteraction : ScreenView
     public void OpenSettings()
     {
         GetComponent<CanvasGroup>().interactable = false;
-        GameObject settingsScreen = Instantiate(EmailScreen, transform.parent.transform);
+        GameObject settingsScreen = Instantiate(SettingsScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(settingsScreen.GetComponent<ScreenView>());
     }
 
