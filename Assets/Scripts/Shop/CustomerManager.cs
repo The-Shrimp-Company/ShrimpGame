@@ -58,19 +58,15 @@ public class CustomerManager : MonoBehaviour
 
     public void PurchaseShrimp(Shrimp shrimp)
     {
-        if (ToPurchase.Contains(shrimp))
+        if (shrimp != null)
         {
             ToPurchase.Remove(shrimp);
             shrimp.tank.shrimpToRemove.Add(shrimp);
             Money.instance.AddMoney(shrimp.FindValue());
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
         }
-        else
-        {
-            Debug.Log("What");
-            Debug.Log("Ok that's not helpful. A shrimp disappeared while the sell screen was opened, and the screen wasn't updated");
-        }
     }
+
 
     public void MakeRequest()
     {
@@ -139,6 +135,7 @@ public class CustomerManager : MonoBehaviour
         email.CreateEmailButton("Choose Shrimp", request.OpenShrimpSelection);
         Debug.Log(email.buttons);
         EmailManager.SendEmail(email, true);
+        request.email = email;
         requests.Add(request);
     }
 
@@ -150,8 +147,15 @@ public class CustomerManager : MonoBehaviour
             request.emailScreen = emailScreen;
         }
     }
+
+    public void CompleteRequest(Request request)
+    {
+        requests.Remove(request);
+    }
     
 }
+
+
 
 public class Request
 {
@@ -159,6 +163,8 @@ public class Request
 
     public ShrimpStats stats;
     public ShrimpStats obfstats;
+
+    public Email email;
 
     public void OpenShrimpSelection()
     {
