@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class ShrimpSelectionBlock : ContentBlock
 {
-    [SerializeField] private TextMeshProUGUI gender, age, pattern, body, legs, eyes, tail, tailFan, head;
+    [SerializeField] private TextMeshProUGUI gender, age, pattern, body, legs, eyes, tail, tailFan, head, price;
     [SerializeField] private Image primaryColour, secondaryColour;
 
     private ShrimpStats _shrimp;
@@ -28,5 +28,6 @@ public class ShrimpSelectionBlock : ContentBlock
         tailFan.text = "Tail Fan: " + GeneManager.instance.GetTraitSO(_shrimp.tailFan.activeGene.ID).set;
         primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.primaryColour.activeGene.ID).color;
         secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.secondaryColour.activeGene.ID).color;
+        price.text = EconomyManager.instance.GetShrimpValue(shrimp).ToSafeString();
     }
 }
