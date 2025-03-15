@@ -70,7 +70,7 @@ public class CustomerManager : MonoBehaviour
 
     public void MakeRequest()
     {
-        ShrimpStats s = ShrimpManager.instance.CreateRandomShrimp();
+        ShrimpStats s = ShrimpManager.instance.CreateRequestShrimp();
         ShrimpStats obfs = s;
         string message = "";
 
@@ -82,46 +82,48 @@ public class CustomerManager : MonoBehaviour
             loop += 1;
             int index = traits[Random.Range(0, traits.Count)];
             traits.Remove(index);
+            message += RequestPrepend();
             switch (index)
             {
                 case 1:
                     obfs.pattern.obfuscated = true;
-                    message += "Pattern: " + GeneManager.instance.GetTraitSO(obfs.pattern.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.pattern.activeGene.ID).traitName + " Pattern. ";
                     break;
                 case 2:
                     obfs.body.obfuscated = true;
-                    message += "Body: " + GeneManager.instance.GetTraitSO(obfs.body.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.body.activeGene.ID).traitName + " Body. ";
                     break;
                 case 3:
                     obfs.head.obfuscated = true;
-                    message += "Head: " + GeneManager.instance.GetTraitSO(obfs.head.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.head.activeGene.ID).traitName + " Head. ";
                     break;
                 case 4:
                     obfs.secondaryColour.obfuscated = true;
-                    message += "Secondary Colour: " + GeneManager.instance.GetTraitSO(obfs.secondaryColour.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.secondaryColour.activeGene.ID).traitName + " Secondary Colour. ";
                     break;
                 case 5:
                     obfs.primaryColour.obfuscated = true;
-                    message += "Primary Colour: " + GeneManager.instance.GetTraitSO(obfs.primaryColour.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.primaryColour.activeGene.ID).traitName + " Primary Colour. ";
                     break;
                 case 6:
                     obfs.legs.obfuscated = true;
-                    message += "Legs: " + GeneManager.instance.GetTraitSO(obfs.legs.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.legs.activeGene.ID).traitName + " Legs. ";
                     break;
                 case 7:
                     obfs.tail.obfuscated = true;
-                    message += "Tail: " + GeneManager.instance.GetTraitSO(obfs.tail.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.tail.activeGene.ID).traitName + " Tail. ";
                     break;
                 case 8:
                     obfs.tailFan.obfuscated = true;
-                    message += "Tail Fan: " + GeneManager.instance.GetTraitSO(obfs.tailFan.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.tailFan.activeGene.ID).traitName + " Tail Fan. ";
                     break;
                 case 9:
                     obfs.eyes.obfuscated = true;
-                    message += "Eyes: " + GeneManager.instance.GetTraitSO(obfs.eyes.activeGene.ID).name + ". ";
+                    message += GeneManager.instance.GetTraitSO(obfs.eyes.activeGene.ID).traitName + " Eyes. ";
                     break;
 
             }
+            message += "\n";
         } while (loop < 4 && Random.Range(1, 5) > 1);
 
 
@@ -153,6 +155,14 @@ public class CustomerManager : MonoBehaviour
         requests.Remove(request);
     }
     
+    private string RequestPrepend()
+    {
+        string message;
+
+        message = Request.Words[Random.Range(0, Request.Words.Length)];
+
+        return message;
+    }
 }
 
 
@@ -165,6 +175,17 @@ public class Request
     public ShrimpStats obfstats;
 
     public Email email;
+
+
+    static public string[] Words = { 
+    "I would like a shrimp with ",
+    "It should have ",
+    "Please can it have ",
+    "My most faviroute type of shrimp have ",
+    "Please make sure it has ",
+    "I will cry if it doesn't have "
+    };
+
 
     public void OpenShrimpSelection()
     {

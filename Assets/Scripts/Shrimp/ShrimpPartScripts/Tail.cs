@@ -9,6 +9,6 @@ public class Tail : PartScript
     {
         this.s = s;
         Instantiate(GeneManager.instance.GetTraitSO(s.tailFan.activeGene.ID).part, tFanNode).GetComponent<TFan>().Construct(s);
-        SetMaterials();
+        SetMaterials(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).set);
     }
 }

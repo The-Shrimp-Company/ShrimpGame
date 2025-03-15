@@ -10,6 +10,6 @@ public class Head : PartScript
     {
         this.s = s;
         Instantiate(GeneManager.instance.GetTraitSO(s.eyes.activeGene.ID).part, eyesNode).GetComponent<Eyes>().Construct(s);
-        SetMaterials();
+        SetMaterials(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).set);
     }
 }

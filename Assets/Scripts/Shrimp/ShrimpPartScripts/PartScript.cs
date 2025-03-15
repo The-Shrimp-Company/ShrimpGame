@@ -8,12 +8,28 @@ public class PartScript : MonoBehaviour
     [SerializeField] protected GameObject[] objs;
 
     protected ShrimpStats s;
-    protected void SetMaterials()
+    protected void SetMaterials(TraitSet trait)
     {
         foreach (GameObject obj in objs)
         {
             List<Material> mat = new List<Material>();
-            mat.Add(GeneManager.instance.GetTraitSO(s.pattern.activeGene.ID).cherryPattern);
+
+            switch (trait)
+            {
+                case TraitSet.Cherry:
+                    mat.Add(GeneManager.instance.GetTraitSO(s.pattern.activeGene.ID).cherryPattern);
+                    break;
+                case TraitSet.Anomalis:
+                    mat.Add(GeneManager.instance.GetTraitSO(s.pattern.activeGene.ID).anomalisPattern);
+                    break;
+                case TraitSet.Caridid:
+                    mat.Add(GeneManager.instance.GetTraitSO(s.pattern.activeGene.ID).carididPattern);
+                    break;
+                case TraitSet.Nylon:
+                    mat.Add(GeneManager.instance.GetTraitSO(s.pattern.activeGene.ID).nylonPattern);
+                    break;
+            }
+
             if (obj.GetComponent<MeshRenderer>() != null)
             {
                 obj.GetComponent<MeshRenderer>().SetMaterials(mat);
