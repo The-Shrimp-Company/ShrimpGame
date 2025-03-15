@@ -15,11 +15,12 @@ MonoBehaviour:
   ID: E001
   traitName: Cherry Eyes
   set: 1
-  minValue: 0
-  maxValue: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 4
   color: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: 0}
-  part: {fileID: 3689492422828464530, guid: 8bb827041a0b33d43b9d44046c676be3, type: 3}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
+  part: {fileID: 1995918406243540347, guid: 8bb827041a0b33d43b9d44046c676be3, type: 3}

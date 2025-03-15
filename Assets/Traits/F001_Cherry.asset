@@ -15,11 +15,12 @@ MonoBehaviour:
   ID: F001
   traitName: Cherry Tail Fan
   set: 1
-  minValue: 0
-  maxValue: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 6
   color: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: 0}
-  part: {fileID: 7785830865810285372, guid: ace7af87a4ec44a4382a19be2fbe1a1d, type: 3}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
+  part: {fileID: 3689401638963101617, guid: ace7af87a4ec44a4382a19be2fbe1a1d, type: 3}

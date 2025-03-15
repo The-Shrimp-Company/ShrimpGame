@@ -15,11 +15,12 @@ MonoBehaviour:
   ID: T001
   traitName: Cherry Tail
   set: 1
-  minValue: 0
-  maxValue: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 5
   color: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: 0}
-  part: {fileID: 4386579625472539826, guid: b85a5dc7063e68a4b9c15f6f8e183bc1, type: 3}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
+  part: {fileID: 4426641425872487022, guid: b85a5dc7063e68a4b9c15f6f8e183bc1, type: 3}

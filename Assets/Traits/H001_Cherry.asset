@@ -15,11 +15,12 @@ MonoBehaviour:
   ID: H001
   traitName: Cherry Head
   set: 1
-  minValue: 0
-  maxValue: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 3
   color: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: 0}
-  part: {fileID: 2331133411591204880, guid: f1de5b74700fd2345904a3895cfa1057, type: 3}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
+  part: {fileID: 7601057153265408069, guid: f1de5b74700fd2345904a3895cfa1057, type: 3}

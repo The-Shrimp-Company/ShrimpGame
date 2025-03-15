@@ -15,11 +15,12 @@ MonoBehaviour:
   ID: B001
   traitName: Cherry Body
   set: 1
-  minValue: 0
-  maxValue: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 2
   color: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: 0}
-  part: {fileID: 427135801986946874, guid: 1512c666e82081d40a5dbbacde674280, type: 3}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
+  part: {fileID: 3835012759086216493, guid: 1512c666e82081d40a5dbbacde674280, type: 3}
