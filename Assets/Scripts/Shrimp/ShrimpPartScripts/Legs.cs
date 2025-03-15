@@ -7,6 +7,6 @@ public class Legs : PartScript
     public void Construct(ShrimpStats s)
     {
         this.s = s;
-        SetMaterials();
+        SetMaterials(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).set);
     }
 }

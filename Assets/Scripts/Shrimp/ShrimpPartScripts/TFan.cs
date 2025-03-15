@@ -7,6 +7,6 @@ public class TFan : PartScript
     public void Construct(ShrimpStats s)
     {
         this.s = s;
-        SetMaterials();
+        SetMaterials(GeneManager.instance.GetTraitSO(s.tailFan.activeGene.ID).set);
     }
 }

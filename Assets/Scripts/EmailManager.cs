@@ -25,7 +25,6 @@ public struct Email
 
 public class EmailManager
 {
-    private int CurrentID = 0;
 
     static public EmailManager instance = new EmailManager();
 
@@ -33,9 +32,6 @@ public class EmailManager
 
     static public void SendEmail(Email email, bool important = false)
     {
-        //email.ID = instance.CurrentID;
-        //Debug.Log(email.ID);
-        //instance.CurrentID += 1;
         email.important = important;
         instance.emails.Add(email);
         UIManager.instance.SendNotification(email.title);

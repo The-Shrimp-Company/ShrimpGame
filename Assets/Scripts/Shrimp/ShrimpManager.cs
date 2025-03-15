@@ -136,7 +136,7 @@ public class ShrimpManager : MonoBehaviour
 
 
 
-    public ShrimpStats CreateRequestShrimp(int percentageChanceOfObfuscatingTrait)
+    public ShrimpStats CreateRequestShrimp()
     {
         ShrimpStats s = new ShrimpStats();
 
@@ -151,42 +151,32 @@ public class ShrimpManager : MonoBehaviour
         Trait t = new Trait();
         t.activeGene.ID = "C";
         s.primaryColour = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.primaryColour.obfuscated = true;
 
         s.secondaryColour = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.secondaryColour.obfuscated = true;
 
         t.activeGene.ID = "P";
         s.pattern = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.pattern.obfuscated = true;
 
         t.activeGene.ID = "B";
         s.body = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.body.obfuscated = true;
 
         t.activeGene.ID = "H";
         s.head = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.head.obfuscated = true;
 
         t.activeGene.ID = "E";
         s.eyes = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.eyes.obfuscated = true;
 
         t.activeGene.ID = "T";
         s.tail = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.tail.obfuscated = true;
 
         t.activeGene.ID = "F";
         s.tailFan = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.tailFan.obfuscated = true;
 
         t.activeGene.ID = "A";
         s.antenna = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.antenna.obfuscated = true;
 
         t.activeGene.ID = "L";
         s.legs = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
-        if (Random.value <= percentageChanceOfObfuscatingTrait / 100) s.legs.obfuscated = true;
 
         s.fightHistory = 0;
         s.breedingHistory = 0;

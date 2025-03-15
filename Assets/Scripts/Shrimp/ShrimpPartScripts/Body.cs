@@ -18,7 +18,7 @@ public class Body : PartScript
             Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);
             Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s);
 
-            SetMaterials();
+            SetMaterials(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).set);
         }
     }
 
@@ -30,6 +30,6 @@ public class Body : PartScript
         Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);
         Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s);
 
-        SetMaterials();
+        SetMaterials(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).set);
     }
 }
