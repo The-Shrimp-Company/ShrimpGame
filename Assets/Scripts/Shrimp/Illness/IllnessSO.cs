@@ -6,12 +6,22 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Illness", menuName = "ScriptableObjects/Illness")]
 public class IllnessSO : ScriptableObject
 {
-    public Illness illnessScript;
-
     [Header("Trigger")]
     public IllnessTriggers trigger;
     public AnimationCurve triggerChance;
 
+    [Header("Symptoms")]
+    public List<IllnessSymptoms> symptoms = new List<IllnessSymptoms>();
+
     [Header("Overall Illness Stat")]
-    [Range(0, 100)] public float illnessImpact;
+    [Range(0, 100)] public float illnessImpact = 10;  // How much this illness will add to the overall shrimp illness stat every in game day
+}
+
+
+public enum IllnessTriggers
+{
+    WaterQuality,
+    Hunger,
+    Temperature,
+    Overcrowded
 }

@@ -110,7 +110,7 @@ public class EconomyManager : MonoBehaviour
         t += GeneManager.instance.GetGlobalGene(s.eyes.activeGene.ID).currentValue;
         t += GeneManager.instance.GetGlobalGene(s.tail.activeGene.ID).currentValue;
         t += GeneManager.instance.GetGlobalGene(s.tailFan.activeGene.ID).currentValue;
-        t += GeneManager.instance.GetGlobalGene(s.antenna.activeGene.ID).currentValue;
+        //t += GeneManager.instance.GetGlobalGene(s.antenna.activeGene.ID).currentValue;
         t += GeneManager.instance.GetGlobalGene(s.legs.activeGene.ID).currentValue;
 
 
