@@ -94,15 +94,17 @@ public class ShelfSpawn : MonoBehaviour
         }
     }
 
-    public void SpawnShrimp(ShrimpStats s, float price)
+    public bool SpawnShrimp(ShrimpStats s, float price)
     {
         if (_saleTank != null)
         {
             if (Money.instance.WithdrawMoney(price))
             {
                 _saleTank.SpawnShrimp(s);
+                return true;
             }
         }
+        return false;
     }
     
 }

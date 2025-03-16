@@ -35,6 +35,10 @@ public class ShrimpSelectionBlock : ContentBlock
 
     public void BuyThis()
     {
-        screen.BuyShrimp(_shrimp);
+        if (screen.BuyShrimp(_shrimp))
+        {
+            Destroy(gameObject);
+        }
     }
+
 }

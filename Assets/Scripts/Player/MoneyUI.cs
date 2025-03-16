@@ -15,6 +15,11 @@ public class MoneyUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = ("£" + Money.instance.money.ToString());
+        string money = Money.instance.money.ToString();
+        if (money.Contains("."))
+        {
+            money = money.Substring(0, money.IndexOf(".") + 3);
+        }
+        text.text = ("£" + money);
     }
 }

@@ -13,7 +13,7 @@ public class BuyContent : ContentPopulation
     void Start()
     {
         BuyContentBlock item = Instantiate(contentBlock, transform).GetComponentInChildren<BuyContentBlock>();
-        item.SetBackground(BuyContentBlock.BackgroundSprites.Silver);
+        item.SetBackground(BuyContentBlock.BackgroundSprites.Bronze);
         item.SetText("Shrimp");
         item.SetScreen(screen);
         //item.GetComponent<BuyContentBlock>().AssignFunction(screen.BuyShrimp);

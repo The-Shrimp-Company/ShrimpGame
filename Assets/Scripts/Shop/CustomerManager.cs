@@ -11,6 +11,7 @@ public class CustomerManager : MonoBehaviour
     
 
     private int lastDay = 0;
+    private int coolDown = 0;
 
     public List<Shrimp> ToPurchase { get; private set; } = new List<Shrimp>();
 
@@ -43,6 +44,13 @@ public class CustomerManager : MonoBehaviour
                 }
             }
         }
+
+        if(Random.Range(0, 1000) == 1 && requests.Count < 5 && coolDown < 0)
+        {
+            coolDown = 300;
+            MakeRequest();
+        }
+        coolDown--;
     }
 
 
