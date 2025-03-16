@@ -28,6 +28,7 @@ public class CustomerManager : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (TimeManager.instance.day != lastDay)
         {
             lastDay = TimeManager.instance.day;
@@ -43,7 +44,7 @@ public class CustomerManager : MonoBehaviour
                     }
                 }
             }
-        }
+        }*/
 
         if(Random.Range(0, 1000) == 1 && requests.Count < 5 && coolDown < 0)
         {

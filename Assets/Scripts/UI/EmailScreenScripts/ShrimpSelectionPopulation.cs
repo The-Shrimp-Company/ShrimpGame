@@ -35,7 +35,7 @@ public class ShrimpSelectionPopulation : ContentPopulation
         }
         if (request.obfstats.secondaryColour.obfuscated)
         {
-            shrimp = shrimp.Where(x => x.stats.secondaryColour.activeGene.ID == request.stats.body.activeGene.ID).ToList();
+            shrimp = shrimp.Where(x => x.stats.secondaryColour.activeGene.ID == request.stats.secondaryColour.activeGene.ID).ToList();
         }
         if (request.obfstats.eyes.obfuscated)
         {

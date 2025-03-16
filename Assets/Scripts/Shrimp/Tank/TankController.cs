@@ -31,6 +31,8 @@ public class TankController : MonoBehaviour
     [Header("Sale Tank")]
     [SerializeField] private GameObject sign;
     private bool _saleTank = false;
+    [SerializeField] private GameObject SaleSign;
+    private bool openTank = false;
 
     [Header("Pathfinding")]
     public TankGrid tankGrid;  // The grid used for pathfinding
@@ -110,6 +112,27 @@ public class TankController : MonoBehaviour
 
             autoSpawnFoodTimer = 0;
         }
+
+        if (openTank)
+        {
+            if(Random.Range(0, 1000) == 1)
+            {
+                if (shrimpInTank.Count > 0)
+                {
+                    Shrimp shrimp = shrimpInTank[Random.Range(0, shrimpInTank.Count)];
+                    if (!CustomerManager.Instance.ToPurchase.Contains(shrimp))
+                    {
+                        CustomerManager.Instance.AddShrimpToPurchase(shrimp);
+                    }
+                }
+            }
+        }
+    }
+
+    public void toggleTankOpen()
+    {
+        openTank = !openTank;
+        SaleSign.SetActive(openTank);
     }
 
     private void AddItems()

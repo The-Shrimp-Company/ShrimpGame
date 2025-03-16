@@ -70,6 +70,11 @@ public class TankViewScript : ScreenView
         shelves.SwitchSaleTank(tank);
     }
 
+    public void SetOpenTank()
+    {
+        tank.toggleTankOpen();
+    }
+
     public void SlideMenu()
     {
         if((panel.transform.position - panelresting).magnitude < 1)
