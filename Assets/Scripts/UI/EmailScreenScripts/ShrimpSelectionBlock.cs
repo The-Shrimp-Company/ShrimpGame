@@ -13,6 +13,8 @@ public class ShrimpSelectionBlock : ContentBlock
 
     private ShrimpStats _shrimp;
 
+    public BuyScreen screen;
+
     public void Populate(ShrimpStats shrimp)
     {
         _shrimp = shrimp;
@@ -29,5 +31,10 @@ public class ShrimpSelectionBlock : ContentBlock
         primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.primaryColour.activeGene.ID).color;
         secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.secondaryColour.activeGene.ID).color;
         price.text = EconomyManager.instance.GetShrimpValue(shrimp).ToSafeString();
+    }
+
+    public void BuyThis()
+    {
+        screen.BuyShrimp(_shrimp);
     }
 }

@@ -39,7 +39,7 @@ public class BuyContentBlock : ContentBlock
         if (shop == null)
         {
             shop = Instantiate(shopPrefab, transform.parent.transform);
-            shop.GetComponent<Button>().onClick.AddListener(_screen.BuyShrimp);
+            shop.GetComponent<ShrimpPurchaseSelection>().Populate(_screen);
         }
         else
         {

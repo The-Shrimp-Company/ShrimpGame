@@ -15,5 +15,8 @@ public class BuyScreen : ScreenView
         shelves.SpawnShrimp();
     }
 
-    
+    public void BuyShrimp(ShrimpStats s)
+    {
+        shelves.SpawnShrimp(s, EconomyManager.instance.GetShrimpValue(s));
+    }
 }

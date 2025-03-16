@@ -308,7 +308,7 @@ MonoBehaviour:
   - {fileID: 927829567, guid: 93d4cbe44c6e1594c8aafde1df86a503, type: 3}
   - {fileID: -378503791, guid: 93d4cbe44c6e1594c8aafde1df86a503, type: 3}
   text: {fileID: 5792091146291943645}
-  shopPrefab: {fileID: 7657981259110859896, guid: e7c0b3116bb7d364d992a32556ee8bbb,
+  shopPrefab: {fileID: 3093139862595895030, guid: bb7d3e495b080c341879abad3b672426,
     type: 3}
 --- !u!1 &4870704923798914578
 GameObject:
