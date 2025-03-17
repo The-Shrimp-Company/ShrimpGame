@@ -4,6 +4,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class TankController : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class TankController : MonoBehaviour
     public bool saleTank { get; private set; } = false;
     [SerializeField] private GameObject SaleSign;
     public bool openTank { get; private set; } = false;
+    [SerializeField] private TextMeshProUGUI label;
 
     [Header("Pathfinding")]
     public TankGrid tankGrid;  // The grid used for pathfinding
@@ -127,6 +129,8 @@ public class TankController : MonoBehaviour
                 }
             }
         }
+
+        label.text = tankName;
     }
 
     public void toggleTankOpen()
