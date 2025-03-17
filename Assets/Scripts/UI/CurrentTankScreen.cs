@@ -8,6 +8,12 @@ public class CurrentTankScreen : ScreenView
     [SerializeField]
     private CurrentTanksContent content;
 
+    protected override void Start()
+    {
+        base.Start();
+
+    }
+
 
     public void SetShrimp(Shrimp shrimp)
     {

@@ -30,9 +30,9 @@ public class TankController : MonoBehaviour
 
     [Header("Sale Tank")]
     [SerializeField] private GameObject sign;
-    private bool _saleTank = false;
+    public bool saleTank { get; private set; } = false;
     [SerializeField] private GameObject SaleSign;
-    private bool openTank = false;
+    public bool openTank { get; private set; } = false;
 
     [Header("Pathfinding")]
     public TankGrid tankGrid;  // The grid used for pathfinding
@@ -65,7 +65,7 @@ public class TankController : MonoBehaviour
             tankName = "Tank";
         }
 
-        sign.SetActive(_saleTank);
+        sign.SetActive(saleTank);
 
 
         if (autoSpawnTestShrimp)
@@ -215,8 +215,8 @@ public class TankController : MonoBehaviour
 
     public void ToggleSaleTank()
     {
-        _saleTank = !_saleTank;
-        sign.SetActive(_saleTank);
+        saleTank = !saleTank;
+        sign.SetActive(saleTank);
     }
 
 
