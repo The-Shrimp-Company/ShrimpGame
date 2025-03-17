@@ -56,7 +56,7 @@ public class EconomyManager : MonoBehaviour
         float weighting = weightTowardsDominancePercentage / 100;  // Convert percentage to decimal
         val += (d - val) * weighting;  // Weight the value towards the dominance
 
-        val = Mathf.Round(val * 100f) / 100f;  // Round to 2 decimal places
+        val = RoundMoney(val);  // Round to 2 decimal places
 
         return val;
     }
@@ -123,8 +123,7 @@ public class EconomyManager : MonoBehaviour
         t *= healthMultiplier.Evaluate(s.illness / ShrimpManager.instance.maxShrimpIllness);  // Shrimp Health
 
 
-
-        t = Mathf.Round(t * 100f) / 100f;  // Round to 2 decimal places
+        t = RoundMoney(t);  // Round to 2 decimal places
 
         return t;
     }
@@ -152,6 +151,11 @@ public class EconomyManager : MonoBehaviour
 
         else if (g.currentValue < g.startingValue)
             g.currentValue = Mathf.Clamp(g.currentValue + r, g.startingValue, Mathf.Infinity);
+    }
+
+    public float RoundMoney(float m)
+    {
+        return Mathf.Round(m * 100f) / 100f;  // Round to 2 decimal places
     }
 }
 

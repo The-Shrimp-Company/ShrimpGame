@@ -16,10 +16,10 @@ public class MoneyUI : MonoBehaviour
     void Update()
     {
         string money = Money.instance.money.ToString();
-        if (money.Contains("."))
-        {
-            money = money.Substring(0, money.IndexOf(".") + 3);
-        }
+        //if (money.Contains("."))
+        //{
+        //    money = money.Substring(0, money.IndexOf(".") + 3);
+        //}
         text.text = ("£" + money);
     }
 }

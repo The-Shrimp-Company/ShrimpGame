@@ -18,6 +18,15 @@ public class IllnessSO : ScriptableObject
 }
 
 
+public enum IllnessSymptoms
+{
+    WhiteRing,
+    Discolouration,
+    LowSpeed,
+    NotEating,
+    Bubbles
+}
+
 public enum IllnessTriggers
 {
     WaterQuality,

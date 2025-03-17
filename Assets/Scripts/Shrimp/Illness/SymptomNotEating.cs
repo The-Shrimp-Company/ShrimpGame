@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SymptomNotEating : MonoBehaviour
+public class SymptomNotEating : Symptom
 {
     // Start is called before the first frame update
     void Start()

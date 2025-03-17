@@ -22,6 +22,7 @@ public class Money
     public void AddMoney(float moneyToAdd)
     {
         _money += moneyToAdd;
+        _money = EconomyManager.instance.RoundMoney(_money);
     }
 
     public bool WithdrawMoney(float amountToTake)
@@ -29,6 +30,7 @@ public class Money
         if(_money >= amountToTake)
         {
             _money -= amountToTake;
+            _money = EconomyManager.instance.RoundMoney(_money);
             return true;
         }
         else

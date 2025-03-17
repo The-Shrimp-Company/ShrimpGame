@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IllnessWhiteRing : IllnessSymptoms
+[System.Serializable]
+public class SymptomWhiteRing : Symptom
 {
     // Start is called before the first frame update
     void Start()

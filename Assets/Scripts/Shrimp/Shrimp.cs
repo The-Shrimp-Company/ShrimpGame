@@ -33,9 +33,9 @@ public class Shrimp : MonoBehaviour
 
         if (shrimpActivities.Count == 0)
         {
-            AddActivity(GetRandomActivity());
-            AddActivity(GetRandomActivity());
-            AddActivity(GetRandomActivity());
+            ShrimpActivityManager.instance.AddActivity(this, null, true);
+            ShrimpActivityManager.instance.AddActivity(this, null, true); 
+            ShrimpActivityManager.instance.AddActivity(this, null, true);
         }
 
         moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
@@ -106,113 +106,12 @@ public class Shrimp : MonoBehaviour
 
         if (shrimpActivities.Count <= minActivitiesInQueue)  // If the shrimp doesn't have enough tasks
         {
-            AddActivity(GetRandomActivity());
+            ShrimpActivityManager.instance.AddActivity(this, null, true);
         }
     }
 
 
-    private ShrimpActivity GetRandomActivity()
-    {
-        int i = Random.Range(0, 4);
-        if (i == 0) return new ShrimpMovement();
-        if (i == 1) return new ShrimpSleeping();
-        if (i == 2) return new ShrimpBreeding();
-        if (i == 3) return new ShrimpEating();
-        return (new ShrimpActivity());
-    }
-
-
-    private void AddActivity(ShrimpActivity activity)
-    {
-        if (activity is ShrimpMovement)
-        {
-            ShrimpMovement movement = (ShrimpMovement) activity;  // Casts the activity to the derrived shrimpMovement activity
-            movement.randomDestination = true;
-        }
-
-
-        else if (activity is ShrimpSleeping)
-        {
-            ShrimpSleeping sleeping = (ShrimpSleeping) activity;
-
-            sleeping.taskTime = Random.Range(4, 8);
-        }
-
-
-        else if (activity is ShrimpBreeding)
-        {
-            // Find other shrimp
-            List<Shrimp> validShrimp = new List<Shrimp>();
-            foreach(Shrimp s in tank.shrimpInTank)
-            {
-                if (s.stats.gender != stats.gender)  // Get all shrimp of the opposite gender, also excludes this shrimp
-                {
-                    // Other logic for who can breed here
-                    // Once every molt for female
-                    if (stats.canBreed &&
-                        s.stats.canBreed)
-                    {
-                        validShrimp.Add(s);
-                    }
-                }
-            }
-
-            if (validShrimp.Count == 0)  // If there are no valid shrimp
-            {
-                AddActivity(GetRandomActivity());
-                return;  // Cancel this and find a different activity
-            }
-
-            int i = Random.Range(0, validShrimp.Count);
-            Shrimp otherShrimp = validShrimp[i];
-
-            ShrimpBreeding otherBreeding = new ShrimpBreeding();
-            otherBreeding.instigator = false;
-            otherBreeding.shrimp = otherShrimp;
-            otherBreeding.otherShrimp = this;
-            otherShrimp.shrimpActivities.Add(otherBreeding);
-
-
-
-            ShrimpBreeding breeding = (ShrimpBreeding)activity;
-            breeding.instigator = true;
-            breeding.otherShrimp = otherShrimp;
-        }
-
-
-        else if (activity is ShrimpEating)
-        {
-            if (tank.foodInTank.Count == 0)  // If there are no valid shrimp
-            {
-                AddActivity(GetRandomActivity());
-                return;  // Cancel this and find a different activity
-            }
-
-            int i = Random.Range(0, tank.foodInTank.Count);
-            ShrimpFood food = tank.foodInTank[i];
-
-            if (food.shrimpEating != null)  // If a shrimp is already eating it
-            {
-                AddActivity(GetRandomActivity());
-                return;  // Cancel this and find a different activity
-            }
-
-            food.shrimpEating = this;
-
-            ShrimpEating eating = (ShrimpEating)activity;
-            eating.food = food;
-        }
-
-
-        else
-        {
-            Debug.Log("Activity logic is missing");
-        }
-
-        activity.shrimp = this;
-        activity.CreateActivity();
-        shrimpActivities.Add(activity);
-    }
+ 
 
 
     public void ChangeTank(TankController t)

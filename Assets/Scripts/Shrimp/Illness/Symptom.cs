@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IllnessSymptoms : MonoBehaviour
+[System.Serializable]
+public class Symptom
 {
     public IllnessSO so;
-    float timeTillSymptomShows;
-    bool symptomShowing;
+    public float timeTillSymptomShows;
+    public bool symptomShowing;
 
     protected virtual void StartActivity()
     {

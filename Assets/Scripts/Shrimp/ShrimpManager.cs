@@ -172,8 +172,8 @@ public class ShrimpManager : MonoBehaviour
         t.activeGene.ID = "F";
         s.tailFan = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
 
-        t.activeGene.ID = "A";
-        s.antenna = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
+        //t.activeGene.ID = "A";
+        //s.antenna = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
 
         t.activeGene.ID = "L";
         s.legs = geneManager.TraitGene(InheritanceType.RandomInStore, 0, t, t, false);
