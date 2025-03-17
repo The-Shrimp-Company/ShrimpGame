@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class MoneyUI : MonoBehaviour
@@ -16,7 +17,9 @@ public class MoneyUI : MonoBehaviour
     void Update()
     {
         string money = Money.instance.money.ToString();
-        if (money.Contains("."))
+        string regEx = @"^\d*\.\d\d+";
+        Regex regex = new Regex(regEx);
+        if (money.Contains(".") && regex.IsMatch(money))
         {
             money = money.Substring(0, money.IndexOf(".") + 3);
         }

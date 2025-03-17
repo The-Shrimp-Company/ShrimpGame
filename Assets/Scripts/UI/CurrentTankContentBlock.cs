@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CurrentTankContentBlock : ContentBlock
@@ -7,6 +8,8 @@ public class CurrentTankContentBlock : ContentBlock
     private TankController _tank;
     private Shrimp _shrimp;
     private PlayerInteraction player;
+
+    [SerializeField] private TextMeshProUGUI saleSign, destSign;
 
     public void Start()
     {
@@ -17,6 +20,16 @@ public class CurrentTankContentBlock : ContentBlock
     public void SetTank(TankController tank)
     {
         _tank = tank;
+        if (!tank.openTank) 
+        {
+            saleSign.gameObject.SetActive(false);
+            FontTools.SizeFont(saleSign);
+        }
+        if (!tank.saleTank)
+        {
+            destSign.gameObject.SetActive(false);
+            FontTools.SizeFont(destSign);
+        }
     }
 
     public void SetShrimp(Shrimp shrimp) { _shrimp = shrimp; }

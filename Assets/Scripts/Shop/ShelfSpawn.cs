@@ -23,6 +23,10 @@ public class ShelfSpawn : MonoBehaviour
         }
 
         SpawnNextShelf();
+        SpawnNextTank();
+        SpawnNextTank();
+        SpawnNextTank();
+        SpawnNextTank();
     }
 
     public void SpawnNextShelf()
@@ -60,7 +64,12 @@ public class ShelfSpawn : MonoBehaviour
             if (_saleTank == null)
             {
                 _saleTank = fullShelfCheck.GetComponentInChildren<TankController>();
+                Inventory.instance.activeTanks.Add(_saleTank);
                 _saleTank.ToggleSaleTank();
+            }
+            else
+            {
+                Inventory.instance.activeTanks.Add(fullShelfCheck.GetComponentInChildren<TankController>());
             }
         }
     }
