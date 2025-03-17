@@ -28507,10 +28507,11 @@ GameObject:
   - component: {fileID: 705895234}
   - component: {fileID: 705895233}
   - component: {fileID: 705895235}
+  - component: {fileID: 705895238}
   - component: {fileID: 705895237}
   - component: {fileID: 705895236}
   m_Layer: 0
-  m_Name: Shrimp Manager
+  m_Name: Game Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28814,6 +28815,18 @@ MonoBehaviour:
   percentageOfTraitsToReturnValue: 15
   percentageOfTraitsToUpdateDaily: 35
   maxDailyValueUpdateAmount: 3.5
+--- !u!114 &705895238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705895232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c129ae02d5659449809d39fe79ea01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &706526439
 Mesh:
   m_ObjectHideFlags: 0
@@ -86931,11 +86944,11 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 705895234}
   - {fileID: 1790987987}
   - {fileID: 64282502}
   - {fileID: 1853294159}
   - {fileID: 1959388676}
-  - {fileID: 705895234}
   - {fileID: 794203974}
   - {fileID: 704057448}
   - {fileID: 127724711}
