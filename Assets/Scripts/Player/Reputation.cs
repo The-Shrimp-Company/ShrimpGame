@@ -6,7 +6,7 @@ public class Reputation
 {
     private int reputation = 0;
 
-    public static Reputation instance;
+    public static Reputation instance = new Reputation();
 
     public static int GetReputation()
     {

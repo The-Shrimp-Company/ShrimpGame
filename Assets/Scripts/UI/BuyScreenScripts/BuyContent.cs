@@ -12,11 +12,7 @@ public class BuyContent : ContentPopulation
     // Start is called before the first frame update
     void Start()
     {
-        BuyContentBlock item = Instantiate(contentBlock, transform).GetComponentInChildren<BuyContentBlock>();
-        item.SetBackground(BuyContentBlock.BackgroundSprites.Bronze);
-        item.SetText("Shrimp");
-        item.SetScreen(screen);
-        //item.GetComponent<BuyContentBlock>().AssignFunction(screen.BuyShrimp);
+        
     }
 
     // Update is called once per frame

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BuyScreen : ScreenView
 {
+    
+
     protected override void Start()
     {
         base.Start();

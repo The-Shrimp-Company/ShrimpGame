@@ -6,8 +6,8 @@ public class ShrimpPurchaseSelection : MonoBehaviour
 {
     public ShrimpPurchaseContent _screen;
 
-    public void Populate(BuyScreen screen)
+    public void Populate(BuyScreen screen, ref List<ShrimpStats> shrimp)
     {
-        _screen.Populate(screen);
+        _screen.Populate(screen, ref shrimp);
     }
 }

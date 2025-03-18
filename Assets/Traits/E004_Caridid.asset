@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafabb4e1f2ee9248a4cf28b273a998e, type: 3}
-  m_Name: H003_Anomalis
+  m_Name: E004_Caridid
   m_EditorClassIdentifier: 
-  ID: H003
-  traitName: Anomalis Head
-  set: 2
+  ID: E004
+  traitName: Caridid Eyes
+  set: 3
   weightDominanceTowards: 0
   statModifiers: []
-  type: 3
+  type: 4
   color: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: 0}
   anomalisPattern: {fileID: 0}
   carididPattern: {fileID: 0}
   nylonPattern: {fileID: 0}
-  part: {fileID: 3562427270899118264, guid: 55713e68dbd4aec4bbf95e72cacd27ac, type: 3}
+  part: {fileID: 5061115109887219533, guid: 047ba0900a965c74abeeaaf8422de263, type: 3}
