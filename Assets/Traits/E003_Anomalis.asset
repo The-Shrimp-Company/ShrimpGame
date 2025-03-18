@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fafabb4e1f2ee9248a4cf28b273a998e, type: 3}
-  m_Name: P006_BOA
+  m_Name: E003_Anomalis
   m_EditorClassIdentifier: 
-  ID: P006
-  traitName: BOA
-  set: 0
+  ID: E003
+  traitName: Anomilis Eyes
+  set: 2
   weightDominanceTowards: 0
   statModifiers: []
-  type: 1
+  type: 4
   color: {r: 1, g: 1, b: 1, a: 1}
-  cherryPattern: {fileID: -876546973899608171, guid: 284d273d7d47e0c45972ea4f91cddc25,
-    type: 3}
-  anomalisPattern: {fileID: 2100000, guid: 82949ed1616fbf44fb5a6da1b96fb095, type: 2}
-  carididPattern: {fileID: 2100000, guid: 82949ed1616fbf44fb5a6da1b96fb095, type: 2}
-  nylonPattern: {fileID: -876546973899608171, guid: c0b3c4a368c68cc4ab785795651eddea,
-    type: 3}
-  part: {fileID: 0}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
+  part: {fileID: 5061115109887219533, guid: 047ba0900a965c74abeeaaf8422de263, type: 3}

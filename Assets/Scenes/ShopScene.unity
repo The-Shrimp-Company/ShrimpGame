@@ -28702,22 +28702,28 @@ MonoBehaviour:
   bodySOs:
   - {fileID: 11400000, guid: ed3c0e5085cdec04e976edeedf17430d, type: 2}
   - {fileID: 11400000, guid: 98a34dbd677ebe740a249c790ba2d2c7, type: 2}
+  - {fileID: 11400000, guid: e143719cce502c447bc1b09dd46339f5, type: 2}
   headSOs:
   - {fileID: 11400000, guid: c35b2d85519e1dd4fa5dacd4aa3466cc, type: 2}
   - {fileID: 11400000, guid: b3e19de52abdf7944871e09de9724f72, type: 2}
+  - {fileID: 11400000, guid: 44e7801118dd41c4da98e2b7b3a4bda9, type: 2}
   eyeSOs:
   - {fileID: 11400000, guid: 949d064e58dadb045a9ef1bfdc64b0c4, type: 2}
   - {fileID: 11400000, guid: f38817a84760d684780569259bae0ac3, type: 2}
+  - {fileID: 11400000, guid: 24d08aa28d9274746b17dca056524c05, type: 2}
   tailSOs:
   - {fileID: 11400000, guid: 14ad2297db8d62b4e94d0704a8425112, type: 2}
   - {fileID: 11400000, guid: b7d4378a8288f8149ba2bb06e1f11442, type: 2}
+  - {fileID: 11400000, guid: b8b566f685eaa714e8dfcd65ae9e33b3, type: 2}
   tailFanSOs:
   - {fileID: 11400000, guid: 829e5bee00fd4644d94801aaf4984d2b, type: 2}
   - {fileID: 11400000, guid: 74a488ec502e91e49b49776074682981, type: 2}
+  - {fileID: 11400000, guid: 54c6f410b1c0e6f448713a29f84af290, type: 2}
   antennaSOs: []
   legsSOs:
   - {fileID: 11400000, guid: 1a9df5f638e35974fa735424e05d1d34, type: 2}
   - {fileID: 11400000, guid: daa19c069b068734f9b394f7c56817be, type: 2}
+  - {fileID: 11400000, guid: fd183c8319f56524fa35835d965a9300, type: 2}
 --- !u!114 &705895236
 MonoBehaviour:
   m_ObjectHideFlags: 0
