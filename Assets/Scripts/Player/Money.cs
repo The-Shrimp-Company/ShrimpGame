@@ -16,7 +16,7 @@ public class Money
     public Money()
     {
         // Put loading function here
-        _money = 0;
+        _money = 200;
     }
 
     public void AddMoney(float moneyToAdd)

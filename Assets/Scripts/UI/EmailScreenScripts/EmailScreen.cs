@@ -5,6 +5,9 @@ using UnityEngine;
 public class EmailScreen : ScreenView
 {
     [SerializeField] private GameObject ShrimpSelection;
+    [SerializeField] private CanvasGroup window;
+
+    private ShrimpSelectionWindow activeSelection;
 
     protected override void Start()
     {
@@ -15,9 +18,15 @@ public class EmailScreen : ScreenView
     public void OpenSelection(Request request)
     {
         ShrimpSelectionWindow screen = Instantiate(ShrimpSelection, transform).GetComponent<ShrimpSelectionWindow>();
-        screen.Populate(request);
+        activeSelection = screen;
+        window.interactable = false;
+        screen.Populate(request, this);
     }
 
-    
+    public void CloseSelection()
+    {
+        Destroy(activeSelection.gameObject);
+        window.interactable = true;
+    }
 
 }

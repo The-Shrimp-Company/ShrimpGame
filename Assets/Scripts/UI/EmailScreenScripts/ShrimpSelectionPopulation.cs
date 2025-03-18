@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class ShrimpSelectionPopulation : ContentPopulation
 {
     private Request _request;
-    private GameObject _window;
+    private EmailScreen _window;
     private Email _email;
 
-    public void Populate(Request request, GameObject window)
+    public void Populate(Request request, EmailScreen window)
     {
         _request = request;
         _window = window;
@@ -81,6 +81,11 @@ public class ShrimpSelectionPopulation : ContentPopulation
                 break;
             }
         }
-        Destroy(_window);
+        _window.CloseSelection();
+    }
+
+    public void CloseScreen()
+    {
+        _window.CloseSelection();
     }
 }

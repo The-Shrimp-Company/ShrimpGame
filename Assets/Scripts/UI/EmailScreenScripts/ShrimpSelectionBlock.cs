@@ -14,6 +14,7 @@ public class ShrimpSelectionBlock : ContentBlock
     private ShrimpStats _shrimp;
 
     public BuyScreen screen;
+    public EmailScreen email;
 
     public void Populate(ShrimpStats shrimp)
     {
@@ -41,4 +42,8 @@ public class ShrimpSelectionBlock : ContentBlock
         }
     }
 
+    public void SellThis()
+    {
+        email.CloseSelection();
+    }
 }

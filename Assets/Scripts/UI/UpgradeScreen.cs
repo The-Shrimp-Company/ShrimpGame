@@ -11,11 +11,17 @@ public class UpgradeScreen : ScreenView
 
     public void BuyTanks()
     {
-        Inventory.instance.AddItem(Items.items[0]);
+        if (Money.instance.WithdrawMoney(100))
+        {
+            Inventory.instance.AddItem(Items.items[0]);
+        }
     }
 
     public void BuyShelf()
     {
-        shelves.SpawnNextShelf();
+        if (Money.instance.WithdrawMoney(200))
+        {
+            shelves.SpawnNextShelf();
+        }
     }
 }
