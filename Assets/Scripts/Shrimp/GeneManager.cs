@@ -625,7 +625,7 @@ public class GeneManager : MonoBehaviour
         s = ApplyStatModifier(s.eyes.activeGene.ID, s);
         s = ApplyStatModifier(s.tail.activeGene.ID, s);
         s = ApplyStatModifier(s.tailFan.activeGene.ID, s);
-        s = ApplyStatModifier(s.antenna.activeGene.ID, s);
+        //s = ApplyStatModifier(s.antenna.activeGene.ID, s);
         s = ApplyStatModifier(s.legs.activeGene.ID, s);
 
         return s;

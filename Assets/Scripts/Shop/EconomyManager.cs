@@ -72,7 +72,7 @@ public class EconomyManager : MonoBehaviour
         UpdateValueOfGene(purchased, traits.eyes.activeGene);
         UpdateValueOfGene(purchased, traits.tail.activeGene);
         UpdateValueOfGene(purchased, traits.tailFan.activeGene);
-        UpdateValueOfGene(purchased, traits.antenna.activeGene);
+        //UpdateValueOfGene(purchased, traits.antenna.activeGene);
         UpdateValueOfGene(purchased, traits.legs.activeGene);
     }
 

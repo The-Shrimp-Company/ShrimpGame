@@ -69,7 +69,7 @@ public class ShrimpManager : MonoBehaviour
         s.eyes = geneManager.TraitGene(geneManager.bodyPartInheritance, 0, parentA.eyes, parentB.eyes, geneManager.bodyPartCanMutate);
         s.tail = geneManager.TraitGene(geneManager.bodyPartInheritance, 0, parentA.tail, parentB.tail, geneManager.bodyPartCanMutate);
         s.tailFan = geneManager.TraitGene(geneManager.bodyPartInheritance, 0, parentA.tailFan, parentB.tailFan, geneManager.bodyPartCanMutate);
-        s.antenna = geneManager.TraitGene(geneManager.bodyPartInheritance, 0, parentA.antenna, parentB.antenna, geneManager.bodyPartCanMutate);
+        //s.antenna = geneManager.TraitGene(geneManager.bodyPartInheritance, 0, parentA.antenna, parentB.antenna, geneManager.bodyPartCanMutate);
         s.legs = geneManager.TraitGene(geneManager.bodyPartInheritance, 0, parentA.legs, parentB.legs, geneManager.bodyPartCanMutate);
 
         s.fightHistory = 0;
@@ -118,8 +118,8 @@ public class ShrimpManager : MonoBehaviour
         t.activeGene.ID = "F";
         s.tailFan = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
-        t.activeGene.ID = "A";
-        s.antenna = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
+        //t.activeGene.ID = "A";
+        //s.antenna = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
 
         t.activeGene.ID = "L";
         s.legs = geneManager.TraitGene(InheritanceType.WeightedRandom, 0, t, t, false);
@@ -210,7 +210,7 @@ public class ShrimpManager : MonoBehaviour
         s.eyes = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.eyeSOs[0].ID));
         s.tail = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.tailSOs[0].ID));
         s.tailFan = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.tailFanSOs[0].ID));
-        s.antenna = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.antennaSOs[0].ID));
+        //s.antenna = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.antennaSOs[0].ID));
         s.legs = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.legsSOs[0].ID));
 
         s.fightHistory = 0;
