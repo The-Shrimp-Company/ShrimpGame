@@ -24,7 +24,7 @@ public class SellContentBlock : ContentBlock
     public void SetSalePrice()
     {
         Canvas.ForceUpdateCanvases();
-        _salePrice.text = _shrimp.FindValue().ToString();
+        _salePrice.text = _shrimp.tank.openTankPrice.ToString();
         FontTools.SizeFont(_salePrice);
     }
 }

@@ -35,6 +35,7 @@ public class TankController : MonoBehaviour
     [SerializeField] private GameObject SaleSign;
     public bool openTank { get; private set; } = false;
     [SerializeField] private TextMeshProUGUI label;
+    public float openTankPrice = 50;
 
     [Header("Pathfinding")]
     public TankGrid tankGrid;  // The grid used for pathfinding
@@ -136,6 +137,8 @@ public class TankController : MonoBehaviour
     public void toggleTankOpen()
     {
         openTank = !openTank;
+        if (openTank) CustomerManager.Instance.openTanks.Add(this);
+        else CustomerManager.Instance.openTanks.Remove(this);
         SaleSign.SetActive(openTank);
     }
 

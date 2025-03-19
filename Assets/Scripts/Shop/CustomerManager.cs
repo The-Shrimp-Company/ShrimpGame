@@ -8,11 +8,13 @@ using UnityEngine.Rendering;
 public class CustomerManager : MonoBehaviour 
 {
     static public CustomerManager Instance;
-    
 
+    private int count = 0;
     private int lastDay = 0;
     private int coolDown = 0;
 
+
+    public List<TankController> openTanks = new List<TankController>();
     public List<Shrimp> ToPurchase { get; private set; } = new List<Shrimp>();
 
     private List<Request> requests = new List<Request>();
@@ -28,23 +30,28 @@ public class CustomerManager : MonoBehaviour
 
     private void Update()
     {
-        /*
-        if (TimeManager.instance.day != lastDay)
+        if(count < openTanks.Count)
         {
-            lastDay = TimeManager.instance.day;
-            if (ShrimpManager.instance.allShrimp.Count > 0)
+            TankController currentTank = openTanks[count];
+            foreach(Shrimp shrimp in currentTank.shrimpInTank)
             {
-                float numToSell = Random.Range(0, ShrimpManager.instance.allShrimp.Count / 2 + 1);
-                for (int i = 0; i < numToSell; i++)
+                float value = EconomyManager.instance.GetShrimpValue(shrimp.stats);
+                float chance = value / currentTank.openTankPrice;
+                chance = Mathf.Log(chance) * 10;
+                chance += 5;
+                if (Random.Range(0f, 10f) < chance)
                 {
-                    int RandShrimp = Random.Range(0, ShrimpManager.instance.allShrimp.Count);
-                    if (!ToPurchase.Contains(ShrimpManager.instance.allShrimp[RandShrimp]))
-                    {
-                        AddShrimpToPurchase(ShrimpManager.instance.allShrimp[RandShrimp]);
-                    }
+                    ToPurchase.Add(shrimp);
                 }
             }
-        }*/
+        }
+
+        count++;
+
+        if(count < openTanks.Count)
+        {
+            count = 0;
+        }
 
         if(Random.Range(0, 1000) == 1 && requests.Count < 5 && coolDown < 0)
         {
@@ -71,7 +78,7 @@ public class CustomerManager : MonoBehaviour
         {
             ToPurchase.Remove(shrimp);
             shrimp.tank.shrimpToRemove.Add(shrimp);
-            Money.instance.AddMoney(shrimp.FindValue());
+            Money.instance.AddMoney(shrimp.tank.openTankPrice);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
         }
     }
