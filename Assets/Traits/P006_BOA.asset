@@ -21,7 +21,8 @@ MonoBehaviour:
   color: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: -876546973899608171, guid: 284d273d7d47e0c45972ea4f91cddc25,
     type: 3}
-  anomalisPattern: {fileID: 2100000, guid: 82949ed1616fbf44fb5a6da1b96fb095, type: 2}
+  anomalisPattern: {fileID: -876546973899608171, guid: fd14d2c62a21fd346a5dcb88971c3aae,
+    type: 3}
   carididPattern: {fileID: 2100000, guid: 82949ed1616fbf44fb5a6da1b96fb095, type: 2}
   nylonPattern: {fileID: -876546973899608171, guid: c0b3c4a368c68cc4ab785795651eddea,
     type: 3}
