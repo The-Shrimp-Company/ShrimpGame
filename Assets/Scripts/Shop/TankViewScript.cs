@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using System;
 
 public class TankViewScript : ScreenView
 {
@@ -25,6 +26,8 @@ public class TankViewScript : ScreenView
     private GameObject _contentBlock;
     [SerializeField]
     private TMP_InputField Name;
+    [SerializeField]
+    private TMP_InputField salePrice;
 
     protected override void Start()
     {
@@ -34,6 +37,7 @@ public class TankViewScript : ScreenView
         tank.tankViewScript = this;
         panelresting = panel.transform.position;
         Name.text = tank.tankName;
+        salePrice.text = tank.openTankPrice.ToString();
         UpdateContent();
     }
 
@@ -109,6 +113,12 @@ public class TankViewScript : ScreenView
         tank.tankName = input.text;
         Name.text = input.text;
 
+    }
+
+    public void SetPrice()
+    {
+        Debug.Log("input: " + salePrice.text);
+        tank.SetTankPrice(Convert.ToInt32(salePrice.text));
     }
 
     public void UISelect()
