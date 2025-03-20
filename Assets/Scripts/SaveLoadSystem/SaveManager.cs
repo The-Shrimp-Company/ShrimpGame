@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace SaveLoadSystem
 {
@@ -8,11 +9,14 @@ namespace SaveLoadSystem
         public static SaveData CurrentSaveData = new SaveData();
 
         public const string directory = "/SaveGames/";
-        public const string fileName = "File1";
         public const string fileNameSuffix = ".save";
 
         public const bool copyPathToClipboard = true;
+        public static bool currentlySaving = false;
         public static bool loadingGameFromFile = false;
+
+        public static UnityAction OnLoadGameStart;
+        public static UnityAction OnLoadGameFinish;
 
 
         public static bool SaveGame(string _fileName)
@@ -34,8 +38,17 @@ namespace SaveLoadSystem
         }
 
 
+        public static void NewGame(string _fileName)
+        {
+            OnLoadGameStart?.Invoke();
+            loadingGameFromFile = false;
+            OnLoadGameFinish?.Invoke();
+        }
+
+
         public static void LoadGame(string _fileName)
         {
+            OnLoadGameStart?.Invoke();
             string fullPath = Application.persistentDataPath + directory + _fileName + fileNameSuffix;
             SaveData tempData = new SaveData();
 

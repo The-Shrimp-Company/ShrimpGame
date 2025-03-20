@@ -10,38 +10,50 @@ public class SaveGameTest : MonoBehaviour
 
     void Start()
     {
-        LoadGame();
+        LoadGame("Autosave");
     }
 
 
-    private void OnApplicationQuit()
+    private void OnApplicationPause()  // Autosave when game is suspended
     {
-        SaveGame();
+        SaveGame("Autosave");
+    }
+
+
+    private void OnApplicationQuit()  // Autosave when game is quit
+    {
+        SaveGame("Autosave");
     }
 
 
     void Update()
     {
         autosaveTimer += Time.deltaTime;
-        if ( autosaveTimer > autosaveTime )
+        if ( autosaveTimer > autosaveTime )  // Autosave after a certain amount of time
         {
             autosaveTimer = 0;
-            SaveGame();
+            SaveGame("Autosave");
         }
+
+        Debug.Log(GameSettings.settings.cameraSensitivity);
     }
 
-    public void SaveGame()
+    public void SaveGame(string _fileName)
     {
+        SaveManager.currentlySaving = true;
         CopyDataToSaveData();
-        SaveManager.SaveGame("Autosave");
+        SaveManager.SaveGame(_fileName);
+        SaveManager.currentlySaving = false;
     }
 
-    public void LoadGame()
+    public void LoadGame(string _fileName)
     {
-        SaveManager.LoadGame("Autosave");
+        SaveManager.LoadGame(_fileName);
         
         if (SaveManager.loadingGameFromFile)
             CopyDataFromSaveData(SaveManager.CurrentSaveData);
+
+        SaveManager.OnLoadGameFinish?.Invoke();
     }
 
     private void CopyDataToSaveData()
@@ -65,6 +77,10 @@ public class SaveGameTest : MonoBehaviour
         d.playerPosition = player.position;
         d.playerRotation = player.rotation;
 
+        d.playerStats = PlayerStats.stats;
+        d.gameSettings = GameSettings.settings;
+
+
 
         SaveManager.CurrentSaveData = d;
     }
@@ -76,5 +92,10 @@ public class SaveGameTest : MonoBehaviour
         Transform player = GameObject.Find("Player").transform;
         player.position = d.playerPosition;
         player.rotation = d.playerRotation;
+        Debug.Log(d.playerPosition);
+        Debug.Log(d.playerStats.totalMoney);
+        Debug.Log(d.gameSettings.cameraSensitivity);
+        PlayerStats.stats = d.playerStats;
+        GameSettings.settings = d.gameSettings;
     }
 }
