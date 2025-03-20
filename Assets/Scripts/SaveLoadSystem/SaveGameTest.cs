@@ -26,11 +26,42 @@ public class SaveGameTest : MonoBehaviour
 
     public void SaveGame()
     {
-        SaveManager.Save("Autosave");
+        CopyDataToSaveData();
+        SaveManager.SaveGame("Autosave");
     }
 
     public void LoadGame()
     {
-        //SaveManager.Save("Autosave");
+        SaveManager.LoadGame("Autosave");
+        
+        if (SaveManager.loadingGameFromFile)
+            CopyDataFromSaveData(SaveManager.CurrentSaveData);
+    }
+
+    private void CopyDataToSaveData()
+    {
+        SaveData d = new SaveData();
+
+
+        if (ShrimpManager.instance.allShrimp.Count != 0)
+            d.stats = ShrimpManager.instance.allShrimp[0].stats;
+
+        d.money = Money.instance.money;
+
+        Transform player = GameObject.Find("Player").transform;
+        d.playerPosition = player.position;
+        d.playerRotation = player.rotation;
+
+
+        SaveManager.CurrentSaveData = d;
+    }
+
+    private void CopyDataFromSaveData(SaveData d)
+    {
+        Money.instance.AddMoney(d.money - Money.instance.money);
+
+        Transform player = GameObject.Find("Player").transform;
+        player.position = d.playerPosition;
+        player.rotation = d.playerRotation;
     }
 }
