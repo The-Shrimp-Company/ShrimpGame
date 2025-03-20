@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class FullEmail : MonoBehaviour
 {
     [SerializeField] private GameObject _button;
+    private List<Button> buttons = new List<Button>();
     [SerializeField] private Transform buttonParent;
 
     private Email _email;
@@ -27,6 +28,11 @@ public class FullEmail : MonoBehaviour
                 obj.GetComponentInChildren<TextMeshProUGUI>().text = button.text;
                 FontTools.SizeFont(obj.GetComponentInChildren<TextMeshProUGUI>());
                 obj.GetComponent<Button>().onClick.AddListener(button.action);
+                if(button.destroy == true)
+                {
+                    obj.GetComponent<Button>().onClick.AddListener(DeleteEmail);
+                }
+                buttons.Add(obj.GetComponent<Button>());
             }
         }
         if (!email.important)

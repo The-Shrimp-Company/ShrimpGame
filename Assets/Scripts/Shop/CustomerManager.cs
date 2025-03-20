@@ -83,6 +83,24 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+    public void PurchaseShrimp(Shrimp shrimp, float value)
+    {
+        if (shrimp != null)
+        {
+            ToPurchase.Remove(shrimp);
+            shrimp.tank.shrimpToRemove.Add(shrimp);
+            Debug.Log(value);
+            Money.instance.AddMoney(value);
+            EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
+            Email email = new Email();
+            email.title = "Thanks!";
+            email.subjectLine = "I Love this shrimp!";
+            email.mainText = "It's just what I wanted, so I got you this bonus!";
+            email.value = shrimp.Bonus();
+            email.CreateEmailButton("Add money", email.GiveMoney, true);
+            EmailManager.SendEmail(email, true, Random.Range(10, 30));
+        }
+    }
 
     public void MakeRequest()
     {
@@ -103,55 +121,58 @@ public class CustomerManager : MonoBehaviour
             {
                 case 1:
                     obfs.pattern.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.pattern.activeGene.ID).traitName + " Pattern. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.pattern.activeGene.ID).traitName;
                     break;
                 case 2:
                     obfs.body.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.body.activeGene.ID).traitName + " Body. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.body.activeGene.ID).traitName;
                     break;
                 case 3:
                     obfs.head.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.head.activeGene.ID).traitName + " Head. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.head.activeGene.ID).traitName;
                     break;
                 case 4:
                     obfs.secondaryColour.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.secondaryColour.activeGene.ID).traitName + " Secondary Colour. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.secondaryColour.activeGene.ID).traitName;
                     break;
                 case 5:
                     obfs.primaryColour.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.primaryColour.activeGene.ID).traitName + " Primary Colour. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.primaryColour.activeGene.ID).traitName;
                     break;
                 case 6:
                     obfs.legs.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.legs.activeGene.ID).traitName + " Legs. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.legs.activeGene.ID).traitName;
                     break;
                 case 7:
                     obfs.tail.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.tail.activeGene.ID).traitName + " Tail. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.tail.activeGene.ID).traitName;
                     break;
                 case 8:
                     obfs.tailFan.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.tailFan.activeGene.ID).traitName + " Tail Fan. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.tailFan.activeGene.ID).traitName;
                     break;
                 case 9:
                     obfs.eyes.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.eyes.activeGene.ID).traitName + " Eyes. ";
+                    message += GeneManager.instance.GetTraitSO(obfs.eyes.activeGene.ID).traitName;
                     break;
 
             }
-            message += "\n";
+            message += ".\n";
         } while (loop < 4 && Random.Range(1, 5) > 1);
 
+
+        float value = EconomyManager.instance.GetObfsShrimpValue(obfs);
+        message += "I will pay " + value + " plus a bonus if the shrimp is very good";
 
         Request request = new Request();
         request.stats = s;
         request.obfstats = obfs;
+        request.value = value;
         Email email = new Email();
         email.title = "Shrimp Request";
         email.subjectLine = "I would like a shrimp";
         email.mainText = message;
         email.CreateEmailButton("Choose Shrimp", request.OpenShrimpSelection);
-        Debug.Log(email.buttons);
         EmailManager.SendEmail(email, true);
         request.email = email;
         requests.Add(request);
@@ -187,6 +208,8 @@ public class Request
 {
     public EmailScreen emailScreen;
 
+    public float value;
+
     public ShrimpStats stats;
     public ShrimpStats obfstats;
 
@@ -207,4 +230,6 @@ public class Request
     {
         emailScreen.OpenSelection(this);
     }
+
+    
 }

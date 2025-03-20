@@ -13,6 +13,8 @@ public class Shrimp : MonoBehaviour
     private float moltTimer;
     private float moltSpeed;
 
+    public float currentValue;
+
     private bool toKill = false;  // If it should be destroyed at the end of this frame
 
     public Transform particleParent;
@@ -136,7 +138,12 @@ public class Shrimp : MonoBehaviour
 
     public void SellThis()
     {
-        CustomerManager.Instance.PurchaseShrimp(this);
+        CustomerManager.Instance.PurchaseShrimp(this, currentValue);
+    }
+
+    public int Bonus()
+    {
+        return Mathf.RoundToInt(EconomyManager.instance.GetShrimpValue(stats));
     }
 
     public float FindValue()

@@ -55,6 +55,7 @@ public class ShrimpSelectionPopulation : ContentPopulation
             GameObject block = Instantiate(contentBlock, transform);
             block.GetComponent<ShrimpSelectionBlock>().Populate(s.stats);
             contentBlocks.Add(block.GetComponent<ContentBlock>());
+            s.currentValue = EconomyManager.instance.GetObfsShrimpValue(request.obfstats);
             block.GetComponent<Button>().onClick.AddListener(s.SellThis);
             block.GetComponent<Button>().onClick.AddListener(CompleteRequest);
         }
