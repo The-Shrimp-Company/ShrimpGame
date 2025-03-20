@@ -24,4 +24,12 @@ public class UpgradeScreen : ScreenView
             shelves.SpawnNextShelf();
         }
     }
+
+    public void BuyFood()
+    {
+        if (Money.instance.WithdrawMoney(10))
+        {
+            Inventory.instance.AddItem(Items.items[2]);
+        }
+    }
 }

@@ -13,9 +13,15 @@ public class InventoryContent : ContentPopulation
     private void Awake()
     {
         CreateContent(Inventory.instance.GetItemCount());
-        foreach (ContentBlock block in contentBlocks)
+        int index = 0;
+        for(int i = 0; i < Items.items.Length; i++)
         {
-            block.SetText("Tank");
+            if (Inventory.instance.GetInventory().ContainsKey(Items.items[i]))
+            {
+                contentBlocks[index].SetText(Items.items[i]);
+                contentBlocks[index].GetComponent<InventoryContentBlock>().quantity.text = Inventory.instance.GetInventory()[Items.items[i]].ToString();
+                index++;
+            }
         }
     }
 

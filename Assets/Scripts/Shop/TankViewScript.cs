@@ -28,6 +28,7 @@ public class TankViewScript : ScreenView
     private TMP_InputField Name;
     [SerializeField]
     private TMP_InputField salePrice;
+    [SerializeField] private TextMeshProUGUI foodAmount;
 
     protected override void Start()
     {
@@ -45,7 +46,7 @@ public class TankViewScript : ScreenView
     public virtual void Update()
     {
         //base.Update();
-
+        foodAmount.text = tank.FoodStore.ToString();
     }
 
     public void UpdateContent()
@@ -136,5 +137,14 @@ public class TankViewScript : ScreenView
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
         base.Close();
         
+    }
+
+    public void AddFood()
+    {
+        if (Inventory.instance.GetInventory()[Items.items[2]] > 0)
+        {
+            tank.FoodStore += 1;
+            Inventory.instance.GetInventory()[Items.items[2]] -= 1;
+        }
     }
 }
