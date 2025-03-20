@@ -5,7 +5,10 @@ using UnityEngine;
 
 public static class Items
 {
-    public static Item[] items = { new Item("Small Tank", 50), new Item("Shelf", 100) };
+    /// <summary>
+    /// 0 = Small Tank, 1 = Shelf, 2 = Food
+    /// </summary>
+    public static Item[] items = { new Item("Small Tank", 50), new Item("Shelf", 100), new Item("Food", 10) };
 }
 
 public struct Item

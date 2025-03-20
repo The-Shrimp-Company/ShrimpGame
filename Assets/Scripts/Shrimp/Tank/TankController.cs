@@ -23,6 +23,7 @@ public class TankController : MonoBehaviour
 
     [Header("Food")]
     public List<ShrimpFood> foodInTank = new List<ShrimpFood>();
+    public int FoodStore = 0;
     [HideInInspector] public List<ShrimpFood> foodToAdd = new List<ShrimpFood>();
     [HideInInspector] public List<ShrimpFood> foodToRemove = new List<ShrimpFood>();
     public Transform foodParent;
@@ -108,14 +109,18 @@ public class TankController : MonoBehaviour
 
 
          autoSpawnFoodTimer += Time.deltaTime;
-
-        if (autoSpawnFoodTimer >= autoSpawnFoodTime && autoSpawnFoodTime != 0)
+        if (FoodStore > 0)
         {
-            GameObject newFood = GameObject.Instantiate(autoSpawnFoodPrefab, GetRandomSurfacePosition(), Quaternion.identity);
-            newFood.GetComponent<ShrimpFood>().CreateFood(this);
+            if (autoSpawnFoodTimer >= autoSpawnFoodTime && autoSpawnFoodTime != 0)
+            {
+                FoodStore -= 1;
+                GameObject newFood = GameObject.Instantiate(autoSpawnFoodPrefab, GetRandomSurfacePosition(), Quaternion.identity);
+                newFood.GetComponent<ShrimpFood>().CreateFood(this);
 
-            autoSpawnFoodTimer = 0;
+                autoSpawnFoodTimer = 0;
+            }
         }
+
 
         if (openTank)
         {
