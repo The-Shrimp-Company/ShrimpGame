@@ -12,6 +12,7 @@ namespace SaveLoadSystem
         public const string fileNameSuffix = ".save";
 
         public const bool copyPathToClipboard = true;
+        public static bool loadingGameFromFile = false;
 
 
         public static bool SaveGame(string _fileName)
@@ -33,15 +34,27 @@ namespace SaveLoadSystem
         }
 
 
-        public static bool LoadGame(string _fileName)
+        public static void LoadGame(string _fileName)
         {
             string fullPath = Application.persistentDataPath + directory + _fileName + fileNameSuffix;
             SaveData tempData = new SaveData();
+
             if (File.Exists(fullPath))
             {
                 string json = File.ReadAllText(fullPath);
                 tempData = JsonUtility.FromJson<SaveData>(json);
+
+                loadingGameFromFile = true;
             }
+
+            else
+            {
+                Debug.LogError("Save file at " + fullPath + " does not exist");
+
+                loadingGameFromFile = false;
+            }
+
+            CurrentSaveData = tempData;
         }
     }
 }
