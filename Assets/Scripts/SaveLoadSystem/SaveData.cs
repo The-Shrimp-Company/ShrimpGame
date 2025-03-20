@@ -8,7 +8,7 @@ namespace SaveLoadSystem
         public float money;
         public Vector3 playerPosition;
         public Quaternion playerRotation;
-        public ShrimpStats stats = new ShrimpStats();
+        public ShrimpStats[] stats;
     }
 
 

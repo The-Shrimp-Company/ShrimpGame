@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SaveGameTest : MonoBehaviour
 {
-    public float autosaveTime = 3.0f;
+    public float autosaveTime = 15.0f;
     private float autosaveTimer = 0f;
 
     void Start()
@@ -13,7 +13,13 @@ public class SaveGameTest : MonoBehaviour
         LoadGame();
     }
 
-    
+
+    private void OnApplicationQuit()
+    {
+        SaveGame();
+    }
+
+
     void Update()
     {
         autosaveTimer += Time.deltaTime;
@@ -44,7 +50,14 @@ public class SaveGameTest : MonoBehaviour
 
 
         if (ShrimpManager.instance.allShrimp.Count != 0)
-            d.stats = ShrimpManager.instance.allShrimp[0].stats;
+        {
+            List<ShrimpStats> stats = new List<ShrimpStats>();
+            foreach(Shrimp s in ShrimpManager.instance.allShrimp)
+            {
+                stats.Add(s.stats);
+            }
+            d.stats = stats.ToArray();
+        }
 
         d.money = Money.instance.money;
 
