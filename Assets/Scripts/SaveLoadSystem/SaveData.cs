@@ -1,22 +1,24 @@
-using Newtonsoft.Json;
 using UnityEngine;
 
-[JsonObject(MemberSerialization = MemberSerialization.OptIn)]
-public class SaveData : MonoBehaviour
+namespace SaveLoadSystem
 {
-    [SerializeField][JsonProperty("Name")] private string _name;
-    [SerializeField][JsonProperty("Cost")] private int _cost;
-
-    [JsonProperty("Position")] private Vector3 _position;
-    private GameObject _buildingPrefab;
-
-    public string Name => _name;
-    public int Cost => _cost;
-    public Vector3 Position => _position;
-
-    private void Awake()
+    [System.Serializable]
+    public class SaveData
     {
-        _buildingPrefab = GetComponent<GameObject>();
-        _position = transform.position;
+        public int i = 1;
+        [SerializeField] private float f = 5.1f;
+        public bool b = true;
+        public Vector3 v = new Vector3(0, 10, 99.9f);
+    }
+
+
+
+
+
+    [System.Serializable]
+    public class ShrimpSaveData
+    {
+        public int i = 1;
+        [SerializeField] private float f = 5.1f;
     }
 }
