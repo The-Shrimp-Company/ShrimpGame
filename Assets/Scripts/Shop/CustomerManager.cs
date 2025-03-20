@@ -133,11 +133,11 @@ public class CustomerManager : MonoBehaviour
                     break;
                 case 4:
                     obfs.secondaryColour.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.secondaryColour.activeGene.ID).traitName;
+                    message += GeneManager.instance.GetTraitSO(obfs.secondaryColour.activeGene.ID).traitName + " secondary colour";
                     break;
                 case 5:
                     obfs.primaryColour.obfuscated = true;
-                    message += GeneManager.instance.GetTraitSO(obfs.primaryColour.activeGene.ID).traitName;
+                    message += GeneManager.instance.GetTraitSO(obfs.primaryColour.activeGene.ID).traitName + " primary colour";
                     break;
                 case 6:
                     obfs.legs.obfuscated = true;
