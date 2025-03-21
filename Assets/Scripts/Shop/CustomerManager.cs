@@ -80,6 +80,7 @@ public class CustomerManager : MonoBehaviour
             shrimp.tank.shrimpToRemove.Add(shrimp);
             Money.instance.AddMoney(shrimp.tank.openTankPrice);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
+            PlayerStats.stats.shrimpSold++;
         }
     }
 

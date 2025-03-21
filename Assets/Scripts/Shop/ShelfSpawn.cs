@@ -133,6 +133,7 @@ public class ShelfSpawn : MonoBehaviour
             if (Money.instance.WithdrawMoney(price))
             {
                 _saleTank.SpawnShrimp(s);
+                PlayerStats.stats.shrimpBought++;
                 return true;
             }
         }

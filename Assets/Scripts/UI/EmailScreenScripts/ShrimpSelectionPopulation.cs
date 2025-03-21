@@ -72,6 +72,7 @@ public class ShrimpSelectionPopulation : ContentPopulation
     public void CompleteRequest()
     {
         CustomerManager.Instance.CompleteRequest(_request);
+        PlayerStats.stats.requestsCompleted++;
         foreach(Email email in EmailManager.instance.emails)
         {
             if(email.mainText == _email.mainText)

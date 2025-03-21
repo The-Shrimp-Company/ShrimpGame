@@ -17,6 +17,7 @@ public class SellContentBlock : ContentBlock
 
     public void SellShrimp()
     {
+        PlayerStats.stats.shrimpSoldThroughOpenTank++;
         CustomerManager.Instance.PurchaseShrimp(_shrimp);
         Destroy(gameObject);
     }

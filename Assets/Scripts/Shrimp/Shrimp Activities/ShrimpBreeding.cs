@@ -182,5 +182,7 @@ public class ShrimpBreeding : ShrimpActivity
         s.ConstructShrimp();
 
         shrimp.tank.shrimpToAdd.Add(s);
+
+        PlayerStats.stats.shrimpBred++;
     }
 }

@@ -88,7 +88,7 @@ public class ShrimpView : ScreenView
         _shrimp.name = input.text;
         _shrimp.stats.name = input.text;
         title.text = input.text;
-
+        _shrimp.shrimpNameChanged = true;
     }
 
     public void UISelect()

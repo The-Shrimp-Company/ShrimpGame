@@ -12,10 +12,13 @@ public class Shrimp : MonoBehaviour
     public Transform camDock;
     private float moltTimer;
     private float moltSpeed;
+    private bool focussingShrimp;
 
     private bool toKill = false;  // If it should be destroyed at the end of this frame
 
     public Transform particleParent;
+
+    [HideInInspector] public bool shrimpNameChanged;
 
     [Header("Breeding")]
     public GameObject breedingHeartParticles;
@@ -40,6 +43,11 @@ public class Shrimp : MonoBehaviour
 
         moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
         agent.shrimpModel.localScale = ShrimpManager.instance.GetShrimpSize(TimeManager.instance.GetShrimpAge(stats.birthTime), stats.geneticSize);
+    }
+
+    private void Update()
+    {
+        if (focussingShrimp) PlayerStats.stats.timeSpentFocusingShrimp += Time.deltaTime;
     }
 
     private void LateUpdate()
@@ -93,7 +101,10 @@ public class Shrimp : MonoBehaviour
                 stats.canBreed = true;  // The shrimp can breed
 
             if (ShrimpManager.instance.CheckForMoltFail(age))
+            {
                 KillShrimp();  // Molt has failed, the shrimp will now die
+                PlayerStats.stats.shrimpDeathsThroughAge++;
+            }
 
             moltSpeed = ShrimpManager.instance.GetMoltTime(age);
         }
@@ -120,13 +131,22 @@ public class Shrimp : MonoBehaviour
         agent.tankGrid = tank.tankGrid;
 
         // Clear all activities
+        shrimpActivities[0].EndActivity();
+        shrimpActivities.Clear();
+
+        ShrimpActivityManager.instance.AddActivity(this, null, true);
+        ShrimpActivityManager.instance.AddActivity(this, null, true);
+        ShrimpActivityManager.instance.AddActivity(this, null, true);
     }
 
     private void KillShrimp()
     {
         tank.shrimpToRemove.Add(this);
+
         // Spawn dead body
         // Notification message
+
+        PlayerStats.stats.shrimpDeaths++;
     }
 
     public void Destroy()
@@ -147,12 +167,19 @@ public class Shrimp : MonoBehaviour
 
     public void FocusShrimp()
     {
+        focussingShrimp = true;
         tank.SwitchLODLevel(LODLevel.High);
+        shrimpNameChanged = false;
     }
 
     public void StopFocussingShrimp()
     {
+        focussingShrimp = false;
         tank.SwitchLODLevel(LODLevel.Mid);
+
+        if (shrimpNameChanged)
+            PlayerStats.stats.shrimpNamed++;
+        shrimpNameChanged = false;
     }
 
 

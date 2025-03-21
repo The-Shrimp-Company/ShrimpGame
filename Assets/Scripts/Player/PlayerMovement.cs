@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         CC.SimpleMove(transform.TransformVector(move.x, 0, move.y));
+
+        if (move != Vector2.zero) PlayerStats.stats.timeSpentMoving += Time.deltaTime;
     }
 
 

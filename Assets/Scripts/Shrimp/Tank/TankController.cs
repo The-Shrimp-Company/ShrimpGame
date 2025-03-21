@@ -42,9 +42,11 @@ public class TankController : MonoBehaviour
     public TankGrid tankGrid;  // The grid used for pathfinding
 
     [Header("Tank Focus")]
+    private bool focussingTank;
     [SerializeField] private GameObject camDock;
     [SerializeField] private GameObject tankViewPrefab;
     [HideInInspector] public TankViewScript tankViewScript;
+    [HideInInspector] public bool tankNameChanged;
 
     [Header("Optimisation")]
     private LODLevel currentLODLevel;
@@ -133,6 +135,8 @@ public class TankController : MonoBehaviour
         }
 
         label.text = tankName;
+
+        if (focussingTank) PlayerStats.stats.timeSpentFocusingTank += Time.deltaTime;
     }
 
     public void SetTankPrice(float price)
@@ -273,11 +277,12 @@ public class TankController : MonoBehaviour
 
     public void MoveShrimp(Shrimp shrimp)
     {
-        shrimp.tank.shrimpInTank.Remove(shrimp);
+        shrimp.tank.shrimpToRemove.Add(shrimp);
         shrimp.transform.parent = shrimpParent;
         shrimp.transform.position = GetRandomTankPosition();
         shrimp.ChangeTank(this);
         shrimpToAdd.Add(shrimp);
+        PlayerStats.stats.shrimpMoved++;
     }
 
     public Vector3 GetRandomTankPosition()
@@ -313,18 +318,25 @@ public class TankController : MonoBehaviour
 
     public void FocusTank()
     {
+        focussingTank = true;
         GameObject newView = Instantiate(tankViewPrefab, transform);
         UIManager.instance.ChangeFocus(newView.GetComponent<ScreenView>());
         newView.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
         newView.GetComponent<Canvas>().planeDistance = 1;
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
         SwitchLODLevel(LODLevel.Mid);
+        tankNameChanged = false;
     }
 
     public void StopFocussingTank()
     {
+        focussingTank = false;
         SwitchLODLevel(LODLevel.Low);
         CheckLODDistance();
+
+        if (tankNameChanged)
+            PlayerStats.stats.tanksNamed++;
+        tankNameChanged = false;
     }
 
     private void CheckLODDistance()

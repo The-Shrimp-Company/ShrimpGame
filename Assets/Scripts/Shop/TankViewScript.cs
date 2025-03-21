@@ -112,7 +112,7 @@ public class TankViewScript : ScreenView
     {
         tank.tankName = input.text;
         Name.text = input.text;
-
+        tank.tankNameChanged = true;
     }
 
     public void SetPrice()

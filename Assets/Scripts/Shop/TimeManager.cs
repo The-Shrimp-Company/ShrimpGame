@@ -42,6 +42,8 @@ public class TimeManager : MonoBehaviour
 
         if (year != prevYear) NewYear();
         if (day != prevDay) NewDay();
+
+        PlayerStats.stats.totalPlaytime += Time.deltaTime;
     }
 
     private void NewYear()

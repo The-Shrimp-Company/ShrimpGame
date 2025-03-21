@@ -7,6 +7,7 @@ public class SaveController : MonoBehaviour
 {
     public float autosaveTime = 15.0f;
     private float autosaveTimer = 0f;
+    [SerializeField] bool loadPlayerPosition = true;
 
     void Start()
     {
@@ -92,11 +93,11 @@ public class SaveController : MonoBehaviour
 
     private void CopyDataFromSaveData(SaveData d)
     {
-        Money.instance.AddMoney(d.money - Money.instance.money);
+        Money.instance.SetMoney(d.money);
 
         Transform player = GameObject.Find("Player").transform;
-        player.position = d.playerPosition;
-        player.rotation = d.playerRotation;
+        if (loadPlayerPosition) player.position = d.playerPosition;
+        if (loadPlayerPosition) player.rotation = d.playerRotation;
         PlayerStats.stats = d.playerStats;
         GameSettings.settings = d.gameSettings;
     }

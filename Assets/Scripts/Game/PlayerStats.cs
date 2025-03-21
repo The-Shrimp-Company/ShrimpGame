@@ -15,23 +15,25 @@ public struct Stats
     public int smallTankCount; //
     public int largeTankCount; //
 
-    public float totalMoney; //
+    public float totalMoney;
+    public float moneyMade;
+    public float moneySpent;
     public float totalShrimp; //
-    public float totalPlaytime; //
+    public float totalPlaytime;
 
-    public int shrimpSold; //
-    public int shrimpSoldThroughOpenTank; //
-    public int requestsCompleted; //
+    public int shrimpSold;
+    public int shrimpSoldThroughOpenTank;
+    public int requestsCompleted;
 
-    public int shrimpBred; //
-    public int shrimpBought; //
-    public int shrimpMoved; //
+    public int shrimpBred;
+    public int shrimpBought;
+    public int shrimpMoved;
 
-    public int tanksNamed; //
-    public int shrimpNamed; //
+    public int tanksNamed;
+    public int shrimpNamed;
 
-    public int shrimpDeaths; //
-    public int shrimpDeathsThroughAge; //
+    public int shrimpDeaths;
+    public int shrimpDeathsThroughAge;
     public int shrimpDeathsThroughHunger; //
 
     public int timesShrimpShopAppOpened; //
@@ -41,7 +43,7 @@ public struct Stats
     public int timesInventoryAppOpened; //
     public int timesSettingsAppOpened; //
 
-    public float timeSpentMoving; //
-    public float timeSpentFocusingTank; //
-    public float timeSpentFocusingShrimp; //
+    public float timeSpentMoving;
+    public float timeSpentFocusingTank;
+    public float timeSpentFocusingShrimp;
 }
