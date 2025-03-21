@@ -1,3 +1,4 @@
+using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,11 @@ public class ShelfSpawn : MonoBehaviour
 
     private int _shelfIndex = 0;
 
+    private int _shelfCount = 0;
+
+    public int shelvesToSpawnAtGameStart = 1;
+    public int tanksToSpawnAtGameStart = 4;
+
     private void Start()
     {
         _shelves = GetComponentsInChildren<Transform>();
@@ -22,11 +28,26 @@ public class ShelfSpawn : MonoBehaviour
             shelf.gameObject.SetActive(false);
         }
 
-        SpawnNextShelf();
-        SpawnNextTank();
-        SpawnNextTank();
-        SpawnNextTank();
-        SpawnNextTank();
+        if (SaveManager.loadingGameFromFile)
+        {
+            int s = PlayerStats.stats.shelfCount;
+            for (int i = 0; i < s; i++)
+            {
+                SpawnNextShelf();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < shelvesToSpawnAtGameStart; i++)
+            {
+                SpawnNextShelf();
+            }
+
+            for (int i = 0; i < tanksToSpawnAtGameStart; i++)
+            {
+                SpawnNextTank();
+            }
+        }
     }
 
     public void SpawnNextShelf()
@@ -36,6 +57,8 @@ public class ShelfSpawn : MonoBehaviour
             if(shelf.gameObject.activeSelf == false)
             {
                 shelf.gameObject.SetActive(true);
+                _shelfCount++;
+                PlayerStats.stats.shelfCount = _shelfCount;
                 return;
             }
         }
