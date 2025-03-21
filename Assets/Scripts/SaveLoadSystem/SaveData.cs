@@ -10,8 +10,8 @@ namespace SaveLoadSystem
         public Quaternion playerRotation;
 
 
-        public Stats playerStats = new Stats();
-        public Settings gameSettings = new Settings();
+        public Stats playerStats;
+        public Settings gameSettings;
 
 
         public ShrimpStats[] stats;

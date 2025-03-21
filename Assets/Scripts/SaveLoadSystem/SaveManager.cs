@@ -11,9 +11,11 @@ namespace SaveLoadSystem
         public const string directory = "/SaveGames/";
         public const string fileNameSuffix = ".save";
 
-        public const bool copyPathToClipboard = true;
-        public static bool currentlySaving = false;
-        public static bool loadingGameFromFile = false;
+        private static bool debugSaving = true;  // Whether the saving and loading should output extra messages
+        public const bool copyPathToClipboard = true;  // Whether the path to the save file should be copied to your clipboard when the game saves
+        public static bool currentlySaving = false;  // If the game is saving right now
+        public static bool loadingGameFromFile = false;  // Whether the game is loading from a file or starting a new one
+        public static bool gameInitialized = false;  // If the game has finished loading, whether that is from a file or a new game
 
         public static UnityAction OnLoadGameStart;
         public static UnityAction OnLoadGameFinish;
@@ -34,6 +36,8 @@ namespace SaveLoadSystem
             if (copyPathToClipboard)
                 GUIUtility.systemCopyBuffer = dir + file;  // Copies the path to your clipboard
 
+            if (debugSaving) Debug.Log("Game Saved to " + dir + file);
+            
             return true;  // Success
         }
 
@@ -43,6 +47,9 @@ namespace SaveLoadSystem
             OnLoadGameStart?.Invoke();
             loadingGameFromFile = false;
             OnLoadGameFinish?.Invoke();
+            gameInitialized = true;
+
+            if (debugSaving) Debug.Log("New Game Started");
         }
 
 
@@ -58,6 +65,8 @@ namespace SaveLoadSystem
                 tempData = JsonUtility.FromJson<SaveData>(json);
 
                 loadingGameFromFile = true;
+
+                if (debugSaving) Debug.Log("Game Loaded from " + fullPath);
             }
 
             else
@@ -68,6 +77,18 @@ namespace SaveLoadSystem
             }
 
             CurrentSaveData = tempData;
+        }
+
+
+        public static void DeleteSave(string _fileName)
+        {
+            string fullPath = Application.persistentDataPath + directory + _fileName + fileNameSuffix;
+            if (File.Exists(fullPath))
+            {
+                File.Delete(fullPath);
+
+                if (debugSaving) Debug.Log("File Deleted at " + fullPath);
+            }
         }
     }
 }

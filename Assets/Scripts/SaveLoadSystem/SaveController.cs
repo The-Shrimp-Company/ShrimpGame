@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SaveGameTest : MonoBehaviour
+public class SaveController : MonoBehaviour
 {
     public float autosaveTime = 15.0f;
     private float autosaveTimer = 0f;
@@ -35,11 +35,15 @@ public class SaveGameTest : MonoBehaviour
             SaveGame("Autosave");
         }
 
-        Debug.Log(GameSettings.settings.cameraSensitivity);
+        //Debug.Log(GameSettings.settings.cameraSensitivity);
     }
 
     public void SaveGame(string _fileName)
     {
+        if (!SaveManager.gameInitialized ||  // If the game hasn't loaded yet
+            SaveManager.currentlySaving)     // If the game is already saving
+            return;
+
         SaveManager.currentlySaving = true;
         CopyDataToSaveData();
         SaveManager.SaveGame(_fileName);
@@ -53,6 +57,7 @@ public class SaveGameTest : MonoBehaviour
         if (SaveManager.loadingGameFromFile)
             CopyDataFromSaveData(SaveManager.CurrentSaveData);
 
+        SaveManager.gameInitialized = true;
         SaveManager.OnLoadGameFinish?.Invoke();
     }
 
@@ -61,7 +66,7 @@ public class SaveGameTest : MonoBehaviour
         SaveData d = new SaveData();
 
 
-        if (ShrimpManager.instance.allShrimp.Count != 0)
+        if (ShrimpManager.instance && ShrimpManager.instance.allShrimp.Count != 0)
         {
             List<ShrimpStats> stats = new List<ShrimpStats>();
             foreach(Shrimp s in ShrimpManager.instance.allShrimp)
@@ -92,9 +97,6 @@ public class SaveGameTest : MonoBehaviour
         Transform player = GameObject.Find("Player").transform;
         player.position = d.playerPosition;
         player.rotation = d.playerRotation;
-        Debug.Log(d.playerPosition);
-        Debug.Log(d.playerStats.totalMoney);
-        Debug.Log(d.gameSettings.cameraSensitivity);
         PlayerStats.stats = d.playerStats;
         GameSettings.settings = d.gameSettings;
     }
