@@ -6,6 +6,9 @@ namespace SaveLoadSystem
     public class SaveData
     {
         public float money;
+        public float totalTime;
+        public int day;
+        public int year;
         public Vector3 playerPosition;
         public Quaternion playerRotation;
 

@@ -75,6 +75,10 @@ public class SaveController : MonoBehaviour
 
         d.money = Money.instance.money;
 
+        d.totalTime = TimeManager.instance.totalTime;
+        d.day = TimeManager.instance.day;
+        d.year = TimeManager.instance.year;
+
         Transform player = GameObject.Find("Player").transform;
         d.playerPosition = player.position;
         d.playerRotation = player.rotation;
@@ -167,6 +171,10 @@ public class SaveController : MonoBehaviour
     private void CopyDataFromSaveData(SaveData d)  // Load
     {
         Money.instance.SetMoney(d.money);
+
+        TimeManager.instance.totalTime = d.totalTime;
+        TimeManager.instance.prevDay = d.day - 1;
+        TimeManager.instance.prevYear = d.year - 1;
 
         Transform player = GameObject.Find("Player").transform;
         if (loadPlayerPosition) player.position = d.playerPosition;
