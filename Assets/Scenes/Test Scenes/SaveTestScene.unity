@@ -3211,6 +3211,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -5283,6 +5288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
@@ -10906,6 +10916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -16133,6 +16148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
@@ -22191,6 +22211,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -24966,6 +24991,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
@@ -30702,6 +30732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -32487,6 +32522,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
@@ -37366,6 +37406,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
@@ -42459,6 +42504,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -47165,6 +47215,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -50153,6 +50208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
@@ -54430,6 +54490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
@@ -60957,6 +61022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
@@ -69566,6 +69636,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -76176,6 +76251,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 20
       objectReference: {fileID: 0}
@@ -81805,6 +81885,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shelf (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5859080645160727375, guid: d89a1442439b0724197218a1826a105a,
         type: 3}

@@ -13,6 +13,9 @@ namespace SaveLoadSystem
         public Stats playerStats;
         public Settings gameSettings;
 
+        public ItemSaveData[] inventoryItems;
+        public int[] inventoryQuantities;
+
         public ShelfSaveData[] shelves;
 
         public GlobalGene[] globalGenes;
@@ -47,5 +50,12 @@ namespace SaveLoadSystem
         public bool destinationTank;
         public bool openTank;
         public float openTankPrice;
+    }
+
+    [System.Serializable]
+    public class ItemSaveData
+    {
+        public string name;
+        public int value;
     }
 }

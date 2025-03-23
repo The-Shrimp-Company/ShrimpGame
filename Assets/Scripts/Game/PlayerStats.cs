@@ -18,7 +18,7 @@ public struct Stats
     public float totalMoney;
     public float moneyMade;
     public float moneySpent;
-    public float totalShrimp;
+    public int totalShrimp;
     public float totalPlaytime;
 
     public int shrimpSold;

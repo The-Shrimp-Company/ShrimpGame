@@ -1,6 +1,7 @@
 using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 
 public class SaveController : MonoBehaviour
@@ -71,17 +72,6 @@ public class SaveController : MonoBehaviour
         SaveData d = new SaveData();
 
 
-        //if (ShrimpManager.instance && ShrimpManager.instance.allShrimp.Count != 0)
-        //{
-        //    List<ShrimpStats> stats = new List<ShrimpStats>();
-        //    foreach(Shrimp s in ShrimpManager.instance.allShrimp)
-        //    {
-        //        stats.Add(s.stats);
-        //    }
-        //    d.stats = stats.ToArray();
-        //}
-
-
 
         d.money = Money.instance.money;
 
@@ -95,12 +85,29 @@ public class SaveController : MonoBehaviour
         d.versionNumber = Application.version;
 
 
+        // Inventory
+        List<ItemSaveData> ii = new List<ItemSaveData>();
+        List<int> iq = new List<int>();
+        foreach (KeyValuePair<Item, int> entry in Inventory.instance.GetInventory())
+        {
+            ItemSaveData newItem = new ItemSaveData();
+            newItem.name = entry.Key.name;
+            newItem.value = entry.Key.value;
+            ii.Add(newItem);
+            iq.Add(entry.Value);
+        }
+        d.inventoryItems = ii.ToArray();
+        d.inventoryQuantities = iq.ToArray();
+
+
+        // Global Genes
         if (GeneManager.instance)
         {
             d.globalGenes = GeneManager.instance.GetGlobalGeneArray();
         }
 
 
+        // Shelves, Tanks and Shrimp
         if (shelfSpawn == null) shelfSpawn = (ShelfSpawn)FindObjectOfType(typeof(ShelfSpawn));
         if (shelfSpawn == null) Debug.LogWarning("Save Controller could not find Shelf Spawn");
         else
@@ -168,11 +175,16 @@ public class SaveController : MonoBehaviour
         GameSettings.settings = d.gameSettings;
 
 
-        if (shelfSpawn == null) shelfSpawn = (ShelfSpawn)FindObjectOfType(typeof(ShelfSpawn));
-        if (shelfSpawn == null) Debug.LogWarning("Save Controller could not find Shelf Spawn");
-        else
+        // Inventory
+        int index = 0;
+        if (d.inventoryItems != null && d.inventoryItems.Length != 0)
         {
-
+            foreach (ItemSaveData i in d.inventoryItems)
+            {
+                Item newItem = new Item(i.name, i.value);
+                Inventory.instance.AddItem(newItem, d.inventoryQuantities[index]);
+                index++;
+            }
         }
     }
 }
