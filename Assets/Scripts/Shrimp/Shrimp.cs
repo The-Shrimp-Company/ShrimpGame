@@ -13,6 +13,7 @@ public class Shrimp : MonoBehaviour
     private float moltTimer;
     private float moltSpeed;
     private bool focussingShrimp;
+    [HideInInspector] public bool loadedShrimp;  // Whether the shrimp has been loaded from a save file
 
     private bool toKill = false;  // If it should be destroyed at the end of this frame
 

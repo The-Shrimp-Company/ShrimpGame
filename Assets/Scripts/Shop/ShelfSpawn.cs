@@ -85,16 +85,6 @@ public class ShelfSpawn : MonoBehaviour
                     break;
                 }
             }
-            if (_destinationTank == null)
-            {
-                _destinationTank = fullShelfCheck.GetComponentInChildren<TankController>();
-                Inventory.instance.activeTanks.Add(_destinationTank);
-                _destinationTank.ToggleDestinationTank();
-            }
-            else
-            {
-                Inventory.instance.activeTanks.Add(fullShelfCheck.GetComponentInChildren<TankController>());
-            }
         }
     }
 
@@ -133,6 +123,7 @@ public class ShelfSpawn : MonoBehaviour
         {
             if (Money.instance.WithdrawMoney(price))
             {
+                s.name = ShrimpManager.instance.GenerateShrimpName();
                 _destinationTank.SpawnShrimp(s);
                 PlayerStats.stats.shrimpBought++;
                 return true;

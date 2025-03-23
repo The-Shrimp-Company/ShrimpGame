@@ -22,7 +22,9 @@ public class Shelf : MonoBehaviour
         {
             if (!tank.TankExists())
             {
-                tank.AddTank(type);
+                tank.AddTank(type, true);
+                tank.tank.tankName = "Tank " + Inventory.instance.activeTanks.Count;
+                shelves.SwitchDestinationTank(tank.tank);
                 return tank.gameObject;
             }
         }

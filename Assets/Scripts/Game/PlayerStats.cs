@@ -11,14 +11,14 @@ public static class PlayerStats
 public struct Stats
 {
     public int shelfCount;
-    public int tankCount; //
-    public int smallTankCount; //
-    public int largeTankCount; //
+    public int tankCount;
+    public int smallTankCount;
+    public int largeTankCount;
 
     public float totalMoney;
     public float moneyMade;
     public float moneySpent;
-    public float totalShrimp; //
+    public float totalShrimp;
     public float totalPlaytime;
 
     public int shrimpSold;

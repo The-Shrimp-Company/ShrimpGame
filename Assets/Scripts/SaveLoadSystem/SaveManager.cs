@@ -123,7 +123,7 @@ namespace SaveLoadSystem
             }
             else
             {
-                Debug.LogError("Save file at " + fullPath + " does not exist");
+                Debug.LogWarning("Save file at " + fullPath + " does not exist");
                 tryBackup = true;
             }
 
@@ -148,7 +148,7 @@ namespace SaveLoadSystem
 
                 else
                 {
-                    Debug.LogError("Save file backup at " + backupPath + " does not exist");
+                    Debug.LogWarning("Save file backup at " + backupPath + " does not exist");
                     loadingGameFromFile = false;
                 }
             }

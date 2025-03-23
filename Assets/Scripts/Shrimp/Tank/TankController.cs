@@ -170,7 +170,7 @@ public class TankController : MonoBehaviour
             for (int i = shrimpToAdd.Count - 1; i >= 0; i--)
             {
                 shrimpInTank.Add(shrimpToAdd[i]);
-                ShrimpManager.instance.AddShrimpToStore(shrimpToAdd[i].stats);
+                ShrimpManager.instance.AddShrimpToStore(shrimpToAdd[i]);
                 ShrimpManager.instance.allShrimp.Add(shrimpToAdd[i]);
                 shrimpToAdd[i].SwitchLODLevel(currentLODLevel);
                 shrimpToAdd.RemoveAt(i);
@@ -260,13 +260,14 @@ public class TankController : MonoBehaviour
         SpawnRandomShrimp();
     }
 
-    public void SpawnShrimp(ShrimpStats s)
+    public void SpawnShrimp(ShrimpStats s, bool gameLoading = false)
     {
         GameObject newShrimp = Instantiate(ShrimpManager.instance.shrimpPrefab, GetRandomTankPosition(), Quaternion.identity);
         Shrimp shrimp = newShrimp.GetComponent<Shrimp>();
         shrimp.stats = s;
 
         shrimp.ChangeTank(this);
+        shrimp.loadedShrimp = gameLoading;
         newShrimp.name = shrimp.stats.name;
         newShrimp.transform.parent = shrimpParent;
         newShrimp.transform.position = GetRandomTankPosition();

@@ -738,6 +738,7 @@ public class GeneManager : MonoBehaviour
             GlobalGene g;
             g = loadedGlobalGenes[i];
             g.instancesInStore += add ? 1 : -1;
+            if (add) g.lifetimeInstances++;
             loadedGlobalGenes[i] = g;
         }
     }
