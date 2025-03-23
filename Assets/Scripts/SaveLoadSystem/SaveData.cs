@@ -15,6 +15,8 @@ namespace SaveLoadSystem
 
 
         public ShrimpStats[] stats;
+
+        public string fileIntegrityCheck;
     }
 
 

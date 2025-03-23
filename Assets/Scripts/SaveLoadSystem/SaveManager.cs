@@ -10,9 +10,12 @@ namespace SaveLoadSystem
 
         public const string directory = "/SaveGames/";
         public const string fileNameSuffix = ".save";
+        public const string fileIntegrityChecker = "Pikselere";
 
-        private static bool debugSaving = true;  // Whether the saving and loading should output extra messages
-        public const bool copyPathToClipboard = true;  // Whether the path to the save file should be copied to your clipboard when the game saves
+        private const bool createBackupFile = true;  // Whether the game should create extra backup save files incase something goes wrong
+        private const bool debugSaving = true;  // Whether the saving and loading should output extra messages
+        private const bool copyPathToClipboard = true;  // Whether the path to the save file should be copied to your clipboard when the game saves
+        
         public static bool currentlySaving = false;  // If the game is saving right now
         public static bool loadingGameFromFile = false;  // Whether the game is loading from a file or starting a new one
         public static bool gameInitialized = false;  // If the game has finished loading, whether that is from a file or a new game
@@ -24,20 +27,57 @@ namespace SaveLoadSystem
         public static bool SaveGame(string _fileName)
         {
             string dir = Application.persistentDataPath + directory;
-            string file = _fileName + fileNameSuffix;
+            string file = dir + _fileName + fileNameSuffix;
+            string backupFile = dir + _fileName + "Backup" + fileNameSuffix;
+
+            CurrentSaveData.fileIntegrityCheck = fileIntegrityChecker;
+
 
             if (!Directory.Exists(dir))  // If the directory does not exist
                 Directory.CreateDirectory(dir);  // Create this directory
 
+
             string json = JsonUtility.ToJson(CurrentSaveData, true);  // Convert the save to json format
 
-            File.WriteAllText(dir + file, json);  // Write the save to the file
+
+            if (createBackupFile && File.Exists(file))
+            {
+                if (File.Exists(backupFile))  // If save and backup both exist
+                {
+                    string jsonBackup = File.ReadAllText(backupFile);
+                    if (json != jsonBackup)  // Check if the save is the same as the backup
+                    {
+                        File.Delete(backupFile);  // If they are different, delete backup and make a new one
+                        File.Copy(file, backupFile);
+                    }
+                }
+                else  // If save exists but backup does not
+                {
+                    File.Copy(file, backupFile);
+                }
+            }
+
+
+            File.WriteAllText(file, json);  // Write the save to the file
+
+
+            if (createBackupFile)
+            {
+                if (TryLoadGame(_fileName))
+                {
+                    File.Delete(backupFile);
+                    File.Copy(file, backupFile);
+                }
+            }
+
 
             if (copyPathToClipboard)
-                GUIUtility.systemCopyBuffer = dir + file;  // Copies the path to your clipboard
+                GUIUtility.systemCopyBuffer = file;  // Copies the path to your clipboard
 
-            if (debugSaving) Debug.Log("Game Saved to " + dir + file);
+
+            if (debugSaving) Debug.Log("Game Saved to " + file);
             
+
             return true;  // Success
         }
 
@@ -57,6 +97,66 @@ namespace SaveLoadSystem
         {
             OnLoadGameStart?.Invoke();
             string fullPath = Application.persistentDataPath + directory + _fileName + fileNameSuffix;
+            string backupPath = Application.persistentDataPath + directory + _fileName + "Backup" + fileNameSuffix;
+            SaveData tempData = new SaveData();
+            bool tryBackup = false;
+
+            if (File.Exists(fullPath))
+            {
+                string json = File.ReadAllText(fullPath);
+                tempData = JsonUtility.FromJson<SaveData>(json);
+
+                if (tempData.fileIntegrityCheck == fileIntegrityChecker)
+                {
+                    loadingGameFromFile = true;
+                    if (debugSaving) Debug.Log("Game Loaded from " + fullPath);
+                }
+                else
+                {
+                    Debug.LogError("Save file at " + fullPath + " has been modified or corrupted");
+                    tempData = new SaveData();
+                    tryBackup = true;
+                }
+            }
+            else
+            {
+                Debug.LogError("Save file at " + fullPath + " does not exist");
+                tryBackup = true;
+            }
+
+            if (tryBackup)
+            {
+                if (File.Exists(backupPath))
+                {
+                    string json = File.ReadAllText(backupPath);
+                    tempData = JsonUtility.FromJson<SaveData>(json);
+
+                    if (tempData.fileIntegrityCheck == fileIntegrityChecker)
+                    {
+                        loadingGameFromFile = true;
+                        if (debugSaving) Debug.Log("Game Backup Loaded from " + backupPath);
+                    }
+                    else
+                    {
+                        Debug.LogError("Save file backup at " + backupPath + " has been modified or corrupted");
+                        tempData = new SaveData();
+                    }
+                }
+
+                else
+                {
+                    Debug.LogError("Save file backup at " + backupPath + " does not exist");
+                    loadingGameFromFile = false;
+                }
+            }
+
+            CurrentSaveData = tempData;
+        }
+
+
+        public static bool TryLoadGame(string _fileName)
+        {
+            string fullPath = Application.persistentDataPath + directory + _fileName + fileNameSuffix;
             SaveData tempData = new SaveData();
 
             if (File.Exists(fullPath))
@@ -64,19 +164,26 @@ namespace SaveLoadSystem
                 string json = File.ReadAllText(fullPath);
                 tempData = JsonUtility.FromJson<SaveData>(json);
 
-                loadingGameFromFile = true;
+                if (tempData.fileIntegrityCheck == fileIntegrityChecker)
+                {
+                    if (debugSaving) Debug.Log("Game can be loaded from " + fullPath);
 
-                if (debugSaving) Debug.Log("Game Loaded from " + fullPath);
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("Game file at " + fullPath + " has been modified or corrupted");
+
+                    return false;
+                }
             }
 
             else
             {
                 Debug.LogError("Save file at " + fullPath + " does not exist");
 
-                loadingGameFromFile = false;
+                return false;
             }
-
-            CurrentSaveData = tempData;
         }
 
 
