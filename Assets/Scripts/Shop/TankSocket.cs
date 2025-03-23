@@ -6,22 +6,11 @@ using UnityEngine;
 public class TankSocket : MonoBehaviour
 {
     [HideInInspector] public TankController tank;
-
     private ShelfSpawn shelves;
 
     private void OnEnable()
     {
         shelves = GetComponentInParent<Shelf>().GetShelves();
-    }
-
-    public void SetTankActive(bool active)
-    {
-        GetComponent<BoxCollider>().enabled = !active;
-        tank.gameObject.SetActive(active);
-        if (active == true)
-        {
-            shelves.SwitchDestinationTank(tank);
-        }
     }
 
     public void SetTankActive()
@@ -36,9 +25,20 @@ public class TankSocket : MonoBehaviour
         }
     }
 
-    public bool GetTankActive()
+    public bool TankExists()
     {
-        return tank.gameObject.activeInHierarchy;
+        if (tank == null) return false;
+        else return true;
+    }
+
+    public void AddSmallTank()
+    {
+        AddTank(TankTypes.Small);
+    }
+
+    public void AddLargeTank()
+    {
+        AddTank(TankTypes.Small);
     }
 
     public void AddTank(TankTypes type, bool loading = false)
@@ -77,7 +77,6 @@ public class TankSocket : MonoBehaviour
         TankSaveData data = socketData.tank;
 
         AddTank(socketData.type, true);
-        SetTankActive(true);  // Remove
 
         tank.tankName = data.tankName;
         tank.openTankPrice = data.openTankPrice;

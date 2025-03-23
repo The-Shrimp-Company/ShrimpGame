@@ -14,20 +14,15 @@ public class Shelf : MonoBehaviour
         shelves = GetComponentInParent<ShelfSpawn>();
 
         _tanks = GetComponentsInChildren<TankSocket>();
-
-        foreach (TankSocket tank in _tanks)
-        {
-            tank.SetTankActive(false);
-        }
     }
 
-    public GameObject AddTank()
+    public GameObject AddTank(TankTypes type)
     {
         foreach(TankSocket tank in _tanks)
         {
-            if (!tank.GetTankActive())
+            if (!tank.TankExists())
             {
-                tank.SetTankActive(true);
+                tank.AddTank(type);
                 return tank.gameObject;
             }
         }

@@ -71,7 +71,7 @@ public class ShelfSpawn : MonoBehaviour
         GameObject fullShelfCheck = null;
         while (fullShelfCheck == null && _shelfIndex < _shelves.Length)
         {
-            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank();
+            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank(TankTypes.Small);
             if (fullShelfCheck == null)
             {
                 if(_shelfIndex < _shelves.Length - 1 )
