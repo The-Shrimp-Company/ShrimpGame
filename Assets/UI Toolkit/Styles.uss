@@ -1,0 +1,31 @@
+.Button {
+    background-color: rgb(115, 205, 205);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    height: 69px;
+    width: 190px;
+    font-size: 21px;
+}
+
+.Button:hover {
+    background-color: rgb(166, 133, 158);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    height: 69px;
+    width: 190px;
+    font-size: 21px;
+    color: rgb(115, 205, 205);
+    -unity-font-style: bold;
+}

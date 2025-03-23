@@ -100,10 +100,10 @@ TextureImporter:
       name: Tablet_BG
       rect:
         serializedVersion: 2
-        x: 43
-        y: 46
-        width: 4103
-        height: 2906
+        x: 51
+        y: 55
+        width: 4088
+        height: 2887
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
