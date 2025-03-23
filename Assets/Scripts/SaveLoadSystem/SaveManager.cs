@@ -1,3 +1,5 @@
+#pragma warning disable CS0162 // Unreachable code detected
+using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,9 +15,10 @@ namespace SaveLoadSystem
         public const string fileIntegrityChecker = "Pikselere";
 
         private const bool createBackupFile = true;  // Whether the game should create extra backup save files incase something goes wrong
+        private const bool getLastPlayedTimeInUTC = false;  // Whether the last played time for a save file should be shown in universal standard time
         private const bool debugSaving = true;  // Whether the saving and loading should output extra messages
         private const bool copyPathToClipboard = true;  // Whether the path to the save file should be copied to your clipboard when the game saves
-        
+
         public static bool currentlySaving = false;  // If the game is saving right now
         public static bool loadingGameFromFile = false;  // Whether the game is loading from a file or starting a new one
         public static bool gameInitialized = false;  // If the game has finished loading, whether that is from a file or a new game
@@ -197,5 +200,20 @@ namespace SaveLoadSystem
                 if (debugSaving) Debug.Log("File Deleted at " + fullPath);
             }
         }
+
+
+        public static DateTime GetSaveLastPlayedDate(string _fileName)
+        {
+            DateTime dt;
+
+            if (!getLastPlayedTimeInUTC)
+                dt = File.GetLastWriteTime(Application.persistentDataPath + directory + _fileName + fileNameSuffix);
+            else
+                dt = File.GetLastWriteTimeUtc(Application.persistentDataPath + directory + _fileName + fileNameSuffix);
+
+            return dt;
+        }
     }
 }
+
+#pragma warning restore CS0162 // Unreachable code detected
