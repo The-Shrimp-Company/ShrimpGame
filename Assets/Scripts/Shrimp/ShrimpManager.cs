@@ -51,7 +51,7 @@ public class ShrimpManager : MonoBehaviour
     {
         ShrimpStats s = new ShrimpStats();
 
-        s.name = "Shrimp " + (numberOfShrimp + 1);
+        s.name = GenerateShrimpName();
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 0;
@@ -87,7 +87,7 @@ public class ShrimpManager : MonoBehaviour
     {
         ShrimpStats s = new ShrimpStats();
 
-        s.name = "Shrimp " + (numberOfShrimp + 1);
+        s.name = GenerateShrimpName();
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
@@ -140,7 +140,7 @@ public class ShrimpManager : MonoBehaviour
     {
         ShrimpStats s = new ShrimpStats();
 
-        s.name = "Shrimp " + (numberOfShrimp + 1);
+        s.name = GenerateShrimpName();
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
@@ -194,7 +194,7 @@ public class ShrimpManager : MonoBehaviour
     {
         ShrimpStats s = new ShrimpStats();
 
-        s.name = "Shrimp " + (numberOfShrimp + 1);
+        s.name = GenerateShrimpName();
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 0;
@@ -222,20 +222,16 @@ public class ShrimpManager : MonoBehaviour
     }
 
 
-    public ShrimpStats LoadShrimp()
-    {
-        ShrimpStats s = new ShrimpStats();
 
-        return s;
-    }
-
-
-
-    public void AddShrimpToStore(ShrimpStats s)
+    public void AddShrimpToStore(Shrimp s)
     {
         numberOfShrimp++;
 
-        geneManager.AddInstancesOfGenes(s, true);
+        if (!s.loadedShrimp)  // If the game is not loading right now
+        {
+            geneManager.AddInstancesOfGenes(s.stats, true);
+            PlayerStats.stats.totalShrimp++;
+        }
     }
 
 
@@ -254,6 +250,11 @@ public class ShrimpManager : MonoBehaviour
     public float GetMoltTime(int age)
     {
         return moltSpeed.Evaluate((float)age / (float)maxShrimpAge) * 60;
+    }
+
+    public string GenerateShrimpName()
+    {
+        return "Shrimp " + (numberOfShrimp + 1);
     }
 
     public int GetAdultAge()

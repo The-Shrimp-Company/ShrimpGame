@@ -37,7 +37,11 @@ public class InventoryContent : ContentPopulation
             }
             else
             {
-                block.AssignFunction(tankSocket.GetComponent<TankSocket>().SetTankActive);
+                TankSocket socket = tankSocket.GetComponent<TankSocket>();
+                if (block.GetText().text.Contains("Small")) block.AssignFunction(socket.AddSmallTank);
+                else if (block.GetText().text.Contains("Large")) block.AssignFunction(socket.AddLargeTank);
+                else block.AssignFunction(socket.AddSmallTank);
+
                 block.AssignFunction(UIManager.instance.GetCanvas().GetComponent<MainCanvas>().LowerScreen);
             }
         }

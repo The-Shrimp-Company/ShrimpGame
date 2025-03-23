@@ -1,3 +1,4 @@
+using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,40 +6,63 @@ using UnityEngine;
 
 public class ShelfSpawn : MonoBehaviour
 {
-    private Transform[] _shelves;
+    [HideInInspector] public Shelf[] _shelves;
 
-    private TankController _saleTank;
+    private TankController _destinationTank;
 
     private int _shelfIndex = 0;
 
+    private int _shelfCount = 0;
+
+    public int shelvesToSpawnAtGameStart = 1;
+    public int tanksToSpawnAtGameStart = 4;
+
+    public GameObject smallTankPrefab;
+    public GameObject largeTankPrefab;
+
     private void Start()
     {
-        _shelves = GetComponentsInChildren<Transform>();
+        _shelves = GetComponentsInChildren<Shelf>();
 
-        _shelves = _shelves.Where(x => x.parent.name == "Shelving").ToArray();
+        _shelves = _shelves.Where(x => x.transform.parent.name == "Shelving").ToArray();
 
-        foreach(Transform shelf in _shelves)
+        foreach(Shelf shelf in _shelves)
         {
             shelf.gameObject.SetActive(false);
         }
 
-        SpawnNextShelf();
-        SpawnNextTank();
-        SpawnNextTank();
-        SpawnNextTank();
-        SpawnNextTank();
+        if (SaveManager.loadingGameFromFile)
+        {
+            LoadShelves();
+        }
+        else
+        {
+            for (int i = 0; i < shelvesToSpawnAtGameStart; i++)
+            {
+                SpawnNextShelf();
+            }
+
+            for (int i = 0; i < tanksToSpawnAtGameStart; i++)
+            {
+                SpawnNextTank();
+            }
+        }
     }
 
-    public void SpawnNextShelf()
+    public Shelf SpawnNextShelf()
     {
-        foreach (Transform shelf in _shelves)
+        foreach (Shelf shelf in _shelves)
         {
             if(shelf.gameObject.activeSelf == false)
             {
                 shelf.gameObject.SetActive(true);
-                return;
+                _shelfCount++;
+                PlayerStats.stats.shelfCount = _shelfCount;
+                return shelf;
             }
         }
+
+        return null;
     }
 
     public void SpawnNextTank()
@@ -47,7 +71,7 @@ public class ShelfSpawn : MonoBehaviour
         GameObject fullShelfCheck = null;
         while (fullShelfCheck == null && _shelfIndex < _shelves.Length)
         {
-            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank();
+            fullShelfCheck = _shelves[_shelfIndex].GetComponent<Shelf>().AddTank(TankTypes.Small);
             if (fullShelfCheck == null)
             {
                 if(_shelfIndex < _shelves.Length - 1 )
@@ -61,59 +85,73 @@ public class ShelfSpawn : MonoBehaviour
                     break;
                 }
             }
-            if (_saleTank == null)
-            {
-                _saleTank = fullShelfCheck.GetComponentInChildren<TankController>();
-                Inventory.instance.activeTanks.Add(_saleTank);
-                _saleTank.ToggleSaleTank();
-            }
-            else
-            {
-                Inventory.instance.activeTanks.Add(fullShelfCheck.GetComponentInChildren<TankController>());
-            }
         }
     }
 
-    public void SwitchSaleTank(TankController newTank)
+    public void SwitchDestinationTank(TankController newTank)
     {
         // If we previously had no sale tank
-        if (_saleTank == null)
+        if (_destinationTank == null)
         {
-            _saleTank = newTank;
-            _saleTank.ToggleSaleTank();
+            _destinationTank = newTank;
+            _destinationTank.ToggleDestinationTank();
         }
-        else if (_saleTank != newTank)
+        else if (_destinationTank != newTank)
         {
             // Switch the old one
-            _saleTank.ToggleSaleTank();
-            _saleTank = newTank;
+            _destinationTank.ToggleDestinationTank();
+            _destinationTank = newTank;
             // Switch the new one
-            _saleTank.ToggleSaleTank();
+            _destinationTank.ToggleDestinationTank();
         }
     }
 
     public void SpawnShrimp()
     {
-        if(_saleTank != null)
+        if(_destinationTank != null)
         {
             if (Money.instance.WithdrawMoney(10))
             {
-                _saleTank.SpawnShrimp();
+                _destinationTank.SpawnShrimp();
             }
         }
     }
 
     public bool SpawnShrimp(ShrimpStats s, float price)
     {
-        if (_saleTank != null)
+        if (_destinationTank != null)
         {
             if (Money.instance.WithdrawMoney(price))
             {
-                _saleTank.SpawnShrimp(s);
+                s.name = ShrimpManager.instance.GenerateShrimpName();
+                _destinationTank.SpawnShrimp(s);
+                PlayerStats.stats.shrimpBought++;
                 return true;
             }
         }
         return false;
     }
     
+
+    private void LoadShelves()
+    {
+        int s = PlayerStats.stats.shelfCount;
+        for (int i = 0; i < s; i++)
+        {
+            Shelf newShelf = SpawnNextShelf();
+            ShelfSaveData data = SaveManager.CurrentSaveData.shelves[i];
+
+            foreach (TankSocketSaveData sData in data.tanks)
+            {
+                newShelf._tanks[sData.socketNumber].LoadTank(sData);
+            }
+        }
+    }
+}
+
+[System.Serializable]
+public enum TankTypes
+{
+    Small,
+    Large
 }

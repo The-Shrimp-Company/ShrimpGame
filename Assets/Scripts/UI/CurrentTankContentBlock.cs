@@ -25,7 +25,7 @@ public class CurrentTankContentBlock : ContentBlock
             saleSign.gameObject.SetActive(false);
             FontTools.SizeFont(saleSign);
         }
-        if (!tank.saleTank)
+        if (!tank.destinationTank)
         {
             destSign.gameObject.SetActive(false);
             FontTools.SizeFont(destSign);

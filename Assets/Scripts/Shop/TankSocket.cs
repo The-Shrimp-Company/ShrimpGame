@@ -1,12 +1,11 @@
+using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TankSocket : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject tank;
-
+    [HideInInspector] public TankController tank;
     private ShelfSpawn shelves;
 
     private void OnEnable()
@@ -14,30 +13,72 @@ public class TankSocket : MonoBehaviour
         shelves = GetComponentInParent<Shelf>().GetShelves();
     }
 
-    public void SetTankActive(bool active)
+    public bool TankExists()
     {
-        GetComponent<BoxCollider>().enabled = !active;
-        tank.SetActive(active);
-        if (active == true)
+        if (tank == null) return false;
+        else return true;
+    }
+
+    public void AddSmallTank()
+    {
+        AddTank(TankTypes.Small);
+    }
+
+    public void AddLargeTank()
+    {
+        AddTank(TankTypes.Small);
+    }
+
+    public void AddTank(TankTypes type, bool loading = false)
+    {
+        if (!loading && !Inventory.instance.RemoveItem(Items.items[0])) return;
+
+        GameObject prefab = null;
+        switch (type)
         {
-            shelves.SwitchSaleTank(tank.GetComponent<TankController>());
+            case TankTypes.Small:
+                {
+                    prefab = shelves.smallTankPrefab;
+                    if (!loading) PlayerStats.stats.smallTankCount++;
+                    break;
+                }
+            case TankTypes.Large:
+                {
+                    prefab = shelves.largeTankPrefab;
+                    if (!loading) PlayerStats.stats.largeTankCount++;
+                    break;
+                }
+        }
+
+        GameObject newTank = GameObject.Instantiate(prefab, transform.position, transform.rotation, transform);
+        tank = newTank.GetComponent<TankController>();
+
+        GetComponent<BoxCollider>().enabled = false;
+
+        Inventory.instance.activeTanks.Add(tank);
+        PlayerStats.stats.tankCount++;
+
+        if (!loading)
+        {
+            shelves.SwitchDestinationTank(tank);
+            tank.tankName = "Tank " + Inventory.instance.activeTanks.Count;
         }
     }
 
-    public void SetTankActive()
+    public void LoadTank(TankSocketSaveData socketData)
     {
-        if (Inventory.instance.RemoveItem(Items.items[0]))
-        {
-            tank.SetActive(true);
-            GetComponent<BoxCollider>().enabled = false;
-            shelves.SwitchSaleTank(tank.GetComponent<TankController>());
-            Inventory.instance.activeTanks.Add(tank.GetComponent<TankController>());
-            tank.GetComponent<TankController>().tankName = "Tank " + Inventory.instance.activeTanks.Count;
-        }
-    }
+        TankSaveData data = socketData.tank;
 
-    public bool GetTankActive()
-    {
-        return tank.activeInHierarchy;
+        AddTank(socketData.type, true);
+
+        tank.tankName = data.tankName;
+        tank.openTankPrice = data.openTankPrice;
+        if (data.destinationTank) shelves.SwitchDestinationTank(tank);
+        if (data.openTank) tank.toggleTankOpen();
+
+        foreach (ShrimpStats s in data.shrimp)
+        {
+            tank.SpawnShrimp(s, true);
+        }
     }
 }

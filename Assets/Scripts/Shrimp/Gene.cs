@@ -19,6 +19,7 @@ public struct GlobalGene
     public float startingValue;
     public float currentValue;
     public int instancesInStore;
+    public int lifetimeInstances;
 }
 
 

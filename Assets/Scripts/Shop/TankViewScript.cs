@@ -72,7 +72,7 @@ public class TankViewScript : ScreenView
 
     public void SetTank()
     {
-        shelves.SwitchSaleTank(tank);
+        shelves.SwitchDestinationTank(tank);
     }
 
     public void SetOpenTank()
@@ -113,7 +113,7 @@ public class TankViewScript : ScreenView
     {
         tank.tankName = input.text;
         Name.text = input.text;
-
+        tank.tankNameChanged = true;
     }
 
     public void SetPrice()

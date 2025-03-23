@@ -1,3 +1,4 @@
+using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,19 +11,20 @@ public class SettingsScreen : ScreenView
     protected override void Start()
     {
         base.Start();
-        if (!PlayerPrefs.HasKey("sensitivity"))
+
+        if (!SaveManager.loadingGameFromFile)
         {
             slider.value = 1f;
         }
         else
         {
-            slider.value = PlayerPrefs.GetFloat("sensitivity");
+            slider.value = GameSettings.settings.cameraSensitivity;
         }
     }
 
     public void ValueChange()
     {
         player.GetComponent<CameraControls>().lookSenstivity = 0.5f * slider.value;
-        PlayerPrefs.SetFloat("sensitivity", slider.value);
+        GameSettings.settings.cameraSensitivity = slider.value;
     }
 }

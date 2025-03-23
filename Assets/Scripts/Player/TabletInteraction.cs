@@ -34,6 +34,7 @@ public class TabletInteraction : ScreenView
         GetComponent<CanvasGroup>().interactable = false;
         GameObject sellScreen = Instantiate(SellScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(sellScreen.GetComponent<ScreenView>());
+        PlayerStats.stats.timesSellingAppOpened++;
     }
 
     public void OpenBuy()
@@ -41,6 +42,7 @@ public class TabletInteraction : ScreenView
         GetComponent<CanvasGroup>().interactable = false;
         GameObject buyScreen = Instantiate(BuyScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(buyScreen.GetComponent<ScreenView>());
+        PlayerStats.stats.timesShrimpShopAppOpened++;
     }
 
     public void OpenUpgrades()
@@ -48,6 +50,7 @@ public class TabletInteraction : ScreenView
         GetComponent<CanvasGroup>().interactable = false;
         GameObject upgradeScreen = Instantiate(UpgradeScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(upgradeScreen.GetComponent<ScreenView>());
+        PlayerStats.stats.timesItemShopAppOpened++;
     }
 
     public void OpenInventory()
@@ -55,6 +58,7 @@ public class TabletInteraction : ScreenView
         GetComponent<CanvasGroup>().interactable = false;
         GameObject inventoryScreen = Instantiate(InventoryScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(inventoryScreen.GetComponent<ScreenView>());
+        PlayerStats.stats.timesInventoryAppOpened++;
     }
 
     public void OpenEmails()
@@ -62,6 +66,7 @@ public class TabletInteraction : ScreenView
         GetComponent<CanvasGroup>().interactable = false;
         GameObject emailScreen = Instantiate(EmailScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(emailScreen.GetComponent<ScreenView>());
+        PlayerStats.stats.timesMailAppOpened++;
     }
 
     public void OpenSettings()
@@ -69,6 +74,7 @@ public class TabletInteraction : ScreenView
         GetComponent<CanvasGroup>().interactable = false;
         GameObject settingsScreen = Instantiate(SettingsScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(settingsScreen.GetComponent<ScreenView>());
+        PlayerStats.stats.timesSettingsAppOpened++;
     }
 
     public override void Close()

@@ -17,12 +17,15 @@ public class Money
     {
         // Put loading function here
         _money = 200;
+        PlayerStats.stats.totalMoney = _money;
     }
 
     public void AddMoney(float moneyToAdd)
     {
         _money += moneyToAdd;
         _money = EconomyManager.instance.RoundMoney(_money);
+        PlayerStats.stats.totalMoney += moneyToAdd;
+        PlayerStats.stats.moneyMade += moneyToAdd;
     }
 
     public bool WithdrawMoney(float amountToTake)
@@ -31,11 +34,18 @@ public class Money
         {
             _money -= amountToTake;
             _money = EconomyManager.instance.RoundMoney(_money);
+            PlayerStats.stats.moneySpent += amountToTake;
             return true;
         }
         else
         {
             return false;
         }
+    }
+
+    public void SetMoney(float money)
+    {
+        _money = money;
+        _money = EconomyManager.instance.RoundMoney(_money);
     }
 }

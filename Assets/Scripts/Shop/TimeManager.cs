@@ -9,14 +9,14 @@ public class TimeManager : MonoBehaviour
 
     [SerializeField] float secondsInADay;
 
-    private float totalTime;
+    [HideInInspector] public float totalTime;
     public int year;
     public int day;
     public float hour;
     public int minute;
 
-    private int prevYear;
-    private int prevDay;
+    [HideInInspector] public int prevYear;
+    [HideInInspector] public int prevDay;
 
 
     public void Awake()
@@ -42,6 +42,8 @@ public class TimeManager : MonoBehaviour
 
         if (year != prevYear) NewYear();
         if (day != prevDay) NewDay();
+
+        PlayerStats.stats.totalPlaytime += Time.deltaTime;
     }
 
     private void NewYear()
