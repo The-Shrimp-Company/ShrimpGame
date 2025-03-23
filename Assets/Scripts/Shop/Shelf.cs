@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Shelf : MonoBehaviour
 {
-    private TankSocket[] _tanks;
+    [HideInInspector] public TankSocket[] _tanks;
 
     private ShelfSpawn shelves;
 

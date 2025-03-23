@@ -36,12 +36,12 @@ public struct Stats
     public int shrimpDeathsThroughAge;
     public int shrimpDeathsThroughHunger; //
 
-    public int timesShrimpShopAppOpened; //
-    public int timesMailAppOpened; //
-    public int timesSellingAppOpened; //
-    public int timesItemShopAppOpened; //
-    public int timesInventoryAppOpened; //
-    public int timesSettingsAppOpened; //
+    public int timesShrimpShopAppOpened;
+    public int timesMailAppOpened;
+    public int timesSellingAppOpened;
+    public int timesItemShopAppOpened;
+    public int timesInventoryAppOpened;
+    public int timesSettingsAppOpened;
 
     public float timeSpentMoving;
     public float timeSpentFocusingTank;

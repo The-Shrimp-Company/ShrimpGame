@@ -31,7 +31,7 @@ public class TankController : MonoBehaviour
 
     [Header("Sale Tank")]
     [SerializeField] private GameObject sign;
-    public bool saleTank { get; private set; } = false;
+    public bool destinationTank { get; private set; } = false;
     [SerializeField] private GameObject SaleSign;
     public bool openTank { get; private set; } = false;
     [SerializeField] private TextMeshProUGUI label;
@@ -71,7 +71,7 @@ public class TankController : MonoBehaviour
             tankName = "Tank";
         }
 
-        sign.SetActive(saleTank);
+        sign.SetActive(destinationTank);
 
 
         if (autoSpawnTestShrimp)
@@ -232,10 +232,10 @@ public class TankController : MonoBehaviour
 
 
 
-    public void ToggleSaleTank()
+    public void ToggleDestinationTank()
     {
-        saleTank = !saleTank;
-        sign.SetActive(saleTank);
+        destinationTank = !destinationTank;
+        sign.SetActive(destinationTank);
     }
 
 

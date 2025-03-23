@@ -9,6 +9,8 @@ public class SaveController : MonoBehaviour
     private float autosaveTimer = 0f;
     [SerializeField] bool loadPlayerPosition = true;
 
+    private ShelfSpawn shelfSpawn;
+
     void Start()
     {
         LoadGame("Autosave");
@@ -62,20 +64,24 @@ public class SaveController : MonoBehaviour
         SaveManager.OnLoadGameFinish?.Invoke();
     }
 
-    private void CopyDataToSaveData()
+
+
+    private void CopyDataToSaveData()  // Save
     {
         SaveData d = new SaveData();
 
 
-        if (ShrimpManager.instance && ShrimpManager.instance.allShrimp.Count != 0)
-        {
-            List<ShrimpStats> stats = new List<ShrimpStats>();
-            foreach(Shrimp s in ShrimpManager.instance.allShrimp)
-            {
-                stats.Add(s.stats);
-            }
-            d.stats = stats.ToArray();
-        }
+        //if (ShrimpManager.instance && ShrimpManager.instance.allShrimp.Count != 0)
+        //{
+        //    List<ShrimpStats> stats = new List<ShrimpStats>();
+        //    foreach(Shrimp s in ShrimpManager.instance.allShrimp)
+        //    {
+        //        stats.Add(s.stats);
+        //    }
+        //    d.stats = stats.ToArray();
+        //}
+
+
 
         d.money = Money.instance.money;
 
@@ -86,12 +92,72 @@ public class SaveController : MonoBehaviour
         d.playerStats = PlayerStats.stats;
         d.gameSettings = GameSettings.settings;
 
+        d.versionNumber = Application.version;
+
+
+        if (GeneManager.instance)
+        {
+            d.globalGenes = GeneManager.instance.GetGlobalGeneArray();
+        }
+
+
+        if (shelfSpawn == null) shelfSpawn = (ShelfSpawn)FindObjectOfType(typeof(ShelfSpawn));
+        if (shelfSpawn == null) Debug.LogWarning("Save Controller could not find Shelf Spawn");
+        else
+        {
+            List<ShelfSaveData> shelfList = new List<ShelfSaveData>();
+            foreach (Shelf shelf in shelfSpawn._shelves)
+            {
+                ShelfSaveData shelfSave = new ShelfSaveData();
+
+                if (shelf != null && shelf.gameObject.activeSelf)
+                {
+                    int index = 0;
+                    List<TankSocketSaveData> socketList = new List<TankSocketSaveData>();
+                    foreach (TankSocket socket in shelf._tanks)
+                    {
+                        if (socket.tank != null && socket.tank.gameObject.activeInHierarchy)
+                        {
+                            TankSocketSaveData socketSave = new TankSocketSaveData();
+                            TankSaveData tankSave = new TankSaveData();
+                            socketSave.tank = tankSave;
+                            socketSave.socketNumber = index;
+
+                            List<ShrimpStats> shrimpInTank = new List<ShrimpStats>();
+                            foreach (Shrimp s in socket.tank.shrimpInTank)
+                            {
+                                shrimpInTank.Add(s.stats);
+                            }
+
+                            tankSave.shrimp = shrimpInTank.ToArray();
+                            tankSave.tankName = socket.tank.tankName;
+                            tankSave.destinationTank = socket.tank.destinationTank;
+                            tankSave.openTank = socket.tank.openTank;
+                            tankSave.openTankPrice = socket.tank.openTankPrice;
+
+                            socketList.Add(socketSave);
+                        }
+
+                        index++;
+                    }
+
+                    shelfSave.tanks = socketList.ToArray();
+                }
+
+                shelfList.Add(shelfSave);
+            }
+            d.shelves = shelfList.ToArray();
+        }
+
+
 
 
         SaveManager.CurrentSaveData = d;
     }
 
-    private void CopyDataFromSaveData(SaveData d)
+
+
+    private void CopyDataFromSaveData(SaveData d)  // Load
     {
         Money.instance.SetMoney(d.money);
 
@@ -100,5 +166,13 @@ public class SaveController : MonoBehaviour
         if (loadPlayerPosition) player.rotation = d.playerRotation;
         PlayerStats.stats = d.playerStats;
         GameSettings.settings = d.gameSettings;
+
+
+        if (shelfSpawn == null) shelfSpawn = (ShelfSpawn)FindObjectOfType(typeof(ShelfSpawn));
+        if (shelfSpawn == null) Debug.LogWarning("Save Controller could not find Shelf Spawn");
+        else
+        {
+
+        }
     }
 }

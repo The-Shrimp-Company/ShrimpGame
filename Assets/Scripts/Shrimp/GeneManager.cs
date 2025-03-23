@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static UnityEngine.ParticleSystem;
@@ -739,5 +740,10 @@ public class GeneManager : MonoBehaviour
             g.instancesInStore += add ? 1 : -1;
             loadedGlobalGenes[i] = g;
         }
+    }
+
+    public GlobalGene[] GetGlobalGeneArray()
+    {
+        return loadedGlobalGenes.ToArray();
     }
 }

@@ -169,7 +169,7 @@ namespace SaveLoadSystem
 
                 if (tempData.fileIntegrityCheck == fileIntegrityChecker)
                 {
-                    if (debugSaving) Debug.Log("Game can be loaded from " + fullPath);
+                    //if (debugSaving) Debug.Log("Game can be loaded from " + fullPath);
 
                     return true;
                 }

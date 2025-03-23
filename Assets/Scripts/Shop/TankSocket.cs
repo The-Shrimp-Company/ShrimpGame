@@ -1,11 +1,11 @@
+using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TankSocket : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject tank;
+    [HideInInspector] public TankController tank;
 
     private ShelfSpawn shelves;
 
@@ -17,10 +17,10 @@ public class TankSocket : MonoBehaviour
     public void SetTankActive(bool active)
     {
         GetComponent<BoxCollider>().enabled = !active;
-        tank.SetActive(active);
+        tank.gameObject.SetActive(active);
         if (active == true)
         {
-            shelves.SwitchSaleTank(tank.GetComponent<TankController>());
+            shelves.SwitchDestinationTank(tank);
         }
     }
 
@@ -28,16 +28,60 @@ public class TankSocket : MonoBehaviour
     {
         if (Inventory.instance.RemoveItem(Items.items[0]))
         {
-            tank.SetActive(true);
+            tank.gameObject.SetActive(true);
             GetComponent<BoxCollider>().enabled = false;
-            shelves.SwitchSaleTank(tank.GetComponent<TankController>());
-            Inventory.instance.activeTanks.Add(tank.GetComponent<TankController>());
-            tank.GetComponent<TankController>().tankName = "Tank " + Inventory.instance.activeTanks.Count;
+            shelves.SwitchDestinationTank(tank);
+            Inventory.instance.activeTanks.Add(tank);
+            tank.tankName = "Tank " + Inventory.instance.activeTanks.Count;
         }
     }
 
     public bool GetTankActive()
     {
-        return tank.activeInHierarchy;
+        return tank.gameObject.activeInHierarchy;
+    }
+
+    public void AddTank(TankTypes type, bool loading = false)
+    {
+        GameObject prefab = null;
+        switch (type)
+        {
+            case TankTypes.Small:
+                {
+                    prefab = shelves.smallTankPrefab;
+                    break;
+                }
+            case TankTypes.Large:
+                {
+                    prefab = shelves.largeTankPrefab;
+                    break;
+                }
+        }
+
+        GameObject newTank = GameObject.Instantiate(prefab, transform.position, transform.rotation, transform);
+        tank = newTank.GetComponent<TankController>();
+
+        GetComponent<BoxCollider>().enabled = false;
+
+        Inventory.instance.activeTanks.Add(tank);
+
+        if (!loading)
+        {
+            shelves.SwitchDestinationTank(tank);
+            tank.tankName = "Tank " + Inventory.instance.activeTanks.Count;
+        }
+    }
+
+    public void LoadTank(TankSocketSaveData socketData)
+    {
+        TankSaveData data = socketData.tank;
+
+        AddTank(socketData.type, true);
+        SetTankActive(true);  // Remove
+
+        tank.tankName = data.tankName;
+        tank.openTankPrice = data.openTankPrice;
+        if (data.destinationTank) shelves.SwitchDestinationTank(tank);
+        if (data.openTank) tank.toggleTankOpen();
     }
 }

@@ -131,7 +131,8 @@ public class Shrimp : MonoBehaviour
         agent.tankGrid = tank.tankGrid;
 
         // Clear all activities
-        shrimpActivities[0].EndActivity();
+        if (shrimpActivities.Count != 0)
+            shrimpActivities[0].EndActivity();
         shrimpActivities.Clear();
 
         ShrimpActivityManager.instance.AddActivity(this, null, true);

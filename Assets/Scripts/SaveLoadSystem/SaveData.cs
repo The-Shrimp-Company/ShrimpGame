@@ -13,9 +13,11 @@ namespace SaveLoadSystem
         public Stats playerStats;
         public Settings gameSettings;
 
+        public ShelfSaveData[] shelves;
 
-        public ShrimpStats[] stats;
+        public GlobalGene[] globalGenes;
 
+        public string versionNumber;
         public string fileIntegrityCheck;
     }
 
@@ -24,9 +26,26 @@ namespace SaveLoadSystem
 
 
     [System.Serializable]
-    public class ShrimpSaveData
+    public class ShelfSaveData
     {
-        public int colour = 1;
-        [SerializeField] private float f = 5.1f;
+        public TankSocketSaveData[] tanks;
+    }
+
+    [System.Serializable]
+    public class TankSocketSaveData
+    {
+        public int socketNumber;
+        public TankTypes type;
+        public TankSaveData tank = null;
+    }
+
+    [System.Serializable]
+    public class TankSaveData
+    {
+        public ShrimpStats[] shrimp;
+        public string tankName;
+        public bool destinationTank;
+        public bool openTank;
+        public float openTankPrice;
     }
 }
