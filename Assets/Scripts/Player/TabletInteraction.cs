@@ -21,6 +21,8 @@ public class TabletInteraction : ScreenView
     private GameObject EmailScreen;
     [SerializeField]
     private GameObject SettingsScreen;
+    [SerializeField]
+    private GameObject SaveScreen;
 
     
 
@@ -77,6 +79,12 @@ public class TabletInteraction : ScreenView
         PlayerStats.stats.timesSettingsAppOpened++;
     }
 
+    public void OpenSave()
+    {
+        GetComponent<CanvasGroup>().interactable = false;
+        GameObject saveScreen = Instantiate(SaveScreen, transform.parent.transform);
+        UIManager.instance.ChangeFocus(saveScreen.GetComponent<ScreenView>());
+    }
     public override void Close()
     {
 

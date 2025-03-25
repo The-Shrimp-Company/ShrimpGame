@@ -7,7 +7,8 @@ public class StartGameControls : MonoBehaviour
 
     public static StartGameControls instance;
 
-    public bool newGame;
+    public bool newGame = true;
+    public string CurrentSaveFile = null;
 
     // Start is called before the first frame update
     void Start()

@@ -16,7 +16,14 @@ public class SaveController : MonoBehaviour
     {
         if (!StartGameControls.instance.newGame)
         {
-            LoadGame("Autosave");
+            if (StartGameControls.instance.CurrentSaveFile != null)
+            {
+                LoadGame(StartGameControls.instance.CurrentSaveFile);
+            }
+            else
+            {
+                LoadGame("Autosave");
+            }
         }
     }
 

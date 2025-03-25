@@ -15,10 +15,10 @@
     border-right-color: rgb(191, 154, 183);
     border-top-color: rgb(191, 154, 183);
     border-bottom-color: rgb(191, 154, 183);
-    margin-top: 3px;
-    margin-right: 3px;
-    margin-bottom: 3px;
-    margin-left: 3px;
+    margin-top: 14px;
+    margin-right: 14px;
+    margin-bottom: 14px;
+    margin-left: 14px;
 }
 
 .Button:hover {
@@ -56,4 +56,19 @@
     border-top-color: rgb(217, 175, 207);
     border-bottom-color: rgb(217, 175, 207);
     color: rgb(217, 175, 207);
+}
+
+.MainScreen {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/Sprites/Tablet/Tablet.png?fileID=248998647&guid=8c1033004aee2684d99b085bdf868c5f&type=3#Tablet_BG");
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    overflow: visible;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
 }
