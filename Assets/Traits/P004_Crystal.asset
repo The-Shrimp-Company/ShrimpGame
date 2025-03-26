@@ -23,7 +23,8 @@ MonoBehaviour:
     type: 3}
   anomalisPattern: {fileID: -876546973899608171, guid: e4b01a5d9507fdd48af2bccd8154148c,
     type: 3}
-  carididPattern: {fileID: 2100000, guid: 82949ed1616fbf44fb5a6da1b96fb095, type: 2}
+  carididPattern: {fileID: -876546973899608171, guid: 48f0f29a0b2996b49993b05c889c543a,
+    type: 3}
   nylonPattern: {fileID: -876546973899608171, guid: 7d57b9af4d5fb0b40a9e8b510d9c289a,
     type: 3}
   part: {fileID: 0}
