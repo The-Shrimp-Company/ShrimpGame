@@ -54,6 +54,7 @@ public class TankController : MonoBehaviour
     [SerializeField] float distanceCheckTime = 1;
     private float distanceCheckTimer;
     private Transform player;
+    private bool visibleOnScreen;
 
     [Header("Debugging")]
     [SerializeField] bool autoSpawnTestShrimp;
@@ -280,7 +281,7 @@ public class TankController : MonoBehaviour
 
         shrimpToAdd.Add(shrimp);
     }
-
+ 
     public void MoveShrimp(Shrimp shrimp)
     {
         shrimp.tank.shrimpToRemove.Add(shrimp);
@@ -345,6 +346,16 @@ public class TankController : MonoBehaviour
         tankNameChanged = false;
     }
 
+    public void OnBecameVisible()
+    {
+        visibleOnScreen = true;
+    }
+
+    public void OnBecameInvisible()
+    {
+        visibleOnScreen = false;
+    }
+
     private void CheckLODDistance()
     {
         if (currentLODLevel != LODLevel.High)
@@ -354,10 +365,10 @@ public class TankController : MonoBehaviour
             float dist = Vector3.Distance(player.position, transform.position);
 
 
-            if (dist < 4)
+            if (dist < 4 && visibleOnScreen)
                 SwitchLODLevel(LODLevel.Mid);
 
-            else if (dist < 10)
+            else if (dist < 10 && visibleOnScreen)
                 SwitchLODLevel(LODLevel.Low);
 
             else

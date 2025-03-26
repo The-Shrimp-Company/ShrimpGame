@@ -72,14 +72,14 @@ public class UIController : MonoBehaviour
     private void NewGame()
     {
         LoadingScreen();
-        StartGameControls.instance.newGame = true;
+        SaveManager.startNewGame = true;
         SceneManager.LoadScene("ShopScene");
     }
 
     private void ContinueGame()
     {
         LoadingScreen();
-        StartGameControls.instance.newGame = false;
+        SaveManager.startNewGame = false;
         SceneManager.LoadScene("ShopScene");
     }
 
@@ -92,7 +92,7 @@ public class UIController : MonoBehaviour
         {
             button.clicked += () =>
             {
-                StartGameControls.instance.CurrentSaveFile = button.name;
+                SaveManager.currentSaveFile = button.name;
             };
             if (SaveManager.TryLoadGame(button.name))
             {

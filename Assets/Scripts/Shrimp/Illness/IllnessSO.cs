@@ -29,6 +29,7 @@ public enum IllnessSymptoms
 
 public enum IllnessTriggers
 {
+    RandomChance,
     WaterQuality,
     Hunger,
     Temperature,

@@ -52,7 +52,7 @@ public class IllnessController : MonoBehaviour
                 }
             }
 
-            if (symptom != null || symptom.GetType() == typeof(Symptom))
+            if (symptom != null && symptom.GetType() != typeof(Symptom))
                 currentSymptoms.Add(symptom);
         }
     }

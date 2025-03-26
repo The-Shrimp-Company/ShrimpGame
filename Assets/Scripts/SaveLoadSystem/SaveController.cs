@@ -14,11 +14,11 @@ public class SaveController : MonoBehaviour
 
     void Start()
     {
-        if (!StartGameControls.instance.newGame)
+        if (!SaveManager.startNewGame)
         {
-            if (StartGameControls.instance.CurrentSaveFile != null && StartGameControls.instance.CurrentSaveFile != "")
+            if (SaveManager.currentSaveFile != null && SaveManager.currentSaveFile != "")
             {
-                LoadGame(StartGameControls.instance.CurrentSaveFile);
+                LoadGame(SaveManager.currentSaveFile);
             }
             else
             {
