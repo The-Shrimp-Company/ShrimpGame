@@ -1,0 +1,48 @@
+.Button {
+    overflow: visible;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: auto;
+    align-self: auto;
+    margin-top: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    min-width: 150px;
+    min-height: 150px;
+    background-color: rgba(32, 32, 32, 0);
+    border-left-color: rgba(56, 56, 56, 0);
+    border-right-color: rgba(56, 56, 56, 0);
+    border-top-color: rgba(56, 56, 56, 0);
+    border-bottom-color: rgba(56, 56, 56, 0);
+}
+
+.NotifLabel {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    -unity-text-align: middle-left;
+    padding-top: 0;
+    padding-right: 20px;
+    padding-bottom: 0;
+    padding-left: 20px;
+}
+
+.Screen {
+    flex-grow: 1;
+    background-image: url("project://database/Assets/Sprites/Tablet/Tablet.png?fileID=248998647&guid=8c1033004aee2684d99b085bdf868c5f&type=3#Tablet_BG");
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    height: 948px;
+    width: 1620px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 3%;
+}
