@@ -19,6 +19,7 @@
     margin-right: 14px;
     margin-bottom: 14px;
     margin-left: 14px;
+    transition-duration: 0.2s;
 }
 
 .Button:hover {
@@ -33,9 +34,12 @@
     border-bottom-left-radius: 25px;
     height: 69px;
     width: 190px;
-    font-size: 21px;
+    font-size: 23px;
     color: rgb(115, 205, 205);
-    -unity-font-style: bold;
+    -unity-font-style: normal;
+    rotate: 1deg;
+    scale: 1.1 1.1;
+    transition-duration: 0.5s;
 }
 
 .Button:active {
