@@ -26,6 +26,8 @@ public class SaveController : MonoBehaviour
                 LoadGame("Autosave");
             }
         }
+        else
+            SaveManager.NewGame();
     }
 
 
@@ -58,7 +60,6 @@ public class SaveController : MonoBehaviour
         if (!SaveManager.gameInitialized ||  // If the game hasn't loaded yet
             SaveManager.currentlySaving)     // If the game is already saving
             return;
-
         SaveManager.currentlySaving = true;
         CopyDataToSaveData();
         SaveManager.SaveGame(_fileName);

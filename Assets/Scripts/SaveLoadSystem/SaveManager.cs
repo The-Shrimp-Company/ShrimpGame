@@ -87,7 +87,7 @@ namespace SaveLoadSystem
         }
 
 
-        public static void NewGame(string _fileName)
+        public static void NewGame()
         {
             OnLoadGameStart?.Invoke();
             loadingGameFromFile = false;

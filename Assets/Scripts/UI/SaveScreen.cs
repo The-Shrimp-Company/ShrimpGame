@@ -29,6 +29,8 @@ public class SaveScreen : ScreenView
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         saveController.SaveGame("Autosave");
+        SaveManager.currentSaveFile = null;
+        SaveManager.gameInitialized = false;
         SceneManager.LoadScene("MainMenuScene");
     }
 }
