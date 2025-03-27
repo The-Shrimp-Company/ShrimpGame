@@ -155,6 +155,7 @@ namespace SaveLoadSystem
                 }
             }
 
+            tempData.playerStats.timesGameLoaded++;
             CurrentSaveData = tempData;
         }
 

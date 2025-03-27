@@ -12,13 +12,16 @@ public class CrossHairScript : PlayerUIController
 
     public override void SwitchFocus()
     {
-        if (UIManager.instance.GetFocus() == null)
+        if (!crosshair.IsDestroyed())
         {
-            crosshair.enabled = true;
-        }
-        else
-        {
-            crosshair.enabled = false;
+            if (UIManager.instance.GetFocus() == null)
+            {
+                crosshair.enabled = true;
+            }
+            else
+            {
+                crosshair.enabled = false;
+            }
         }
     }
 }

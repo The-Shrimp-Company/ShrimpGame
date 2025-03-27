@@ -10,6 +10,8 @@ public static class PlayerStats
 [System.Serializable]
 public struct Stats
 {
+    public int timesGameLoaded;
+
     public int shelfCount;
     public int tankCount;
     public int smallTankCount;
