@@ -485,6 +485,58 @@ MonoBehaviour:
   shrimpToAdd: []
   shrimpToRemove: []
   shrimpParent: {fileID: 4423233220053350138}
+  roughShrimpCapacity: 31
+  chanceToKillAShrimpOverCapacity:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.9
+      value: 0
+      inSlope: -0.007919224
+      outSlope: -0.007919224
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.1338978
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.3
+      value: 1
+      inSlope: 4.2834234
+      outSlope: 4.2834234
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.18770897
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.31
+      value: 1
+      inSlope: -0.016220042
+      outSlope: -0.016220042
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.030006496
+    - serializedVersion: 3
+      time: 5
+      value: 1
+      inSlope: -0.027809836
+      outSlope: -0.027809836
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08050769
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   tankName: 
   updateTime: 0
   foodInTank: []
@@ -778,7 +830,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1211
+  m_VersionIndex: 1220
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []

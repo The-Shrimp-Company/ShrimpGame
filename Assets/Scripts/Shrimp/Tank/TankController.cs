@@ -13,6 +13,8 @@ public class TankController : MonoBehaviour
     [HideInInspector] public List<Shrimp> shrimpToAdd = new List<Shrimp>();
     [HideInInspector] public List<Shrimp> shrimpToRemove = new List<Shrimp>();
     public Transform shrimpParent;
+    [SerializeField] int roughShrimpCapacity;
+    [SerializeField] AnimationCurve chanceToKillAShrimpOverCapacity;
 
     [Header("Tank")]
     public string tankName = null;
@@ -95,9 +97,9 @@ public class TankController : MonoBehaviour
             AddItems();
             RemoveItems();
             UpdateItems();
+
+            CheckShrimpCapacity();
             updateTimer = 0;
-
-
         }
 
 
@@ -143,6 +145,7 @@ public class TankController : MonoBehaviour
 
         if (focussingTank) PlayerStats.stats.timeSpentFocusingTank += Time.deltaTime;
     }
+
 
     public void SetTankPrice(float price)
     {
@@ -213,8 +216,6 @@ public class TankController : MonoBehaviour
                     ShrimpManager.instance.allShrimp.Remove(shrimpToRemove[i]);
 
                     if (tankViewScript != null) tankViewScript.UpdateContent();
-
-                    //shrimpToRemove[i].Destroy();
                 }
 
                 shrimpToRemove.RemoveAt(i);
@@ -309,6 +310,27 @@ public class TankController : MonoBehaviour
     {
         List<GridNode> freePoints = tankGrid.GetFreePoints();
         return freePoints[Random.Range(0, freePoints.Count)];
+    }
+
+
+    private void CheckShrimpCapacity()
+    {
+        if (shrimpInTank.Count != 0)
+        {
+            float c = chanceToKillAShrimpOverCapacity.Evaluate(shrimpInTank.Count / roughShrimpCapacity);
+            if (Random.value < c)
+            {
+                int r = Random.Range(0, shrimpInTank.Count);
+
+                Email email = new Email();
+                email.title = shrimpInTank[r].stats.name + " has died due to overpopulation";
+                email.subjectLine = "Please move some shrimp out of the tank";
+                email.mainText = shrimpInTank[r].stats.name + " was in " + tankName;
+                EmailManager.SendEmail(email);
+
+                shrimpInTank[r].KillShrimp();
+            }
+        }
     }
 
 
