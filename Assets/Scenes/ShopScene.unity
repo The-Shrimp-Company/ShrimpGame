@@ -29257,7 +29257,6 @@ MonoBehaviour:
     type: 3}
   allShrimp: []
   childSize: 0.25
-  adultSize: 0.65
   sizeThroughChildhood:
     serializedVersion: 2
     m_Curve:
@@ -29282,6 +29281,32 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  adultSize: 0.3
+  sizeThroughAdulthood:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0.46156734
+      outSlope: 0.46156734
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.045731723
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  fullyGrownSize: 0.65
   geneticSizeImpact: 0.25
   maxShrimpIllness: 100
   maxShrimpAge: 380
@@ -29487,8 +29512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a738ffe8f38fd444b883c2fdf6581e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTraitValue: 5
-  maxTraitValue: 30
+  minTraitValue: 0.35
+  maxTraitValue: 1
   weightTowardsDominancePercentage: 50
   valueFluctuation: 1
   valueFluctuationStrength:
