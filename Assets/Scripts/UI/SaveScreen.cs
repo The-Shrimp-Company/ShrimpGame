@@ -2,6 +2,7 @@ using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SaveScreen : ScreenView
@@ -23,4 +24,11 @@ public class SaveScreen : ScreenView
         }
     }
 
+    public void QuitToMain()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        saveController.SaveGame("Autosave");
+        SceneManager.LoadScene("MainMenuScene");
+    }
 }

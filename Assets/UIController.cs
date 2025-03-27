@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     private Button continueButton;
     private Button saveButton;
     private Button backButton;
+    private Button QuitButton;
     private Label loadingText;
     private VisualElement mainScreen;
     private VisualElement loadingScreen;
@@ -41,6 +42,9 @@ public class UIController : MonoBehaviour
 
         backButton = root.Q<Button>("BackMainMenu");
         backButton.clicked += OpenMainMenu;
+
+        QuitButton = root.Q<Button>("QuitButton");
+        QuitButton.clicked += QuitGame;
 
         loadingText = root.Q<Label>("LoadingText");
 
@@ -83,6 +87,10 @@ public class UIController : MonoBehaviour
         SceneManager.LoadScene("ShopScene");
     }
 
+    private void QuitGame()
+    {
+        Application.Quit();
+    }
     private void OpenSaveScreen()
     {
 
