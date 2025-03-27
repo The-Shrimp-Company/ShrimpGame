@@ -29,7 +29,7 @@ public class UpgradeScreen : ScreenView
     {
         if (Money.instance.WithdrawMoney(10))
         {
-            Inventory.instance.AddItem(Items.items[2]);
+            Inventory.instance.AddItem(Items.items[2], 10);
         }
     }
 }
