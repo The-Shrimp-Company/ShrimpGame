@@ -12,7 +12,7 @@ public class Body : PartScript
     {
         if (debug)
         {
-            s = ShrimpManager.instance.CreateRandomShrimp();
+            s = ShrimpManager.instance.CreateRandomShrimp(false);
 
             Instantiate(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).part, headNode).GetComponent<Head>().Construct(s);
             Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);

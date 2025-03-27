@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b86eda6ac4587f45a7b45a38d7a40f5, type: 3}
   m_Name: Illness_WhiteRing
   m_EditorClassIdentifier: 
-  trigger: 3
+  trigger: 1
   triggerChance:
     serializedVersion: 2
     m_Curve:
@@ -37,5 +37,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  symptoms: 02000000
+  symptoms: 00000000
   illnessImpact: 10

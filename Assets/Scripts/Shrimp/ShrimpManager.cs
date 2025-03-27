@@ -33,6 +33,7 @@ public class ShrimpManager : MonoBehaviour
     [SerializeField] AnimationCurve moltSpeed;  // In minutes, realtime
     [SerializeField] float moltSpeedRequiredToBeAdult = 5;
     private int adultAge;
+    [SerializeField] float minAgeForAShrimpBeingBought = 45;
 
     [Header("Temperament")]
     private int maxShrimpTemperament = 100;
@@ -83,13 +84,16 @@ public class ShrimpManager : MonoBehaviour
     }
 
 
-    public ShrimpStats CreateRandomShrimp()
+    public ShrimpStats CreateRandomShrimp(bool adultAge)
     {
         ShrimpStats s = new ShrimpStats();
 
         s.name = GenerateShrimpName();
         s.gender = geneManager.RandomGender();
-        s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
+        if (adultAge)
+            s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - (1 + minAgeForAShrimpBeingBought)) * 0.9f), 0, 0, false) + Random.value + minAgeForAShrimpBeingBought);
+        else s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
+        
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
         s.hunger = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);

@@ -77,7 +77,7 @@ public class BuyContentBlock : ContentBlock
     private ShrimpStats GenerateShrimp()
     {
         GeneManager geneManager = GeneManager.instance;
-        ShrimpStats s = ShrimpManager.instance.CreateRandomShrimp();
+        ShrimpStats s = ShrimpManager.instance.CreateRandomShrimp(true);
 
         string ID = "";
         TraitSet currentTrait;

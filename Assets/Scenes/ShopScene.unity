@@ -29332,16 +29332,16 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 7.994361
-      outSlope: 7.994361
-      tangentMode: 34
+      value: 0.5029297
+      inSlope: 14.117435
+      outSlope: 14.117435
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.067417696
     - serializedVersion: 3
-      time: 0.50035024
-      value: 4.9999804
+      time: 0.15074086
+      value: 1.5095503
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -29350,9 +29350,9 @@ MonoBehaviour:
       outWeight: 0.06772844
     - serializedVersion: 3
       time: 1
-      value: 5.000305
-      inSlope: 0.00064990745
-      outSlope: 0.00064990745
+      value: 1.509875
+      inSlope: 0.00038236397
+      outSlope: 0.00038236397
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -29360,7 +29360,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  moltSpeedRequiredToBeAdult: 5
+  moltSpeedRequiredToBeAdult: 1.5
+  minAgeForAShrimpBeingBought: 40
 --- !u!4 &705895234
 Transform:
   m_ObjectHideFlags: 0
@@ -42641,7 +42642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8295674, y: 0.066}
   m_AnchorMax: {x: 0.9734792, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: 697}
+  m_AnchoredPosition: {x: 1.5, y: 697.00006}
   m_SizeDelta: {x: -3, y: -724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916690609
@@ -53203,50 +53204,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1141825896
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1141825898}
-  - component: {fileID: 1141825897}
-  m_Layer: 0
-  m_Name: SceneLoadManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1141825897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141825896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0f9e81b539c49b418f8a989a13f6bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1141825898
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141825896}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 985.7832, y: 564.7669, z: -0.00004046751}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1142753760
 Mesh:
   m_ObjectHideFlags: 0
@@ -89748,7 +89705,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1141825898}
   - {fileID: 705895234}
   - {fileID: 115008965}
   - {fileID: 1790987987}
