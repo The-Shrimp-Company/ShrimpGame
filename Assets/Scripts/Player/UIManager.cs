@@ -133,6 +133,7 @@ public class UIManager
 
     public void SendNotification(string notif)
     {
+        notifBar.GetComponent<AudioSource>().Play();
         _currentText = notif;
         notifBar.text = notif;
     }
