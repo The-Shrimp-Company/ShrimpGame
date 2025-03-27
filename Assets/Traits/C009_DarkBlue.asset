@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: C009_DarkBlue
   m_EditorClassIdentifier: 
   ID: C009
-  traitName: DarkBlue
+  traitName: Dark Blue
   set: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 0
   color: {r: 0.11764707, g: 0.18431373, b: 0.7019608, a: 1}
-  texture: {fileID: 0}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
   part: {fileID: 0}

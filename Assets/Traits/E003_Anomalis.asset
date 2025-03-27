@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: E003_Anomalis
   m_EditorClassIdentifier: 
   ID: E003
-  traitName: Anomilis Eyes
+  traitName: Anomalis Eyes
   set: 2
   weightDominanceTowards: 0
   statModifiers: []

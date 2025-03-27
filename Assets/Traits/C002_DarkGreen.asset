@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: C002_DarkGreen
   m_EditorClassIdentifier: 
   ID: C002
-  traitName: DarkGreen
+  traitName: Dark Green
   set: 0
   weightDominanceTowards: 0
   statModifiers: []
   type: 0
   color: {r: 0.10588236, g: 0.5058824, b: 0.14117648, a: 1}
-  texture: {fileID: 0}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
   part: {fileID: 0}

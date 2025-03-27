@@ -221,7 +221,7 @@ public class Request
     "I would like a shrimp with ",
     "It should have ",
     "Please can it have ",
-    "My most faviroute type of shrimp have ",
+    "My most favorite type of shrimp have ",
     "Please make sure it has ",
     "I will cry if it doesn't have "
     };
