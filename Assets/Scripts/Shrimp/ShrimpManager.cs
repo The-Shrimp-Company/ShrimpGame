@@ -16,8 +16,10 @@ public class ShrimpManager : MonoBehaviour
 
     [Header("Size")]
     [SerializeField][Range(0.15f, 0.75f)] float childSize = 0.25f;
-    [SerializeField][Range(0.15f, 0.75f)] float adultSize = 0.65f;
     [SerializeField] AnimationCurve sizeThroughChildhood;  // Childhood ends when moltSpeed levels out
+    [SerializeField][Range(0.15f, 0.75f)] float adultSize = 0.3f;
+    [SerializeField] AnimationCurve sizeThroughAdulthood;
+    [SerializeField][Range(0.15f, 0.75f)] float fullyGrownSize = 0.65f;
     [SerializeField][Range(0.1f, 1.0f)] float geneticSizeImpact = 0.25f;
     private int maxGeneticShrimpSize = 100;
 
@@ -286,13 +288,17 @@ public class ShrimpManager : MonoBehaviour
         float s = 0;
 
         // Size over age
-        if (age >= GetAdultAge())  // If they are fully grown
-            s = adultSize;
-        else  // If they are still a child
+        if (age <= GetAdultAge())  // If they are a child
         {
             float l = Mathf.InverseLerp(0, GetAdultAge(), age);
             l = sizeThroughChildhood.Evaluate(l);
             s = Mathf.Lerp(childSize, adultSize, l);
+        }
+        else  // If they are an adult
+        {
+            float l = Mathf.InverseLerp(GetAdultAge(), maxShrimpAge, age);
+            l = sizeThroughAdulthood.Evaluate(l);
+            s = Mathf.Lerp(adultSize, fullyGrownSize, l);
         }
 
         // Genetic Size

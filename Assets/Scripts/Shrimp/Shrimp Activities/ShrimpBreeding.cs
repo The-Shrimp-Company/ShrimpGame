@@ -183,6 +183,12 @@ public class ShrimpBreeding : ShrimpActivity
 
         shrimp.tank.shrimpToAdd.Add(s);
 
+        Email email = new Email();
+        email.title = "A new shrimp has been born";
+        email.subjectLine = "Wow!";
+        email.mainText = "The shrimp is in " + shrimp.tank.tankName + ", the parents are " + shrimp.stats.name + " and " + otherShrimp.stats.name;
+        EmailManager.SendEmail(email);
+
         PlayerStats.stats.shrimpBred++;
     }
 }

@@ -126,6 +126,13 @@ public class ShelfSpawn : MonoBehaviour
                 s.name = ShrimpManager.instance.GenerateShrimpName();
                 _destinationTank.SpawnShrimp(s);
                 PlayerStats.stats.shrimpBought++;
+
+                Email email = new Email();
+                email.title = "A new shrimp has arrived in the store";
+                email.subjectLine = "Wow!";
+                email.mainText = "The shrimp is in " + _destinationTank.tankName;
+                EmailManager.SendEmail(email);
+
                 return true;
             }
         }

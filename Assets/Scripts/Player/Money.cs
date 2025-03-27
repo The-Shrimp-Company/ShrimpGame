@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Money
 {
-    private float _money = 200;
+    private float _money = 75;
 
     static public Money instance = new Money();
 
@@ -16,7 +16,7 @@ public class Money
     public Money()
     {
         // Put loading function here
-        _money = 200;
+        _money = 75;
         PlayerStats.stats.totalMoney = _money;
     }
 

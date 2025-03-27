@@ -31,12 +31,6 @@ public class Shrimp : MonoBehaviour
     {
         agent.tankGrid = tank.tankGrid;
 
-        Email email = new Email();
-        email.title = "New Shrimp!!@!";
-        email.subjectLine = "WOOOOOOWWWWW";
-        email.mainText = "The shrimp is in: " + tank.tankName;
-        EmailManager.SendEmail(email);
-
         if (shrimpActivities.Count == 0)
         {
             ShrimpActivityManager.instance.AddActivity(this, null, true);
@@ -151,6 +145,8 @@ public class Shrimp : MonoBehaviour
         // Notification message
 
         PlayerStats.stats.shrimpDeaths++;
+
+        Destroy(gameObject);
     }
 
     public void Destroy()

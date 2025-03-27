@@ -214,7 +214,7 @@ public class TankController : MonoBehaviour
 
                     if (tankViewScript != null) tankViewScript.UpdateContent();
 
-                    shrimpToRemove[i].Destroy();
+                    //shrimpToRemove[i].Destroy();
                 }
 
                 shrimpToRemove.RemoveAt(i);
@@ -286,8 +286,8 @@ public class TankController : MonoBehaviour
         shrimp.tank.shrimpToRemove.Add(shrimp);
         shrimp.transform.parent = shrimpParent;
         shrimp.transform.position = GetRandomTankPosition();
-        shrimp.ChangeTank(this);
         shrimpToAdd.Add(shrimp);
+        shrimp.ChangeTank(this);
         PlayerStats.stats.shrimpMoved++;
     }
 
