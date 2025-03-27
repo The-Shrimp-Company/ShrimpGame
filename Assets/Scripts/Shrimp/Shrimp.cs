@@ -17,8 +17,6 @@ public class Shrimp : MonoBehaviour
 
     public float currentValue;
 
-    private bool toKill = false;  // If it should be destroyed at the end of this frame
-
     public Transform particleParent;
 
     [HideInInspector] public bool shrimpNameChanged;
@@ -45,14 +43,6 @@ public class Shrimp : MonoBehaviour
     private void Update()
     {
         if (focussingShrimp) PlayerStats.stats.timeSpentFocusingShrimp += Time.deltaTime;
-    }
-
-    private void LateUpdate()
-    {
-        if (toKill)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void ConstructShrimp()
@@ -137,7 +127,7 @@ public class Shrimp : MonoBehaviour
         ShrimpActivityManager.instance.AddActivity(this, null, true);
     }
 
-    private void KillShrimp()
+    public void KillShrimp()
     {
         tank.shrimpToRemove.Add(this);
 
@@ -147,11 +137,6 @@ public class Shrimp : MonoBehaviour
         PlayerStats.stats.shrimpDeaths++;
 
         Destroy(gameObject);
-    }
-
-    public void Destroy()
-    {
-        toKill = true;
     }
 
     public void SellThis()
