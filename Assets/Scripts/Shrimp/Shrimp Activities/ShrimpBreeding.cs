@@ -48,6 +48,8 @@ public class ShrimpBreeding : ShrimpActivity
             movement = new ShrimpMovement();
             movement.SetDestination(shrimp.tank.tankGrid.GetClosestNode(otherShrimp.transform.position));
             movement.shrimp = shrimp;
+            movement.endWhenDestinationReached = false;
+            movement.taskTime = Mathf.Infinity;
             movement.Activity(0);
         }
 
@@ -81,9 +83,11 @@ public class ShrimpBreeding : ShrimpActivity
                     {
                         otherIsReady = true;
                         otherBreeding = (ShrimpBreeding)otherShrimp.shrimpActivities[0];
-                        movement.SetDestination(shrimp.tank.tankGrid.GetClosestNode(otherShrimp.transform.position));  // Set the destination again incase they have moved
-                        movement.SwitchToAdvanced();
-
+                        if (movement != null)
+                        {
+                            movement.SetDestination(shrimp.tank.tankGrid.GetClosestNode(otherShrimp.transform.position));  // Set the destination again incase they have moved
+                            movement.SwitchToAdvanced();
+                        }
                         if (debugBreeding) Debug.Log("Other is ready");
                     }
                 }

@@ -14,6 +14,8 @@ public class ShrimpMovement : ShrimpActivity
     private float minRandDistance = 0.25f;
     private int pathfindingAttempts = 5;
 
+    public bool endWhenDestinationReached = true;
+
     private bool debugMovement = false;
 
 
@@ -71,7 +73,7 @@ public class ShrimpMovement : ShrimpActivity
         float r = agent.MoveShrimp(elapsedTimeThisFrame);
 
 
-        if (agent.Status == AgentStatus.Finished || agent.Status == AgentStatus.Invalid)
+        if ((agent.Status == AgentStatus.Finished || agent.Status == AgentStatus.Invalid) && endWhenDestinationReached)
         {
             elapsedTimeRemaining = elapsedTimeThisFrame - r;
             taskRemainingTime = 0;
