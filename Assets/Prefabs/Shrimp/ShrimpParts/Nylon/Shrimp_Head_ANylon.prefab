@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: 3847740813306760121}
   - {fileID: 2593745211864797918}
   - {fileID: 5682875741126083757}
-  eyesNode: {fileID: 0}
+  eyesNode: {fileID: 6195829555823656356}
 --- !u!1 &2593745211864797918 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5657105858376885233, guid: dd7064bbace951e45882044cd5ebef67,
@@ -237,6 +237,12 @@ GameObject:
 --- !u!1 &6138933192116175384 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5166445162498936009, guid: dd7064bbace951e45882044cd5ebef67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1333973372265582289}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6195829555823656356 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5151901995141198709, guid: dd7064bbace951e45882044cd5ebef67,
     type: 3}
   m_PrefabInstance: {fileID: 1333973372265582289}
   m_PrefabAsset: {fileID: 0}

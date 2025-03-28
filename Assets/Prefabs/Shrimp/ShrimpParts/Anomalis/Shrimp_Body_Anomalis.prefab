@@ -72,6 +72,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5150376840857837154}
   m_SourcePrefab: {fileID: 100100000, guid: f1fc14e48a833334b8e2eb663c95906d, type: 3}
+--- !u!4 &1133657249369182963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6357815723750375934, guid: f1fc14e48a833334b8e2eb663c95906d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6305304410091852557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2615884461902997869 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8344481792707508832, guid: f1fc14e48a833334b8e2eb663c95906d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6305304410091852557}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5954647235454475275 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 370378088208142086, guid: f1fc14e48a833334b8e2eb663c95906d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6305304410091852557}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6575705318758002268 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f1fc14e48a833334b8e2eb663c95906d,
@@ -99,7 +117,7 @@ MonoBehaviour:
   - {fileID: 9058878393596503162, guid: f1fc14e48a833334b8e2eb663c95906d, type: 3}
   - {fileID: -9028828329626196011, guid: f1fc14e48a833334b8e2eb663c95906d, type: 3}
   - {fileID: -7285973863348468849, guid: f1fc14e48a833334b8e2eb663c95906d, type: 3}
-  headNode: {fileID: 0}
-  legsNode: {fileID: 0}
-  tailNode: {fileID: 0}
+  headNode: {fileID: 1133657249369182963}
+  legsNode: {fileID: 2615884461902997869}
+  tailNode: {fileID: 5954647235454475275}
   debug: 0
