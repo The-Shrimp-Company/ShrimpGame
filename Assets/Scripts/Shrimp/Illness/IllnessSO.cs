@@ -20,10 +20,8 @@ public class IllnessSO : ScriptableObject
 
 public enum IllnessSymptoms
 {
-    WhiteRing,
     Discolouration,
-    LowSpeed,
-    NotEating,
+    BodySize,
     Bubbles
 }
 
@@ -32,6 +30,6 @@ public enum IllnessTriggers
     RandomChance,
     WaterQuality,
     Hunger,
-    Temperature,
-    Overcrowded
+    HotWater,
+    ColdWater
 }

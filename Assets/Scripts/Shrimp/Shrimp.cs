@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(IllnessController))]
 public class Shrimp : MonoBehaviour
 {
     public ShrimpStats stats;
@@ -21,6 +22,9 @@ public class Shrimp : MonoBehaviour
 
     [HideInInspector] public bool shrimpNameChanged;
 
+    [Header("Illness")]
+    IllnessController illnessCont;
+
     [Header("Breeding")]
     public GameObject breedingHeartParticles;
 
@@ -28,6 +32,7 @@ public class Shrimp : MonoBehaviour
     public void Start()
     {
         agent.tankGrid = tank.tankGrid;
+        illnessCont = GetComponent<IllnessController>();
 
         if (shrimpActivities.Count == 0)
         {
@@ -95,6 +100,9 @@ public class Shrimp : MonoBehaviour
 
             moltSpeed = ShrimpManager.instance.GetMoltTime(age);
         }
+
+
+        illnessCont.UpdateIllness(elapsedTime);
     }
 
 

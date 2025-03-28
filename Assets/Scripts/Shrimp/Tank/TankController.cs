@@ -25,6 +25,10 @@ public class TankController : MonoBehaviour
     [HideInInspector] public List<ShrimpFood> foodToRemove = new List<ShrimpFood>();
     public Transform foodParent;
 
+    [Header("Water")]
+    [HideInInspector] public float waterQuality = 100;
+    [HideInInspector] public float waterTemperature = 50;
+
     //[Header("Upgrades")]
 
     [Header("Sale Tank")]
@@ -47,10 +51,14 @@ public class TankController : MonoBehaviour
     [HideInInspector] public bool tankNameChanged;
 
     [Header("Capacity")]
-    [SerializeField] int roughShrimpCapacity;
+    public int roughShrimpCapacity;
     [SerializeField] AnimationCurve chanceToKillAShrimpOverCapacity;
     [SerializeField] float capacityCheckTime = 0.5f;
     private float capacityCheckTimer;
+
+    [Header("Illness")]
+    [Range(0, 100)] public float illnessSpreadRate = 30;
+    [HideInInspector] public Dictionary<IllnessSO, int> currentIllness = new Dictionary<IllnessSO, int>();
 
     [Header("Optimisation")]
     private LODLevel currentLODLevel;
