@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
@@ -13,8 +10,6 @@ public class TankController : MonoBehaviour
     [HideInInspector] public List<Shrimp> shrimpToAdd = new List<Shrimp>();
     [HideInInspector] public List<Shrimp> shrimpToRemove = new List<Shrimp>();
     public Transform shrimpParent;
-    [SerializeField] int roughShrimpCapacity;
-    [SerializeField] AnimationCurve chanceToKillAShrimpOverCapacity;
 
     [Header("Tank")]
     public string tankName = null;
@@ -50,6 +45,12 @@ public class TankController : MonoBehaviour
     [SerializeField] private GameObject tankViewPrefab;
     [HideInInspector] public TankViewScript tankViewScript;
     [HideInInspector] public bool tankNameChanged;
+
+    [Header("Capacity")]
+    [SerializeField] int roughShrimpCapacity;
+    [SerializeField] AnimationCurve chanceToKillAShrimpOverCapacity;
+    private float capacityCheckTimer = 1;
+    private float capacityCheckTime;
 
     [Header("Optimisation")]
     private LODLevel currentLODLevel;
@@ -331,6 +332,8 @@ public class TankController : MonoBehaviour
                 email.subjectLine = "Please move some shrimp out of the tank";
                 email.mainText = shrimpInTank[r].stats.name + " was in " + tankName;
                 EmailManager.SendEmail(email);
+
+                PlayerStats.stats.shrimpDeathsThroughOverpopulation++;
 
                 shrimpInTank[r].KillShrimp();
             }

@@ -36,6 +36,7 @@ public struct Stats
 
     public int shrimpDeaths;
     public int shrimpDeathsThroughAge;
+    public int shrimpDeathsThroughOverpopulation;
     public int shrimpDeathsThroughHunger; //
 
     public int timesShrimpShopAppOpened;
