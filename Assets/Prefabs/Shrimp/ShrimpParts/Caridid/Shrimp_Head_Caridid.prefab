@@ -10,6 +10,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -26,12 +41,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
         type: 3}
@@ -46,7 +61,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0d3ab52703e68de4987f748a15f810f3,
         type: 3}
@@ -102,39 +117,15 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 844171387654580964}
   m_SourcePrefab: {fileID: 100100000, guid: 0d3ab52703e68de4987f748a15f810f3, type: 3}
---- !u!1 &3213639872439709892 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5120049931111277829, guid: 0d3ab52703e68de4987f748a15f810f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7752724824554362305}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3545087247080427959 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6531794198492169334, guid: 0d3ab52703e68de4987f748a15f810f3,
     type: 3}
   m_PrefabInstance: {fileID: 7752724824554362305}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4158812574144412020 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3305602378687550283, guid: 0d3ab52703e68de4987f748a15f810f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7752724824554362305}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4324161682675627341 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -2912223649654759284, guid: 0d3ab52703e68de4987f748a15f810f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7752724824554362305}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4606124205089274451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6087472144269635474, guid: 0d3ab52703e68de4987f748a15f810f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7752724824554362305}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7302456417848479456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1063059840857479969, guid: 0d3ab52703e68de4987f748a15f810f3,
     type: 3}
   m_PrefabInstance: {fileID: 7752724824554362305}
   m_PrefabAsset: {fileID: 0}
@@ -157,16 +148,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objs:
-  - {fileID: 3213639872439709892}
-  - {fileID: 4324161682675627341}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 3545087247080427959}
-  - {fileID: 4158812574144412020}
+  - {fileID: 0}
   - {fileID: 4606124205089274451}
-  - {fileID: 7302456417848479456}
-  eyesNode: {fileID: 8250531862478817230}
---- !u!4 &8250531862478817230 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -7356364858683698673, guid: 0d3ab52703e68de4987f748a15f810f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7752724824554362305}
-  m_PrefabAsset: {fileID: 0}
+  - {fileID: 0}
+  eyesNode: {fileID: 0}
