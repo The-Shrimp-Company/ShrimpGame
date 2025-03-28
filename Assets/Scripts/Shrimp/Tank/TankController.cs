@@ -49,8 +49,8 @@ public class TankController : MonoBehaviour
     [Header("Capacity")]
     [SerializeField] int roughShrimpCapacity;
     [SerializeField] AnimationCurve chanceToKillAShrimpOverCapacity;
-    private float capacityCheckTimer = 1;
-    private float capacityCheckTime;
+    [SerializeField] float capacityCheckTime = 0.5f;
+    private float capacityCheckTimer;
 
     [Header("Optimisation")]
     private LODLevel currentLODLevel;
@@ -99,13 +99,11 @@ public class TankController : MonoBehaviour
             RemoveItems();
             UpdateItems();
 
-            CheckShrimpCapacity();
             updateTimer = 0;
         }
 
 
         distanceCheckTimer += Time.deltaTime;
-
         if (distanceCheckTimer >= distanceCheckTime)
         {
             CheckLODDistance();
@@ -113,7 +111,15 @@ public class TankController : MonoBehaviour
         }
 
 
-         autoSpawnFoodTimer += Time.deltaTime;
+        capacityCheckTimer += Time.deltaTime;
+        if (capacityCheckTimer >= capacityCheckTime)
+        {
+            CheckShrimpCapacity();
+            capacityCheckTimer = 0;
+        }
+
+
+        autoSpawnFoodTimer += Time.deltaTime;
         if (FoodStore > 0)
         {
             if (autoSpawnFoodTimer >= autoSpawnFoodTime && autoSpawnFoodTime != 0)
