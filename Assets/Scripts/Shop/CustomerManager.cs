@@ -81,6 +81,7 @@ public class CustomerManager : MonoBehaviour
             Money.instance.AddMoney(shrimp.tank.openTankPrice);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
             PlayerStats.stats.shrimpSold++;
+            Destroy(shrimp.gameObject);
         }
     }
 
@@ -93,6 +94,8 @@ public class CustomerManager : MonoBehaviour
             Debug.Log(value);
             Money.instance.AddMoney(value);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
+            Destroy(shrimp.gameObject);
+
             Email email = new Email();
             email.title = "Thanks!";
             email.subjectLine = "I Love this shrimp!";
