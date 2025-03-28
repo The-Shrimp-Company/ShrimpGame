@@ -10,7 +10,6 @@ public class CustomerManager : MonoBehaviour
     static public CustomerManager Instance;
 
     private int count = 0;
-    private int lastDay = 0;
     private int coolDown = 0;
 
 
@@ -30,25 +29,27 @@ public class CustomerManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("Open tanks: " + openTanks.Count);
         if(count < openTanks.Count)
         {
+            Debug.Log("Running");
             TankController currentTank = openTanks[count];
             foreach(Shrimp shrimp in currentTank.shrimpInTank)
             {
                 float value = EconomyManager.instance.GetShrimpValue(shrimp.stats);
-                float chance = value / currentTank.openTankPrice;
-                chance = Mathf.Log(chance) * 10;
-                chance += 5;
-                if (Random.Range(0f, 10f) < chance)
+                float chance = currentTank.openTankPrice / value;
+                Debug.Log(chance);
+                if (Random.value * 2 > chance)
                 {
-                    ToPurchase.Add(shrimp);
+                    PurchaseShrimp(shrimp);
+                    Debug.Log("Attempting to sell this shrimp");
                 }
             }
         }
 
         count++;
 
-        if(count < openTanks.Count)
+        if(count >= openTanks.Count)
         {
             count = 0;
         }
@@ -76,7 +77,6 @@ public class CustomerManager : MonoBehaviour
     {
         if (shrimp != null)
         {
-            ToPurchase.Remove(shrimp);
             shrimp.tank.shrimpToRemove.Add(shrimp);
             Money.instance.AddMoney(shrimp.tank.openTankPrice);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);

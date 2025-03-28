@@ -125,7 +125,7 @@ public class TankController : MonoBehaviour
             }
         }
 
-
+        /* I think this is duplicate code????
         if (openTank)
         {
             if(Random.Range(0, 1000) == 1)
@@ -135,11 +135,15 @@ public class TankController : MonoBehaviour
                     Shrimp shrimp = shrimpInTank[Random.Range(0, shrimpInTank.Count)];
                     if (!CustomerManager.Instance.ToPurchase.Contains(shrimp))
                     {
-                        CustomerManager.Instance.AddShrimpToPurchase(shrimp);
+                        if(Random.value * 2 > openTankPrice / EconomyManager.instance.GetShrimpValue(shrimp.stats))
+                        {
+                            CustomerManager.Instance.PurchaseShrimp(shrimp);
+                        }
                     }
                 }
             }
         }
+        */
 
         label.text = tankName;
 
