@@ -30,21 +30,24 @@ public class ShrimpView : ScreenView
         screen.SetShrimp(_shrimp);
     }
 
-    protected override void Start()
+    public void MouseClick(Vector2 point)
     {
-        player = GameObject.Find("Player");
-    }
-
-    public void Update()
-    {
-        //base.Update();
-        if (_shrimp != null)
+        RaycastHit ray;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(point), out ray, 3f, LayerMask.GetMask("Shrimp")))
         {
-            player.GetComponent<PlayerUIController>().SetShrimpCam(_shrimp.GetComponentInChildren<ShrimpCam>());
-            //Camera.main.transform.position = _shrimp.camDock.transform.position;
-            //Camera.main.transform.LookAt(_shrimp.transform.position);
+            _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
+            player.GetComponent<PlayerUIController>().UnsetShrimpCam();
+            _shrimp = ray.transform.GetComponent<Shrimp>();
+            Populate(_shrimp);
+            GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
+            //GetComponent<Canvas>().planeDistance = 1;
+            UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
+            _shrimp.GetComponentInChildren<ShrimpCam>().SetCam();
+            
         }
     }
+
+    
 
     /// <summary>
     /// Fills the shrimp view with the information about shrimp
@@ -52,6 +55,7 @@ public class ShrimpView : ScreenView
     /// <param name="Shrimp"></param>
     public void Populate(Shrimp Shrimp)
     {
+        player = GameObject.Find("Player");
         _shrimp = Shrimp;
         title.text = _shrimp.stats.name;
         //title.placeholder.GetComponent<TextMeshProUGUI>().text = _shrimp.stats.name;
@@ -67,6 +71,7 @@ public class ShrimpView : ScreenView
         primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.primaryColour.activeGene.ID).color;
         secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.secondaryColour.activeGene.ID).color;
         _shrimp.FocusShrimp();
+        player.GetComponent<PlayerUIController>().SetShrimpCam(_shrimp.GetComponentInChildren<ShrimpCam>());
     }
 
 

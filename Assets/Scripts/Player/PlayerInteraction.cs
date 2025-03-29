@@ -126,6 +126,10 @@ public class PlayerInteraction : MonoBehaviour
             {
                 tv.MouseClick(Mouse.current.position.value, point.isPressed);
             }
+            if(UIManager.instance.GetFocus().TryGetComponent<ShrimpView>(out ShrimpView sv))
+            {
+                sv.MouseClick(Mouse.current.position.value);
+            }
 
             //UIManager.instance.GetFocus().GetComponent<TankViewScript>().MouseClick(Mouse.current.position.value, point.isPressed);
         }
