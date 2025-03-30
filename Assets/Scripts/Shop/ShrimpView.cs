@@ -36,6 +36,8 @@ public class ShrimpView : ScreenView
         RaycastHit ray;
         if (Physics.Raycast(Camera.main.ScreenPointToRay(point), out ray, 3f, LayerMask.GetMask("Shrimp")))
         {
+
+            _shrimp.gameObject.layer = LayerMask.NameToLayer("Shrimp");
             _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
             player.GetComponent<PlayerUIController>().UnsetShrimpCam();
             _shrimp = ray.transform.GetComponent<Shrimp>();
@@ -73,12 +75,15 @@ public class ShrimpView : ScreenView
         secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.secondaryColour.activeGene.ID).color;
         hunger.value = _shrimp.stats.hunger;
         _shrimp.FocusShrimp();
+        _shrimp.gameObject.layer = LayerMask.NameToLayer("SelectedShrimp");
         player.GetComponent<PlayerUIController>().SetShrimpCam(_shrimp.GetComponentInChildren<ShrimpCam>());
     }
 
 
     public override void Exit()
     {
+
+        _shrimp.gameObject.layer = LayerMask.NameToLayer("Shrimp");
         _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
         player.GetComponent<PlayerUIController>().UnsetShrimpCam();
         GameObject newitem = Instantiate(tankView, _shrimp.tank.transform);
@@ -111,6 +116,7 @@ public class ShrimpView : ScreenView
     public override void Close()
     {
 
+        _shrimp.gameObject.layer = LayerMask.NameToLayer("Shrimp");
         _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
         _shrimp.StopFocussingShrimp();
         player.GetComponent<PlayerUIController>().UnsetShrimpCam();
