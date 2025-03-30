@@ -22,6 +22,7 @@ public class ShrimpView : ScreenView
     [SerializeField]
     private GameObject currentTankScreen;
     [SerializeField] private Image primaryColour, secondaryColour;
+    [SerializeField] private Slider hunger;
 
     public void Click()
     {
@@ -70,6 +71,7 @@ public class ShrimpView : ScreenView
         tailFan.text = "Tail Fan: " + GeneManager.instance.GetTraitSO(_shrimp.stats.tailFan.activeGene.ID).set;
         primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.primaryColour.activeGene.ID).color;
         secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.secondaryColour.activeGene.ID).color;
+        hunger.value = _shrimp.stats.hunger;
         _shrimp.FocusShrimp();
         player.GetComponent<PlayerUIController>().SetShrimpCam(_shrimp.GetComponentInChildren<ShrimpCam>());
     }
