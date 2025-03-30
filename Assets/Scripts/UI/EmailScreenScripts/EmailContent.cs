@@ -19,9 +19,12 @@ public class EmailContent : ContentPopulation
     {
         foreach(ContentBlock block in contentBlocks)
         {
-            if (!block.GetComponent<EmailContentBlock>().isImportant())
+            if (block != null)
             {
-                block.GetComponent<EmailContentBlock>().DeleteEmail();
+                if (!block.GetComponent<EmailContentBlock>().isImportant())
+                {
+                    block.GetComponent<EmailContentBlock>().DeleteEmail();
+                }
             }
         }
     }
