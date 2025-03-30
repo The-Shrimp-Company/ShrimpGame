@@ -23,6 +23,8 @@ public class TabletInteraction : ScreenView
     private GameObject SettingsScreen;
     [SerializeField]
     private GameObject SaveScreen;
+    [SerializeField]
+    private GameObject VetScreen;
 
     
 
@@ -85,6 +87,14 @@ public class TabletInteraction : ScreenView
         GameObject saveScreen = Instantiate(SaveScreen, transform.parent.transform);
         UIManager.instance.ChangeFocus(saveScreen.GetComponent<ScreenView>());
     }
+
+    public void OpenVet()
+    {
+        GetComponent<CanvasGroup>().interactable = false;
+        GameObject vetScreen = Instantiate(VetScreen, transform.parent.transform);
+        UIManager.instance.ChangeFocus(vetScreen.GetComponent<ScreenView>());
+    }
+
     public override void Close()
     {
 

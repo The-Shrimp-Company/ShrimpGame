@@ -29,10 +29,8 @@ public class CustomerManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Open tanks: " + openTanks.Count);
         if(count < openTanks.Count)
         {
-            Debug.Log("Running");
             TankController currentTank = openTanks[count];
             foreach(Shrimp shrimp in currentTank.shrimpInTank)
             {
@@ -42,7 +40,6 @@ public class CustomerManager : MonoBehaviour
                 if (Random.value * 2 > chance)
                 {
                     PurchaseShrimp(shrimp);
-                    Debug.Log("Attempting to sell this shrimp");
                 }
             }
         }
@@ -95,6 +92,9 @@ public class CustomerManager : MonoBehaviour
             Money.instance.AddMoney(value);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
             Destroy(shrimp.gameObject);
+
+            Reputation.AddReputation(1);
+            Debug.Log("Reputation: " + Reputation.GetReputation());
 
             Email email = new Email();
             email.title = "Thanks!";

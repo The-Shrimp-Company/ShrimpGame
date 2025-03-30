@@ -8,8 +8,14 @@ public class TankContentBlock : ContentBlock
     private Shrimp _shrimp;
     [SerializeField]
     private GameObject shrimpView;
+    [SerializeField] private Image primaryColour, secondaryColour;
 
-    public void SetShrimp(Shrimp shrimp) {  _shrimp = shrimp; }
+    public void SetShrimp(Shrimp shrimp)
+    {
+        _shrimp = shrimp;
+        primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.primaryColour.activeGene.ID).color;
+        secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.stats.secondaryColour.activeGene.ID).color;
+    }
 
     public void Pressed()
     {
