@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Body : PartScript
 {
-    [SerializeField] private Transform headNode, legsNode, tailNode;
+    public Transform headNode, legsNode, tailNode;
     [SerializeField] private bool debug = false;
 
     private void Start()

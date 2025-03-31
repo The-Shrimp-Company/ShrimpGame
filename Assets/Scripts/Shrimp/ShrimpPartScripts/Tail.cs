@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tail : PartScript
 {
-    [SerializeField] private Transform tFanNode;
+    public Transform tFanNode;
     public void Construct(ShrimpStats s)
     {
         this.s = s;

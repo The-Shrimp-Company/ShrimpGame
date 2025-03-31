@@ -212,6 +212,7 @@ MonoBehaviour:
   possibleIllness:
   - {fileID: 11400000, guid: 65e2d13e233727c4ca34ff3ed1ce44bd, type: 2}
   - {fileID: 11400000, guid: 6714507321af348498daaa5c382af6de, type: 2}
+  - {fileID: 11400000, guid: 6eee775461c6f224fbd53a3caf4c35ff, type: 2}
   currentIllness: []
   currentSymptoms: []
   illnessCheckTime: 5

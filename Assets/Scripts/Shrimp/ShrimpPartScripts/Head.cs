@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Head : PartScript
 {
-    [SerializeField] private Transform eyesNode;
+    public Transform eyesNode;
 
     public void Construct(ShrimpStats s)
     {
