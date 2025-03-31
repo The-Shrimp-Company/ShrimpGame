@@ -9,6 +9,9 @@ public class IllnessController : MonoBehaviour
     public List<IllnessSO> currentIllness = new List<IllnessSO>();
     public List<Symptom> currentSymptoms = new List<Symptom>();
     private Shrimp shrimp;
+    [SerializeField] float illnessCheckTime = 5f;
+    private float illnessCheckTimer;
+    [SerializeField] float severityBoostIfSymptomIsAlreadyPresent = 20;
 
     private void Start()
     {
@@ -17,16 +20,24 @@ public class IllnessController : MonoBehaviour
 
     public void UpdateIllness(float elapsedTime)
     {
-        foreach(IllnessSO i in possibleIllness)
+        illnessCheckTimer += Time.deltaTime;
+        if (illnessCheckTimer > illnessCheckTime)
         {
-            if (currentIllness.Contains(i))
+            foreach (IllnessSO i in possibleIllness)
             {
+                if (!currentIllness.Contains(i))
+                {
+                    CheckForIllness(i, elapsedTime);
+                }
+            }
 
-            }
-            else
-            {
-                CheckForIllness(i, elapsedTime);
-            }
+            illnessCheckTimer = 0;
+        }
+
+
+        foreach(Symptom s in currentSymptoms)
+        {
+            s.UpdateSymptom(elapsedTime);
         }
     }
 
@@ -107,13 +118,26 @@ public class IllnessController : MonoBehaviour
 
                 default:
                 {
-                    symptom = new Symptom();
+                    symptom = null;
                     break;
                 }
             }
 
+            foreach (Symptom x in currentSymptoms)
+            {
+                if (x.GetType() == symptom.GetType())
+                {
+                    symptom = null;
+                    x.severity += severityBoostIfSymptomIsAlreadyPresent;
+                }
+            }
+
             if (symptom != null && symptom.GetType() != typeof(Symptom))
+            {
                 currentSymptoms.Add(symptom);
+                symptom.shrimp = shrimp;
+                symptom.StartSymptom();
+            }
         }
 
         currentIllness.Add(i);

@@ -104,7 +104,8 @@ public class Shrimp : MonoBehaviour
         }
 
 
-        illnessCont.UpdateIllness(elapsedTime);
+        if (illnessCont != null)
+            illnessCont.UpdateIllness(elapsedTime);
 
         stats.hunger -= (hungerLossSpeed * elapsedTime);
     }

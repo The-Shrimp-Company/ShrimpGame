@@ -144,6 +144,8 @@ MonoBehaviour:
   currentValue: 0
   particleParent: {fileID: 7243179094386093995}
   shrimpNameChanged: 0
+  symptomBubbleParticles: {fileID: 6891814893824954130, guid: 9ae2c460b956ae14c9888880a58fadd2,
+    type: 3}
   breedingHeartParticles: {fileID: 6702105809018823241, guid: 6631f23106340f44d827d4b785375ec7,
     type: 3}
 --- !u!114 &797484481638392343
@@ -206,9 +208,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc90d561212d1844ba94a22a525b031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleIllness: []
+  possibleIllness:
+  - {fileID: 11400000, guid: 65e2d13e233727c4ca34ff3ed1ce44bd, type: 2}
   currentIllness: []
   currentSymptoms: []
+  severityBoostIfSymptomIsAlreadyPresent: 20
 --- !u!1 &889787746608865538
 GameObject:
   m_ObjectHideFlags: 0

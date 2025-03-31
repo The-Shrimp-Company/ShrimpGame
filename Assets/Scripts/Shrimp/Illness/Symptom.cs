@@ -8,20 +8,19 @@ public class Symptom
 {
     public string symptomName;
     public Shrimp shrimp;
-    public IllnessSO so;
     public float severity;
-    public float timeTillSymptomShows;
-    public bool symptomShowing;
+
+    private float severityOverTime = 0.25f;
 
     public virtual void StartSymptom()
     {
-
+        severity = 0;
     }
 
 
-    public virtual void UpdateSymptom()
+    public virtual void UpdateSymptom(float elapsedTime)
     {
-
+        severity = Mathf.Clamp(severity + (severityOverTime * elapsedTime), 0, 100);
     }
 
 

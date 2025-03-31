@@ -1103,6 +1103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc90d561212d1844ba94a22a525b031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  possibleIllness: []
+  possibleIllness:
+  - {fileID: 11400000, guid: 65e2d13e233727c4ca34ff3ed1ce44bd, type: 2}
   currentIllness: []
   currentSymptoms: []
+  severityBoostIfSymptomIsAlreadyPresent: 20
