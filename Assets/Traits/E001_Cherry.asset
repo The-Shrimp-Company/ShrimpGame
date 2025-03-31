@@ -15,8 +15,22 @@ MonoBehaviour:
   ID: E001
   traitName: Cherry Eyes
   set: 1
-  weightDominanceTowards: 0
-  statModifiers: []
+  weightDominanceTowards: 55
+  statModifiers:
+  - type: 0
+    effect: 5
+  - type: 1
+    effect: 5
+  - type: 2
+    effect: -5
+  - type: 3
+    effect: -5
+  - type: 4
+    effect: 5
+  - type: 5
+    effect: -5
+  - type: 6
+    effect: 5
   type: 4
   color: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: 0}

@@ -15,8 +15,22 @@ MonoBehaviour:
   ID: T003
   traitName: Anomalis Tail
   set: 2
-  weightDominanceTowards: 0
-  statModifiers: []
+  weightDominanceTowards: 45
+  statModifiers:
+  - type: 0
+    effect: 25
+  - type: 1
+    effect: -5
+  - type: 2
+    effect: -20
+  - type: 3
+    effect: 25
+  - type: 4
+    effect: 15
+  - type: 5
+    effect: -10
+  - type: 6
+    effect: 15
   type: 5
   color: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: 0}

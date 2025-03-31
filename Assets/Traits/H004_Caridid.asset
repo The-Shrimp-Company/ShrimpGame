@@ -15,8 +15,22 @@ MonoBehaviour:
   ID: H004
   traitName: Caridid Head
   set: 3
-  weightDominanceTowards: 0
-  statModifiers: []
+  weightDominanceTowards: 30
+  statModifiers:
+  - type: 0
+    effect: 20
+  - type: 1
+    effect: 15
+  - type: 2
+    effect: 40
+  - type: 3
+    effect: 50
+  - type: 4
+    effect: -5
+  - type: 5
+    effect: 40
+  - type: 6
+    effect: -20
   type: 3
   color: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: 0}
