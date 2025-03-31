@@ -15,8 +15,22 @@ MonoBehaviour:
   ID: H001
   traitName: Cherry Head
   set: 1
-  weightDominanceTowards: 0
-  statModifiers: []
+  weightDominanceTowards: 60
+  statModifiers:
+  - type: 0
+    effect: -30
+  - type: 1
+    effect: -10
+  - type: 2
+    effect: -20
+  - type: 3
+    effect: -35
+  - type: 4
+    effect: -20
+  - type: 5
+    effect: -5
+  - type: 6
+    effect: 10
   type: 3
   color: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: 0}

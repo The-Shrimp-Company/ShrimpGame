@@ -15,8 +15,22 @@ MonoBehaviour:
   ID: L003
   traitName: Anomalis Legs
   set: 2
-  weightDominanceTowards: 0
-  statModifiers: []
+  weightDominanceTowards: 30
+  statModifiers:
+  - type: 0
+    effect: -30
+  - type: 1
+    effect: 10
+  - type: 2
+    effect: -20
+  - type: 3
+    effect: 20
+  - type: 4
+    effect: 15
+  - type: 5
+    effect: -20
+  - type: 6
+    effect: 20
   type: 8
   color: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: 0}

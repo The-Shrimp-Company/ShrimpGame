@@ -15,8 +15,22 @@ MonoBehaviour:
   ID: H003
   traitName: Anomalis Head
   set: 2
-  weightDominanceTowards: 0
-  statModifiers: []
+  weightDominanceTowards: 40
+  statModifiers:
+  - type: 0
+    effect: 30
+  - type: 1
+    effect: 20
+  - type: 2
+    effect: -40
+  - type: 3
+    effect: 20
+  - type: 4
+    effect: 25
+  - type: 5
+    effect: -10
+  - type: 6
+    effect: 20
   type: 3
   color: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: 0}
