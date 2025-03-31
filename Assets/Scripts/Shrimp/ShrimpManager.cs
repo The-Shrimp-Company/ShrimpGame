@@ -58,7 +58,7 @@ public class ShrimpManager : MonoBehaviour
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 100;
-        s.illness = 0;
+        s.illnessLevel = 0;
         s.geneticSize = geneManager.IntGene(geneManager.sizeInheritance, maxGeneticShrimpSize, parentA.geneticSize, parentB.geneticSize, geneManager.sizeCanMutate);
         s.temperament = geneManager.IntGene(geneManager.temperamentInheritance, maxShrimpTemperament, parentA.temperament, parentB.temperament, geneManager.temperamentCanMutate);
 
@@ -99,7 +99,7 @@ public class ShrimpManager : MonoBehaviour
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
         s.hunger = 100;
-        s.illness = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+        s.illnessLevel = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
 
         Trait t = new Trait();
         t.activeGene.ID = "C";
@@ -152,7 +152,7 @@ public class ShrimpManager : MonoBehaviour
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
         s.hunger = 100;
-        s.illness = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+        s.illnessLevel = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
 
         Trait t = new Trait();
         t.activeGene.ID = "C";
@@ -204,7 +204,7 @@ public class ShrimpManager : MonoBehaviour
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.GetTotalTime();
         s.hunger = 100;
-        s.illness = 0;
+        s.illnessLevel = 0;
         s.temperament = 0;
 
         s.primaryColour = geneManager.GlobalGeneToTrait(geneManager.GetGlobalGene(geneManager.colourSOs[0].ID));

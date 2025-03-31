@@ -1,3 +1,4 @@
+using SaveLoadSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -103,18 +104,24 @@ public class IllnessController : MonoBehaviour
                 case IllnessSymptoms.BodySize:
                 {
                     symptom = new SymptomBodySize();
+                    if (SaveManager.loadingGameFromFile) 
+                            symptom.severity = shrimp.stats.symptoms[0];
                     break;
                 }
 
                 case IllnessSymptoms.Discolouration:
                 {
                     symptom = new SymptomDiscolouration();
+                    if (SaveManager.loadingGameFromFile)
+                        symptom.severity = shrimp.stats.symptoms[1];
                     break;
                 }
 
                 case IllnessSymptoms.Bubbles:
                 {
                     symptom = new SymptomBubbles();
+                    if (SaveManager.loadingGameFromFile)
+                        symptom.severity = shrimp.stats.symptoms[2];
                     break;
                 }
 
@@ -144,6 +151,7 @@ public class IllnessController : MonoBehaviour
 
         currentIllness.Add(i);
         AddIllnessToTank(shrimp.tank, i);
+        PlayerStats.stats.illnessesGained++;
 
         if (gainIllnessParticles != null)
         {
@@ -241,6 +249,8 @@ public class IllnessController : MonoBehaviour
             }
         }
 
+        PlayerStats.stats.illnessesCured++;
+
 
         currentIllness.Remove(illness);
         RemoveIllnessFromTank(shrimp.tank, illness);
@@ -250,5 +260,20 @@ public class IllnessController : MonoBehaviour
         {
             GameObject.Instantiate(curingParticles, shrimp.transform.position, shrimp.transform.rotation, shrimp.particleParent); ;
         }
+    }
+
+
+    public void SaveIllnesses()
+    {
+        shrimp.stats.illness.Clear();
+        for(int i = 0; i < possibleIllness.Length; i++)
+        {
+            if (currentIllness.Contains(possibleIllness[i]))
+                shrimp.stats.illness.Add(i);
+        }
+
+        shrimp.stats.symptoms[0] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomBodySize)).severity;
+        shrimp.stats.symptoms[1] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomDiscolouration)).severity;
+        shrimp.stats.symptoms[2] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomBubbles)).severity;
     }
 }

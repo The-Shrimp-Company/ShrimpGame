@@ -18,7 +18,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.050874405
+      value: 0.02
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -27,15 +27,15 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1.0047694
-      inSlope: 3.0729074
-      outSlope: 3.0729074
+      value: 0.5
+      inSlope: 1.562476
+      outSlope: 1.562476
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.028455257
+      inWeight: 0.055894315
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   symptoms: 00000000
-  illnessImpact: 10
+  illnessImpact: 20

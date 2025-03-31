@@ -10,7 +10,7 @@ public struct ShrimpStats
     public bool gender;  // True = male, False = female
     public float birthTime;  // The time at the point of the shrimp's birth
     public float hunger;  // Value from 0-100
-    public int illness;  // Value from 0-100
+    public int illnessLevel;  // Value from 0-100
     public int temperament;  // Value from 0-100
           
     public int geneticSize;
@@ -32,4 +32,7 @@ public struct ShrimpStats
     public int illnessHistory;
     public int moltHistory;
     public bool canBreed;
+
+    public List<int> illness;
+    public float[] symptoms;
 }

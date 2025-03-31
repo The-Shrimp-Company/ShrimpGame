@@ -120,7 +120,7 @@ public class EconomyManager : MonoBehaviour
 
         if (GeneManager.instance.CheckForPureColourShrimp(s)) t *= pureColourShrimpMultiplier;  // Pure Colour Shrimp
 
-        t *= healthMultiplier.Evaluate(s.illness / ShrimpManager.instance.maxShrimpIllness);  // Shrimp Health
+        t *= healthMultiplier.Evaluate(s.illnessLevel / ShrimpManager.instance.maxShrimpIllness);  // Shrimp Health
 
 
         t = RoundMoney(t);  // Round to 2 decimal places

@@ -34,6 +34,9 @@ public struct Stats
     public int tanksNamed;
     public int shrimpNamed;
 
+    public int illnessesGained;
+    public int illnessesCured;
+
     public int shrimpDeaths;
     public int shrimpDeathsThroughAge;
     public int shrimpDeathsThroughOverpopulation;
