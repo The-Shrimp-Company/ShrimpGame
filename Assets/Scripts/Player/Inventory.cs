@@ -6,10 +6,11 @@ using UnityEngine;
 public static class Items
 {
     /// <summary>
-    /// 0 = Small Tank, 1 = Shelf, 2 = Food
+    /// 0 = Small Tank, 1 = Shelf, 2 = Algae Wafer, 3 = Food Pellet
     /// </summary>
-    public static Item[] items = { new Item("Small Tank", 50), new Item("Shelf", 100), new Item("Food", 10) };
+    public static Item[] items = { new Item("Small Tank", 50), new Item("Shelf", 100), new Item("AlgaeWafer", 10), new Item("FoodPellet", 5) };
 }
+
 
 public struct Item
 {

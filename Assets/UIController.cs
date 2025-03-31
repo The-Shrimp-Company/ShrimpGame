@@ -31,6 +31,7 @@ public class UIController : MonoBehaviour
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
 
+
         newGameButton = root.Q<Button>("MainMenuButton");
         newGameButton.clicked += NewGame;
 

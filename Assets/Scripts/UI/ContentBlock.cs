@@ -34,4 +34,9 @@ public class ContentBlock : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(func);
     }
+
+    public void ClearFunctions()
+    {
+        GetComponent<Button>().onClick.RemoveAllListeners();
+    }
 }

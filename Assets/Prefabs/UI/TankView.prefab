@@ -1204,6 +1204,8 @@ MonoBehaviour:
   Name: {fileID: 9199025524054111098}
   salePrice: {fileID: 1085811027539269699}
   foodAmount: {fileID: 7501566334477341990}
+  inventoryScreen: {fileID: 5382316823195656821, guid: c29da088fc2fef14f876125e5190d3b3,
+    type: 3}
 --- !u!114 &6387445573526290414
 MonoBehaviour:
   m_ObjectHideFlags: 0

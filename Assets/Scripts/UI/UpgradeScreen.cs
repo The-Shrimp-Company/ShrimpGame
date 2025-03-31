@@ -7,6 +7,7 @@ public class UpgradeScreen : ScreenView
     protected override void Start()
     {
         shelves = transform.parent.GetComponentInChildren<TabletInteraction>().GetShelves();
+        base.Start();
     }
 
     public void BuyTanks()
@@ -25,11 +26,19 @@ public class UpgradeScreen : ScreenView
         }
     }
 
-    public void BuyFood()
+    public void BuyAlgaeWafer()
     {
         if (Money.instance.WithdrawMoney(10))
         {
             Inventory.instance.AddItem(Items.items[2], 10);
+        }
+    }
+
+    public void BuyFoodPellet()
+    {
+        if (Money.instance.WithdrawMoney(5))
+        {
+            Inventory.instance.AddItem(Items.items[3], 10);
         }
     }
 }

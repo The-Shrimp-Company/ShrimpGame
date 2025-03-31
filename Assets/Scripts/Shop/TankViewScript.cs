@@ -29,6 +29,7 @@ public class TankViewScript : ScreenView
     [SerializeField]
     private TMP_InputField salePrice;
     [SerializeField] private TextMeshProUGUI foodAmount;
+    [SerializeField] private GameObject inventoryScreen;
 
     protected override void Start()
     {
@@ -141,10 +142,7 @@ public class TankViewScript : ScreenView
 
     public void AddFood()
     {
-        if (Inventory.instance.GetInventory()[Items.items[2]] > 0)
-        {
-            tank.FoodStore += 1;
-            Inventory.instance.GetInventory()[Items.items[2]] -= 1;
-        }
+        GameObject screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas());
+        screen.GetComponentInChildren<InventoryContent>().FoodAssignement(this, tank, screen);
     }
 }
