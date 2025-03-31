@@ -4,14 +4,30 @@ using UnityEngine;
 
 public class SymptomDiscolouration : Symptom
 {
-    void Start()
+    public override void StartSymptom()
     {
-        
+        symptomName = "Discolouration";
+
+        if (shrimp.shrimpBody != null)
+        {
+            shrimp.shrimpBody.ChangeColours(ColourTypes.discoloured);
+        }
+
+        base.StartSymptom();
     }
 
-
-    void Update()
+    public override void UpdateSymptom(float elapsedTime)
     {
-        
+        base.UpdateSymptom(elapsedTime);
+    }
+
+    public override void EndSymptom()
+    {
+        if (shrimp.shrimpBody != null)
+        {
+            shrimp.shrimpBody.ChangeColours(ColourTypes.main);
+        }
+
+        base.EndSymptom();
     }
 }

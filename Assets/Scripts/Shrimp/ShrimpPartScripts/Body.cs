@@ -32,4 +32,13 @@ public class Body : PartScript
 
         SetMaterials(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).set);
     }
+
+    public void ChangeColours(ColourTypes colour)
+    {
+        headNode.GetChild(0).GetComponent<Head>().ChangeColours(colour);
+        legsNode.GetChild(0).GetComponent<Legs>().ChangeColours(colour);
+        tailNode.GetChild(0).GetComponent<Tail>().ChangeColours(colour);
+
+        SetColour(colour);
+    }
 }

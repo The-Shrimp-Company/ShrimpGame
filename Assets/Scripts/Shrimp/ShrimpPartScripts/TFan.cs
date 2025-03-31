@@ -9,4 +9,9 @@ public class TFan : PartScript
         this.s = s;
         SetMaterials(GeneManager.instance.GetTraitSO(s.tailFan.activeGene.ID).set);
     }
+
+    public void ChangeColours(ColourTypes colour)
+    {
+        SetColour(colour);
+    }
 }

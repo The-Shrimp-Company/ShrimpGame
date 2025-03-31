@@ -79,6 +79,15 @@ public enum ModifierEffects
 }
 
 
+// How a shrimp should be coloured
+public enum ColourTypes
+{
+    main,
+    dead,
+    discoloured
+}
+
+
 [System.Serializable]
 public struct Modifier
 {

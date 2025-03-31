@@ -140,6 +140,7 @@ MonoBehaviour:
   tank: {fileID: 0}
   agent: {fileID: 797484481638392343}
   camDock: {fileID: 3154724589825782822, guid: 9c37763690d5b354cb993c972810dd39, type: 3}
+  shrimpBody: {fileID: 0}
   loadedShrimp: 0
   currentValue: 0
   particleParent: {fileID: 7243179094386093995}
@@ -210,8 +211,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleIllness:
   - {fileID: 11400000, guid: 65e2d13e233727c4ca34ff3ed1ce44bd, type: 2}
+  - {fileID: 11400000, guid: 6714507321af348498daaa5c382af6de, type: 2}
   currentIllness: []
   currentSymptoms: []
+  illnessCheckTime: 5
   severityBoostIfSymptomIsAlreadyPresent: 20
 --- !u!1 &889787746608865538
 GameObject:
