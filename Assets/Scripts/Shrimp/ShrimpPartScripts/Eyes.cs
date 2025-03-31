@@ -9,4 +9,9 @@ public class Eyes : PartScript
         this.s = s;
         SetMaterials(GeneManager.instance.GetTraitSO(s.eyes.activeGene.ID).set);
     }
+
+    public void ChangeColours(ColourTypes colour)
+    {
+        SetColour(colour);
+    }
 }

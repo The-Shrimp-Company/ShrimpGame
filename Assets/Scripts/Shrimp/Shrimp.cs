@@ -15,6 +15,7 @@ public class Shrimp : MonoBehaviour
     private float moltSpeed;
     private float hungerLossSpeed = 1;
     private bool focussingShrimp;
+    [HideInInspector] public Body shrimpBody;
     [HideInInspector] public bool loadedShrimp;  // Whether the shrimp has been loaded from a save file
 
     public float currentValue;
@@ -55,8 +56,8 @@ public class Shrimp : MonoBehaviour
     public void ConstructShrimp()
     {
         GameObject newShrimp = Instantiate<GameObject>(GeneManager.instance.GetTraitSO(stats.body.activeGene.ID).part, agent.shrimpModel);
-        newShrimp.GetComponent<Body>().Construct(stats);
-        //GetComponent<ShrimpAgent>().shrimpModel = newShrimp.transform;
+        shrimpBody = newShrimp.GetComponent<Body>();
+        shrimpBody.Construct(stats);
     }
 
     public void UpdateShrimp(float elapsedTime)
@@ -104,7 +105,8 @@ public class Shrimp : MonoBehaviour
         }
 
 
-        illnessCont.UpdateIllness(elapsedTime);
+        if (illnessCont != null)
+            illnessCont.UpdateIllness(elapsedTime);
 
         stats.hunger -= (hungerLossSpeed * elapsedTime);
     }

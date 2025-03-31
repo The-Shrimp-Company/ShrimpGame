@@ -33,14 +33,60 @@ public class PartScript : MonoBehaviour
             if (obj.GetComponent<MeshRenderer>() != null)
             {
                 obj.GetComponent<MeshRenderer>().SetMaterials(mat);
-                obj.GetComponent<MeshRenderer>().material.SetColor("_Pattern_Colour", GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).colour);
-                obj.GetComponent<MeshRenderer>().material.SetColor("_Base_Colour", GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).colour);
             }
             else if (obj.GetComponent<SkinnedMeshRenderer>() != null)
             {
                 obj.GetComponent<SkinnedMeshRenderer>().SetMaterials(mat);
-                obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Pattern_Colour", GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).colour);
-                obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Base_Colour", GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).colour);
+            }
+
+        }
+
+        SetColour();
+    }
+
+    protected void SetColour(ColourTypes type = ColourTypes.main)
+    {
+        Color primary = Color.white;
+        Color secondary = Color.white;
+        switch (type)
+        {
+            case ColourTypes.main:
+            {
+                primary = GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).colour;
+                secondary = GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).colour;
+                break;
+            }
+            case ColourTypes.dead:
+            {
+                primary = GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).deadColour;
+                secondary = GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).deadColour;
+                break;
+            }
+            case ColourTypes.discoloured:
+            {
+                primary = GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).discolourationColour;
+                secondary = GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).discolourationColour;
+                break;
+            }
+            default:
+            {
+                primary = GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).colour;
+                secondary = GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).colour;
+                break;
+            }
+        }
+
+        foreach (GameObject obj in objs)
+        {
+            if (obj.GetComponent<MeshRenderer>() != null)
+            {
+                obj.GetComponent<MeshRenderer>().material.SetColor("_Pattern_Colour", secondary);
+                obj.GetComponent<MeshRenderer>().material.SetColor("_Base_Colour", primary);
+            }
+            else if (obj.GetComponent<SkinnedMeshRenderer>() != null)
+            {
+                obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Pattern_Colour", secondary);
+                obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Base_Colour", primary);
             }
         }
     }

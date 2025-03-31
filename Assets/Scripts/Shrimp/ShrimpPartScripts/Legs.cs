@@ -9,4 +9,9 @@ public class Legs : PartScript
         this.s = s;
         SetMaterials(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).set);
     }
+
+    public void ChangeColours(ColourTypes colour)
+    {
+        SetColour(colour);
+    }
 }

@@ -10,6 +10,8 @@ public class SymptomBubbles : Symptom
 
     public override void StartSymptom()
     {
+        symptomName = "Bubbles";
+
         if (shrimp.symptomBubbleParticles != null)
         {
             particleGO = GameObject.Instantiate(shrimp.symptomBubbleParticles, shrimp.transform.position, shrimp.transform.rotation, shrimp.particleParent);
@@ -21,11 +23,11 @@ public class SymptomBubbles : Symptom
         base.StartSymptom();
     }
 
-    public override void UpdateSymptom()
+    public override void UpdateSymptom(float elapsedTime)
     {
-        emissionModule.rateOverTime = 0.75f + (severity / 400);
+        emissionModule.rateOverTime = 1.0f + (severity / 200);
 
-        base.UpdateSymptom();
+        base.UpdateSymptom(elapsedTime);
     }
 
     public override void EndSymptom()

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Body : PartScript
 {
-    [SerializeField] private Transform headNode, legsNode, tailNode;
+    public Transform headNode, legsNode, tailNode;
     [SerializeField] private bool debug = false;
 
     private void Start()
@@ -31,5 +31,14 @@ public class Body : PartScript
         Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s);
 
         SetMaterials(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).set);
+    }
+
+    public void ChangeColours(ColourTypes colour)
+    {
+        headNode.GetChild(0).GetComponent<Head>().ChangeColours(colour);
+        legsNode.GetChild(0).GetComponent<Legs>().ChangeColours(colour);
+        tailNode.GetChild(0).GetComponent<Tail>().ChangeColours(colour);
+
+        SetColour(colour);
     }
 }
