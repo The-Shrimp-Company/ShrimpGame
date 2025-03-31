@@ -26,6 +26,7 @@ public class TankController : MonoBehaviour
     public Transform foodParent;
 
     [Header("Water")]
+    public Transform waterLevel;
     [HideInInspector] public float waterQuality = 100;
     [HideInInspector] public float waterTemperature = 50;
 

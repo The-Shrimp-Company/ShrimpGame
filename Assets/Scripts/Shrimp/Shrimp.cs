@@ -13,6 +13,7 @@ public class Shrimp : MonoBehaviour
     public Transform camDock;
     private float moltTimer;
     private float moltSpeed;
+    private float hungerLossSpeed = 1;
     private bool focussingShrimp;
     [HideInInspector] public bool loadedShrimp;  // Whether the shrimp has been loaded from a save file
 
@@ -24,6 +25,7 @@ public class Shrimp : MonoBehaviour
 
     [Header("Illness")]
     IllnessController illnessCont;
+    public GameObject symptomBubbleParticles;
 
     [Header("Breeding")]
     public GameObject breedingHeartParticles;
@@ -103,6 +105,8 @@ public class Shrimp : MonoBehaviour
 
 
         illnessCont.UpdateIllness(elapsedTime);
+
+        stats.hunger -= (hungerLossSpeed * elapsedTime);
     }
 
 

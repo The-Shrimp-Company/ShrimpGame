@@ -31,8 +31,8 @@ public class ShrimpSelectionBlock : ContentBlock
         tail.text = "Tail: " + GeneManager.instance.GetTraitSO(_shrimp.tail.activeGene.ID).set;
         head.text = "Head: " + GeneManager.instance.GetTraitSO(_shrimp.head.activeGene.ID).set;
         tailFan.text = "Tail Fan: " + GeneManager.instance.GetTraitSO(_shrimp.tailFan.activeGene.ID).set;
-        primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.primaryColour.activeGene.ID).color;
-        secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.secondaryColour.activeGene.ID).color;
+        primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.primaryColour.activeGene.ID).colour;
+        secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.secondaryColour.activeGene.ID).colour;
         string thistext = "£" + EconomyManager.instance.GetShrimpValue(shrimp).ToSafeString();
         string regEx = @"^.*\.\d$";
         Regex regex = new Regex(regEx);

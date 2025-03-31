@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 9063577623321785071}
   - component: {fileID: 9038667343410755530}
   - component: {fileID: 8195216082726503351}
+  - component: {fileID: 737595761588698346}
   m_Layer: 7
   m_Name: Shrimp
   m_TagString: Untagged
@@ -245,7 +246,12 @@ MonoBehaviour:
   tank: {fileID: 0}
   agent: {fileID: 9038667343410755530}
   camDock: {fileID: 3154724589825782822}
+  loadedShrimp: 0
+  currentValue: 0
   particleParent: {fileID: 0}
+  shrimpNameChanged: 0
+  symptomBubbleParticles: {fileID: 6891814893824954130, guid: 9ae2c460b956ae14c9888880a58fadd2,
+    type: 3}
   breedingHeartParticles: {fileID: 6702105809018823241, guid: 6631f23106340f44d827d4b785375ec7,
     type: 3}
 --- !u!114 &9038667343410755530
@@ -1085,3 +1091,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &737595761588698346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402780776056034104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc90d561212d1844ba94a22a525b031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleIllness: []
+  currentIllness: []
+  currentSymptoms: []

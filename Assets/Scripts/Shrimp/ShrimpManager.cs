@@ -57,7 +57,7 @@ public class ShrimpManager : MonoBehaviour
         s.name = GenerateShrimpName();
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.GetTotalTime();
-        s.hunger = 0;
+        s.hunger = 100;
         s.illness = 0;
         s.geneticSize = geneManager.IntGene(geneManager.sizeInheritance, maxGeneticShrimpSize, parentA.geneticSize, parentB.geneticSize, geneManager.sizeCanMutate);
         s.temperament = geneManager.IntGene(geneManager.temperamentInheritance, maxShrimpTemperament, parentA.temperament, parentB.temperament, geneManager.temperamentCanMutate);
@@ -98,7 +98,7 @@ public class ShrimpManager : MonoBehaviour
         
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
-        s.hunger = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+        s.hunger = 100;
         s.illness = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
 
         Trait t = new Trait();
@@ -151,7 +151,7 @@ public class ShrimpManager : MonoBehaviour
         s.birthTime = TimeManager.instance.CalculateBirthTimeFromAge(geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt((maxShrimpAge - 1) * 0.9f), 0, 0, false) + Random.value);
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
-        s.hunger = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+        s.hunger = 100;
         s.illness = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
 
         Trait t = new Trait();
@@ -203,7 +203,7 @@ public class ShrimpManager : MonoBehaviour
         s.name = GenerateShrimpName();
         s.gender = geneManager.RandomGender();
         s.birthTime = TimeManager.instance.GetTotalTime();
-        s.hunger = 0;
+        s.hunger = 100;
         s.illness = 0;
         s.temperament = 0;
 

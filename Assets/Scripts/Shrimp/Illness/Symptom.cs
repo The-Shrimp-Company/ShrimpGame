@@ -6,23 +6,26 @@ using UnityEngine;
 [System.Serializable]
 public class Symptom
 {
+    public string symptomName;
+    public Shrimp shrimp;
     public IllnessSO so;
+    public float severity;
     public float timeTillSymptomShows;
     public bool symptomShowing;
 
-    protected virtual void StartActivity()
+    public virtual void StartSymptom()
     {
 
     }
 
 
-    protected virtual void UpdateActivity()
+    public virtual void UpdateSymptom()
     {
 
     }
 
 
-    public virtual void EndActivity()
+    public virtual void EndSymptom()
     {
 
     }

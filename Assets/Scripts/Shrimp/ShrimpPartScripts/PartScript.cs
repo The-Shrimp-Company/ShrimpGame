@@ -33,14 +33,14 @@ public class PartScript : MonoBehaviour
             if (obj.GetComponent<MeshRenderer>() != null)
             {
                 obj.GetComponent<MeshRenderer>().SetMaterials(mat);
-                obj.GetComponent<MeshRenderer>().material.SetColor("_Pattern_Colour", GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).color);
-                obj.GetComponent<MeshRenderer>().material.SetColor("_Base_Colour", GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).color);
+                obj.GetComponent<MeshRenderer>().material.SetColor("_Pattern_Colour", GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).colour);
+                obj.GetComponent<MeshRenderer>().material.SetColor("_Base_Colour", GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).colour);
             }
             else if (obj.GetComponent<SkinnedMeshRenderer>() != null)
             {
                 obj.GetComponent<SkinnedMeshRenderer>().SetMaterials(mat);
-                obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Pattern_Colour", GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).color);
-                obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Base_Colour", GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).color);
+                obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Pattern_Colour", GeneManager.instance.GetTraitSO(s.secondaryColour.activeGene.ID).colour);
+                obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Base_Colour", GeneManager.instance.GetTraitSO(s.primaryColour.activeGene.ID).colour);
             }
         }
     }

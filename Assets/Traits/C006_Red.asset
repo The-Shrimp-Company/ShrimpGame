@@ -18,6 +18,11 @@ MonoBehaviour:
   weightDominanceTowards: 0
   statModifiers: []
   type: 0
-  color: {r: 0.8196079, g: 0.0627451, b: 0.0627451, a: 1}
-  texture: {fileID: 0}
+  colour: {r: 0.81960785, g: 0.0627451, b: 0.0627451, a: 1}
+  deadColour: {r: 0.8679245, g: 0.3479886, b: 0.3479886, a: 0.5882353}
+  discolourationColour: {r: 0.8396226, g: 0.2653524, b: 0.2653524, a: 1}
+  cherryPattern: {fileID: 0}
+  anomalisPattern: {fileID: 0}
+  carididPattern: {fileID: 0}
+  nylonPattern: {fileID: 0}
   part: {fileID: 0}

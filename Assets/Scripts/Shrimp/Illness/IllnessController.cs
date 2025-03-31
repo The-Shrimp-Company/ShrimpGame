@@ -118,9 +118,7 @@ public class IllnessController : MonoBehaviour
 
         currentIllness.Add(i);
 
-        if (shrimp.tank.currentIllness.ContainsKey(i))
-            shrimp.tank.currentIllness[i]++;
-        else shrimp.tank.currentIllness.Add(i, 1);
+        AddIllnessToTank(shrimp.tank, i);
     }
 
 
@@ -128,11 +126,9 @@ public class IllnessController : MonoBehaviour
     {
         foreach (IllnessSO i in currentIllness)
         {
-            oldTank.currentIllness[i]--;
+            RemoveIllnessFromTank(oldTank, i);
 
-            if (newTank.currentIllness.ContainsKey(i))
-                newTank.currentIllness[i]++;
-            else newTank.currentIllness.Add(i, 1);
+            AddIllnessToTank(newTank, i);
         }
     }
 
@@ -141,8 +137,22 @@ public class IllnessController : MonoBehaviour
     {
         foreach(IllnessSO i in currentIllness)
         {
-            shrimp.tank.currentIllness[i]--;
+            RemoveIllnessFromTank(shrimp.tank, i);
         }
+    }
+
+
+    private void AddIllnessToTank(TankController t, IllnessSO i)
+    {
+        if (t.currentIllness.ContainsKey(i))
+            t.currentIllness[i]++;
+        else t.currentIllness.Add(i, 1);
+    }
+
+
+    private void RemoveIllnessFromTank(TankController t, IllnessSO i)
+    {
+        t.currentIllness[i]--;
     }
 
 

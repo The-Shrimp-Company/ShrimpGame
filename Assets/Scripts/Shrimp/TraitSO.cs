@@ -21,7 +21,9 @@ public class TraitSO : ScriptableObject
     public TraitType type;
 
     [Header("Colour Trait")]  // Only needs to be filled out if the trait is of type colour
-    public Color color = Color.white;
+    public Color colour = Color.white;
+    public Color deadColour = Color.white;
+    public Color discolourationColour = Color.white;
 
     [Header("Pattern Trait")]  // Only needs to be filled out if the trait is of type pattern
     public Material cherryPattern;
