@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 7498599236878135097}
   - component: {fileID: 3051379306196122637}
   - component: {fileID: 8852611992306019651}
+  - component: {fileID: 9193096350671185964}
   m_Layer: 5
   m_Name: ShrimpPreview
   m_TagString: Untagged
@@ -395,6 +396,8 @@ MonoBehaviour:
   price: {fileID: 3386994271358617504}
   primaryColour: {fileID: 7006993561192794563}
   secondaryColour: {fileID: 1850688169095785294}
+  screen: {fileID: 0}
+  email: {fileID: 0}
 --- !u!114 &8852611992306019651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,6 +442,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9193096350671185964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084139592545625232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3df904b076a83048b44a510915ec608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1132189114767990819
 GameObject:
   m_ObjectHideFlags: 0

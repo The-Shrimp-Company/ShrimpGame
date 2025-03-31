@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 1196312847283026835}
   - component: {fileID: 8570398534907092955}
   - component: {fileID: 121654660569993474}
+  - component: {fileID: 3937408710010296087}
   m_Layer: 5
   m_Name: BuyContentBlock
   m_TagString: Untagged
@@ -310,6 +311,26 @@ MonoBehaviour:
   text: {fileID: 5792091146291943645}
   shopPrefab: {fileID: 3093139862595895030, guid: bb7d3e495b080c341879abad3b672426,
     type: 3}
+  legs: 
+  eyes: 
+  head: 
+  body: 
+  tail: 
+  tFan: 
+  reputationRequirement: 0
+  _screen: {fileID: 0}
+--- !u!114 &3937408710010296087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4616540635907118841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3df904b076a83048b44a510915ec608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4870704923798914578
 GameObject:
   m_ObjectHideFlags: 0

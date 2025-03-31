@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 1671864084387045329}
   - component: {fileID: 8326362844074259128}
   - component: {fileID: 5060686471538040214}
+  - component: {fileID: 2988508388858729936}
   m_Layer: 5
   m_Name: InvetoryContentBlock
   m_TagString: Untagged
@@ -439,3 +440,15 @@ MonoBehaviour:
   backSprites: []
   text: {fileID: 5650498508233950968}
   quantity: {fileID: 8345631631174111963}
+--- !u!114 &2988508388858729936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4870704923798914578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3df904b076a83048b44a510915ec608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
