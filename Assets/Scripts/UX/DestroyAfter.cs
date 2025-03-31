@@ -6,7 +6,7 @@ public class DestroyAfter : MonoBehaviour
 {
     [SerializeField] float destroyTime;
 
-    void Awake()
+    void Start()
     {
         Destroy(gameObject, destroyTime);
     }
