@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 1671864084387045329}
   - component: {fileID: 3687842481852113320}
   - component: {fileID: 8229493620099615305}
+  - component: {fileID: 8800800684691552942}
   m_Layer: 5
   m_Name: SellContentBlock
   m_TagString: Untagged
@@ -326,6 +327,18 @@ MonoBehaviour:
   backSprites: []
   text: {fileID: 3881294762427055595}
   _salePrice: {fileID: 1073953717147184646}
+--- !u!114 &8800800684691552942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4870704923798914578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3df904b076a83048b44a510915ec608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8894877893168884364
 GameObject:
   m_ObjectHideFlags: 0

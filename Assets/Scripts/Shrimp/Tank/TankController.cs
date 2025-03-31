@@ -29,6 +29,7 @@ public class TankController : MonoBehaviour
     public Transform waterLevel;
     [HideInInspector] public float waterQuality = 100;
     [HideInInspector] public float waterTemperature = 50;
+    [HideInInspector] public float waterSalt = 50;
 
     //[Header("Upgrades")]
 

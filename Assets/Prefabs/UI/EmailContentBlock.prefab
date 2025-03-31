@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 3388233995610724686}
   - component: {fileID: 800253607088482103}
   - component: {fileID: 4998953396862410015}
+  - component: {fileID: 1112195902045809935}
   m_Layer: 5
   m_Name: EmailContentBlock
   m_TagString: Untagged
@@ -550,3 +551,15 @@ MonoBehaviour:
   subjectLine: {fileID: 1542876720286965567}
   fullEmail: {fileID: 7657981259110859896, guid: 4830b38360e6e744696c6bbcabc83973,
     type: 3}
+--- !u!114 &1112195902045809935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912327939675111565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3df904b076a83048b44a510915ec608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
