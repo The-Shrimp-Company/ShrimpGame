@@ -10,7 +10,7 @@ public class SymptomBodySize : Symptom
 
     public override void StartSymptom()
     {
-        symptomName = "Body Size";
+        symptom = IllnessSymptoms.BodySize;
 
         int rand = Random.Range(0, 2);
 

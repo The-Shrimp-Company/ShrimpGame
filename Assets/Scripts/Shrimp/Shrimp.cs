@@ -128,6 +128,9 @@ public class Shrimp : MonoBehaviour
 
     public void ChangeTank(TankController t)
     {
+        if (tank != null)
+            illnessCont.MoveShrimp(tank, t);
+
         tank = t;
         agent.tankGrid = tank.tankGrid;
 
@@ -143,6 +146,7 @@ public class Shrimp : MonoBehaviour
 
     public void KillShrimp()
     {
+        illnessCont.RemoveShrimp();
         tank.shrimpToRemove.Add(this);
 
         // Spawn dead body
@@ -155,6 +159,7 @@ public class Shrimp : MonoBehaviour
 
     public void SellThis()
     {
+        illnessCont.RemoveShrimp();
         CustomerManager.Instance.PurchaseShrimp(this, currentValue);
     }
 

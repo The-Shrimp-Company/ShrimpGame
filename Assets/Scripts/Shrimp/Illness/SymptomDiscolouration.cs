@@ -6,7 +6,7 @@ public class SymptomDiscolouration : Symptom
 {
     public override void StartSymptom()
     {
-        symptomName = "Discolouration";
+        symptom = IllnessSymptoms.Discolouration;
 
         if (shrimp.shrimpBody != null)
         {

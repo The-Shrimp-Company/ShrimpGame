@@ -12,6 +12,8 @@ public class IllnessController : MonoBehaviour
     [SerializeField] float illnessCheckTime = 5f;
     private float illnessCheckTimer;
     [SerializeField] float severityBoostIfSymptomIsAlreadyPresent = 20;
+    [SerializeField] GameObject curingParticles;
+    [SerializeField] GameObject gainIllnessParticles;
 
     private void Start()
     {
@@ -141,9 +143,14 @@ public class IllnessController : MonoBehaviour
         }
 
         currentIllness.Add(i);
-
         AddIllnessToTank(shrimp.tank, i);
+
+        if (gainIllnessParticles != null)
+        {
+            GameObject.Instantiate(gainIllnessParticles, shrimp.transform.position, shrimp.transform.rotation, shrimp.particleParent); ;
+        }
     }
+
 
 
     public void MoveShrimp(TankController oldTank, TankController newTank)
@@ -180,8 +187,68 @@ public class IllnessController : MonoBehaviour
     }
 
 
-    public void UseMedicine()
+    public void UseMedicine(Medicine m)
     {
+        foreach (Symptom s in currentSymptoms)
+        {
+            foreach (IllnessSymptoms i in m.symptoms)
+            {
+                if (s.symptom == i)
+                {
+                    s.severity -= m.strength;
+                }
+            }
+        }
 
+        for (int x = currentIllness.Count - 1; x >= 0; x--)  // For every illness the shrimp has
+        {
+            List<Symptom> illnessSymptoms = new List<Symptom>();
+
+            foreach (IllnessSymptoms y in currentIllness[x].symptoms)  // Check each symptom of the illness and whether it has been cured
+            {
+                Symptom symptom = currentSymptoms.Find(i => i.symptom == y);
+
+                if (symptom != null && symptom.severity < 0)
+                {
+                    illnessSymptoms.Add(symptom);
+                }
+            }
+
+
+            if (illnessSymptoms.Count == currentIllness[x].symptoms.Count)  // If all symptoms of the illness have been cured
+            {
+                CureIllness(currentIllness[x], illnessSymptoms);
+            }
+        }
+    }
+
+
+    private void CureIllness(IllnessSO illness, List<Symptom> illnessSymptoms)
+    {
+        for (int i = illnessSymptoms.Count - 1; i >= 0; i--)  // For each symptom in the illness
+        {
+            bool usedByAnotherIllness = false;
+            foreach (IllnessSO v in currentIllness)  // If the symptom is not being used by another illness
+            {
+                if (v != illness && v.symptoms.Contains(illnessSymptoms[i].symptom))
+                    usedByAnotherIllness = true;
+            }
+
+            if (!usedByAnotherIllness)  // Remove the symptom
+            {
+                illnessSymptoms[i].EndSymptom();
+                currentSymptoms.RemoveAt(i);
+            }
+        }
+
+
+        currentIllness.Remove(illness);
+        RemoveIllnessFromTank(shrimp.tank, illness);
+
+
+        if (curingParticles != null)
+        {
+            GameObject.Instantiate(curingParticles, shrimp.transform.position, shrimp.transform.rotation, shrimp.particleParent); ;
+        }
     }
 }

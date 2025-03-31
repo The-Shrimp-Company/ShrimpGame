@@ -10,7 +10,7 @@ public class SymptomBubbles : Symptom
 
     public override void StartSymptom()
     {
-        symptomName = "Bubbles";
+        symptom = IllnessSymptoms.Bubbles;
 
         if (shrimp.symptomBubbleParticles != null)
         {
@@ -38,8 +38,3 @@ public class SymptomBubbles : Symptom
         base.EndSymptom();
     }
 }
-
-
-
-// Bubble collisions with top
-// Speed up when illness is more developed

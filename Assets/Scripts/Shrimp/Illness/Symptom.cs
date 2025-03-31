@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class Symptom
 {
-    public string symptomName;
+    public IllnessSymptoms symptom;
     public Shrimp shrimp;
     public float severity;
 

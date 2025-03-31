@@ -217,6 +217,10 @@ MonoBehaviour:
   currentSymptoms: []
   illnessCheckTime: 5
   severityBoostIfSymptomIsAlreadyPresent: 20
+  curingParticles: {fileID: 8476586959974745204, guid: ef7f90b19f215fe4a93657c5defc0046,
+    type: 3}
+  gainIllnessParticles: {fileID: 6749437817111371028, guid: 845913931120dd840a85cc9fea10e964,
+    type: 3}
 --- !u!1 &889787746608865538
 GameObject:
   m_ObjectHideFlags: 0
