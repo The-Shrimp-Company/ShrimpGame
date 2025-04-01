@@ -36,8 +36,8 @@ ModelImporter:
       name: Armature.001|Cherry_Head_Swimming (1)
       takeName: Armature.001|Cherry_Head_Swimming
       internalID: 5615882174596782118
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

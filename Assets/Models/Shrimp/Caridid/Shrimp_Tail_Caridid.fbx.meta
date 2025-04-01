@@ -36,8 +36,8 @@ ModelImporter:
       name: Tail.003|Caridid_Tail_Swimming (1)
       takeName: Tail.003|Caridid_Tail_Swimming
       internalID: 4995844896464918857
-      firstFrame: 0
-      lastFrame: 390
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

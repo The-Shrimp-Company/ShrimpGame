@@ -36,8 +36,8 @@ ModelImporter:
       name: Fan|Cherry_Fan_Swimming (1)
       takeName: Fan|Cherry_Fan_Swimming
       internalID: 5835893111215788523
-      firstFrame: 0
-      lastFrame: 370
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

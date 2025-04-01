@@ -36,8 +36,8 @@ ModelImporter:
       name: Head.001|Anomalis_Head_Swimming
       takeName: Head.001|Anomalis_Head_Swimming
       internalID: -6682452566257360625
-      firstFrame: 0
-      lastFrame: 370
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

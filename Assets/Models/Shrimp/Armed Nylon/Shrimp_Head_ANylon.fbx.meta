@@ -36,8 +36,8 @@ ModelImporter:
       name: Head|ANylon_Head_Swimming
       takeName: Head|ANylon_Head_Swimming
       internalID: 3045187053115455564
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

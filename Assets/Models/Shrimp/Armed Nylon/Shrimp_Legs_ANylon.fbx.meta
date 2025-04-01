@@ -36,8 +36,8 @@ ModelImporter:
       name: Legs.001|ANylon_Legs_Swimming
       takeName: Legs.001|ANylon_Legs_Swimming
       internalID: 2829569552310780195
-      firstFrame: 0
-      lastFrame: 380
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

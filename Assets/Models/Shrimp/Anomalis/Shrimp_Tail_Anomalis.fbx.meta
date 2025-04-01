@@ -36,8 +36,8 @@ ModelImporter:
       name: Tail.002|Anomalis_Tail_Swimming
       takeName: Tail.002|Anomalis_Tail_Swimming
       internalID: 1726748835372423527
-      firstFrame: 0
-      lastFrame: 385
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

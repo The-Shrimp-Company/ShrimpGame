@@ -36,8 +36,8 @@ ModelImporter:
       name: Legs|Cherry_Legs_Swimming
       takeName: Legs|Cherry_Legs_Swimming
       internalID: 6985872671819908230
-      firstFrame: 0
-      lastFrame: 380
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

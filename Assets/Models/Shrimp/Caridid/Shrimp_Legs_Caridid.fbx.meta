@@ -36,8 +36,8 @@ ModelImporter:
       name: Leg.001|Caridid_Legs_Swimming
       takeName: Leg.001|Caridid_Legs_Swimming
       internalID: 1641253891368061689
-      firstFrame: 0
-      lastFrame: 375
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

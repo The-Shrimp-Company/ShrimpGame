@@ -36,8 +36,8 @@ ModelImporter:
       name: Head.002|Caridid_Head_Swimming (1)
       takeName: Head.002|Caridid_Head_Swimming
       internalID: 855891226025219450
-      firstFrame: 0
-      lastFrame: 370
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0

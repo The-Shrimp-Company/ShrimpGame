@@ -36,8 +36,8 @@ ModelImporter:
       name: Leg|Anomalis_Legs_Swimming
       takeName: Leg|Anomalis_Legs_Swimming
       internalID: 7714402793757568583
-      firstFrame: 0
-      lastFrame: 375
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 2
       orientationOffsetY: 0
       level: 0
