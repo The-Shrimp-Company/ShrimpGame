@@ -58,6 +58,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6492705770264247402, guid: 0d183001d5908b24299f1ac67daa0a15,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -6492705770264247402, guid: 0d183001d5908b24299f1ac67daa0a15,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0099999895
+      objectReference: {fileID: 0}
+    - target: {fileID: -6492705770264247402, guid: 0d183001d5908b24299f1ac67daa0a15,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0099999895
+      objectReference: {fileID: 0}
+    - target: {fileID: -6492705770264247402, guid: 0d183001d5908b24299f1ac67daa0a15,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0d183001d5908b24299f1ac67daa0a15,
         type: 3}
       propertyPath: m_Name
@@ -71,6 +91,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 892666667002530267}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d183001d5908b24299f1ac67daa0a15,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6716400580473820978}
   m_SourcePrefab: {fileID: 100100000, guid: 0d183001d5908b24299f1ac67daa0a15, type: 3}
 --- !u!1 &815252014626835071 stripped
 GameObject:
@@ -148,7 +172,29 @@ MonoBehaviour:
   - {fileID: 4034307908234177831}
   - {fileID: 8219291334823636896}
   - {fileID: 6207927517097375142}
+  animations:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: -2521590231364771974, guid: 0d183001d5908b24299f1ac67daa0a15,
+        type: 3}
   tFanNode: {fileID: 7181753236030459587}
+--- !u!111 &6716400580473820978
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372400545914155012}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: -2521590231364771974, guid: 0d183001d5908b24299f1ac67daa0a15,
+    type: 3}
+  m_Animations:
+  - {fileID: -2521590231364771974, guid: 0d183001d5908b24299f1ac67daa0a15, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6207927517097375142 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8040881179317438221, guid: 0d183001d5908b24299f1ac67daa0a15,

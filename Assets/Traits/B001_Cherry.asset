@@ -32,9 +32,11 @@ MonoBehaviour:
   - type: 6
     effect: 10
   type: 2
-  color: {r: 1, g: 1, b: 1, a: 1}
+  colour: {r: 1, g: 1, b: 1, a: 1}
+  deadColour: {r: 1, g: 1, b: 1, a: 1}
+  discolourationColour: {r: 1, g: 1, b: 1, a: 1}
   cherryPattern: {fileID: 0}
   anomalisPattern: {fileID: 0}
   carididPattern: {fileID: 0}
   nylonPattern: {fileID: 0}
-  part: {fileID: 3835012759086216493, guid: 1512c666e82081d40a5dbbacde674280, type: 3}
+  part: {fileID: 7999695736787035698, guid: 1512c666e82081d40a5dbbacde674280, type: 3}

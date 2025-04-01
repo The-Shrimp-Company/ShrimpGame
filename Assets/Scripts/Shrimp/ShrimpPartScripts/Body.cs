@@ -8,15 +8,22 @@ public class Body : PartScript
     public Transform headNode, legsNode, tailNode;
     [SerializeField] private bool debug = false;
 
+    private Legs legs;
+    private Tail tail;
+    private TFan tFan;
+    private Head head;
+
     private void Start()
     {
         if (debug)
         {
             s = ShrimpManager.instance.CreateRandomShrimp(false);
 
-            Instantiate(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).part, headNode).GetComponent<Head>().Construct(s);
-            Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);
-            Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s);
+            head = Instantiate(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).part, headNode).GetComponent<Head>().Construct(s);
+            legs = Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);
+            tail = Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s, ref tFan);
+
+            SetAnimation(AnimNames.swimming);
 
             SetMaterials(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).set);
         }
@@ -26,19 +33,29 @@ public class Body : PartScript
     {
         this.s = s;
 
-        Instantiate(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).part, headNode).GetComponent<Head>().Construct(s);
-        Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);
-        Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s);
+        head = Instantiate(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).part, headNode).GetComponent<Head>().Construct(s);
+        legs = Instantiate(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).part, legsNode).GetComponent<Legs>().Construct(s);
+        tail = Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s, ref tFan);
+
+        SetAnimation(AnimNames.swimming);
 
         SetMaterials(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).set);
     }
 
     public void ChangeColours(ColourTypes colour)
     {
-        headNode.GetChild(0).GetComponent<Head>().ChangeColours(colour);
-        legsNode.GetChild(0).GetComponent<Legs>().ChangeColours(colour);
-        tailNode.GetChild(0).GetComponent<Tail>().ChangeColours(colour);
+        head.ChangeColours(colour);
+        legs.ChangeColours(colour);
+        tail.ChangeColours(colour);
 
         SetColour(colour);
+    }
+
+    public void SetAnimation(AnimNames anim)
+    {
+        head.StartAnimation(anim);
+        legs.StartAnimation(anim);
+        tail.StartAnimation(anim);
+        tFan.StartAnimation(anim);
     }
 }

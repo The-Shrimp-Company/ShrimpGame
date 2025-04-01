@@ -1,3 +1,4 @@
+using AYellowpaper.SerializedCollections;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -5,7 +6,17 @@ using UnityEngine;
 
 public class PartScript : MonoBehaviour
 {
+    public enum AnimNames
+    {
+        swimming
+    }
+
+
     [SerializeField] protected GameObject[] objs;
+
+    [SerializeField] protected SerializedDictionary<AnimNames, AnimationClip> animations;
+
+    private Animation animation;
 
     protected ShrimpStats s;
     protected void SetMaterials(TraitSet trait)
@@ -89,5 +100,24 @@ public class PartScript : MonoBehaviour
                 obj.GetComponent<SkinnedMeshRenderer>().material.SetColor("_Base_Colour", primary);
             }
         }
+    }
+
+
+    public void StartAnimation(AnimNames anim)
+    {
+        if(animation == null)
+        {
+            animation = gameObject.GetComponent<Animation>();
+        }
+        if(animation.GetClipCount() > 0)
+        {
+            animation.Stop();
+        }
+        animation.AddClip(animations[anim], "current");
+
+        animation.Play("current");
+        
+
+        Debug.Log(animation.isPlaying);
     }
 }

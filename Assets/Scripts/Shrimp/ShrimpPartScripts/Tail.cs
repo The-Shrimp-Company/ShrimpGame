@@ -5,11 +5,12 @@ using UnityEngine;
 public class Tail : PartScript
 {
     public Transform tFanNode;
-    public void Construct(ShrimpStats s)
+    public Tail Construct(ShrimpStats s, ref TFan tFan)
     {
         this.s = s;
-        Instantiate(GeneManager.instance.GetTraitSO(s.tailFan.activeGene.ID).part, tFanNode).GetComponent<TFan>().Construct(s);
+        tFan = Instantiate(GeneManager.instance.GetTraitSO(s.tailFan.activeGene.ID).part, tFanNode).GetComponent<TFan>().Construct(s);
         SetMaterials(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).set);
+        return this;
     }
 
     public void ChangeColours(ColourTypes colour)

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class TFan : PartScript
 {
-    public void Construct(ShrimpStats s)
+    public TFan Construct(ShrimpStats s)
     {
         this.s = s;
         SetMaterials(GeneManager.instance.GetTraitSO(s.tailFan.activeGene.ID).set);
+        return this;
     }
 
     public void ChangeColours(ColourTypes colour)

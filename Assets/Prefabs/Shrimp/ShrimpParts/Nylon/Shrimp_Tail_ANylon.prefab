@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shrimp_Tail_ANylon
       objectReference: {fileID: 0}
+    - target: {fileID: 3750538687755649912, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750538687755649912, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750538687755649912, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750538687755649912, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -71,6 +91,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7450229280462568027}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6782134879492812660}
   m_SourcePrefab: {fileID: 100100000, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb, type: 3}
 --- !u!1 &488760094630895563 stripped
 GameObject:
@@ -106,7 +130,29 @@ MonoBehaviour:
   - {fileID: 7241248988315520264}
   - {fileID: 5251003492819149847}
   - {fileID: 4986889583251095384}
+  animations:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: -1182486142111265021, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb,
+        type: 3}
   tFanNode: {fileID: 4469139241558368738}
+--- !u!111 &-6782134879492812660
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488760094630895563}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: -1182486142111265021, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb,
+    type: 3}
+  m_Animations:
+  - {fileID: -1182486142111265021, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2376544416125860394 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6128787864834549584, guid: 0e17c5eb8597e8c4fa5fff4b9c012cfb,
