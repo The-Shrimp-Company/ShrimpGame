@@ -652,6 +652,31 @@ public class GeneManager : MonoBehaviour
                             s.geneticSize += m.effect;
                             break;
                         }
+                    case ModifierEffects.salineLevel:
+                        {
+                            s.salineLevel += m.effect;
+                            break;
+                        }
+                    case ModifierEffects.immunity:
+                        {
+                            s.immunity += m.effect;
+                            break;
+                        }
+                    case ModifierEffects.metabolism:
+                        {
+                            s.metabolism += m.effect;
+                            break;
+                        }
+                    case ModifierEffects.filtration:
+                        {
+                            s.filtration += m.effect;
+                            break;
+                        }
+                    case ModifierEffects.temperature:
+                        {
+                            s.temperature += m.effect;
+                            break;
+                        }
                 }
             }
         }

@@ -62,6 +62,12 @@ public class ShrimpManager : MonoBehaviour
         s.geneticSize = geneManager.IntGene(geneManager.sizeInheritance, maxGeneticShrimpSize, parentA.geneticSize, parentB.geneticSize, geneManager.sizeCanMutate);
         s.temperament = geneManager.IntGene(geneManager.temperamentInheritance, maxShrimpTemperament, parentA.temperament, parentB.temperament, geneManager.temperamentCanMutate);
 
+        s.salineLevel = 50;
+        s.immunity = 0;
+        s.metabolism = 0;
+        s.filtration = 0;
+        s.temperature = 50;
+
         s.primaryColour = geneManager.TraitGene(geneManager.colourInheritance, 0, parentA.primaryColour, parentB.primaryColour, geneManager.colourCanMutate);
         s.secondaryColour = geneManager.TraitGene(geneManager.colourInheritance, 0, parentA.secondaryColour, parentB.secondaryColour, geneManager.colourCanMutate);
 
