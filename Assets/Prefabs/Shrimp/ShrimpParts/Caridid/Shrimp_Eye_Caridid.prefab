@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8985465735844763040
+--- !u!1001 &4697227346876744003
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,53 +10,38 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 5.5604714e-18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.2770546e-10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 4.227796e-14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071067
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1.7936735e-12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -1.9845967e-12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
@@ -73,11 +58,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 2f88969a1e33f23478c09f2071cfebe4,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
       propertyPath: m_Name
@@ -90,25 +70,25 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f88969a1e33f23478c09f2071cfebe4,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4507523244463657033}
+      addedObject: {fileID: 6426225037795982041}
   m_SourcePrefab: {fileID: 100100000, guid: 2f88969a1e33f23478c09f2071cfebe4, type: 3}
---- !u!1 &8102996811581860081 stripped
+--- !u!1 &5615582686637456402 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f88969a1e33f23478c09f2071cfebe4,
     type: 3}
-  m_PrefabInstance: {fileID: 8985465735844763040}
+  m_PrefabInstance: {fileID: 4697227346876744003}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4507523244463657033
+--- !u!114 &6426225037795982041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8102996811581860081}
+  m_GameObject: {fileID: 5615582686637456402}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bb8abcd39b993a4fb5389cdffe194a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objs:
-  - {fileID: 8102996811581860081}
+  - {fileID: 5615582686637456402}
