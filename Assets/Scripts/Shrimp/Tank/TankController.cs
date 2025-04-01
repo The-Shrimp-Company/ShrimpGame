@@ -300,6 +300,9 @@ public class TankController : MonoBehaviour
         newShrimp.transform.position = GetRandomTankPosition();
         shrimp.ConstructShrimp();
 
+        if (gameLoading)
+            newShrimp.GetComponent<IllnessController>().LoadIllnesses();
+
         shrimpToAdd.Add(shrimp);
     }
  

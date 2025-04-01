@@ -15,6 +15,7 @@ public class IllnessController : MonoBehaviour
     [SerializeField] float severityBoostIfSymptomIsAlreadyPresent = 20;
     [SerializeField] GameObject curingParticles;
     [SerializeField] GameObject gainIllnessParticles;
+    private bool loadingIllnesses = false;
 
     private void Start()
     {
@@ -104,15 +105,15 @@ public class IllnessController : MonoBehaviour
                 case IllnessSymptoms.BodySize:
                 {
                     symptom = new SymptomBodySize();
-                    if (SaveManager.loadingGameFromFile) 
-                            symptom.severity = shrimp.stats.symptoms[0];
+                    if (loadingIllnesses) 
+                        symptom.severity = shrimp.stats.symptoms[0];
                     break;
                 }
 
                 case IllnessSymptoms.Discolouration:
                 {
                     symptom = new SymptomDiscolouration();
-                    if (SaveManager.loadingGameFromFile)
+                    if (loadingIllnesses)
                         symptom.severity = shrimp.stats.symptoms[1];
                     break;
                 }
@@ -120,7 +121,7 @@ public class IllnessController : MonoBehaviour
                 case IllnessSymptoms.Bubbles:
                 {
                     symptom = new SymptomBubbles();
-                    if (SaveManager.loadingGameFromFile)
+                    if (loadingIllnesses)
                         symptom.severity = shrimp.stats.symptoms[2];
                     break;
                 }
@@ -151,12 +152,12 @@ public class IllnessController : MonoBehaviour
 
         currentIllness.Add(i);
         AddIllnessToTank(shrimp.tank, i);
-        PlayerStats.stats.illnessesGained++;
+
+        if (!loadingIllnesses)
+            PlayerStats.stats.illnessesGained++;
 
         if (gainIllnessParticles != null)
-        {
             GameObject.Instantiate(gainIllnessParticles, shrimp.transform.position, shrimp.transform.rotation, shrimp.particleParent); ;
-        }
     }
 
 
@@ -265,15 +266,30 @@ public class IllnessController : MonoBehaviour
 
     public void SaveIllnesses()
     {
-        shrimp.stats.illness.Clear();
         for(int i = 0; i < possibleIllness.Length; i++)
         {
             if (currentIllness.Contains(possibleIllness[i]))
-                shrimp.stats.illness.Add(i);
+                shrimp.stats.illness[i] = true;
+            else
+                shrimp.stats.illness[i] = false;
         }
 
         shrimp.stats.symptoms[0] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomBodySize)).severity;
         shrimp.stats.symptoms[1] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomDiscolouration)).severity;
         shrimp.stats.symptoms[2] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomBubbles)).severity;
+    }
+
+
+    public void LoadIllnesses()
+    {
+        loadingIllnesses = true;
+
+        for (int i = 0; i < possibleIllness.Length; i++)
+        {
+            if (shrimp.stats.illness[i])
+                AddIllness(possibleIllness[i]);
+        }
+
+        loadingIllnesses = false;
     }
 }

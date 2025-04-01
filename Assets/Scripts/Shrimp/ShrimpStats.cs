@@ -40,6 +40,6 @@ public struct ShrimpStats
     public int moltHistory;
     public bool canBreed;
 
-    public List<int> illness;
+    public bool[] illness;
     public float[] symptoms;
 }

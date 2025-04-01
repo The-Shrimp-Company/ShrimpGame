@@ -20,7 +20,7 @@ MonoBehaviour:
   type: 0
   colour: {r: 0.49803922, g: 0.24705882, b: 0.8509804, a: 1}
   deadColour: {r: 0.62148803, g: 0.4462442, b: 0.8679245, a: 0.5882353}
-  discolourationColour: {r: 0.68128365, g: 0.5284354, b: 0.8962264, a: 1}
+  discolourationColour: {r: 0.636506, g: 0.4523407, b: 0.8962264, a: 1}
   cherryPattern: {fileID: 0}
   anomalisPattern: {fileID: 0}
   carididPattern: {fileID: 0}

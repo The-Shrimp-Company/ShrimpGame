@@ -25,8 +25,8 @@ public class Shrimp : MonoBehaviour
     [HideInInspector] public bool shrimpNameChanged;
 
     [Header("Illness")]
-    IllnessController illnessCont;
     public GameObject symptomBubbleParticles;
+    [HideInInspector] public IllnessController illnessCont;
 
     [Header("Breeding")]
     public GameObject breedingHeartParticles;

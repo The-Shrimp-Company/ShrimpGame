@@ -61,11 +61,4 @@ namespace SaveLoadSystem
         public string name;
         public int value;
     }
-
-    [System.Serializable]
-    public class IllnessSaveData
-    {
-        public int[] illnesses;
-        public float[] symptoms;
-    }
 }

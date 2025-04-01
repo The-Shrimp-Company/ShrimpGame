@@ -149,6 +149,7 @@ public class SaveController : MonoBehaviour
                             List<ShrimpStats> shrimpInTank = new List<ShrimpStats>();
                             foreach (Shrimp s in socket.tank.shrimpInTank)
                             {
+                                s.illnessCont.SaveIllnesses();
                                 shrimpInTank.Add(s.stats);
                             }
 
