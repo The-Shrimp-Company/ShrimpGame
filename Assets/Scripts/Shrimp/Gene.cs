@@ -75,7 +75,7 @@ public enum TraitSet
 /// Some traits can have effects on other stats in the shrimp.
 /// Temperament refers to the chance that a shrimp will fight another
 /// Immunity refers to the chance the shrimp will get ill
-/// Hunger refers to the rate at which the shrimp gets hungry
+/// Metabolism refers to the rate at which the shrimp gets hungry
 /// Filtration refers to how fast the shrimp produces waste which needs to be filtered (a higher number is more filtration being required)
 /// Temperature refers to ideal temperature.
 /// </summary>
@@ -85,7 +85,7 @@ public enum ModifierEffects
     geneticSize,
     salineLevel,
     immunity,
-    hunger,
+    metabolism,
     filtration,
     temperature
 }
