@@ -13,14 +13,14 @@ public class TankUpgradeController : MonoBehaviour
         if (filter != null) filter.UpdateUpgrade(elapsedTime);
     }
 
-
+    /*
     public void AddUpgrade(UpgradeTypes upgradeType)
     {
         GameObject upgradePrefab;
 
-        GameObject newUpgrade = GameObject.Instantiate(upgradeNodes.ke)
+        GameObject newUpgrade = GameObject.Instantiate(upgradeNodes[upgradeType]);
     }
-
+    */
 
 
     public void RemoveUpgrade()

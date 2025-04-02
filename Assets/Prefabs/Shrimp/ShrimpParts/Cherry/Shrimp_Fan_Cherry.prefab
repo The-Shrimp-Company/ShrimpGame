@@ -135,7 +135,7 @@ Animation:
   m_Animations:
   - {fileID: 5835893111215788523, guid: a2040757e7cc7834dbb6751e770d945d, type: 3}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!1 &5678079831189529052 stripped

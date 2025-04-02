@@ -56,6 +56,6 @@ public class Body : PartScript
         head.StartAnimation(anim);
         legs.StartAnimation(anim);
         tail.StartAnimation(anim);
-        tFan.StartAnimation(anim);
+        //tFan.StartAnimation(anim);
     }
 }
