@@ -18,7 +18,7 @@ public class InfoButtons : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(() =>
         {
-            parent.gameObject.GetComponent<CanvasGroup>().interactable = false;
+            parent.gameObject.GetComponent<VetWindows>().toggleButton();
             Instantiate(infoScreen, parent);
         });
     }

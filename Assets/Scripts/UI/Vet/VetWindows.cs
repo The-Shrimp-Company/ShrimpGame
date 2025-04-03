@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VetWindows : MonoBehaviour
 {
     [SerializeField]
     private int reputationReq = 0;
+
+    [SerializeField] private Button backButton;
 
     public bool CheckReputation()
     {
@@ -14,5 +17,10 @@ public class VetWindows : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void toggleButton()
+    {
+        backButton.gameObject.SetActive(!backButton.gameObject.activeInHierarchy);
     }
 }

@@ -934,7 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 30
-    m_Right: 30
+    m_Right: 70
     m_Top: 30
     m_Bottom: 30
   m_ChildAlignment: 1
@@ -2288,6 +2288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reputationReq: 0
+  backButton: {fileID: 3416664872484476091}
 --- !u!225 &8933134713516286531
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2623,6 +2624,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reputationReq: 0
+  backButton: {fileID: 0}
 --- !u!1 &7128333932689453361
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,6 +2984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reputationReq: 0
+  backButton: {fileID: 0}
 --- !u!1 &8782207580539630952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,6 +3821,12 @@ PrefabInstance:
       propertyPath: m_text
       value: Seperating the Fact from the Fiction
       objectReference: {fileID: 0}
+    - target: {fileID: 5291950258407959680, guid: adbcce75ea07df848bcc5452d03afbce,
+        type: 3}
+      propertyPath: infoScreen
+      value: 
+      objectReference: {fileID: 8863357893332790578, guid: 46b337b54f3f3614799d795e9fc0a9a6,
+        type: 3}
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
@@ -4068,6 +4077,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6785729535415747086}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3416664872484476091 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8160997058764543669, guid: 5d94afcef8a19d94fa6bea4bdd2d8b7c,
+    type: 3}
+  m_PrefabInstance: {fileID: 6785729535415747086}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521320973589283997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &3546284262506128333 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8006608145753924035, guid: 5d94afcef8a19d94fa6bea4bdd2d8b7c,
@@ -4087,6 +4108,12 @@ PrefabInstance:
       propertyPath: m_text
       value: Illnesses
       objectReference: {fileID: 0}
+    - target: {fileID: 5291950258407959680, guid: adbcce75ea07df848bcc5452d03afbce,
+        type: 3}
+      propertyPath: infoScreen
+      value: 
+      objectReference: {fileID: 8863357893332790578, guid: 2ba76aa29a8a5b549836724dd5bba1b2,
+        type: 3}
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
@@ -4469,6 +4496,12 @@ PrefabInstance:
       propertyPath: m_text
       value: Anomalis Shrimp
       objectReference: {fileID: 0}
+    - target: {fileID: 5291950258407959680, guid: adbcce75ea07df848bcc5452d03afbce,
+        type: 3}
+      propertyPath: infoScreen
+      value: 
+      objectReference: {fileID: 8863357893332790578, guid: 065a82ef8d3863a44aafacf144a2adb6,
+        type: 3}
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
@@ -4598,6 +4631,12 @@ PrefabInstance:
       propertyPath: m_text
       value: Nylon Shrimp
       objectReference: {fileID: 0}
+    - target: {fileID: 5291950258407959680, guid: adbcce75ea07df848bcc5452d03afbce,
+        type: 3}
+      propertyPath: infoScreen
+      value: 
+      objectReference: {fileID: 8863357893332790578, guid: 555508967dec321499023993dfe1bba0,
+        type: 3}
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
@@ -4985,6 +5024,12 @@ PrefabInstance:
       propertyPath: m_text
       value: Caridid Shrimp
       objectReference: {fileID: 0}
+    - target: {fileID: 5291950258407959680, guid: adbcce75ea07df848bcc5452d03afbce,
+        type: 3}
+      propertyPath: infoScreen
+      value: 
+      objectReference: {fileID: 8863357893332790578, guid: 2aaac2e2637967d4a918dee8ca2ba1fd,
+        type: 3}
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name

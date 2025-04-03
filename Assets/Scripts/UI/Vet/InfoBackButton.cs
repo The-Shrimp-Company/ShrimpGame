@@ -13,8 +13,8 @@ public class InfoBackButton : MonoBehaviour
         parent = GetComponentInParent<Image>().gameObject;
         GetComponent<Button>().onClick.AddListener(() =>
         {
-            GetComponentInParent<CanvasGroup>().interactable = true;
-            Destroy(gameObject);
+            GetComponentInParent<VetWindows>().toggleButton();
+            Destroy(transform.parent.gameObject);
         });
     }
 
