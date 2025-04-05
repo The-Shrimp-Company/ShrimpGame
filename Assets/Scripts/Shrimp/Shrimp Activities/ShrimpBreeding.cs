@@ -187,6 +187,8 @@ public class ShrimpBreeding : ShrimpActivity
 
         shrimp.tank.shrimpToAdd.Add(s);
 
+        Debug.LogWarning(shrimp.name + "Has had a shrimp");
+
         Email email = new Email();
         email.title = "A new shrimp has been born";
         email.subjectLine = "Wow!";
