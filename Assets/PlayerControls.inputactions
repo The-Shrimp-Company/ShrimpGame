@@ -257,6 +257,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2677c451-cebb-41fd-9eed-fe2afc856a43",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenTablet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "806225fa-ff0f-4f70-ac48-d03d32840fd9",
                     "path": "<Keyboard>/p",
                     "interactions": "",
@@ -789,6 +800,17 @@
                     "name": "",
                     "id": "1386d69d-dc57-4fc2-90c8-d7cdfeacb8af",
                     "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseTablet",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3619a8ce-6faf-4f23-a6ca-cfb01eaee9b9",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
