@@ -5,19 +5,28 @@ using UnityEngine;
 
 public static class Items
 {
-    /// <summary>
-    /// 0 = Small Tank, 1 = Shelf, 2 = Algae Wafer, 3 = Food Pellet
-    /// </summary>
-    public static Item[] items = { new Item("Small Tank", 50), new Item("Shelf", 100), new Item("AlgaeWafer", 10), new Item("FoodPellet", 5) };
+    public static Item SmallTank = new Item("Small Tank", 50);
+    public static Item Shelf = new Item("Shelf", 100);
+    public static Item AlgaeWafer = new Item("Algae Wafer", 10);
+    public static Item FoodPellet = new Item("Food Pellet", 5);
+    public static Item MedSmallHead = new Item("Small Head Pills", 50);
+    public static Item MedBubble = new Item("Bubble Be Gone", 50);
+    public static Item MedVibrance = new Item("Vibrancee", 50);
 }
 
 
-public struct Item
+public class Item
 {
-    public Item(string newName, int newValue)
+
+    public string name;
+    public int value;
+    public int quantity;
+
+    public Item(string newName, int newValue, int newquantity = 0)
     {
         name = newName;
         value = newValue;
+        quantity = newquantity;
     }
 
     public static implicit operator string(Item item)
@@ -25,14 +34,12 @@ public struct Item
         return item.name;
     }
 
-    public string name;
-    public int value;
 }
 
 
 public class Inventory
 {
-    private Dictionary<Item, int> inventory = new Dictionary<Item, int>();
+    private List<Item> newInventory = new List<Item>();
 
     public static Inventory instance = new Inventory();
 
@@ -45,37 +52,69 @@ public class Inventory
 
     public void AddItem(Item newItem, int quantity = 1)
     {
-        if (inventory.ContainsKey(newItem))
+
+        for(int i = 0; i < newInventory.Count; i++)
         {
-            inventory[newItem] += quantity;
+            if (newInventory[i] == newItem.name)
+            {
+                newInventory[i].quantity += quantity;
+                return;
+            }
         }
-        else
-        {
-            inventory.Add(newItem, quantity);
-        }
+        newItem.quantity = quantity;
+        newInventory.Add(newItem);
     }
 
     public bool RemoveItem(Item item, int quantity = 1)
     {
-        if (inventory.ContainsKey(item))
+        foreach(Item i in newInventory)
         {
-            if (inventory[item] >= quantity)
+            if(i.name == item.name)
             {
-                inventory[item] -= quantity;
-                if (inventory[item] == 0)
+                if(i.quantity >= quantity)
                 {
-                    inventory.Remove(item);
+                    i.quantity -= quantity;
+                    if(i.quantity <= 0)
+                    {
+                        newInventory.Remove(i);
+                    }
+                    return true;
                 }
+            }
+        }
+        return false;
+
+    }
+
+    public int GetItemCount() { return  newInventory.Count; }
+
+    public static int GetItemQuant(Item itemCheck)
+    {
+        foreach(Item i in instance.newInventory)
+        {
+            if(i.name == itemCheck.name)
+            {
+                return i.quantity;
+            }
+        }
+        return 0;
+    }
+
+
+    public static List<Item> GetInventory()
+    {
+        return instance.newInventory;
+    }
+
+    public static bool Contains(Item itemCheck)
+    {
+        foreach(Item i in instance.newInventory)
+        {
+            if(itemCheck.name == i.name)
+            {
                 return true;
             }
         }
         return false;
-    }
-
-    public int GetItemCount() { return  inventory.Count; }
-
-    public Dictionary<Item, int> GetInventory()
-    {
-        return inventory;
     }
 }

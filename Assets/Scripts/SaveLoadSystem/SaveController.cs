@@ -104,13 +104,13 @@ public class SaveController : MonoBehaviour
         // Inventory
         List<ItemSaveData> ii = new List<ItemSaveData>();
         List<int> iq = new List<int>();
-        foreach (KeyValuePair<Item, int> entry in Inventory.instance.GetInventory())
+        foreach (Item i in Inventory.GetInventory())
         {
             ItemSaveData newItem = new ItemSaveData();
-            newItem.name = entry.Key.name;
-            newItem.value = entry.Key.value;
+            newItem.name = i.name;
+            newItem.value = i.quantity;
             ii.Add(newItem);
-            iq.Add(entry.Value);
+            iq.Add(i.quantity);
         }
         d.inventoryItems = ii.ToArray();
         d.inventoryQuantities = iq.ToArray();

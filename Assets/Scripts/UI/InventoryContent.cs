@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEditor.Events;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,16 +15,12 @@ public class InventoryContent : ContentPopulation
 
     private void Awake()
     {
+
         CreateContent(Inventory.instance.GetItemCount());
-        int index = 0;
-        for(int i = 0; i < Items.items.Length; i++)
+        for(int i = 0; i < Inventory.instance.GetItemCount(); i++)
         {
-            if (Inventory.instance.GetInventory().ContainsKey(Items.items[i]))
-            {
-                contentBlocks[index].SetText(Items.items[i]);
-                contentBlocks[index].GetComponent<InventoryContentBlock>().quantity.text = Inventory.instance.GetInventory()[Items.items[i]].ToString();
-                index++;
-            }
+            contentBlocks[i].SetText(Inventory.GetInventory()[i].name);
+            contentBlocks[i].GetComponent<InventoryContentBlock>().quantity.text = Inventory.GetInventory()[i].quantity.ToString();
         }
     }
 
@@ -62,39 +59,39 @@ public class InventoryContent : ContentPopulation
 
         foreach(ContentBlock block in contentBlocks)
         {
-            if(block.GetText().text == Items.items[2])
+            if(block.GetText().text == Items.AlgaeWafer)
             {
                 block.ClearFunctions();
                 ContentBlock thisBlock = block;
                 block.AssignFunction(() =>
                 {
                     Debug.Log("Getting to algae func");
-                    if (Inventory.instance.GetInventory()[Items.items[2]] > 0)
+                    if (Inventory.Contains(Items.AlgaeWafer))
                     {
-                        Inventory.instance.GetInventory()[Items.items[2]]--;
+                        Inventory.instance.RemoveItem(Items.AlgaeWafer);
                         GameObject newFood = Instantiate(algaeWafers, tank.GetRandomSurfacePosition(), Quaternion.identity);
                         newFood.GetComponent<ShrimpFood>().CreateFood(tank);
-                        thisBlock.GetComponent<InventoryContentBlock>().quantity.text = Inventory.instance.GetInventory()[Items.items[2]].ToString();
-                        if (Inventory.instance.GetInventory()[Items.items[2]] <= 0)
+                        thisBlock.GetComponent<InventoryContentBlock>().quantity.text = Inventory.GetItemQuant(Items.AlgaeWafer).ToString();
+                        if (!Inventory.Contains(Items.AlgaeWafer))
                         {
                             Destroy(thisBlock);
                         }
                     }
                 });
             }
-            else if(block.GetText().text == Items.items[3])
+            else if(block.GetText().text == Items.FoodPellet)
             {
                 block.ClearFunctions();
                 ContentBlock thisBlock = block;
                 block.AssignFunction(() =>
                 {
-                    if (Inventory.instance.GetInventory()[Items.items[3]] > 0)
+                    if (Inventory.Contains(Items.FoodPellet))
                     {
-                        Inventory.instance.GetInventory()[Items.items[3]]--;
+                        Inventory.instance.RemoveItem(Items.FoodPellet);
                         GameObject newFood = Instantiate(foodPellets, tank.GetRandomSurfacePosition(), Quaternion.identity);
                         newFood.GetComponent<ShrimpFood>().CreateFood(tank);
-                        thisBlock.GetComponent<InventoryContentBlock>().quantity.text = Inventory.instance.GetInventory()[Items.items[2]].ToString();
-                        if (Inventory.instance.GetInventory()[Items.items[3]] <= 0)
+                        thisBlock.GetComponent<InventoryContentBlock>().quantity.text = Inventory.GetItemQuant(Items.FoodPellet).ToString();
+                        if (!Inventory.Contains(Items.FoodPellet))
                         {
                             Destroy(thisBlock);
                         }

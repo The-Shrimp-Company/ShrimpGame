@@ -31,7 +31,7 @@ public class TankSocket : MonoBehaviour
 
     public void AddTank(TankTypes type, bool loading = false)
     {
-        if (!loading && !Inventory.instance.RemoveItem(Items.items[0])) return;
+        if (!loading && !Inventory.instance.RemoveItem(Items.SmallTank)) return;
 
         GameObject prefab = null;
         switch (type)

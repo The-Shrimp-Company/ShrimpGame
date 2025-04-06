@@ -12,15 +12,15 @@ public class UpgradeScreen : ScreenView
 
     public void BuyTanks()
     {
-        if (Money.instance.WithdrawMoney(100))
+        if (Money.instance.WithdrawMoney(Items.SmallTank.value))
         {
-            Inventory.instance.AddItem(Items.items[0]);
+            Inventory.instance.AddItem(Items.SmallTank);
         }
     }
 
     public void BuyShelf()
     {
-        if (Money.instance.WithdrawMoney(200))
+        if (Money.instance.WithdrawMoney(Items.Shelf.value))
         {
             shelves.SpawnNextShelf();
         }
@@ -28,17 +28,17 @@ public class UpgradeScreen : ScreenView
 
     public void BuyAlgaeWafer()
     {
-        if (Money.instance.WithdrawMoney(10))
+        if (Money.instance.WithdrawMoney(Items.AlgaeWafer.value))
         {
-            Inventory.instance.AddItem(Items.items[2], 10);
+            Inventory.instance.AddItem(Items.AlgaeWafer, 10);
         }
     }
 
     public void BuyFoodPellet()
     {
-        if (Money.instance.WithdrawMoney(5))
+        if (Money.instance.WithdrawMoney(Items.FoodPellet.value))
         {
-            Inventory.instance.AddItem(Items.items[3], 10);
+            Inventory.instance.AddItem(Items.FoodPellet, 10);
         }
     }
 }
