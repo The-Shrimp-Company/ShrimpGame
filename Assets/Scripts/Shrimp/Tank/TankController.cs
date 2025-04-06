@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
+[RequireComponent(typeof(TankUpgradeController))]
 public class TankController : MonoBehaviour
 {
     [Header("Shrimp")]
@@ -30,8 +31,10 @@ public class TankController : MonoBehaviour
     [HideInInspector] public float waterQuality = 100;
     [HideInInspector] public float waterTemperature = 50;
     [HideInInspector] public float waterSalt = 50;
+    [SerializeField] float waterQualityDecreaseSpeed;
 
-    //[Header("Upgrades")]
+    [Header("Upgrades")]
+    private TankUpgradeController upgradeController;
 
     [Header("Sale Tank")]
     [SerializeField] private GameObject sign;
@@ -80,10 +83,9 @@ public class TankController : MonoBehaviour
         if (tankGrid == null) Debug.LogError("Pathfinding grid is missing");
         if (shrimpParent == null) Debug.LogError("Shrimp Parent is missing");
 
-        if (string.IsNullOrEmpty(tankName))
-        {
-            tankName = "Tank";
-        }
+        if (string.IsNullOrEmpty(tankName)) tankName = "Tank";
+
+        upgradeController = GetComponent<TankUpgradeController>();
 
         sign.SetActive(destinationTank);
 
@@ -105,9 +107,9 @@ public class TankController : MonoBehaviour
 
         if (updateTimer >= updateTime)
         {
-            AddItems();
-            RemoveItems();
-            UpdateItems();
+            AddToTank();
+            RemoveFromTank();
+            UpdateTank();
 
             updateTimer = 0;
         }
@@ -142,48 +144,13 @@ public class TankController : MonoBehaviour
             }
         }
 
-        /* I think this is duplicate code????
-        if (openTank)
-        {
-            if(Random.Range(0, 1000) == 1)
-            {
-                if (shrimpInTank.Count > 0)
-                {
-                    Shrimp shrimp = shrimpInTank[Random.Range(0, shrimpInTank.Count)];
-                    if (!CustomerManager.Instance.ToPurchase.Contains(shrimp))
-                    {
-                        if(Random.value * 2 > openTankPrice / EconomyManager.instance.GetShrimpValue(shrimp.stats))
-                        {
-                            CustomerManager.Instance.PurchaseShrimp(shrimp);
-                        }
-                    }
-                }
-            }
-        }
-        */
-
         label.text = tankName;
 
         if (focussingTank) PlayerStats.stats.timeSpentFocusingTank += Time.deltaTime;
     }
 
 
-    public void SetTankPrice(float price)
-    {
-        openTankPrice = price;
-        openTankLabel.text = "All Shrimp " + price.ToString();
-    }
-
-    public void toggleTankOpen()
-    {
-        openTank = !openTank;
-        if (openTank) CustomerManager.Instance.openTanks.Add(this);
-        else CustomerManager.Instance.openTanks.Remove(this);
-        SaleSign.SetActive(openTank);
-        openTankLabel.text = "All Shrimp " + openTankPrice;
-    }
-
-    private void AddItems()
+    private void AddToTank()
     {
         if (foodToAdd.Count > 0)  // Add food to the tank
         {
@@ -209,7 +176,7 @@ public class TankController : MonoBehaviour
         }
     }
 
-    private void RemoveItems()
+    private void RemoveFromTank()
     {
         if (foodToRemove.Count > 0)  // Remove food from the tank
         {
@@ -244,7 +211,7 @@ public class TankController : MonoBehaviour
         }
     }
 
-    private void UpdateItems()
+    private void UpdateTank()
     {
         foreach (ShrimpFood food in foodInTank)  // Update the food in the tank
         {
@@ -255,6 +222,12 @@ public class TankController : MonoBehaviour
         {
             shrimp.UpdateShrimp(updateTimer);
         }
+
+
+
+        waterQuality = Mathf.Clamp(waterQuality - (waterQualityDecreaseSpeed * updateTimer), 0, 100);
+
+        upgradeController.UpdateUpgrades(updateTimer);
     }
 
 
@@ -263,6 +236,23 @@ public class TankController : MonoBehaviour
     {
         destinationTank = !destinationTank;
         sign.SetActive(destinationTank);
+    }
+
+
+    public void SetTankPrice(float price)
+    {
+        openTankPrice = price;
+        openTankLabel.text = "All Shrimp " + price.ToString();
+    }
+
+
+    public void toggleTankOpen()
+    {
+        openTank = !openTank;
+        if (openTank) CustomerManager.Instance.openTanks.Add(this);
+        else CustomerManager.Instance.openTanks.Remove(this);
+        SaleSign.SetActive(openTank);
+        openTankLabel.text = "All Shrimp " + openTankPrice;
     }
 
 
@@ -365,10 +355,6 @@ public class TankController : MonoBehaviour
         return camDock;
     }
 
-    public void Ref()
-    {
-        Debug.Log("Yes");
-    }
 
     public void FocusTank()
     {
