@@ -19,8 +19,9 @@ public class InventoryContent : ContentPopulation
         CreateContent(Inventory.instance.GetItemCount());
         for(int i = 0; i < Inventory.instance.GetItemCount(); i++)
         {
-            contentBlocks[i].SetText(Inventory.GetInventory()[i].name);
+            contentBlocks[i].SetText(Inventory.GetInventory()[i].itemName);
             contentBlocks[i].GetComponent<InventoryContentBlock>().quantity.text = Inventory.GetInventory()[i].quantity.ToString();
+            contentBlocks[i].GetComponent<InventoryContentBlock>().item = Inventory.GetInventory()[i];
         }
     }
 
@@ -98,6 +99,40 @@ public class InventoryContent : ContentPopulation
                     }
                 });
             }
+            else
+            {
+                Destroy(block.gameObject);
+            }
+        }
+    }
+
+    public void MedAssignment(ShrimpView oldScreen, Shrimp shrimp, GameObject parent)
+    {
+        Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();
+        oldScreen.gameObject.SetActive(false);
+        UnityEventTools.RemovePersistentListener(button.onClick, 0);
+        button.onClick.AddListener(() =>
+        {
+            oldScreen.gameObject.SetActive(true);
+            Destroy(parent);
+        });
+
+        foreach(InventoryContentBlock block in contentBlocks)
+        {
+            if(block.item is Medicine)
+            {
+                block.ClearFunctions();
+                InventoryContentBlock thisBlock = block;
+                Shrimp thisShrimp = shrimp;
+                block.AssignFunction(() =>
+                {
+                    Inventory.instance.RemoveItem(thisBlock.item);
+                    thisShrimp.GetComponent<IllnessController>().UseMedicine(thisBlock.item as Medicine);
+                    Inventory.instance.RemoveItem(thisBlock.item);
+                    thisBlock.GetComponent<InventoryContentBlock>().quantity.text = Inventory.GetItemQuant(thisBlock.item).ToString();
+                });
+            }
+
             else
             {
                 Destroy(block.gameObject);

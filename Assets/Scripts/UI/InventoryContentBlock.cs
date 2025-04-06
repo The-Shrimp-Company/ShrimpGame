@@ -5,5 +5,7 @@ using UnityEngine;
 
 public class InventoryContentBlock : ContentBlock
 {
+    public Item item;
+
     public TextMeshProUGUI quantity;
 }

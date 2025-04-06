@@ -9,29 +9,29 @@ public static class Items
     public static Item Shelf = new Item("Shelf", 100);
     public static Item AlgaeWafer = new Item("Algae Wafer", 10);
     public static Item FoodPellet = new Item("Food Pellet", 5);
-    public static Item MedSmallHead = new Item("Small Head Pills", 50);
-    public static Item MedBubble = new Item("Bubble Be Gone", 50);
-    public static Item MedVibrance = new Item("Vibrancee", 50);
+    public static Item MedSmallHead = new Medicine("Small Head Pills", 50, IllnessSymptoms.BodySize, 30);
+    public static Item MedBubble = new Medicine("Bubble Be Gone", 50, IllnessSymptoms.Bubbles, 30);
+    public static Item MedVibrance = new Medicine("Vibrancee", 50, IllnessSymptoms.Discolouration, 30);
 }
 
 
-public class Item
+public class Item : MonoBehaviour
 {
 
-    public string name;
+    public string itemName;
     public int value;
     public int quantity;
 
     public Item(string newName, int newValue, int newquantity = 0)
     {
-        name = newName;
+        itemName = newName;
         value = newValue;
         quantity = newquantity;
     }
 
     public static implicit operator string(Item item)
     {
-        return item.name;
+        return item.itemName;
     }
 
 }
@@ -55,7 +55,7 @@ public class Inventory
 
         for(int i = 0; i < newInventory.Count; i++)
         {
-            if (newInventory[i] == newItem.name)
+            if (newInventory[i] == newItem.itemName)
             {
                 newInventory[i].quantity += quantity;
                 return;
@@ -69,7 +69,7 @@ public class Inventory
     {
         foreach(Item i in newInventory)
         {
-            if(i.name == item.name)
+            if(i.itemName == item.itemName)
             {
                 if(i.quantity >= quantity)
                 {
@@ -92,7 +92,7 @@ public class Inventory
     {
         foreach(Item i in instance.newInventory)
         {
-            if(i.name == itemCheck.name)
+            if(i.itemName == itemCheck.itemName)
             {
                 return i.quantity;
             }
@@ -110,7 +110,7 @@ public class Inventory
     {
         foreach(Item i in instance.newInventory)
         {
-            if(itemCheck.name == i.name)
+            if(itemCheck.itemName == i.itemName)
             {
                 return true;
             }

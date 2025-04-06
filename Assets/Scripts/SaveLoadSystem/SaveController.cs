@@ -107,7 +107,7 @@ public class SaveController : MonoBehaviour
         foreach (Item i in Inventory.GetInventory())
         {
             ItemSaveData newItem = new ItemSaveData();
-            newItem.name = i.name;
+            newItem.name = i.itemName;
             newItem.value = i.quantity;
             ii.Add(newItem);
             iq.Add(i.quantity);

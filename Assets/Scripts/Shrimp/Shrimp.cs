@@ -174,6 +174,9 @@ public class Shrimp : MonoBehaviour
     }
 
 
+    
+
+
     public void FocusShrimp()
     {
         focussingShrimp = true;

@@ -20,7 +20,7 @@ public class ShrimpView : ScreenView
     private RenderTexture texture;
     protected Shrimp _shrimp;
     [SerializeField]
-    private GameObject currentTankScreen;
+    private GameObject currentTankScreen, medScreen;
     [SerializeField] private Image primaryColour, secondaryColour;
     [SerializeField] private Slider hunger;
 
@@ -29,6 +29,13 @@ public class ShrimpView : ScreenView
         CurrentTankScreen screen = Instantiate(currentTankScreen, UIManager.instance.GetCanvas()).GetComponent<CurrentTankScreen>();
         UIManager.instance.ChangeFocus(screen);
         screen.SetShrimp(_shrimp);
+    }
+
+    public void MedScreen()
+    {
+        GameObject screen = Instantiate(medScreen, UIManager.instance.GetCanvas());
+        UIManager.instance.ChangeFocus(screen.GetComponent<ScreenView>());
+        screen.GetComponentInChildren<InventoryContent>().MedAssignment(this, _shrimp, screen);
     }
 
     public void MouseClick(Vector2 point)
