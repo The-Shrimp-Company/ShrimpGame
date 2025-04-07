@@ -445,9 +445,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Nylon Shrimp are fairly easy to raise. They are hungrier than cherry shrimp,
-    and they tend to be more aggressive, but they are bigger, and tend to sell for
-    a bit more. They prefer colder temperatures, and salt water.
+  m_text: When shrimp get ill, that can be sad. Afterall, no one wants to be ill,
+    and shrimp are worth more than people, so shrimp being ill is very sad. So, when
+    your shrimp get ill, what should you do about it? The answer is to give them
+    medicine. The sad part is that most of the time, the medicine you give shrimp
+    will depend on the illness they have, so you can't just give them medicine all
+    the time, especially considering that it's quite expensive. However, the good
+    news is that shrimp illness are quite simple. Certain symptoms only really show
+    up with specific illnesses, so you can buy medicine based on the symptoms of
+    the illness. Just look for the medicine that has the right symptom on it in the
+    vet.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -130,6 +130,7 @@ public class InventoryContent : ContentPopulation
                     thisShrimp.GetComponent<IllnessController>().UseMedicine(thisBlock.item as Medicine);
                     Inventory.instance.RemoveItem(thisBlock.item);
                     thisBlock.GetComponent<InventoryContentBlock>().quantity.text = Inventory.GetItemQuant(thisBlock.item).ToString();
+                    if (Inventory.GetItemQuant(thisBlock.item) <= 0) Destroy(thisBlock.gameObject);
                 });
             }
 

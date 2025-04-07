@@ -3346,7 +3346,7 @@ PrefabInstance:
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
-      value: InfoButton (2)
+      value: Cherry
       objectReference: {fileID: 0}
     - target: {fileID: 8372359088761651826, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
@@ -3481,7 +3481,7 @@ PrefabInstance:
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
-      value: InfoButton (1)
+      value: Breeds
       objectReference: {fileID: 0}
     - target: {fileID: 8372359088761651826, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
@@ -3824,7 +3824,7 @@ PrefabInstance:
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
-      value: InfoButton (7)
+      value: Facts
       objectReference: {fileID: 0}
     - target: {fileID: 8372359088761651826, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
@@ -4111,7 +4111,7 @@ PrefabInstance:
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
-      value: InfoButton (6)
+      value: Illnesses
       objectReference: {fileID: 0}
     - target: {fileID: 8372359088761651826, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
@@ -4246,7 +4246,7 @@ PrefabInstance:
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
-      value: InfoButton
+      value: General
       objectReference: {fileID: 0}
     - target: {fileID: 8372359088761651826, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
@@ -4608,7 +4608,7 @@ PrefabInstance:
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
-      value: InfoButton (4)
+      value: Caridid
       objectReference: {fileID: 0}
     - target: {fileID: 8372359088761651826, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
@@ -4743,7 +4743,7 @@ PrefabInstance:
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
-      value: InfoButton (3)
+      value: Nylon
       objectReference: {fileID: 0}
     - target: {fileID: 8372359088761651826, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
@@ -5318,7 +5318,7 @@ PrefabInstance:
     - target: {fileID: 6160476163786325280, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}
       propertyPath: m_Name
-      value: InfoButton (5)
+      value: Anomalis
       objectReference: {fileID: 0}
     - target: {fileID: 8372359088761651826, guid: adbcce75ea07df848bcc5452d03afbce,
         type: 3}

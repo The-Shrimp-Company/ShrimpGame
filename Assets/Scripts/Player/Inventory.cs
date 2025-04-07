@@ -15,7 +15,7 @@ public static class Items
 }
 
 
-public class Item : MonoBehaviour
+public class Item
 {
 
     public string itemName;
