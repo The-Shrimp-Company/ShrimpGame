@@ -34,7 +34,7 @@ public class ShrimpView : ScreenView
     public void MedScreen()
     {
         GameObject screen = Instantiate(medScreen, UIManager.instance.GetCanvas());
-        UIManager.instance.ChangeFocus(screen.GetComponent<ScreenView>());
+        //UIManager.instance.ChangeFocus(screen.GetComponent<ScreenView>());
         screen.GetComponentInChildren<InventoryContent>().MedAssignment(this, _shrimp, screen);
     }
 
