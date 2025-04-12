@@ -11,6 +11,7 @@ public class ShrimpSelectionBlock : ContentBlock
 {
     [SerializeField] private TextMeshProUGUI gender, age, pattern, body, legs, eyes, tail, tailFan, head, price;
     [SerializeField] private Image primaryColour, secondaryColour;
+    [SerializeField] private Sprite[] Rarity;
 
     private ShrimpStats _shrimp;
 
@@ -33,6 +34,19 @@ public class ShrimpSelectionBlock : ContentBlock
         tailFan.text = "Tail Fan: " + GeneManager.instance.GetTraitSO(_shrimp.tailFan.activeGene.ID).set;
         primaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.primaryColour.activeGene.ID).colour;
         secondaryColour.color = GeneManager.instance.GetTraitSO(_shrimp.secondaryColour.activeGene.ID).colour;
+        int rarityApprox = Mathf.RoundToInt(EconomyManager.instance.GetShrimpValue(shrimp) / 4) - 1;
+        if(rarityApprox < 3 && rarityApprox >= 0)
+        {
+            GetComponent<Image>().sprite = Rarity[rarityApprox];
+        }
+        else if(rarityApprox < 0)
+        {
+            GetComponent<Image>().sprite = Rarity[0];
+        }
+        else
+        {
+            GetComponent<Image>().sprite = Rarity[4];
+        }
         string thistext = "£" + EconomyManager.instance.GetShrimpValue(shrimp).ToSafeString();
         string regEx = @"^.*\.\d$";
         Regex regex = new Regex(regEx);

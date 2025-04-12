@@ -8,6 +8,9 @@ public class TankContentBlock : ContentBlock
     private Shrimp _shrimp;
     [SerializeField]
     private GameObject shrimpView;
+
+    public Button main, checkbutton;
+
     [SerializeField] private Image primaryColour, secondaryColour;
 
     public void SetShrimp(Shrimp shrimp)

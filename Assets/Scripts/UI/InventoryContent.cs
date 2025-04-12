@@ -113,7 +113,10 @@ public class InventoryContent : ContentPopulation
         UnityEventTools.RemovePersistentListener(button.onClick, 0);
         button.onClick.AddListener(() =>
         {
-            oldScreen.gameObject.SetActive(true);
+            if(oldScreen != null)
+            {
+                oldScreen.gameObject.SetActive(true);
+            }
             Destroy(parent);
         });
 

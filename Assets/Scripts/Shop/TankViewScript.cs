@@ -31,6 +31,10 @@ public class TankViewScript : ScreenView
     [SerializeField] private TextMeshProUGUI foodAmount;
     [SerializeField] private GameObject inventoryScreen;
 
+    [SerializeField] private Sprite checkmark, uncheck;
+
+    private List<Shrimp> selectedShrimp = new List<Shrimp>();
+
     protected override void Start()
     {
         player = GameObject.Find("Player");
@@ -40,6 +44,7 @@ public class TankViewScript : ScreenView
         panelresting = panel.transform.position;
         Name.text = tank.tankName;
         salePrice.text = tank.openTankPrice.ToString();
+        selectedShrimp = new List<Shrimp>();
         UpdateContent();
     }
 
@@ -60,7 +65,32 @@ public class TankViewScript : ScreenView
         foreach (Shrimp shrimp in tank.shrimpInTank)
         {
             TankContentBlock temp = Instantiate(_contentBlock, _content.transform).GetComponent<TankContentBlock>();
-            temp.SetShrimp(shrimp);
+            Shrimp thisShrimp = shrimp;
+            temp.main.onClick.AddListener(() =>
+            {
+                GameObject newitem = Instantiate(shrimpView);
+                UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
+                newitem.GetComponent<ShrimpView>().Populate(thisShrimp);
+                thisShrimp.GetComponentInChildren<ShrimpCam>().SetCam();
+                newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
+                newitem.GetComponent<Canvas>().planeDistance = 1;
+                UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
+            });
+            temp.checkbutton.onClick.AddListener(() =>
+            {
+                if(selectedShrimp.Contains(thisShrimp))
+                {
+                    temp.checkbutton.GetComponent<Image>().sprite = uncheck;
+                    selectedShrimp.Remove(thisShrimp);
+                }
+                else
+                {
+                    temp.checkbutton.GetComponent<Image>().sprite = checkmark;
+                    selectedShrimp.Add(thisShrimp);
+                }
+            });
+            if (selectedShrimp.Contains(shrimp)) temp.checkbutton.GetComponent<Image>().sprite = checkmark;
+            else temp.checkbutton.GetComponent<Image>().sprite = uncheck;
             temp.SetText(shrimp.name);
         }
 
