@@ -31,9 +31,13 @@ public class TankViewScript : ScreenView
     [SerializeField] private TextMeshProUGUI foodAmount;
     [SerializeField] private GameObject inventoryScreen;
 
+    [SerializeField] private GameObject currentTankScreen;
+
     [SerializeField] private Sprite checkmark, uncheck;
 
     private List<Shrimp> selectedShrimp = new List<Shrimp>();
+
+    [SerializeField] private Animator ContextBox;
 
     protected override void Start()
     {
@@ -53,6 +57,22 @@ public class TankViewScript : ScreenView
     {
         //base.Update();
         foodAmount.text = tank.FoodStore.ToString();
+
+        if(selectedShrimp.Count > 0)
+        {
+            ContextBox.SetBool("Selection", true);
+        }
+        else
+        {
+            ContextBox.SetBool("Selection", false);
+        }
+    }
+
+    public void MoveShrimp()
+    {
+        CurrentTankScreen screen = Instantiate(currentTankScreen, UIManager.instance.GetCanvas()).GetComponent<CurrentTankScreen>();
+        UIManager.instance.ChangeFocus(screen);
+        screen.SetShrimp(selectedShrimp.ToArray());
     }
 
     public void UpdateContent()

@@ -17,8 +17,11 @@ public class CurrentTankScreen : ScreenView
 
     public void SetShrimp(Shrimp shrimp)
     {
-        content.SetShrimp(shrimp);
+        content.SetShrimp(new Shrimp[] { shrimp });
     }
 
-
+    public void SetShrimp(Shrimp[] shrimp)
+    {
+        content.SetShrimp(shrimp);
+    }
 }

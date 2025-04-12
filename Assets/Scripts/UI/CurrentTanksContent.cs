@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CurrentTanksContent : ContentPopulation
 {
-    private Shrimp _shrimp;
+    private Shrimp[] _shrimp;
 
     private void Start()
     {
@@ -13,7 +13,7 @@ public class CurrentTanksContent : ContentPopulation
         Debug.Log(Inventory.instance.activeTanks.Count);
         foreach(ContentBlock content in contentBlocks)
         {
-            if (_shrimp.tank == Inventory.instance.activeTanks[i]) i++;
+            if (_shrimp[0].tank == Inventory.instance.activeTanks[i]) i++;
             content.GetComponent<CurrentTankContentBlock>().SetTank(Inventory.instance.activeTanks[i]);
             content.GetComponent<CurrentTankContentBlock>().SetShrimp(_shrimp);
             content.SetText(Inventory.instance.activeTanks[i].tankName);
@@ -21,7 +21,7 @@ public class CurrentTanksContent : ContentPopulation
         }
     }
 
-    public void SetShrimp(Shrimp shrimp)
+    public void SetShrimp(Shrimp[] shrimp)
     {
         _shrimp = shrimp;
     }

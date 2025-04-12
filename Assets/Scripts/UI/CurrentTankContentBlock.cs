@@ -6,7 +6,7 @@ using UnityEngine;
 public class CurrentTankContentBlock : ContentBlock
 {
     private TankController _tank;
-    private Shrimp _shrimp;
+    private Shrimp[] _shrimp;
     private PlayerInteraction player;
 
     [SerializeField] private TextMeshProUGUI saleSign, destSign;
@@ -32,11 +32,17 @@ public class CurrentTankContentBlock : ContentBlock
         }
     }
 
-    public void SetShrimp(Shrimp shrimp) { _shrimp = shrimp; }
+    public void SetShrimp(Shrimp[] shrimp) { _shrimp = shrimp; }
 
     public void Click()
     {
-        _tank.MoveShrimp(_shrimp);
+        foreach(Shrimp shrimp in _shrimp)
+        {
+            if(shrimp != null)
+            {
+                _tank.MoveShrimp(shrimp);
+            }
+        }
         player.OnExitView();
     }
 }
