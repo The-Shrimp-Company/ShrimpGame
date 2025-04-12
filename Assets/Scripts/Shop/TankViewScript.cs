@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
 using System;
+using System.Xml;
 
 public class TankViewScript : ScreenView
 {
@@ -24,6 +25,8 @@ public class TankViewScript : ScreenView
     private GameObject _content;
     [SerializeField]
     private GameObject _contentBlock;
+    private List<TankContentBlock> contentBlocks = new List<TankContentBlock>();
+
     [SerializeField]
     private TMP_InputField Name;
     [SerializeField]
@@ -36,6 +39,8 @@ public class TankViewScript : ScreenView
     [SerializeField] private Sprite checkmark, uncheck;
 
     private List<Shrimp> selectedShrimp = new List<Shrimp>();
+    private bool allSelected = false;
+    [SerializeField] Image multiSelect;
 
     [SerializeField] private Animator ContextBox;
 
@@ -66,6 +71,23 @@ public class TankViewScript : ScreenView
         {
             ContextBox.SetBool("Selection", false);
         }
+
+        if(selectedShrimp.Count == 0)
+        {
+            if (allSelected)
+            {
+                multiSelect.sprite = uncheck;
+                allSelected = false;
+            }
+        }
+        else if(selectedShrimp.Count == tank.shrimpInTank.Count)
+        {
+            if (!allSelected)
+            {
+                multiSelect.sprite = checkmark;
+                allSelected = true;
+            }
+        }
     }
 
     public void MoveShrimp()
@@ -75,6 +97,32 @@ public class TankViewScript : ScreenView
         screen.SetShrimp(selectedShrimp.ToArray());
     }
 
+    public void SelectAll()
+    {
+        if (allSelected)
+        {
+            selectedShrimp = new List<Shrimp>();
+            foreach(TankContentBlock block in contentBlocks)
+            {
+                block.checkbutton.GetComponent<Image>().sprite = uncheck;
+            }
+            multiSelect.sprite = uncheck;
+        }
+        else
+        {
+            foreach (Shrimp shrimp in tank.shrimpInTank)
+            {
+                selectedShrimp.Add(shrimp);
+            }
+            foreach(TankContentBlock block in contentBlocks)
+            {
+                block.checkbutton.GetComponent<Image>().sprite = checkmark;
+            }
+            multiSelect.sprite = checkmark;
+        }
+        allSelected = !allSelected;
+    }
+
     public void UpdateContent()
     {
         foreach (Transform child in _content.transform)
@@ -82,9 +130,12 @@ public class TankViewScript : ScreenView
             Destroy(child.gameObject);
         }
 
+        contentBlocks.Clear();
+
         foreach (Shrimp shrimp in tank.shrimpInTank)
         {
             TankContentBlock temp = Instantiate(_contentBlock, _content.transform).GetComponent<TankContentBlock>();
+            contentBlocks.Add(temp);
             Shrimp thisShrimp = shrimp;
             temp.main.onClick.AddListener(() =>
             {
