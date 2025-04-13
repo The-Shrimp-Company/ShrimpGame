@@ -97,6 +97,12 @@ public class TankViewScript : ScreenView
         screen.SetShrimp(selectedShrimp.ToArray());
     }
 
+    public void MedicateShrimp()
+    {
+        InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
+        screen.GetComponentInChildren<InventoryContent>().MedAssignment(this, selectedShrimp.ToArray(), screen.gameObject);
+    }
+
     public void SelectAll()
     {
         if (allSelected)

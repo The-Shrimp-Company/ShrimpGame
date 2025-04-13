@@ -106,7 +106,13 @@ public class InventoryContent : ContentPopulation
         }
     }
 
-    public void MedAssignment(ShrimpView oldScreen, Shrimp shrimp, GameObject parent)
+    public void MedAssignment(ScreenView oldScreen, Shrimp shrimp, GameObject parent)
+    {
+        Shrimp[] shrimpList = new Shrimp[] { shrimp };
+        MedAssignment(oldScreen, shrimpList, parent);
+    }
+
+    public void MedAssignment(ScreenView oldScreen, Shrimp[] shrimp, GameObject parent)
     {
         Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();
         oldScreen.gameObject.SetActive(false);
@@ -126,12 +132,17 @@ public class InventoryContent : ContentPopulation
             {
                 block.ClearFunctions();
                 InventoryContentBlock thisBlock = block;
-                Shrimp thisShrimp = shrimp;
+                Shrimp[] thisShrimp = shrimp;
                 block.AssignFunction(() =>
                 {
-                    Inventory.instance.RemoveItem(thisBlock.item);
-                    thisShrimp.GetComponent<IllnessController>().UseMedicine(thisBlock.item as Medicine);
-                    Inventory.instance.RemoveItem(thisBlock.item);
+                    if(Inventory.GetItemQuant(thisBlock.item) >= thisShrimp.Length)
+                    {
+                        foreach (Shrimp shrimp in thisShrimp)
+                        {
+                            shrimp.GetComponent<IllnessController>().UseMedicine(thisBlock.item as Medicine);
+                        }
+                        Inventory.instance.RemoveItem(thisBlock.item, thisShrimp.Length);
+                    }
                     thisBlock.GetComponent<InventoryContentBlock>().quantity.text = Inventory.GetItemQuant(thisBlock.item).ToString();
                     if (Inventory.GetItemQuant(thisBlock.item) <= 0) Destroy(thisBlock.gameObject);
                 });
