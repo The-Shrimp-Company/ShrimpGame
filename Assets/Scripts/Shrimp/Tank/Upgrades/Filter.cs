@@ -5,18 +5,20 @@ using UnityEngine;
 public class Filter : TankUpgrade
 {
     [Header("Filter")]
-    public float filterEffectiveness;
+    public float filterSpeed = 5;
 
-
-    public override void CreateUpgrade(TankController t)
+    public override void CreateUpgrade(UpgradeSO u, TankController t)
     {
-        base.CreateUpgrade(t);
+        base.CreateUpgrade(u, t);
     }
 
 
     public override void UpdateUpgrade(float elapsedTime)
     {
-        tank.waterQuality = Mathf.Clamp(tank.waterQuality + (filterEffectiveness * elapsedTime), 0, 100);
+        if (working)
+        {
+            tank.waterQuality = Mathf.Clamp(tank.waterQuality + ((filterSpeed / 5) * elapsedTime), 0, 100);
+        }
 
         base.UpdateUpgrade(elapsedTime);
     }
@@ -25,5 +27,17 @@ public class Filter : TankUpgrade
     public override void RemoveUpgrade()
     {
         base.RemoveUpgrade();
+    }
+
+
+    public override void FixUpgrade()
+    {
+        base.FixUpgrade();
+    }
+
+
+    public override void BreakUpgrade()
+    {
+        base.BreakUpgrade();
     }
 }

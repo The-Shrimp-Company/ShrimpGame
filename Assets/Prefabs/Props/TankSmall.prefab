@@ -465,6 +465,7 @@ Transform:
   - {fileID: 489485880703759014}
   - {fileID: 8707153858353793039}
   - {fileID: 6421506423354189709}
+  - {fileID: 7623248954326440091}
   - {fileID: 2203429193121671375}
   - {fileID: 2395501523243585654}
   - {fileID: 2349540925443941879}
@@ -496,9 +497,11 @@ MonoBehaviour:
   foodParent: {fileID: 1724462573742006033}
   waterLevel: {fileID: 358445018689480702}
   waterQuality: 100
+  waterQualityDecreaseSpeed: 5
   waterTemperature: 50
+  tempuratureChangeSpeed: 5
+  naturalTempuratureVariation: 25
   waterSalt: 50
-  waterQualityDecreaseSpeed: 0
   sign: {fileID: 5947789648189943326}
   SaleSign: {fileID: 5994137002391903135}
   label: {fileID: 2617808344691637593}
@@ -565,6 +568,7 @@ MonoBehaviour:
   capacityCheckTime: 0.5
   illnessSpreadRate: 30
   distanceCheckTime: 1
+  particleParent: {fileID: 7623248954326440091}
   autoSpawnTestShrimp: 0
   autoSpawnFoodTime: 7.5
   autoSpawnFoodPrefab: {fileID: 2843780405674553184, guid: 02d275baf18747b43a519e27d1ecd2cd,
@@ -602,6 +606,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e94f59dfcbdd104bb7888261b2dac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeNodes:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 2806424953242162934}
+    - Key: 1
+      Value: {fileID: 2131584505254231964}
+  debugUpgrades:
+  - {fileID: 11400000, guid: d2da9b71affb4cf459bcd5edbd9a7ca7, type: 2}
+  - {fileID: 11400000, guid: e0d5a6bb95ad4b04394cb38a9b11734c, type: 2}
+  - {fileID: 11400000, guid: e0d5a6bb95ad4b04394cb38a9b11734c, type: 2}
 --- !u!1 &1601183149845290903
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +865,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1226
+  m_VersionIndex: 1274
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1751,6 +1765,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2235153865005791252}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &4907309792417144510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2131584505254231964}
+  m_Layer: 6
+  m_Name: HeaterNode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2131584505254231964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907309792417144510}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.1802, y: 0.407, z: -0.2395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6421506423354189709}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &6162119374815838363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2101,6 +2146,37 @@ Transform:
   - {fileID: 2387331758389063979}
   m_Father: {fileID: 6421506423354189709}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6834431519526494956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7623248954326440091}
+  m_Layer: 6
+  m_Name: Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7623248954326440091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834431519526494956}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2235153865005791252}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6936374521026262825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2339,6 +2415,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2806424953242162934}
+  - {fileID: 2131584505254231964}
   - {fileID: 6958339645014040434}
   m_Father: {fileID: 2235153865005791252}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

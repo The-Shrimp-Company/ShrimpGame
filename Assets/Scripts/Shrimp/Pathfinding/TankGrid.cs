@@ -33,7 +33,7 @@ public class TankGrid : MonoBehaviour
     }
 
 
-    private void InitializeGrid()
+    public void InitializeGrid()
     {
         startPoint = new Vector3(-gridWidth, -gridHeight, -gridLength) / 2f * pointDistance + transform.position;
 

@@ -1,11 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
 public class TankUpgradeController : MonoBehaviour
 {
     private Dictionary<UpgradeTypes, TankUpgrade> upgradeScripts = new Dictionary<UpgradeTypes, TankUpgrade>();
-    [SerializeField] Dictionary<UpgradeTypes, Transform> upgradeNodes = new Dictionary<UpgradeTypes, Transform>();
+    public SerializedDictionary<UpgradeTypes, Transform> upgradeNodes = new SerializedDictionary<UpgradeTypes, Transform>();
+    public List<UpgradeSO> debugUpgrades = new List<UpgradeSO>();
+    private TankController tank;
+
+    private void Start()
+    {
+        tank = GetComponent<TankController>();
+
+        foreach (UpgradeSO u in debugUpgrades)
+        {
+            AddUpgrade(u);
+        }
+    }
 
 
     public void UpdateUpgrades(float elapsedTime)
@@ -20,30 +33,33 @@ public class TankUpgradeController : MonoBehaviour
     }
 
 
-    public void AddUpgrade(GameObject upgradePrefab, UpgradeTypes upgradeType)
+    public void AddUpgrade(UpgradeSO upgrade)
     {
-        if (!upgradeNodes.ContainsKey(upgradeType))
+        if (!upgradeNodes.ContainsKey(upgrade.upgradeType))
         {
-            Debug.LogWarning("Upgrade Nodes is missing the key " + upgradeType.ToString());
+            Debug.LogWarning("Upgrade Nodes is missing the key " + upgrade.upgradeType.ToString());
             return;
         }
 
 
-        if (upgradeNodes[upgradeType].childCount != 0)
+        if (upgradeNodes[upgrade.upgradeType].childCount != 0)
         {
-            RemoveUpgrade(upgradeType);
+            RemoveUpgrade(upgrade.upgradeType);
         }
 
 
-        GameObject newUpgrade = GameObject.Instantiate(upgradePrefab, upgradeNodes[upgradeType].position, upgradeNodes[upgradeType].rotation, upgradeNodes[upgradeType]);
+        GameObject newUpgrade = GameObject.Instantiate(upgrade.upgradePrefab, upgradeNodes[upgrade.upgradeType].position, upgradeNodes[upgrade.upgradeType].rotation, upgradeNodes[upgrade.upgradeType]);
         TankUpgrade upgradeScript = newUpgrade.GetComponent<TankUpgrade>();
 
-        if (!upgradeScripts.ContainsKey(upgradeType))
-            upgradeScripts.Add(upgradeType, upgradeScript);
+        if (!upgradeScripts.ContainsKey(upgrade.upgradeType))
+            upgradeScripts.Add(upgrade.upgradeType, upgradeScript);
         else
-            upgradeScripts[upgradeType] = upgradeScript;
+            upgradeScripts[upgrade.upgradeType] = upgradeScript;
 
-        upgradeScript.CreateUpgrade(GetComponent<TankController>());
+        upgradeScript.CreateUpgrade(upgrade, tank);
+
+
+        tank.tankGrid.InitializeGrid();  // Rebake the pathfinding grid
     }
 
 
@@ -62,14 +78,28 @@ public class TankUpgradeController : MonoBehaviour
         if (upgradeNodes.ContainsKey(upgradeType))
         {
             if (upgradeNodes[upgradeType].childCount != 0)
-                Destroy(upgradeNodes[upgradeType].GetChild(0));
+                Destroy(upgradeNodes[upgradeType].GetChild(0).gameObject);
         }
+
+
+        tank.tankGrid.InitializeGrid();  // Rebake the pathfinding grid
     }
-}
 
 
-public enum UpgradeTypes
-{
-    Filter,
-    Decorations
+    public bool CheckForUpgrade(UpgradeTypes type)
+    {
+        if (upgradeScripts.ContainsKey(type) && upgradeScripts[type] != null)
+            return true;
+
+        return false;
+    }
+
+
+    public TankUpgrade GetUpgrade(UpgradeTypes type)
+    {
+        if (upgradeScripts.ContainsKey(type) && upgradeScripts[type] != null)
+            return upgradeScripts[type];
+
+        return null;
+    }
 }

@@ -28,10 +28,17 @@ public class TankController : MonoBehaviour
 
     [Header("Water")]
     public Transform waterLevel;
-    [HideInInspector] public float waterQuality = 100;
-    [HideInInspector] public float waterTemperature = 50;
+
+    public float waterQuality = 100;
+    [SerializeField] float waterQualityDecreaseSpeed = 5;
+
+    public float waterTemperature = 50;
+    private float tempuratureRisingTarget;
+    private float tempuratureRisingTimer;
+    [SerializeField] float tempuratureChangeSpeed = 5;
+    [SerializeField][Range(0,50)] float naturalTempuratureVariation = 25;
+
     [HideInInspector] public float waterSalt = 50;
-    [SerializeField] float waterQualityDecreaseSpeed;
 
     [Header("Upgrades")]
     private TankUpgradeController upgradeController;
@@ -69,6 +76,7 @@ public class TankController : MonoBehaviour
     private LODLevel currentLODLevel;
     [SerializeField] float distanceCheckTime = 1;
     private float distanceCheckTimer;
+    public Transform particleParent;
     private Transform player;
 
     [Header("Debugging")]
@@ -225,7 +233,31 @@ public class TankController : MonoBehaviour
 
 
 
-        waterQuality = Mathf.Clamp(waterQuality - (waterQualityDecreaseSpeed * updateTimer), 0, 100);
+        // Water Quality
+        if (!upgradeController.CheckForUpgrade(UpgradeTypes.Filter) ||
+            upgradeController.GetUpgrade(UpgradeTypes.Filter).upgrade.filterCapacity < shrimpInTank.Count)
+        {
+            waterQuality = Mathf.Clamp(waterQuality - (((waterQualityDecreaseSpeed * ((shrimpInTank.Count + 1) / 2)) / 50) * updateTimer), 0, 100);
+        }
+
+
+        // Water Temperature
+        if (!upgradeController.CheckForUpgrade(UpgradeTypes.Heater) || 
+            upgradeController.GetUpgrade(UpgradeTypes.Heater).upgrade.thermometer == Thermometer.ThermometerOnly)
+        {
+            tempuratureRisingTimer -= updateTimer;
+            if (tempuratureRisingTimer <= 0)
+            {
+                tempuratureRisingTimer = Random.Range(10, 60);
+                tempuratureRisingTarget = Random.Range(50 - naturalTempuratureVariation, 50 + naturalTempuratureVariation);
+            }
+            if (waterTemperature < tempuratureRisingTarget)
+                waterTemperature = Mathf.Clamp(waterTemperature + ((tempuratureChangeSpeed / 10) * updateTimer), 0, tempuratureRisingTarget);
+            else if (waterTemperature > tempuratureRisingTarget)
+                waterTemperature = Mathf.Clamp(waterTemperature - ((tempuratureChangeSpeed / 10) * updateTimer), tempuratureRisingTarget, 100);
+        }
+
+
 
         upgradeController.UpdateUpgrades(updateTimer);
     }
@@ -416,24 +448,28 @@ public class TankController : MonoBehaviour
             case LODLevel.High:
                 {
                     updateTime = 0;
+                    particleParent.gameObject.SetActive(true);
                     break;
                 }
             case LODLevel.Mid:
                 {
                     updateTime = 0.01f;
                     updateTime *= ((ShrimpManager.instance.allShrimp.Count / 200) + 1);
+                    particleParent.gameObject.SetActive(true);
                     break;
                 }
             case LODLevel.Low:
                 {
                     updateTime = 0.1f;
                     updateTime *= ((ShrimpManager.instance.allShrimp.Count / 200) + 1);
+                    particleParent.gameObject.SetActive(true);
                     break;
                 }
             case LODLevel.SuperLow:
                 {
                     updateTime = 1.0f;
                     updateTime *= ((ShrimpManager.instance.allShrimp.Count / 200) + 1);
+                    particleParent.gameObject.SetActive(false);
                     break;
                 }
         }
