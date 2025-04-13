@@ -18,6 +18,8 @@ public class UIManager
 
     private GameObject _cursor;
 
+    public GameObject tooltips { set; private get; }
+
     private Transform MainCanvas;
 
     private TextMeshProUGUI notifBar;
@@ -39,7 +41,7 @@ public class UIManager
 
         MainCanvas.GetComponentInChildren<TabletInteraction>().gameObject.GetComponent<CanvasGroup>().interactable = true;
 
-        
+        tooltips.SetActive(true);
         
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -79,6 +81,7 @@ public class UIManager
 
         Cursor.visible = false;
 
+        tooltips.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Confined;
 

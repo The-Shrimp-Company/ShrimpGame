@@ -20,13 +20,14 @@ public class CameraControls : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _playerInput = GetComponent<PlayerInput>();
-        if (!PlayerPrefs.HasKey("sensitivity"))
+        if (!PlayerPrefs.HasKey("Sensitivity"))
         {
             lookSenstivity = 0.5f * 1f;
+            PlayerPrefs.SetFloat("Sensitivity", 1f);
         }
         else
         {
-            lookSenstivity = 0.5f * PlayerPrefs.GetFloat("sensitivity");
+            lookSenstivity = 0.5f * PlayerPrefs.GetFloat("Sensitivity");
         }
     }
 

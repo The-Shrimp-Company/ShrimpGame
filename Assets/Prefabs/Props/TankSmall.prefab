@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 2235153865005791252}
   - component: {fileID: 593345867501592202}
   - component: {fileID: 1496647126932978228}
+  - component: {fileID: 2602086664396614276}
   m_Layer: 6
   m_Name: TankSmall
   m_TagString: Tank
@@ -497,6 +498,7 @@ MonoBehaviour:
   waterQuality: 100
   waterTemperature: 50
   waterSalt: 50
+  waterQualityDecreaseSpeed: 0
   sign: {fileID: 5947789648189943326}
   SaleSign: {fileID: 5994137002391903135}
   label: {fileID: 2617808344691637593}
@@ -588,6 +590,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.77874345, y: 0.59782267, z: 0.54822993}
   m_Center: {x: -0.022565752, y: 0.21165168, z: 0.054941595}
+--- !u!114 &2602086664396614276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463401828186235566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e94f59dfcbdd104bb7888261b2dac81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1601183149845290903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +1981,8 @@ AudioSource:
   m_GameObject: {fileID: 6449445914757957808}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 0378b15b67e0cfd49acc8a254a8ee9f8,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: b122b65d9b471e041807baaeabac40e5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.045
