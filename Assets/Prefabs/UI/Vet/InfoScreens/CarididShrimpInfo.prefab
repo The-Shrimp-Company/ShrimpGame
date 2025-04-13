@@ -445,9 +445,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Caridid shrimp were recently brought back from extinction, and boy are
-    they pissed about it. They really hate the fact that they, as a species, are
-    back on the planet they escaped from (through death) several millenia ago.
+  m_text: Caridid shrimp are a rare breed of shrimp which prefer lower temperatures
+    and salt water.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
