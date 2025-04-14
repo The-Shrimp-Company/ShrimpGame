@@ -397,7 +397,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2387331758389063979
 Transform:
   m_ObjectHideFlags: 0
@@ -612,10 +612,13 @@ MonoBehaviour:
       Value: {fileID: 2806424953242162934}
     - Key: 1
       Value: {fileID: 2131584505254231964}
+    - Key: 7
+      Value: {fileID: 6958339645014040434}
   debugUpgrades:
   - {fileID: 11400000, guid: d2da9b71affb4cf459bcd5edbd9a7ca7, type: 2}
   - {fileID: 11400000, guid: e0d5a6bb95ad4b04394cb38a9b11734c, type: 2}
   - {fileID: 11400000, guid: e0d5a6bb95ad4b04394cb38a9b11734c, type: 2}
+  - {fileID: 11400000, guid: 6fc11e4759c08a64eb063b59ac026302, type: 2}
 --- !u!1 &1601183149845290903
 GameObject:
   m_ObjectHideFlags: 0
