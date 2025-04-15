@@ -45,6 +45,8 @@ public class TankViewScript : ScreenView
     [SerializeField] private Animator ContextBox;
     [SerializeField] private Animator UpgradeBox;
 
+    [SerializeField] private UpgradePanel upgrades;
+
     protected override void Start()
     {
         player = GameObject.Find("Player");
@@ -55,6 +57,7 @@ public class TankViewScript : ScreenView
         Name.text = tank.tankName;
         salePrice.text = tank.openTankPrice.ToString();
         selectedShrimp = new List<Shrimp>();
+        upgrades.Tank = tank;
         UpdateContent();
     }
 
