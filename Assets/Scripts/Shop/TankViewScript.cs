@@ -43,6 +43,7 @@ public class TankViewScript : ScreenView
     [SerializeField] Image multiSelect;
 
     [SerializeField] private Animator ContextBox;
+    [SerializeField] private Animator UpgradeBox;
 
     protected override void Start()
     {
@@ -66,10 +67,12 @@ public class TankViewScript : ScreenView
         if(selectedShrimp.Count > 0)
         {
             ContextBox.SetBool("Selection", true);
+            UpgradeBox.SetBool("Expand", false);
         }
         else
         {
             ContextBox.SetBool("Selection", false);
+            UpgradeBox.SetBool("Expand", true);
         }
 
         if(selectedShrimp.Count == 0)
