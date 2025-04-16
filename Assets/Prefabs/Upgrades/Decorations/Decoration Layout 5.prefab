@@ -130,13 +130,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5987287620935341093}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.252, y: 0, z: -0.02518811}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5069972407184563368}
   - {fileID: 1973198247488583019}
+  - {fileID: 6782336680637257919}
+  - {fileID: 9171332980953351733}
+  - {fileID: 2189096654184844092}
+  - {fileID: 7756575701742584001}
+  - {fileID: 6024864027007041470}
+  - {fileID: 2471126102391363182}
+  - {fileID: 5323472267608848489}
+  - {fileID: 7897075167457346256}
+  - {fileID: 2440539163860772092}
+  - {fileID: 6262088087906924485}
+  - {fileID: 6346941717958990621}
+  - {fileID: 25315266583090856}
+  - {fileID: 2663006800140216718}
+  - {fileID: 5402796028188412791}
+  - {fileID: 6664458715113484230}
+  - {fileID: 6442338778803962582}
+  - {fileID: 9166031325312782269}
+  - {fileID: 2057808084384907303}
+  - {fileID: 2582505037507417285}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7975188028336782925
@@ -245,3 +264,1664 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &192910929050771991
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 45.198997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 45.198994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 45.198994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24599361
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.14710844
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6920024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6920024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.14537093
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.14537093
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -23.728
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &6024864027007041470 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 192910929050771991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &564816299473087084
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 58.457
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 58.457
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 58.457
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.10772467
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.12055158
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.66191643
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.66191643
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.24873011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.24873011
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 41.19
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &6262088087906924485 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 564816299473087084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &658962899344656052
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 81.437996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 81.437996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 81.43799
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.11938238
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.06433503
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.68761486
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.68761486
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.16488135
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.16488135
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -26.968
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &6346941717958990621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 658962899344656052}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &958474499618796143
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 60.09846
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 60.098465
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 60.098465
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24600029
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.14881188
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6495285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6495285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.2794865
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.2794865
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 46.564
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &6664458715113484230 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 958474499618796143}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1093941331260622102
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 136.39903
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 136.39902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 136.39903
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0026865005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.09255671
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6984672
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6984672
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.11019828
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.11019828
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -17.931
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &6782336680637257919 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093941331260622102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1419843853441898727
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 124.472664
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 124.472664
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 124.47267
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.21376276
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.119627036
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7052024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7052024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.051861305
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.051861305
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -8.412
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511436777668873034, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_Name
+      value: Java-Fern
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f921fb8642069644939b94251f90655, type: 3}
+--- !u!4 &2582505037507417285 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+    type: 3}
+  m_PrefabInstance: {fileID: 1419843853441898727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1788214152412784064
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 57.573997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 57.573997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 57.573997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.18816948
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12992385
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7001304
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7001304
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.09908307
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.09908307
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 16.11
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &5323472267608848489 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 1788214152412784064}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2002783254869694174
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 58.457005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 58.457005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 58.457
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.10599995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1397556
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.684019
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.684019
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.17921484
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.17921484
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 29.363
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &5402796028188412791 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 2002783254869694174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3348101277880458140
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.1845479
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.08175293
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &9171332980953351733 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 3348101277880458140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4221317745446165864
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 84.97399
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 84.97399
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 84.974
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.073048115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.042083867
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7069477
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7069477
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.0149990665
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0149990665
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 2.431
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &7756575701742584001 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 4221317745446165864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4232378403202520872
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 969630005840922781, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_Name
+      value: Anubias (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 68.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 68.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 68.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.22800016
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12218811
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.07134405
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.07134405
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7034984
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7034984
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -191.582
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3eb3b232b12140c42b46c54ac075a357, type: 3}
+--- !u!4 &2057808084384907303 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+    type: 3}
+  m_PrefabInstance: {fileID: 4232378403202520872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4371247670380896121
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 41.155285
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 41.155293
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 41.155293
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06910086
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.02964833
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.11308165
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.11308165
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.69800615
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.69800615
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 161.595
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &7897075167457346256 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 4371247670380896121}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5715346453903906453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 111.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 111.490005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 111.490005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.106
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &2189096654184844092 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 5715346453903906453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5717005530476266399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 200.53148
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 200.53151
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 200.53151
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2117467
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.11132605
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.64833075
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.64833075
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.28225395
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.28225395
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 47.052
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511436777668873034, guid: 5f921fb8642069644939b94251f90655,
+        type: 3}
+      propertyPath: m_Name
+      value: Java-Fern (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5f921fb8642069644939b94251f90655, type: 3}
+--- !u!4 &9166031325312782269 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3486536873338489890, guid: 5f921fb8642069644939b94251f90655,
+    type: 3}
+  m_PrefabInstance: {fileID: 5717005530476266399}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5865998469214259969
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 47.981865
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 47.981865
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 47.981857
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.25199986
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.03518811
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6920256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6920256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.1452605
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.1452605
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -23.709
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &25315266583090856 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 5865998469214259969}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8137810939342600533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2135582
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.12674671
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7051758
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7051758
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.05222213
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.05222213
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -8.471
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &2440539163860772092 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 8137810939342600533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8321229920649841607
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 32.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 32.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 32.825
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.23659992
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.09759292
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &2471126102391363182 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 8321229920649841607}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8486224316384064551
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 4984127487984152811, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_Name
+      value: Dwarf water lettuce (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 59.341003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 59.341007
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 59.341003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.19023514
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0011881106
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.57456726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.57456726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4121559
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4121559
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -71.306
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9b27c5af0133a9b40ba2b74224f88701, type: 3}
+--- !u!4 &2663006800140216718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5850675775297297833, guid: 9b27c5af0133a9b40ba2b74224f88701,
+    type: 3}
+  m_PrefabInstance: {fileID: 8486224316384064551}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9175355039090136537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6187623711858988117}
+    m_Modifications:
+    - target: {fileID: 969630005840922781, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_Name
+      value: Anubias
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 131.81998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 131.81999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 131.81999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.099004745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.056987114
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.65730816
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.65730816
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.26066455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.26066455
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 43.263
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3eb3b232b12140c42b46c54ac075a357, type: 3}
+--- !u!4 &6442338778803962582 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2752438480366425871, guid: 3eb3b232b12140c42b46c54ac075a357,
+    type: 3}
+  m_PrefabInstance: {fileID: 9175355039090136537}
+  m_PrefabAsset: {fileID: 0}
