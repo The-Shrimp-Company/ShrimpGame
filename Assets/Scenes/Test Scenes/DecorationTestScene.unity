@@ -586,11 +586,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Decoration Layout 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2905897715263716655, guid: 572b36fb3fd105b4ab65e72d7ee98ce0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4183368180223848143, guid: 572b36fb3fd105b4ab65e72d7ee98ce0,
         type: 3}
       propertyPath: m_LocalPosition.x
