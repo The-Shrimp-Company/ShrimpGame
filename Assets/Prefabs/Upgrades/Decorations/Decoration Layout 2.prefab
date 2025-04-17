@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7923619400029062234
 Transform:
   m_ObjectHideFlags: 0
@@ -115,6 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6005740784203991545}
+  - component: {fileID: -3877100920177328116}
   m_Layer: 6
   m_Name: Decoration Layout 2
   m_TagString: Untagged
@@ -153,6 +154,20 @@ Transform:
   - {fileID: 8004659247485760958}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3877100920177328116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135683479809353700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f499185a65edd544852aca3290283db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgrade: {fileID: 0}
+  brokenParticlesPrefab: {fileID: 0}
 --- !u!1 &8086759765479787973
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4814660783493470209
 Transform:
   m_ObjectHideFlags: 0

@@ -51,6 +51,12 @@ public class TankUpgradeController : MonoBehaviour
         GameObject newUpgrade = GameObject.Instantiate(upgrade.upgradePrefab, upgradeNodes[upgrade.upgradeType].position, upgradeNodes[upgrade.upgradeType].rotation, upgradeNodes[upgrade.upgradeType]);
         TankUpgrade upgradeScript = newUpgrade.GetComponent<TankUpgrade>();
 
+        if (upgradeScript == null)
+        {
+            Debug.LogWarning("Upgrade script missing on " + upgrade.upgradePrefab);
+            return;
+        }
+
         if (!upgradeScripts.ContainsKey(upgrade.upgradeType))
             upgradeScripts.Add(upgrade.upgradeType, upgradeScript);
         else
