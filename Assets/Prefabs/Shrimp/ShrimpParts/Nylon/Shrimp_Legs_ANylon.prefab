@@ -63,6 +63,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shrimp_Legs_ANylon
       objectReference: {fileID: 0}
+    - target: {fileID: 8517804173639440997, guid: 72822570f42e93e45bf0821b8db01990,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517804173639440997, guid: 72822570f42e93e45bf0821b8db01990,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517804173639440997, guid: 72822570f42e93e45bf0821b8db01990,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517804173639440997, guid: 72822570f42e93e45bf0821b8db01990,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517804173639440997, guid: 72822570f42e93e45bf0821b8db01990,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00018
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517804173639440997, guid: 72822570f42e93e45bf0821b8db01990,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00048
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517804173639440997, guid: 72822570f42e93e45bf0821b8db01990,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -184,8 +219,25 @@ MonoBehaviour:
   animations:
     _serializedList:
     - Key: 0
-      Value: {fileID: 2829569552310780195, guid: 72822570f42e93e45bf0821b8db01990,
+      Value: {fileID: 363740811693404024, guid: d662fbb7a307d1b48a36d0e0a9255cbf,
         type: 3}
+    - Key: 1
+      Value: {fileID: -6339193489987685808, guid: d662fbb7a307d1b48a36d0e0a9255cbf,
+        type: 3}
+    - Key: 2
+      Value: {fileID: -5892147424074803932, guid: d662fbb7a307d1b48a36d0e0a9255cbf,
+        type: 3}
+    - Key: 3
+      Value: {fileID: 2564493603013902303, guid: d662fbb7a307d1b48a36d0e0a9255cbf,
+        type: 3}
+    - Key: 4
+      Value: {fileID: 8562067849809284951, guid: d662fbb7a307d1b48a36d0e0a9255cbf,
+        type: 3}
+    - Key: 5
+      Value: {fileID: 4363154568094610559, guid: d662fbb7a307d1b48a36d0e0a9255cbf,
+        type: 3}
+  bodyNode: {fileID: 7056390128422826903}
+  debug: 0
 --- !u!111 &-2417181439197122522
 Animation:
   m_ObjectHideFlags: 0
@@ -195,10 +247,15 @@ Animation:
   m_GameObject: {fileID: 1952712287838295203}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 2829569552310780195, guid: 72822570f42e93e45bf0821b8db01990,
+  m_Animation: {fileID: 363740811693404024, guid: d662fbb7a307d1b48a36d0e0a9255cbf,
     type: 3}
   m_Animations:
-  - {fileID: 2829569552310780195, guid: 72822570f42e93e45bf0821b8db01990, type: 3}
+  - {fileID: 363740811693404024, guid: d662fbb7a307d1b48a36d0e0a9255cbf, type: 3}
+  - {fileID: -6339193489987685808, guid: d662fbb7a307d1b48a36d0e0a9255cbf, type: 3}
+  - {fileID: -5892147424074803932, guid: d662fbb7a307d1b48a36d0e0a9255cbf, type: 3}
+  - {fileID: 2564493603013902303, guid: d662fbb7a307d1b48a36d0e0a9255cbf, type: 3}
+  - {fileID: 8562067849809284951, guid: d662fbb7a307d1b48a36d0e0a9255cbf, type: 3}
+  - {fileID: 4363154568094610559, guid: d662fbb7a307d1b48a36d0e0a9255cbf, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -296,6 +353,12 @@ GameObject:
 --- !u!1 &6656562268011814277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5456349226352358519, guid: 72822570f42e93e45bf0821b8db01990,
+    type: 3}
+  m_PrefabInstance: {fileID: 1718128391353887218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7056390128422826903 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8517804173639440997, guid: 72822570f42e93e45bf0821b8db01990,
     type: 3}
   m_PrefabInstance: {fileID: 1718128391353887218}
   m_PrefabAsset: {fileID: 0}

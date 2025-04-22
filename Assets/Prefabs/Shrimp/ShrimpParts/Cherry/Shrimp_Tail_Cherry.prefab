@@ -61,17 +61,17 @@ PrefabInstance:
     - target: {fileID: -6492705770264247402, guid: 0d183001d5908b24299f1ac67daa0a15,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -6492705770264247402, guid: 0d183001d5908b24299f1ac67daa0a15,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -6492705770264247402, guid: 0d183001d5908b24299f1ac67daa0a15,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: -6492705770264247402, guid: 0d183001d5908b24299f1ac67daa0a15,
         type: 3}
@@ -177,6 +177,21 @@ MonoBehaviour:
     - Key: 0
       Value: {fileID: -2521590231364771974, guid: 0d183001d5908b24299f1ac67daa0a15,
         type: 3}
+    - Key: 1
+      Value: {fileID: -9196710071872577549, guid: 0bc66e11b5efebe4a8a8134e7f198b09,
+        type: 3}
+    - Key: 2
+      Value: {fileID: -5731547057446780774, guid: 0bc66e11b5efebe4a8a8134e7f198b09,
+        type: 3}
+    - Key: 3
+      Value: {fileID: -2031362361949969412, guid: 0bc66e11b5efebe4a8a8134e7f198b09,
+        type: 3}
+    - Key: 4
+      Value: {fileID: 6621997948327781880, guid: 0bc66e11b5efebe4a8a8134e7f198b09,
+        type: 3}
+    - Key: 5
+      Value: {fileID: 3207921336342135658, guid: 0bc66e11b5efebe4a8a8134e7f198b09,
+        type: 3}
   tFanNode: {fileID: 7181753236030459587}
 --- !u!111 &6716400580473820978
 Animation:
@@ -191,6 +206,11 @@ Animation:
     type: 3}
   m_Animations:
   - {fileID: -2521590231364771974, guid: 0d183001d5908b24299f1ac67daa0a15, type: 3}
+  - {fileID: -9196710071872577549, guid: 0bc66e11b5efebe4a8a8134e7f198b09, type: 3}
+  - {fileID: -5731547057446780774, guid: 0bc66e11b5efebe4a8a8134e7f198b09, type: 3}
+  - {fileID: -2031362361949969412, guid: 0bc66e11b5efebe4a8a8134e7f198b09, type: 3}
+  - {fileID: 6621997948327781880, guid: 0bc66e11b5efebe4a8a8134e7f198b09, type: 3}
+  - {fileID: 3207921336342135658, guid: 0bc66e11b5efebe4a8a8134e7f198b09, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

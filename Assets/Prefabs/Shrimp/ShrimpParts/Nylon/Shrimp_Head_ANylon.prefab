@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shrimp_Head_ANylon
       objectReference: {fileID: 0}
+    - target: {fileID: 3239340224422319820, guid: dd7064bbace951e45882044cd5ebef67,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239340224422319820, guid: dd7064bbace951e45882044cd5ebef67,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239340224422319820, guid: dd7064bbace951e45882044cd5ebef67,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239340224422319820, guid: dd7064bbace951e45882044cd5ebef67,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5151901995141198709, guid: dd7064bbace951e45882044cd5ebef67,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -171,12 +191,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 9013557008153341065}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4209086393805316092 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5151901995141198709, guid: dd7064bbace951e45882044cd5ebef67,
-    type: 3}
-  m_PrefabInstance: {fileID: 9013557008153341065}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4225626420308516928 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5166445162498936009, guid: dd7064bbace951e45882044cd5ebef67,
@@ -204,6 +218,12 @@ GameObject:
 --- !u!1 &5506629548283555974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5657105858376885233, guid: dd7064bbace951e45882044cd5ebef67,
+    type: 3}
+  m_PrefabInstance: {fileID: 9013557008153341065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5900529780325218885 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3239340224422319820, guid: dd7064bbace951e45882044cd5ebef67,
     type: 3}
   m_PrefabInstance: {fileID: 9013557008153341065}
   m_PrefabAsset: {fileID: 0}
@@ -289,9 +309,24 @@ MonoBehaviour:
   animations:
     _serializedList:
     - Key: 0
-      Value: {fileID: 3045187053115455564, guid: dd7064bbace951e45882044cd5ebef67,
+      Value: {fileID: 5416052541120513026, guid: 8de8624b40c285c4885ec103f5bd9aab,
         type: 3}
-  eyesNode: {fileID: 4209086393805316092}
+    - Key: 1
+      Value: {fileID: 8081075844515544653, guid: 8de8624b40c285c4885ec103f5bd9aab,
+        type: 3}
+    - Key: 2
+      Value: {fileID: 4220111783432878447, guid: 8de8624b40c285c4885ec103f5bd9aab,
+        type: 3}
+    - Key: 3
+      Value: {fileID: -7094714269737484914, guid: 8de8624b40c285c4885ec103f5bd9aab,
+        type: 3}
+    - Key: 4
+      Value: {fileID: -6233081730277817817, guid: 8de8624b40c285c4885ec103f5bd9aab,
+        type: 3}
+    - Key: 5
+      Value: {fileID: -3711672533407558197, guid: 8de8624b40c285c4885ec103f5bd9aab,
+        type: 3}
+  eyesNode: {fileID: 5900529780325218885}
 --- !u!111 &-8639351783564183643
 Animation:
   m_ObjectHideFlags: 0
@@ -301,10 +336,15 @@ Animation:
   m_GameObject: {fileID: 8203306198170816984}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 3045187053115455564, guid: dd7064bbace951e45882044cd5ebef67,
+  m_Animation: {fileID: 5416052541120513026, guid: 8de8624b40c285c4885ec103f5bd9aab,
     type: 3}
   m_Animations:
-  - {fileID: 3045187053115455564, guid: dd7064bbace951e45882044cd5ebef67, type: 3}
+  - {fileID: 5416052541120513026, guid: 8de8624b40c285c4885ec103f5bd9aab, type: 3}
+  - {fileID: 8081075844515544653, guid: 8de8624b40c285c4885ec103f5bd9aab, type: 3}
+  - {fileID: 4220111783432878447, guid: 8de8624b40c285c4885ec103f5bd9aab, type: 3}
+  - {fileID: -7094714269737484914, guid: 8de8624b40c285c4885ec103f5bd9aab, type: 3}
+  - {fileID: -6233081730277817817, guid: 8de8624b40c285c4885ec103f5bd9aab, type: 3}
+  - {fileID: -3711672533407558197, guid: 8de8624b40c285c4885ec103f5bd9aab, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0

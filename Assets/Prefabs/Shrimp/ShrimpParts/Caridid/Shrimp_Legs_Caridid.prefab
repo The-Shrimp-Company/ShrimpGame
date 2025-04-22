@@ -63,6 +63,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shrimp_Legs_Caridid
       objectReference: {fileID: 0}
+    - target: {fileID: 7852722928096932712, guid: f8bc7baa111d79946a2f3b54d3bb5261,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852722928096932712, guid: f8bc7baa111d79946a2f3b54d3bb5261,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852722928096932712, guid: f8bc7baa111d79946a2f3b54d3bb5261,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7852722928096932712, guid: f8bc7baa111d79946a2f3b54d3bb5261,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -130,6 +150,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5055484594487536389}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &3085750322886072429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7852722928096932712, guid: f8bc7baa111d79946a2f3b54d3bb5261,
+    type: 3}
+  m_PrefabInstance: {fileID: 5055484594487536389}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3823526113865177852 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -925677971778391559, guid: f8bc7baa111d79946a2f3b54d3bb5261,
@@ -188,8 +214,25 @@ MonoBehaviour:
   animations:
     _serializedList:
     - Key: 0
-      Value: {fileID: 1641253891368061689, guid: f8bc7baa111d79946a2f3b54d3bb5261,
+      Value: {fileID: -8868841470250954554, guid: c3400379a0abc3c45b83932c1461bb5c,
         type: 3}
+    - Key: 1
+      Value: {fileID: -8213038239183117436, guid: c3400379a0abc3c45b83932c1461bb5c,
+        type: 3}
+    - Key: 2
+      Value: {fileID: 1128497439554798220, guid: 43daa276d1e34b94883372cf74e83929,
+        type: 3}
+    - Key: 3
+      Value: {fileID: 3550321931802976134, guid: 43daa276d1e34b94883372cf74e83929,
+        type: 3}
+    - Key: 4
+      Value: {fileID: -8437960823159846021, guid: 43daa276d1e34b94883372cf74e83929,
+        type: 3}
+    - Key: 5
+      Value: {fileID: -2844167422686948681, guid: 43daa276d1e34b94883372cf74e83929,
+        type: 3}
+  bodyNode: {fileID: 3085750322886072429}
+  debug: 0
 --- !u!111 &-3177207825483238276
 Animation:
   m_ObjectHideFlags: 0
@@ -199,10 +242,15 @@ Animation:
   m_GameObject: {fileID: 5398084935266244180}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 1641253891368061689, guid: f8bc7baa111d79946a2f3b54d3bb5261,
+  m_Animation: {fileID: -8868841470250954554, guid: c3400379a0abc3c45b83932c1461bb5c,
     type: 3}
   m_Animations:
-  - {fileID: 1641253891368061689, guid: f8bc7baa111d79946a2f3b54d3bb5261, type: 3}
+  - {fileID: -8868841470250954554, guid: c3400379a0abc3c45b83932c1461bb5c, type: 3}
+  - {fileID: -8213038239183117436, guid: c3400379a0abc3c45b83932c1461bb5c, type: 3}
+  - {fileID: 1128497439554798220, guid: 43daa276d1e34b94883372cf74e83929, type: 3}
+  - {fileID: 3550321931802976134, guid: 43daa276d1e34b94883372cf74e83929, type: 3}
+  - {fileID: -8437960823159846021, guid: 43daa276d1e34b94883372cf74e83929, type: 3}
+  - {fileID: -2844167422686948681, guid: 43daa276d1e34b94883372cf74e83929, type: 3}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
