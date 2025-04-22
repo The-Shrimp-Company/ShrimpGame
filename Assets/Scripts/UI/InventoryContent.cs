@@ -1,5 +1,4 @@
 using System.Linq;
-using UnityEditor.Events;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -51,7 +50,7 @@ public class InventoryContent : ContentPopulation
     {
         Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();
         oldScreen.gameObject.SetActive(false);
-        UnityEventTools.RemovePersistentListener(button.onClick, 0);
+        button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
             oldScreen.gameObject.SetActive(true);
