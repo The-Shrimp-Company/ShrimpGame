@@ -1805,9 +1805,9 @@ MonoBehaviour:
   m_text: 'Click E To exit most screens back to the standard player controls.
 
     Press
-    G to add moenyies
+    arrow keys or WASD to switch between tanks
 
-    Press P to add a request for shrimp'
+    Press E or Esc to get to tablet'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
