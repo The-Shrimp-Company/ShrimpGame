@@ -268,6 +268,7 @@ public class IllnessController : MonoBehaviour
     {
         for(int i = 0; i < possibleIllness.Length; i++)
         {
+            Debug.Log(i + " " + shrimp.stats.illness);
             if (currentIllness.Contains(possibleIllness[i]))
                 shrimp.stats.illness[i] = true;
             else

@@ -49,7 +49,7 @@ public class TankController : MonoBehaviour
     [SerializeField] private GameObject SaleSign;
     public bool openTank { get; private set; } = false;
     [SerializeField] private TextMeshProUGUI label;
-    public float openTankPrice = 50;
+    public float openTankPrice = 5;
     [SerializeField] private TextMeshProUGUI openTankLabel;
 
     [Header("Pathfinding")]
