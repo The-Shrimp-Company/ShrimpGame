@@ -59,4 +59,10 @@ public class TankUpgrade : MonoBehaviour
             }
         }
     }
+
+    public bool IsBroken()
+    {
+        if (working) return false;
+        else return true;
+    }
 }
