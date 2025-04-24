@@ -323,7 +323,7 @@ public class TankController : MonoBehaviour
         shrimp.ConstructShrimp();
 
         if (gameLoading)
-            newShrimp.GetComponent<IllnessController>().LoadIllnesses();
+            newShrimp.GetComponent<IllnessController>().LoadIllnesses(s);
 
         shrimpToAdd.Add(shrimp);
     }

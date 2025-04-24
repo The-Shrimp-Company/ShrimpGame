@@ -31,7 +31,6 @@ public struct ShrimpStats
     public Trait pattern;
     public Trait tail;
     public Trait tailFan;
-    //public Trait antenna;
     public Trait legs;
 
     public int fightHistory;

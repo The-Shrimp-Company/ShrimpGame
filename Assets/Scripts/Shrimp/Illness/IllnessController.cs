@@ -266,28 +266,37 @@ public class IllnessController : MonoBehaviour
 
     public void SaveIllnesses()
     {
+        shrimp.stats.illness = new bool[possibleIllness.Length];
         for(int i = 0; i < possibleIllness.Length; i++)
         {
-            Debug.Log(i + " " + shrimp.stats.illness);
             if (currentIllness.Contains(possibleIllness[i]))
                 shrimp.stats.illness[i] = true;
             else
                 shrimp.stats.illness[i] = false;
         }
 
-        shrimp.stats.symptoms[0] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomBodySize)).severity;
-        shrimp.stats.symptoms[1] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomDiscolouration)).severity;
-        shrimp.stats.symptoms[2] = currentSymptoms.Find(i => i.GetType() == typeof(SymptomBubbles)).severity;
+        shrimp.stats.symptoms = new float[3] { 0, 0, 0 };
+        SaveSymptom(typeof(SymptomBodySize), 0);
+        SaveSymptom(typeof(SymptomDiscolouration), 1);
+        SaveSymptom(typeof(SymptomBubbles), 2);
     }
 
 
-    public void LoadIllnesses()
+    private void SaveSymptom(System.Type t, int index)
+    {
+        Symptom currentSymptom = currentSymptoms.Find(i => i.GetType() == t);
+        if (currentSymptom != null) shrimp.stats.symptoms[index] = currentSymptom.severity;
+    }
+
+
+    public void LoadIllnesses(ShrimpStats s)
     {
         loadingIllnesses = true;
+        shrimp = GetComponent<Shrimp>();
 
         for (int i = 0; i < possibleIllness.Length; i++)
         {
-            if (shrimp.stats.illness[i])
+            if (s.illness.Length >= i && s.illness[i] == true)
                 AddIllness(possibleIllness[i]);
         }
 
