@@ -81,9 +81,10 @@ public class IllnessController : MonoBehaviour
         // Trigger chance is now a value from 1-100 based on the trigger
         if (shrimp.tank.currentIllness.ContainsKey(so))
         {
-            float tankInfection = Mathf.Clamp(Mathf.InverseLerp(0, shrimp.tank.roughShrimpCapacity, shrimp.tank.currentIllness[so]) * 100, 0, 100);
-            float spreadRate = (shrimp.tank.illnessSpreadRate / 100) + 1;
-            triggerChance = Mathf.Clamp(triggerChance + (tankInfection * spreadRate), 0, 100);
+            float tankInfection = Mathf.Clamp(Mathf.InverseLerp(0, shrimp.tank.roughShrimpCapacity, shrimp.tank.currentIllness[so]) * shrimp.tank.illnessSpreadRate, 0, shrimp.tank.illnessSpreadRate) + 1;
+            //float spreadRate = (shrimp.tank.illnessSpreadRate / 100) + 1;
+            //triggerChance = Mathf.Clamp(triggerChance + (tankInfection * spreadRate), 0, 100);
+            triggerChance = Mathf.Clamp(triggerChance * tankInfection, 0, 100);
         }
 
         if (Random.value < so.triggerChance.Evaluate(triggerChance / 100))

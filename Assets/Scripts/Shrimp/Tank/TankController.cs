@@ -274,7 +274,7 @@ public class TankController : MonoBehaviour
     public void SetTankPrice(float price)
     {
         openTankPrice = price;
-        openTankLabel.text = "All Shrimp " + price.ToString();
+        openTankLabel.text = "All Shrimp\n" + "£" + price.ToString();
     }
 
 
@@ -284,7 +284,7 @@ public class TankController : MonoBehaviour
         if (openTank) CustomerManager.Instance.openTanks.Add(this);
         else CustomerManager.Instance.openTanks.Remove(this);
         SaleSign.SetActive(openTank);
-        openTankLabel.text = "All Shrimp " + openTankPrice;
+        openTankLabel.text = "All Shrimp\n" + "£" + openTankPrice.ToString();
     }
 
 
