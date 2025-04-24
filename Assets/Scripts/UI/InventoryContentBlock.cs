@@ -8,4 +8,12 @@ public class InventoryContentBlock : ContentBlock
     public Item item;
 
     public TextMeshProUGUI quantity;
+
+    public override void SetText(string textToSet)
+    {
+        Canvas.ForceUpdateCanvases();
+        text.text = textToSet;
+
+        quantity.text = "x" + quantity.text;
+    }
 }

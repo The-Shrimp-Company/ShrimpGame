@@ -21,6 +21,9 @@ public class BuyContentBlock : ContentBlock
 
     [SerializeField] private BuyScreen _screen;
 
+    [SerializeField] private Color interactiveTextColour;
+    [SerializeField] private Color nonInteractiveTextColour;
+
     private List<ShrimpStats> shrimp = new List<ShrimpStats>();
 
     public enum BackgroundSprites : int
@@ -37,10 +40,12 @@ public class BuyContentBlock : ContentBlock
         if(Reputation.GetReputation() < reputationRequirement)
         {
             GetComponent<Button>().interactable = false;
+            transform.GetChild(0).GetComponent<TMP_Text>().color = nonInteractiveTextColour;
         }
         else
         {
             GetComponent<Button>().interactable = true;
+            transform.GetChild(0).GetComponent<TMP_Text>().color = interactiveTextColour;
         }
     }
 

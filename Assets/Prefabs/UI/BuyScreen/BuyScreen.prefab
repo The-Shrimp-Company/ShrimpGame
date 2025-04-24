@@ -217,8 +217,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8986444441810471884}
   m_HandleRect: {fileID: 6187992125951271730}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 1.0000019
+  m_Size: 0.53464633
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -881,7 +881,7 @@ PrefabInstance:
     - target: {fileID: 1791951336729276664, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1863
+      value: 801
       objectReference: {fileID: 0}
     - target: {fileID: 1791951336729276664, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
@@ -970,8 +970,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5792091146291943645, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792091146291943645, guid: d0509c493fec39445946c4123c97c903,
+        type: 3}
       propertyPath: m_fontSizeBase
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5792091146291943645, guid: d0509c493fec39445946c4123c97c903,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6797226735578705526, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
@@ -1242,7 +1252,7 @@ PrefabInstance:
     - target: {fileID: 1791951336729276664, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1863
+      value: 801
       objectReference: {fileID: 0}
     - target: {fileID: 1791951336729276664, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
@@ -1979,7 +1989,7 @@ PrefabInstance:
     - target: {fileID: 1791951336729276664, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1863
+      value: 801
       objectReference: {fileID: 0}
     - target: {fileID: 1791951336729276664, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
@@ -2111,6 +2121,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Padding.m_Right
       value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 8570398534907092955, guid: d0509c493fec39445946c4123c97c903,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2324,7 +2339,7 @@ PrefabInstance:
     - target: {fileID: 1791951336729276664, guid: d0509c493fec39445946c4123c97c903,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1863
+      value: 801
       objectReference: {fileID: 0}
     - target: {fileID: 1791951336729276664, guid: d0509c493fec39445946c4123c97c903,
         type: 3}

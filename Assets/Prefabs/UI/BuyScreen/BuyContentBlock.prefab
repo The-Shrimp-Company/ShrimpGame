@@ -319,6 +319,8 @@ MonoBehaviour:
   tFan: 
   reputationRequirement: 0
   _screen: {fileID: 0}
+  interactiveTextColour: {r: 1, g: 1, b: 1, a: 1}
+  nonInteractiveTextColour: {r: 1, g: 1, b: 1, a: 0.39215687}
 --- !u!114 &3937408710010296087
 MonoBehaviour:
   m_ObjectHideFlags: 0

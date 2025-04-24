@@ -17,7 +17,7 @@ public class ContentBlock : MonoBehaviour
     [SerializeField]
     protected TextMeshProUGUI text;
 
-    public void SetText(string textToSet)
+    public virtual void SetText(string textToSet)
     {
         Canvas.ForceUpdateCanvases();
         text.text = textToSet;
