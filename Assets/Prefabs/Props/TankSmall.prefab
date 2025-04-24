@@ -565,7 +565,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  capacityCheckTime: 0.5
+  capacityCheckTime: 5
   illnessSpreadRate: 0.1
   distanceCheckTime: 1
   particleParent: {fileID: 7623248954326440091}
