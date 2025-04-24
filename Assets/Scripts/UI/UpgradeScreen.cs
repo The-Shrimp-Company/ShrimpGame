@@ -41,4 +41,28 @@ public class UpgradeScreen : ScreenView
             Inventory.instance.AddItem(Items.FoodPellet, 10);
         }
     }
+
+    public void BuyHeater0()
+    {
+        if (Money.instance.WithdrawMoney(Items.UpHeat0.value))
+        {
+            Inventory.instance.AddItem(Items.UpHeat0);
+        }
+    }
+
+    public void BuyHeat1()
+    {
+        if (Money.instance.WithdrawMoney(Items.UpHeat1.value))
+        {
+            Inventory.instance.AddItem(Items.UpHeat1);
+        }
+    }
+
+    public void BuyFilt0()
+    {
+        if (Money.instance.WithdrawMoney(Items.UpFilt0.value))
+        {
+            Inventory.instance.AddItem(Items.UpFilt0);
+        }
+    }
 }

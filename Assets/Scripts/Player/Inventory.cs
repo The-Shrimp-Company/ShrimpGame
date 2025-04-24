@@ -12,6 +12,9 @@ public static class Items
     public static Item MedSmallHead = new Medicine("Small Head Pills", 50, IllnessSymptoms.BodySize, 30);
     public static Item MedBubble = new Medicine("Bubble Be Gone", 50, IllnessSymptoms.Bubbles, 30);
     public static Item MedVibrance = new Medicine("Vibrancee", 50, IllnessSymptoms.Discolouration, 30);
+    public static Item UpHeat0 = new Upgrade("H001");
+    public static Item UpHeat1 = new Upgrade("H002");
+    public static Item UpFilt0 = new Upgrade("F001");
 }
 
 
