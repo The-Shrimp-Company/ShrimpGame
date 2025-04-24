@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: H002
   upgradeType: 1
   upgradeName: Level1Heater
-  upgradePrefab: {fileID: 9034102042131325629, guid: 141d672322e844749bd0a356063ac800,
+  upgradePrefab: {fileID: 9034102042131325629, guid: f52fe44497ffafa41a3d31298ab2002f,
     type: 3}
   cost: 70
   breakRate: 3
