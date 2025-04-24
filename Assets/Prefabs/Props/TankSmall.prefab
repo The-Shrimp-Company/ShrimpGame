@@ -566,7 +566,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   capacityCheckTime: 0.5
-  illnessSpreadRate: 30
+  illnessSpreadRate: 5
   distanceCheckTime: 1
   particleParent: {fileID: 7623248954326440091}
   autoSpawnTestShrimp: 0
