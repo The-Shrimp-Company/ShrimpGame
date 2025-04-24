@@ -121,6 +121,12 @@ public class TankViewScript : ScreenView
         screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Filter, this, screen.gameObject);
     }
 
+    public void ChangeDecor()
+    {
+        InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
+        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Decorations, this, screen.gameObject);
+    }
+
     public void SelectAll()
     {
         if (allSelected)
