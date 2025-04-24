@@ -29505,6 +29505,41 @@ MonoBehaviour:
   geneticSizeImpact: 0.25
   maxShrimpIllness: 100
   maxShrimpAge: 380
+  moltSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5029297
+      inSlope: 14.117435
+      outSlope: 14.117435
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.067417696
+    - serializedVersion: 3
+      time: 0.15074086
+      value: 1.5095503
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06772844
+    - serializedVersion: 3
+      time: 1
+      value: 1.509875
+      inSlope: 0.00038236397
+      outSlope: 0.00038236397
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  moltSpeedRequiredToBeAdult: 1.5
+  minAgeForAShrimpBeingBought: 40
   shrimpNaturalDeathAge:
     serializedVersion: 2
     m_Curve:
@@ -29547,41 +29582,105 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  moltSpeed:
+  shrimpIllnessDeathChance:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5029297
-      inSlope: 14.117435
-      outSlope: 14.117435
-      tangentMode: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.067417696
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.15074086
-      value: 1.5095503
+      time: 0.4
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.06772844
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1.509875
-      inSlope: 0.00038236397
-      outSlope: 0.00038236397
-      tangentMode: 34
+      value: 0.3
+      inSlope: 0.92202204
+      outSlope: 0.92202204
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
+      inWeight: 0.13211378
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  moltSpeedRequiredToBeAdult: 1.5
-  minAgeForAShrimpBeingBought: 40
+  shrimpTemperatureDeathChance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.05
+      value: 0
+      inSlope: 0.040248156
+      outSlope: 0.040248156
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.3
+      inSlope: 0.9071805
+      outSlope: 0.9071805
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.0959801
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  shrimpWaterQualityDeathChance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0.3
+      inSlope: 1.9295588
+      outSlope: 1.9295588
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.13428569
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &705895234
 Transform:
   m_ObjectHideFlags: 0

@@ -95,10 +95,10 @@ public class Shrimp : MonoBehaviour
             if (age >= ShrimpManager.instance.GetAdultAge())  // If the shrimp is considered an adult
                 stats.canBreed = true;  // The shrimp can breed
 
-            if (ShrimpManager.instance.CheckForMoltFail(age))
+            if (ShrimpManager.instance.CheckForMoltFail(age, stats, tank))
             {
                 KillShrimp();  // Molt has failed, the shrimp will now die
-                PlayerStats.stats.shrimpDeathsThroughAge++;
+                //PlayerStats.stats.shrimpDeathsThroughAge++;
             }
 
             moltSpeed = ShrimpManager.instance.GetMoltTime(age);

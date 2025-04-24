@@ -29,11 +29,16 @@ public class ShrimpManager : MonoBehaviour
 
     [Header("Age")]
     [SerializeField] int maxShrimpAge;
-    [SerializeField] AnimationCurve shrimpNaturalDeathAge;
     [SerializeField] AnimationCurve moltSpeed;  // In minutes, realtime
     [SerializeField] float moltSpeedRequiredToBeAdult = 5;
     private int adultAge;
     [SerializeField] float minAgeForAShrimpBeingBought = 45;
+
+    [Header("Death")]
+    [SerializeField] AnimationCurve shrimpNaturalDeathAge;
+    [SerializeField] AnimationCurve shrimpIllnessDeathChance;
+    [SerializeField] AnimationCurve shrimpTemperatureDeathChance;
+    [SerializeField] AnimationCurve shrimpWaterQualityDeathChance;
 
     [Header("Temperament")]
     private int maxShrimpTemperament = 100;
@@ -103,7 +108,7 @@ public class ShrimpManager : MonoBehaviour
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
         s.hunger = 100;
-        s.illnessLevel = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+        s.illnessLevel = 0;
 
         s.salineLevel = 50;
         s.immunity = 0;
@@ -162,7 +167,7 @@ public class ShrimpManager : MonoBehaviour
         s.temperament = geneManager.IntGene(InheritanceType.FullRandom, maxShrimpTemperament, 0, 0, false);
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
         s.hunger = 100;
-        s.illnessLevel = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+        s.illnessLevel = 0;
 
         s.salineLevel = 50;
         s.immunity = 0;
@@ -264,9 +269,23 @@ public class ShrimpManager : MonoBehaviour
 
 
 
-    public bool CheckForMoltFail(int age)  // Decides whether the shrimp dies of old age today. Will return true if it should.
+    public bool CheckForMoltFail(int age, ShrimpStats s, TankController t)  // Decides whether the shrimp dies of old age today. Will return true if it should.
     {
-        return (Random.value < shrimpNaturalDeathAge.Evaluate(age / maxShrimpAge));
+        float ageValue = shrimpNaturalDeathAge.Evaluate(age / maxShrimpAge);
+
+        float tempValue = Mathf.Abs(s.temperaturePreference - t.waterTemperature);
+        tempValue = shrimpTemperatureDeathChance.Evaluate(tempValue / 100);
+
+        float illnessValue = Mathf.Clamp(s.illnessLevel, 0, 100);
+        illnessValue = shrimpIllnessDeathChance.Evaluate(illnessValue / 100);
+
+        float waterQualityValue = Mathf.Clamp(t.waterQuality, 0, 100);
+        waterQualityValue = shrimpWaterQualityDeathChance.Evaluate(waterQualityValue / 100);
+
+
+        float deathValue = ageValue + tempValue + illnessValue + waterQualityValue;
+        
+        return (Random.value < deathValue);
     }
 
     public float GetMoltTime(int age)

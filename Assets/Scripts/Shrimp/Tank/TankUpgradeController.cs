@@ -75,7 +75,7 @@ public class TankUpgradeController : MonoBehaviour
 
 
 
-        if (upgradeScripts.ContainsKey(upgradeType))
+        if (upgradeScripts.ContainsKey(upgradeType) && upgradeScripts[upgradeType] != null)
         {
             upgradeScripts[upgradeType].RemoveUpgrade();
             upgradeScripts[upgradeType] = null;

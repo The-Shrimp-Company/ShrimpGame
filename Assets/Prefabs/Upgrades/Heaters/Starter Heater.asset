@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88cfaf533f817694e96bea03b8f228f0, type: 3}
-  m_Name: Test Filter
+  m_Name: Starter Heater
   m_EditorClassIdentifier: 
-  ID: F001
-  upgradeType: 0
-  upgradeName: Test Filter
-  upgradePrefab: {fileID: 9034102042131325629, guid: 83510a50ebf233546acd145f7b97977b,
+  ID: H001
+  upgradeType: 1
+  upgradeName: Starter Heater
+  upgradePrefab: {fileID: 9034102042131325629, guid: 141d672322e844749bd0a356063ac800,
     type: 3}
   cost: 50
-  breakRate: 10
-  repairCost: 10
+  breakRate: 5
+  repairCost: 15
   energyCost: 0
-  filterCapacity: 10
-  heaterOutput: 0
+  filterCapacity: 0
+  heaterOutput: 10
   thermometer: 0
