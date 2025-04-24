@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: D005
   upgradeType: 7
-  upgradeName: Layout 5
+  upgradeName: Leafy Pond
   upgradePrefab: {fileID: 5987287620935341093, guid: 75fbcec762204a845b7c2004f39ad0bd,
     type: 3}
   cost: 50

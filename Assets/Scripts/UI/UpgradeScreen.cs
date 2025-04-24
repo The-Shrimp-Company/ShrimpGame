@@ -65,4 +65,32 @@ public class UpgradeScreen : ScreenView
             Inventory.instance.AddItem(Items.UpFilt0);
         }
     }
+
+    public void BuyDecor(string decor)
+    {
+        if (Money.instance.WithdrawMoney(50))
+        {
+            switch (decor)
+            {
+                case "GM":
+                    Inventory.instance.AddItem(Items.DecorGM);
+                    break;
+                case "DL":
+                    Inventory.instance.AddItem(Items.DecorDL);
+                    break;
+                case "RG":
+                    Inventory.instance.AddItem(Items.DecorRG);
+                    break;
+                case "WR":
+                    Inventory.instance.AddItem(Items.DecorWR);
+                    break;
+                case "LP":
+                    Inventory.instance.AddItem(Items.DecorLP);
+                    break;
+                default:
+                    Debug.LogWarning("Missing decoration, something is wrong");
+                    break;
+            }
+        }
+    }
 }

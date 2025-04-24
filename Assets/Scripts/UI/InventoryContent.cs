@@ -70,8 +70,10 @@ public class InventoryContent : ContentPopulation
                 {
                     if (Inventory.Contains(thisBlock.item))
                     {
-                        Inventory.instance.AddItem(controller.GetUpgrade(type).item);
-                        controller.RemoveUpgrade(type);
+                        if (controller.CheckForUpgrade(type))
+                        {
+                            Inventory.instance.AddItem(controller.GetUpgrade(type).item);
+                        }
                         controller.AddUpgrade(((Upgrade)thisBlock.item).upgrade);
                         Inventory.instance.RemoveItem(thisBlock.item);
                         if (oldScreen != null)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: D004
   upgradeType: 7
-  upgradeName: Layout 4
+  upgradeName: Wavy River
   upgradePrefab: {fileID: 8725759584356266068, guid: c8022d6767718184fa0576f910672868,
     type: 3}
   cost: 50

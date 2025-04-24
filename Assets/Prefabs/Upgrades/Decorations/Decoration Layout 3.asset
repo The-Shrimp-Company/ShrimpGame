@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: D003
   upgradeType: 7
-  upgradeName: Layout 3
+  upgradeName: Red Garden
   upgradePrefab: {fileID: 1256329419943621621, guid: d6e0abb1ca3d946418672641b5ab0684,
     type: 3}
   cost: 50
