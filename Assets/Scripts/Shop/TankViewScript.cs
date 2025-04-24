@@ -109,6 +109,18 @@ public class TankViewScript : ScreenView
         screen.GetComponentInChildren<InventoryContent>().MedAssignment(this, selectedShrimp.ToArray(), screen.gameObject);
     }
 
+    public void ChangeHeater()
+    {
+        InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
+        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Heater, this, screen.gameObject);
+    }
+
+    public void ChangeFilter()
+    {
+        InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
+        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Filter, this, screen.gameObject);
+    }
+
     public void SelectAll()
     {
         if (allSelected)

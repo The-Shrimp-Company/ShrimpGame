@@ -5,8 +5,9 @@ using UnityEngine;
 public class Upgrade : Item
 {
     public UpgradeSO upgrade;
+    public bool decor = false;
 
-    public Upgrade(string newName, int newValue = 0, int newQuantity = 0) : base(newName, newValue, newQuantity)
+    public Upgrade(string newName, bool isDecor = false, int newValue = 0, int newQuantity = 0) : base(newName, newValue, newQuantity)
     {
         foreach (UpgradeSO so in UpgradeList.instance.Upgrades)
         {
@@ -15,6 +16,7 @@ public class Upgrade : Item
                 upgrade = so;
                 value = (int)so.cost;
                 itemName = so.name;
+                decor = isDecor;
                 return;
             }
         }

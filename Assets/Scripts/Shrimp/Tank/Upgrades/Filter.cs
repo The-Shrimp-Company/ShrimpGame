@@ -10,6 +10,7 @@ public class Filter : TankUpgrade
     public override void CreateUpgrade(UpgradeSO u, TankController t)
     {
         base.CreateUpgrade(u, t);
+        item = (Upgrade)Items.UpFilt0;
     }
 
 

@@ -46,6 +46,49 @@ public class InventoryContent : ContentPopulation
         }
     }
 
+    public void UpgradeAssignment(TankUpgradeController controller, UpgradeTypes type, ScreenView oldScreen, GameObject parent)
+    {
+        Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();
+        oldScreen.gameObject.SetActive(false);
+        button.onClick.RemoveAllListeners();
+        button.onClick.AddListener(() =>
+        {
+            if (oldScreen != null)
+            {
+                oldScreen.gameObject.SetActive(true);
+            }
+            Destroy(parent);
+        });
+
+        foreach (InventoryContentBlock block in contentBlocks)
+        {
+            if(block.item is Upgrade && ((Upgrade)block.item).upgrade.upgradeType == type)
+            {
+                block.ClearFunctions();
+                InventoryContentBlock thisBlock = block;
+                block.AssignFunction(() =>
+                {
+                    if (Inventory.Contains(thisBlock.item))
+                    {
+                        Inventory.instance.AddItem(controller.GetUpgrade(type).item);
+                        controller.RemoveUpgrade(type);
+                        controller.AddUpgrade(((Upgrade)thisBlock.item).upgrade);
+                        Inventory.instance.RemoveItem(thisBlock.item);
+                        if (oldScreen != null)
+                        {
+                            oldScreen.gameObject.SetActive(true);
+                        }
+                        Destroy(parent);
+                    }
+                });
+            }
+            else
+            {
+                Destroy(block.gameObject);
+            }
+        }
+    }
+
     public void FoodAssignement(TankViewScript oldScreen, TankController tank, GameObject parent)
     {
         Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();

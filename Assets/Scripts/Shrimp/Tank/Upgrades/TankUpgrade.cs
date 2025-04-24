@@ -9,6 +9,7 @@ public class TankUpgrade : MonoBehaviour
     protected bool working = true;
     public GameObject brokenParticlesPrefab;
     private GameObject brokenParticles;
+    public Upgrade item;
 
     public virtual void CreateUpgrade(UpgradeSO u, TankController t)
     {
