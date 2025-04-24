@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         if (move != Vector2.zero) PlayerStats.stats.timeSpentMoving += Time.deltaTime;
     }
 
+    
 
     public void OnMove(InputValue Move)
     {
