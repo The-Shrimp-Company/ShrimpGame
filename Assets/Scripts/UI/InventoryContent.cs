@@ -66,15 +66,17 @@ public class InventoryContent : ContentPopulation
             {
                 block.ClearFunctions();
                 InventoryContentBlock thisBlock = block;
+                TankUpgradeController thisController = controller;
                 block.AssignFunction(() =>
                 {
                     if (Inventory.Contains(thisBlock.item))
                     {
-                        if (controller.CheckForUpgrade(type))
+                        if (thisController.CheckForUpgrade(type))
                         {
-                            Inventory.instance.AddItem(controller.GetUpgrade(type).item);
+                            Inventory.instance.AddItem(thisController.GetUpgrade(type).item);
                         }
-                        controller.AddUpgrade(((Upgrade)thisBlock.item).upgrade);
+                        thisController.AddUpgrade(((Upgrade)thisBlock.item).upgrade);
+                        thisController.GetUpgrade(type).item = (Upgrade)thisBlock.item;
                         Inventory.instance.RemoveItem(thisBlock.item);
                         if (oldScreen != null)
                         {

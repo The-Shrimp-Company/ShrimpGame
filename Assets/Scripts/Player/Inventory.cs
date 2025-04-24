@@ -15,11 +15,11 @@ public static class Items
     public static Item UpHeat0 = new Upgrade("H001");
     public static Item UpHeat1 = new Upgrade("H002");
     public static Item UpFilt0 = new Upgrade("F001");
-    public static Item DecorGM = new Upgrade("D001");
-    public static Item DecorDL = new Upgrade("D002");
-    public static Item DecorRG = new Upgrade("D003");
-    public static Item DecorWR = new Upgrade("D004");
-    public static Item DecorLP = new Upgrade("D005");
+    public static Item DecorGM = new Upgrade("D001", true);
+    public static Item DecorDL = new Upgrade("D002", true);
+    public static Item DecorRG = new Upgrade("D003", true);
+    public static Item DecorWR = new Upgrade("D004", true);
+    public static Item DecorLP = new Upgrade("D005", true);
 }
 
 
