@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class testbutton : MonoBehaviour
 {
-    // Start is called before the first frame update
     public void test()
     {
         Debug.Log("Print");

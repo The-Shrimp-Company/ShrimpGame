@@ -193,6 +193,7 @@ public class TankViewScript : ScreenView
             if (selectedShrimp.Contains(shrimp)) temp.checkbutton.GetComponent<Image>().sprite = checkmark;
             else temp.checkbutton.GetComponent<Image>().sprite = uncheck;
             temp.SetText(shrimp.name);
+            temp.SetShrimp(shrimp);
         }
 
 
