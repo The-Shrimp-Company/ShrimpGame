@@ -13,8 +13,8 @@ public class IllnessSO : ScriptableObject
     [Header("Symptoms")]
     public List<IllnessSymptoms> symptoms = new List<IllnessSymptoms>();
 
-    [Header("Overall Illness Stat")]
-    [Range(0, 100)] public float illnessImpact = 10;  // How much this illness will add to the overall shrimp illness stat every in game day
+    //[Header("Overall Illness Stat")]
+    //[Range(0, 100)] public float illnessImpact = 10;  // How much this illness will add to the overall shrimp illness stat every in game day
 }
 
 

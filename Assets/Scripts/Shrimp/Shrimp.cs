@@ -150,7 +150,14 @@ public class Shrimp : MonoBehaviour
         tank.shrimpToRemove.Add(this);
 
         // Spawn dead body
-        // Notification message
+
+
+
+        Email email = new Email();
+        email.title = stats.name + " has died";
+        email.subjectLine = "Please check the conditions of the tank";
+        email.mainText = stats.name + " was in " + tank.tankName;
+        EmailManager.SendEmail(email);
 
         PlayerStats.stats.shrimpDeaths++;
 

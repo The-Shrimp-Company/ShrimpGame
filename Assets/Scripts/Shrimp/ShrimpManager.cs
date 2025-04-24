@@ -279,13 +279,23 @@ public class ShrimpManager : MonoBehaviour
         float illnessValue = Mathf.Clamp(s.illnessLevel, 0, 100);
         illnessValue = shrimpIllnessDeathChance.Evaluate(illnessValue / 100);
 
-        float waterQualityValue = Mathf.Clamp(t.waterQuality, 0, 100);
+        float waterQualityValue = Mathf.Clamp(-t.waterQuality + 100, 0, 100);
         waterQualityValue = shrimpWaterQualityDeathChance.Evaluate(waterQualityValue / 100);
 
 
         float deathValue = ageValue + tempValue + illnessValue + waterQualityValue;
         
-        return (Random.value < deathValue);
+        if (Random.value < deathValue)
+        {
+            Debug.Log("Shrimp has died: " +
+                "\nAge - " + ageValue + 
+                "\nTemperature - " + tempValue + 
+                "\nIllness - " + illnessValue + 
+                "\nWater quality - " + waterQualityValue);
+            return true;
+        }
+
+        return false;
     }
 
     public float GetMoltTime(int age)

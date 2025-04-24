@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -77,6 +78,13 @@ public class CustomerManager : MonoBehaviour
             shrimp.tank.shrimpToRemove.Add(shrimp);
             Money.instance.AddMoney(shrimp.tank.openTankPrice);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
+
+            Email email = new Email();
+            email.title = shrimp.stats.name + " has been sold";
+            email.subjectLine = "£" + shrimp.tank.openTankPrice + " has been deposited into your account";
+            email.mainText = shrimp.stats.name + " was in " + shrimp.tank.tankName;
+            EmailManager.SendEmail(email);
+
             PlayerStats.stats.shrimpSold++;
             Destroy(shrimp.gameObject);
         }

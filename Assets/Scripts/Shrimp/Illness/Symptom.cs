@@ -21,6 +21,7 @@ public class Symptom
     public virtual void UpdateSymptom(float elapsedTime)
     {
         severity = Mathf.Clamp(severity + (severityOverTime * elapsedTime), 0, 100);
+        shrimp.stats.illnessLevel += (severity / 4);
     }
 
 

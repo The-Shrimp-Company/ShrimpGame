@@ -7,7 +7,7 @@ public class Heater : TankUpgrade
 {
     [Header("Heater")]
     public Slider thermometer;
-    private float targetTemperature = 60;
+    private float targetTemperature = 50;
     [Range(0, 100)] public float minTemperature = 25;
     [Range(0, 100)] public float maxTemperature = 75;
 
@@ -60,6 +60,15 @@ public class Heater : TankUpgrade
 
     public override void BreakUpgrade()
     {
+        if (tank.shrimpInTank.Count != 0)
+        {
+            Email email = new Email();
+            email.title = "Heater on " + tank.tankName + " has broken down";
+            email.subjectLine = "Please fix it";
+            email.mainText = "The shrimp could die if the temperature is incorrect";
+            EmailManager.SendEmail(email);
+        }
+
         base.BreakUpgrade();
     }
 }

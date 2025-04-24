@@ -38,8 +38,8 @@ public class IllnessController : MonoBehaviour
             illnessCheckTimer = 0;
         }
 
-
-        foreach(Symptom s in currentSymptoms)
+        shrimp.stats.illnessLevel = 0;
+        foreach (Symptom s in currentSymptoms)
         {
             s.UpdateSymptom(elapsedTime);
         }
@@ -152,7 +152,6 @@ public class IllnessController : MonoBehaviour
         }
 
         currentIllness.Add(i);
-        shrimp.stats.illnessLevel += i.illnessImpact;
         AddIllnessToTank(shrimp.tank, i);
 
         if (!loadingIllnesses)
@@ -255,7 +254,6 @@ public class IllnessController : MonoBehaviour
         PlayerStats.stats.illnessesCured++;
 
 
-        shrimp.stats.illnessLevel -= illness.illnessImpact;
         currentIllness.Remove(illness);
         RemoveIllnessFromTank(shrimp.tank, illness);
 
@@ -296,7 +294,6 @@ public class IllnessController : MonoBehaviour
     {
         loadingIllnesses = true;
         shrimp = GetComponent<Shrimp>();
-        s.illnessLevel = 0;
 
         for (int i = 0; i < possibleIllness.Length; i++)
         {
