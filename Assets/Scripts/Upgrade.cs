@@ -8,9 +8,9 @@ public class Upgrade : Item
 
     public Upgrade(string newName, int newValue = 0, int newQuantity = 0) : base(newName, newValue, newQuantity)
     {
-        foreach(UpgradeSO so in UpgradeList.instance.Upgrades)
+        foreach (UpgradeSO so in UpgradeList.instance.Upgrades)
         {
-            if(so.ID == newName)
+            if (so.ID == newName)
             {
                 upgrade = so;
                 value = (int)so.cost;

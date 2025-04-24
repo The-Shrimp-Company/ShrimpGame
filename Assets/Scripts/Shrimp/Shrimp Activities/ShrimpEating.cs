@@ -125,7 +125,7 @@ public class ShrimpEating : ShrimpActivity
                 particles.transform.parent = shrimp.transform;
             }
 
-            shrimp.stats.hunger += food.hungerFillAmount;
+            shrimp.stats.hunger = Mathf.Clamp(shrimp.stats.hunger + food.hungerFillAmount, 0, 100);
             shrimp.tank.foodToRemove.Add(food);
             if (debugEating) Debug.Log("Finished Eating");
         }

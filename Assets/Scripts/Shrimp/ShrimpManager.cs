@@ -23,8 +23,6 @@ public class ShrimpManager : MonoBehaviour
     [SerializeField][Range(0.1f, 1.0f)] float geneticSizeImpact = 0.25f;
     private int maxGeneticShrimpSize = 100;
 
-    [Header("Hunger")]
-    private int maxShrimpHunger = 100;
 
     [Header("Illness")]
     [HideInInspector] public int maxShrimpIllness = 100;
@@ -64,9 +62,9 @@ public class ShrimpManager : MonoBehaviour
 
         s.salineLevel = 50;
         s.immunity = 0;
-        s.metabolism = 0;
+        s.metabolism = geneManager.IntGene(InheritanceType.FlatAverage, 100, parentA.metabolism, parentB.metabolism, true);
         s.filtration = 0;
-        s.temperature = 50;
+        s.temperaturePreference = 50;
 
         s.primaryColour = geneManager.TraitGene(geneManager.colourInheritance, 0, parentA.primaryColour, parentB.primaryColour, geneManager.colourCanMutate);
         s.secondaryColour = geneManager.TraitGene(geneManager.colourInheritance, 0, parentA.secondaryColour, parentB.secondaryColour, geneManager.colourCanMutate);
@@ -106,6 +104,12 @@ public class ShrimpManager : MonoBehaviour
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
         s.hunger = 100;
         s.illnessLevel = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+
+        s.salineLevel = 50;
+        s.immunity = 0;
+        s.metabolism = geneManager.IntGene(InheritanceType.FullRandom, 30, 0, 0, false);
+        s.filtration = 0;
+        s.temperaturePreference = 50;
 
         Trait t = new Trait();
         t.activeGene.ID = "C";
@@ -159,6 +163,12 @@ public class ShrimpManager : MonoBehaviour
         s.geneticSize = geneManager.IntGene(InheritanceType.FullRandom, maxGeneticShrimpSize, 0, 0, false);
         s.hunger = 100;
         s.illnessLevel = geneManager.IntGene(InheritanceType.FullRandom, Mathf.RoundToInt(maxShrimpAge * 0.9f), 0, 0, false);
+
+        s.salineLevel = 50;
+        s.immunity = 0;
+        s.metabolism = geneManager.IntGene(InheritanceType.FullRandom, 30, 0, 0, false);
+        s.filtration = 0;
+        s.temperaturePreference = 50;
 
         Trait t = new Trait();
         t.activeGene.ID = "C";

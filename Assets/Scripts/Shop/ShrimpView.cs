@@ -24,6 +24,14 @@ public class ShrimpView : ScreenView
     [SerializeField] private Image primaryColour, secondaryColour;
     [SerializeField] private Slider hunger;
 
+    public void Update()
+    {
+        if (_shrimp != null)
+        {
+            hunger.value = _shrimp.stats.hunger;
+        }
+    }
+
     public void Click()
     {
         CurrentTankScreen screen = Instantiate(currentTankScreen, UIManager.instance.GetCanvas()).GetComponent<CurrentTankScreen>();

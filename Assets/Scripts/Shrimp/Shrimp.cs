@@ -13,7 +13,7 @@ public class Shrimp : MonoBehaviour
     public Transform camDock;
     private float moltTimer;
     private float moltSpeed;
-    private float hungerLossSpeed = 1;
+    [SerializeField] private float hungerLossSpeed = 0.1f;
     private bool focussingShrimp;
     [HideInInspector] public Body shrimpBody;
     [HideInInspector] public bool loadedShrimp;  // Whether the shrimp has been loaded from a save file
@@ -108,7 +108,7 @@ public class Shrimp : MonoBehaviour
         if (illnessCont != null)
             illnessCont.UpdateIllness(elapsedTime);
 
-        stats.hunger -= (hungerLossSpeed * elapsedTime);
+        stats.hunger = Mathf.Clamp(stats.hunger - ((hungerLossSpeed * ((stats.metabolism / 50) + 1)) * elapsedTime), 0, 100);
     }
 
 

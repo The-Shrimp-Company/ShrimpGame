@@ -674,7 +674,7 @@ public class GeneManager : MonoBehaviour
                         }
                     case ModifierEffects.temperature:
                         {
-                            s.temperature = Mathf.Clamp(s.temperature + m.effect, 0, 100);
+                            s.temperaturePreference = Mathf.Clamp(s.temperaturePreference + m.effect, 0, 100);
                             break;
                         }
                 }

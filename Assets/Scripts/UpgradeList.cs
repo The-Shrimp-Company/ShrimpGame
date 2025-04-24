@@ -8,7 +8,7 @@ public class UpgradeList : MonoBehaviour
 
     public List<UpgradeSO> Upgrades;
 
-    private void Start()
+    private void Awake()
     {
         if(instance == null)
         {
