@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
+using static UnityEngine.Rendering.DebugUI;
+using SaveLoadSystem;
 
 public class TankUpgradeController : MonoBehaviour
 {
     private Dictionary<UpgradeTypes, TankUpgrade> upgradeScripts = new Dictionary<UpgradeTypes, TankUpgrade>();
     public SerializedDictionary<UpgradeTypes, Transform> upgradeNodes = new SerializedDictionary<UpgradeTypes, Transform>();
-    public List<UpgradeSO> debugUpgrades = new List<UpgradeSO>();
+    public List<UpgradeSO> startingUpgrades = new List<UpgradeSO>();
     private TankController tank;
 
     private void Start()
     {
         tank = GetComponent<TankController>();
 
-        foreach (UpgradeSO u in debugUpgrades)
+        if (upgradeScripts.Count == 0)  // If we haven't already loaded upgrades
         {
-            AddUpgrade(u);
+            foreach (UpgradeSO u in startingUpgrades)
+            {
+                AddUpgrade(u);
+            }
         }
     }
 
@@ -107,5 +112,44 @@ public class TankUpgradeController : MonoBehaviour
             return upgradeScripts[type];
 
         return null;
+    }
+
+
+    public string[] SaveUpgrades()
+    {
+        string[] ids = new string[upgradeScripts.Count];
+        int index = 0;
+
+        foreach (KeyValuePair<UpgradeTypes, TankUpgrade> upgrade in upgradeScripts)
+        {
+            if (upgrade.Value.upgrade != null && index <= ids.Length)
+            {
+                ids[index] = upgrade.Value.upgrade.ID;
+                index++;
+            }
+        }
+
+        return ids;
+    }
+
+
+    public void LoadUpgrades(string[] ids)
+    {
+        tank = GetComponent<TankController>();
+
+        foreach (string id in ids)
+        {
+            if (id != null && id != "")
+            {
+                foreach (UpgradeSO so in UpgradeList.instance.Upgrades)
+                {
+                    if (so.ID == id)
+                    {
+                        AddUpgrade(so);
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

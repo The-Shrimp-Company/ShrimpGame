@@ -53,6 +53,7 @@ namespace SaveLoadSystem
         public bool destinationTank;
         public bool openTank;
         public float openTankPrice;
+        public string[] upgradeIDs;
     }
 
     [System.Serializable]

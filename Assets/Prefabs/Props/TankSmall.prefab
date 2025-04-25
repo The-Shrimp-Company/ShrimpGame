@@ -502,6 +502,7 @@ MonoBehaviour:
   tempuratureChangeSpeed: 5
   naturalTempuratureVariation: 25
   waterSalt: 50
+  upgradeController: {fileID: 0}
   sign: {fileID: 5947789648189943326}
   SaleSign: {fileID: 5994137002391903135}
   label: {fileID: 2617808344691637593}
@@ -614,10 +615,9 @@ MonoBehaviour:
       Value: {fileID: 2131584505254231964}
     - Key: 7
       Value: {fileID: 6958339645014040434}
-  debugUpgrades:
+  startingUpgrades:
+  - {fileID: 11400000, guid: e0d5a6bb95ad4b04394cb38a9b11734c, type: 2}
   - {fileID: 11400000, guid: d2da9b71affb4cf459bcd5edbd9a7ca7, type: 2}
-  - {fileID: 11400000, guid: e0d5a6bb95ad4b04394cb38a9b11734c, type: 2}
-  - {fileID: 11400000, guid: e0d5a6bb95ad4b04394cb38a9b11734c, type: 2}
 --- !u!1 &1601183149845290903
 GameObject:
   m_ObjectHideFlags: 0

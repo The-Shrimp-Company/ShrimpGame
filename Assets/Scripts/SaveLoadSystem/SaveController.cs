@@ -158,6 +158,7 @@ public class SaveController : MonoBehaviour
                             tankSave.destinationTank = socket.tank.destinationTank;
                             tankSave.openTank = socket.tank.openTank;
                             tankSave.openTankPrice = socket.tank.openTankPrice;
+                            tankSave.upgradeIDs = socket.tank.GetComponent<TankUpgradeController>().SaveUpgrades();
 
                             socketList.Add(socketSave);
                         }

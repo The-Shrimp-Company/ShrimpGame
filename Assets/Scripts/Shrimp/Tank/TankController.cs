@@ -41,7 +41,7 @@ public class TankController : MonoBehaviour
     [HideInInspector] public float waterSalt = 50;
 
     [Header("Upgrades")]
-    private TankUpgradeController upgradeController;
+    [HideInInspector] public TankUpgradeController upgradeController;
 
     [Header("Sale Tank")]
     [SerializeField] private GameObject sign;

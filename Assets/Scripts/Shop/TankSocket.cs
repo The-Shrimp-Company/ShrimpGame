@@ -80,5 +80,7 @@ public class TankSocket : MonoBehaviour
         {
             tank.SpawnShrimp(s, true);
         }
+
+        tank.GetComponent<TankUpgradeController>().LoadUpgrades(data.upgradeIDs);
     }
 }
