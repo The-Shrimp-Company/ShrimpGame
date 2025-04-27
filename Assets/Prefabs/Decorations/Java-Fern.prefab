@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3486536873338489890}
   - component: {fileID: 5819151298980486735}
   - component: {fileID: 5831332529254014313}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Java-Fern
   m_TagString: Untagged
   m_Icon: {fileID: 0}

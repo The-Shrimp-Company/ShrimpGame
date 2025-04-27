@@ -107,6 +107,7 @@ public class ShrimpMovement : ShrimpActivity
         do  // Look for a random free node until you find one that isn't the current node
         {
             attempts++;
+
             if (attempts > pathfindingAttempts)  // Switch to simple if the pathfinding is taking too long
             {
                 if (debugMovement) Debug.Log("Switching to Simple Move");

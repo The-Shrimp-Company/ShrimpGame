@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2032830213729119746}
   - component: {fileID: 7128177875481914881}
   - component: {fileID: 9186543185912740041}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eel-Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
