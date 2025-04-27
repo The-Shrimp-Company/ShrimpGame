@@ -66,6 +66,15 @@ public class UpgradeScreen : ScreenView
         }
     }
 
+
+    public void BuyFilt1()
+    {
+        if (Money.instance.WithdrawMoney(Items.UpFilt1.value))
+        {
+            Inventory.instance.AddItem(Items.UpFilt1);
+        }
+    }
+
     public void BuyDecor(string decor)
     {
         if (Money.instance.WithdrawMoney(50))

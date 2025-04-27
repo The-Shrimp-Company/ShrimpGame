@@ -80504,6 +80504,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 309a96bb48420084d8ee030175bf3b66, type: 2}
   - {fileID: 11400000, guid: 71bc77ddb408d4c41955b3d0a1274d0c, type: 2}
   - {fileID: 11400000, guid: 3f99ba1c1659d8b40936066eb661550c, type: 2}
+  - {fileID: 11400000, guid: c6f783ec8ce46a541b50af22d153f524, type: 2}
 --- !u!4 &1880999316
 Transform:
   m_ObjectHideFlags: 0
