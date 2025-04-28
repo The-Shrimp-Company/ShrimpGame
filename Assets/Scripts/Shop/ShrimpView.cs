@@ -35,7 +35,7 @@ public class ShrimpView : ScreenView
     public void Click()
     {
         CurrentTankScreen screen = Instantiate(currentTankScreen, UIManager.instance.GetCanvas()).GetComponent<CurrentTankScreen>();
-        UIManager.instance.ChangeFocus(screen);
+        UIManager.instance.ChangeFocus(screen, true);
         screen.SetShrimp(_shrimp);
     }
 
@@ -43,6 +43,7 @@ public class ShrimpView : ScreenView
     {
         GameObject screen = Instantiate(medScreen, UIManager.instance.GetCanvas());
         //UIManager.instance.ChangeFocus(screen.GetComponent<ScreenView>());
+        UIManager.instance.subMenu = true;
         screen.GetComponentInChildren<InventoryContent>().MedAssignment(this, _shrimp, screen);
     }
 

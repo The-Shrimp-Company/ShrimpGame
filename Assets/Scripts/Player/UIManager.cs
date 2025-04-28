@@ -10,6 +10,8 @@ public class UIManager
 
     private ScreenView _currentUI = null;
 
+    public bool subMenu = false;
+
     private List<PlayerUIController> _playerControllers = new List<PlayerUIController>();
 
     private Rect _currentRect = new Rect();
@@ -59,13 +61,12 @@ public class UIManager
         }
     }
 
-    public void ChangeFocus(ScreenView newFocus)
+    public void ChangeFocus(ScreenView newFocus, bool submenu = false)
     {
-        ChangeFocus(newFocus, newFocus.GetComponent<RectTransform>());
-
+        ChangeFocus(newFocus, newFocus.GetComponent<RectTransform>(), submenu);
     }
 
-    public void ChangeFocus(ScreenView newFocus, RectTransform customRect)
+    public void ChangeFocus(ScreenView newFocus, RectTransform customRect, bool submenu = false)
     {
         //_cursor.transform.SetParent(newFocus.transform);
         //_cursor.transform.SetAsLastSibling();
@@ -84,6 +85,8 @@ public class UIManager
         tooltips.SetActive(false);
 
         Cursor.lockState = CursorLockMode.Confined;
+
+        subMenu = submenu;
 
         _cursor.SetActive(true);
 

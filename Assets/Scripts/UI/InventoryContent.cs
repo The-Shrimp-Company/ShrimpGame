@@ -56,6 +56,7 @@ public class InventoryContent : ContentPopulation
             if (oldScreen != null)
             {
                 oldScreen.gameObject.SetActive(true);
+                UIManager.instance.subMenu = false;
             }
             Destroy(parent);
         });
@@ -100,7 +101,11 @@ public class InventoryContent : ContentPopulation
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            oldScreen.gameObject.SetActive(true);
+            if(oldScreen != null)
+            {
+                UIManager.instance.subMenu = false;
+                oldScreen.gameObject.SetActive(true);
+            }
             Destroy(parent);
         });
 
@@ -167,6 +172,7 @@ public class InventoryContent : ContentPopulation
         {
             if(oldScreen != null)
             {
+                UIManager.instance.subMenu = false;
                 oldScreen.gameObject.SetActive(true);
             }
             Destroy(parent);
