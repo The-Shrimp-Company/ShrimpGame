@@ -155,22 +155,22 @@ public class EconomyManager : MonoBehaviour
 
     public void DailyValueUpdate(GlobalGene g)
     {
-        float rand = Random.Range(-maxDailyValueUpdateAmount, maxDailyValueUpdateAmount);
-        g.currentValue += rand;
+        //float rand = Random.Range(-maxDailyValueUpdateAmount, maxDailyValueUpdateAmount);
+        //g.currentValue += rand;
     }
 
     public void ValueReturn(GlobalGene g)
     {
-        if (g.currentValue == g.startingValue) return;
+        //if (g.currentValue == g.startingValue) return;
 
-        float rand = Random.Range(0, 10);
-        float r = valueReturnAmount / rand;
+        //float rand = Random.Range(0, 10);
+        //float r = valueReturnAmount / rand;
 
-        if (g.currentValue > g.startingValue) 
-            g.currentValue = Mathf.Clamp(g.currentValue - r, g.startingValue, Mathf.Infinity);
+        //if (g.currentValue > g.startingValue) 
+        //    g.currentValue = Mathf.Clamp(g.currentValue - r, g.startingValue, Mathf.Infinity);
 
-        else if (g.currentValue < g.startingValue)
-            g.currentValue = Mathf.Clamp(g.currentValue + r, g.startingValue, Mathf.Infinity);
+        //else if (g.currentValue < g.startingValue)
+        //    g.currentValue = Mathf.Clamp(g.currentValue + r, g.startingValue, Mathf.Infinity);
     }
 
     public float RoundMoney(float m)

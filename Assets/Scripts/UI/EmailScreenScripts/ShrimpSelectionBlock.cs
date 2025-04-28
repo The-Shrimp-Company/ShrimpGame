@@ -79,6 +79,7 @@ public class ShrimpSelectionBlock : ContentBlock
     {
         if (screen.BuyShrimp(_shrimp))
         {
+            EconomyManager.instance.UpdateTraitValues(true, _shrimp);
             parent._shrimp.Remove(_shrimp);
             Destroy(gameObject);
         }

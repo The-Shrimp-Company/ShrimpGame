@@ -9,9 +9,9 @@ public static class Items
     public static Item Shelf = new Item("Shelf", 100);
     public static Item AlgaeWafer = new Item("Algae Wafer", 10);
     public static Item FoodPellet = new Item("Food Pellet", 5);
-    public static Item MedSmallHead = new Medicine("Small Head Pills", 50, IllnessSymptoms.BodySize, 30);
-    public static Item MedBubble = new Medicine("Bubble Be Gone", 50, IllnessSymptoms.Bubbles, 30);
-    public static Item MedVibrance = new Medicine("Vibrancee", 50, IllnessSymptoms.Discolouration, 30);
+    public static Item MedSmallHead = new Medicine("Small Head Pills", 20, IllnessSymptoms.BodySize, 30, 2);
+    public static Item MedBubble = new Medicine("Bubble Be Gone", 20, IllnessSymptoms.Bubbles, 30, 2);
+    public static Item MedVibrance = new Medicine("Vibrancee", 20, IllnessSymptoms.Discolouration, 30, 2);
     public static Item UpHeat0 = new Upgrade("H001");
     public static Item UpHeat1 = new Upgrade("H002");
     public static Item UpFilt0 = new Upgrade("F001");

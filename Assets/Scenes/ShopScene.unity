@@ -29809,36 +29809,36 @@ MonoBehaviour:
   minTraitValue: 0.35
   maxTraitValue: 1
   weightTowardsDominancePercentage: 50
-  valueFluctuation: 1
+  valueFluctuation: 0.05
   valueFluctuationStrength:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -1.0002804
-      value: 0.098691195
-      inSlope: 2.749046
-      outSlope: 2.749046
+      time: -1
+      value: 0.5
+      inSlope: 1.5177964
+      outSlope: 1.5177964
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.028451273
+      outWeight: 0.06463879
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.00020885468
-      outSlope: -0.00020885468
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.9959717
-      value: 0.10215759
-      inSlope: -2.6575944
-      outSlope: -2.6575944
+      time: 1
+      value: 0.5
+      inSlope: -1.5607285
+      outSlope: -1.5607285
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.03065286
+      inWeight: 0.06286073
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -29870,7 +29870,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   timeBetweenValueReturnUpdates: 30
-  valueReturnAmount: 0.2
+  valueReturnAmount: 0.01
   percentageOfTraitsToReturnValue: 15
   percentageOfTraitsToUpdateDaily: 35
   maxDailyValueUpdateAmount: 3.5
@@ -80497,6 +80497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Upgrades:
   - {fileID: 11400000, guid: 36726630ba15eba4daa44d11c1708267, type: 2}
+  - {fileID: 11400000, guid: c6f783ec8ce46a541b50af22d153f524, type: 2}
   - {fileID: 11400000, guid: d2da9b71affb4cf459bcd5edbd9a7ca7, type: 2}
   - {fileID: 11400000, guid: e0d5a6bb95ad4b04394cb38a9b11734c, type: 2}
   - {fileID: 11400000, guid: 6fc11e4759c08a64eb063b59ac026302, type: 2}
@@ -80504,7 +80505,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 309a96bb48420084d8ee030175bf3b66, type: 2}
   - {fileID: 11400000, guid: 71bc77ddb408d4c41955b3d0a1274d0c, type: 2}
   - {fileID: 11400000, guid: 3f99ba1c1659d8b40936066eb661550c, type: 2}
-  - {fileID: 11400000, guid: c6f783ec8ce46a541b50af22d153f524, type: 2}
 --- !u!4 &1880999316
 Transform:
   m_ObjectHideFlags: 0

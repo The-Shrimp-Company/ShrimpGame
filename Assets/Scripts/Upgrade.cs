@@ -15,7 +15,7 @@ public class Upgrade : Item
             {
                 upgrade = so;
                 value = (int)so.cost;
-                itemName = so.name;
+                itemName = so.upgradeName;
                 decor = isDecor;
                 return;
             }

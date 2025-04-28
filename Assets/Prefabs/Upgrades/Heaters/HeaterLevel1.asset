@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: H002
   upgradeType: 1
-  upgradeName: Level1Heater
+  upgradeName: Heater Level 1
   upgradePrefab: {fileID: 9034102042131325629, guid: f52fe44497ffafa41a3d31298ab2002f,
     type: 3}
   cost: 70
@@ -22,5 +22,5 @@ MonoBehaviour:
   repairCost: 15
   energyCost: 0
   filterCapacity: 0
-  heaterOutput: 0
+  heaterOutput: 20
   thermometer: 0

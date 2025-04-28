@@ -23,13 +23,14 @@ public class RepairUpgrade : MonoBehaviour
                 controller.GetUpgrade(upgradeType).FixUpgrade();
             }
         });
-        button.GetComponentInChildren<TextMeshProUGUI>().text = "Repair for £" + controller.GetUpgrade(upgradeType).upgrade.repairCost.ToString();
+        if (controller.CheckForUpgrade(upgradeType))
+            button.GetComponentInChildren<TextMeshProUGUI>().text = "Repair for £" + controller.GetUpgrade(upgradeType).upgrade.repairCost.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (controller.GetUpgrade(upgradeType).IsBroken()) button.interactable = true;
+        if (controller.CheckForUpgrade(upgradeType) && controller.GetUpgrade(upgradeType).IsBroken()) button.interactable = true;
         else button.interactable = false;
     }
 }

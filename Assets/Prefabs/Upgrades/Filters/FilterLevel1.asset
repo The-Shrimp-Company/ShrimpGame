@@ -21,6 +21,6 @@ MonoBehaviour:
   breakRate: 2
   repairCost: 30
   energyCost: 0
-  filterCapacity: 15
+  filterCapacity: 20
   heaterOutput: 0
   thermometer: 0

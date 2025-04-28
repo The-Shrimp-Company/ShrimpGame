@@ -27,10 +27,27 @@ public class UpgradePanel : MonoBehaviour
             tank = value;
 
             if (tank.GetComponent<TankUpgradeController>().CheckForUpgrade(UpgradeTypes.Heater))
+            {
                 heaterButton.GetComponentInChildren<TextMeshProUGUI>().text = tank.GetComponent<TankUpgradeController>().GetUpgrade(UpgradeTypes.Heater).upgrade.upgradeName;
+                heaterSlider.enabled = true;
+                currentTemp.enabled = true;
+            }
+            else
+            {
+                heaterRepair.interactable = false;
+                heaterSlider.enabled = false;
+                currentTemp.enabled = false;
+            }
 
             if (tank.GetComponent<TankUpgradeController>().CheckForUpgrade(UpgradeTypes.Filter))
+            {
                 filterButton.GetComponentInChildren<TextMeshProUGUI>().text = tank.GetComponent<TankUpgradeController>().GetUpgrade(UpgradeTypes.Filter).upgrade.upgradeName;
+
+            }
+            else
+            {
+                filterRepair.interactable = false;
+            }
         }
         private get { return tank; }
     }
