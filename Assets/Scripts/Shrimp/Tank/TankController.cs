@@ -311,6 +311,12 @@ public class TankController : MonoBehaviour
 
     public void SpawnShrimp(ShrimpStats s, bool gameLoading = false)
     {
+        if (upgradeController.CheckForUpgrade(UpgradeTypes.Decorations))
+        {
+            Decorations d = (Decorations) upgradeController.GetUpgrade(UpgradeTypes.Decorations);
+            s = d.ApplyStatModifiers(s);
+        }
+
         GameObject newShrimp = Instantiate(ShrimpManager.instance.shrimpPrefab, GetRandomTankPosition(), Quaternion.identity);
         Shrimp shrimp = newShrimp.GetComponent<Shrimp>();
         shrimp.stats = s;

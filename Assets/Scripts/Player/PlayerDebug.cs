@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerDebug : MonoBehaviour
 {
     public ShelfSpawn shelves;
-
+    public bool giveMoneyButton = false;
     private CameraLookCheck lookCheck;
 
 
@@ -22,7 +22,8 @@ public class PlayerDebug : MonoBehaviour
 
     public void OnTestingFunctions()
     {
-        Money.instance.AddMoney(20);
+        if (giveMoneyButton)
+            Money.instance.AddMoney(20);
     }
 
 

@@ -37,7 +37,7 @@ public class CustomerManager : MonoBehaviour
             {
                 float value = EconomyManager.instance.GetShrimpValue(shrimp.stats);
                 float chance = currentTank.openTankPrice / value;
-                Debug.Log(chance);
+                //Debug.Log(chance);
                 if (Random.value * 2 > chance)
                 {
                     PurchaseShrimp(shrimp);

@@ -185,6 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgrade: {fileID: 0}
   brokenParticlesPrefab: {fileID: 0}
+  statModifiers:
+  - type: 6
+    effect: 10
 --- !u!1 &7975188028336782925
 GameObject:
   m_ObjectHideFlags: 0
