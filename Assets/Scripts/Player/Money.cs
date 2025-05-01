@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Money
 {
+    private float startingMoney = 75;
     private float _money = 75;
 
     static public Money instance = new Money();
@@ -15,9 +16,7 @@ public class Money
 
     public Money()
     {
-        // Put loading function here
-        _money = 75;
-        PlayerStats.stats.totalMoney = _money;
+        SetStartingMoney();
     }
 
     public void AddMoney(float moneyToAdd)
@@ -47,5 +46,11 @@ public class Money
     {
         _money = money;
         _money = EconomyManager.instance.RoundMoney(_money);
+    }
+
+    public void SetStartingMoney()
+    {
+        SetMoney(startingMoney);
+        PlayerStats.stats.totalMoney = _money;
     }
 }

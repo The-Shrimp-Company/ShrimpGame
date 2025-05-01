@@ -56,7 +56,13 @@ public class Inventory
 
     public Inventory()
     {
-        
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        activeTanks = new List<TankController>();
+        newInventory = new List<Item>();
     }
 
     public void AddItem(Item newItem, int quantity = 1)

@@ -27,7 +27,7 @@ public class SaveController : MonoBehaviour
             }
         }
         else
-            SaveManager.NewGame();
+            NewGame();
     }
 
 
@@ -208,5 +208,14 @@ public class SaveController : MonoBehaviour
                 index++;
             }
         }
+    }
+
+
+    private void NewGame()
+    {
+        PlayerStats.stats = new Stats();
+        Inventory.instance.Initialize();
+        Money.instance.SetStartingMoney();
+        SaveManager.NewGame();
     }
 }

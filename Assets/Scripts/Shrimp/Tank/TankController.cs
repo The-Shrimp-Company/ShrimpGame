@@ -311,6 +311,8 @@ public class TankController : MonoBehaviour
 
     public void SpawnShrimp(ShrimpStats s, bool gameLoading = false)
     {
+        upgradeController = GetComponent<TankUpgradeController>();
+
         if (upgradeController.CheckForUpgrade(UpgradeTypes.Decorations))
         {
             Decorations d = (Decorations) upgradeController.GetUpgrade(UpgradeTypes.Decorations);
