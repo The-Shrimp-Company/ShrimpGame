@@ -1,8 +1,10 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CrossHairScript : PlayerUIController
 {
+    public TextMeshProUGUI toolTipText;
     public Image crosshair;
 
     private void Start()
@@ -12,14 +14,17 @@ public class CrossHairScript : PlayerUIController
 
     public override void SwitchFocus()
     {
-        if (!crosshair.IsDestroyed())
+        if (!toolTipText.IsDestroyed())
         {
+            Debug.Log("CHS Line 19");
             if (UIManager.instance.GetFocus() == null)
             {
-                crosshair.enabled = true;
+                Debug.Log("CHS Line 22");
+                toolTipText.enabled = true;
             }
             else
             {
+                toolTipText.enabled = false;
                 crosshair.enabled = false;
             }
         }
