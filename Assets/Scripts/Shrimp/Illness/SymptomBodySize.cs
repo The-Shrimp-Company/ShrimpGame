@@ -16,11 +16,11 @@ public class SymptomBodySize : Symptom
 
         if (rand == 0)
         {
-            bodyPart = shrimp.shrimpBody.headNode;
+            bodyPart = shrimp.shrimpLegs.body.headNode;
         }
         else if (rand == 1)
         {
-            bodyPart = shrimp.shrimpBody.tailNode.GetChild(0).GetComponent<Tail>().tFanNode;
+            bodyPart = shrimp.shrimpLegs.body.tailNode.GetChild(0).GetComponent<Tail>().tFanNode;
         }
 
         base.StartSymptom();

@@ -8,9 +8,9 @@ public class SymptomDiscolouration : Symptom
     {
         symptom = IllnessSymptoms.Discolouration;
 
-        if (shrimp.shrimpBody != null)
+        if (shrimp.shrimpLegs != null)
         {
-            shrimp.shrimpBody.ChangeColours(ColourTypes.discoloured);
+            shrimp.shrimpLegs.ChangeColours(ColourTypes.discoloured);
         }
 
         base.StartSymptom();
@@ -23,9 +23,9 @@ public class SymptomDiscolouration : Symptom
 
     public override void EndSymptom()
     {
-        if (shrimp.shrimpBody != null)
+        if (shrimp.shrimpLegs != null)
         {
-            shrimp.shrimpBody.ChangeColours(ColourTypes.main);
+            shrimp.shrimpLegs.ChangeColours(ColourTypes.main);
         }
 
         base.EndSymptom();
