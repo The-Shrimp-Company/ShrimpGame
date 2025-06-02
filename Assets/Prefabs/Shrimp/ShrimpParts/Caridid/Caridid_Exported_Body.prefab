@@ -101,6 +101,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7696020314215382733}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6926607937552037471 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8435945191888664430, guid: 4649a67346c66d742b846e104ac06bdc,
+    type: 3}
+  m_PrefabInstance: {fileID: 7696020314215382733}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7353437433418105756 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4649a67346c66d742b846e104ac06bdc,
@@ -123,7 +129,7 @@ MonoBehaviour:
   - {fileID: 4828206660233205946}
   - {fileID: 5295605684706220210}
   - {fileID: 4828206660233205946}
-  - {fileID: 5744954249644400842}
+  - {fileID: 6926607937552037471}
   - {fileID: 5744954249644400842}
   animations:
     _serializedList: []

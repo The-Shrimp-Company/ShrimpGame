@@ -185,13 +185,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objs:
-  - {fileID: 3403298115596311974}
   - {fileID: 8339418873069170557}
-  - {fileID: 795661132983836966}
   - {fileID: 6241205453935347909}
-  - {fileID: 6241205453935347909}
+  - {fileID: 3403298115596311974}
   - {fileID: 1737003546794229672}
+  - {fileID: 795661132983836966}
   - {fileID: 249031865175995675}
+  - {fileID: 4970717150872078396}
   animations:
     _serializedList:
     - Key: 0
@@ -222,6 +222,12 @@ GameObject:
 --- !u!4 &3710812933700666559 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6510841129952403402, guid: 1ea3b98b211c6f44bad23beff45c694b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1647100094480671881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4970717150872078396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3305602378687550283, guid: 1ea3b98b211c6f44bad23beff45c694b,
     type: 3}
   m_PrefabInstance: {fileID: 1647100094480671881}
   m_PrefabAsset: {fileID: 0}
