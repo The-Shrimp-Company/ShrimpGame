@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fe0a0fa20fc64274f810d06db913b1c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.24444199
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe0a0fa20fc64274f810d06db913b1c6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6293129
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe0a0fa20fc64274f810d06db913b1c6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5037588
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe0a0fa20fc64274f810d06db913b1c6,
         type: 3}
@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cherry_Exported_Legs
       objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: fe0a0fa20fc64274f810d06db913b1c6,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -93,6 +98,12 @@ GameObject:
 --- !u!1 &820768800684623763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2809445202696541515, guid: fe0a0fa20fc64274f810d06db913b1c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3287297217313952472}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &925138224619904814 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2398187927239265782, guid: fe0a0fa20fc64274f810d06db913b1c6,
     type: 3}
   m_PrefabInstance: {fileID: 3287297217313952472}
   m_PrefabAsset: {fileID: 0}
@@ -185,7 +196,7 @@ MonoBehaviour:
     - Key: 5
       Value: {fileID: -505152612230753402, guid: fe0a0fa20fc64274f810d06db913b1c6,
         type: 3}
-  bodyNode: {fileID: 0}
+  bodyNode: {fileID: 925138224619904814}
   debug: 0
   body: {fileID: 0}
 --- !u!1 &2415933230067930327 stripped

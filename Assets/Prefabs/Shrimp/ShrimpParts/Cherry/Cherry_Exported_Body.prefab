@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cherry_Exported_Body
       objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: 8be2ff103d4514f4a88db716eccf44ff,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

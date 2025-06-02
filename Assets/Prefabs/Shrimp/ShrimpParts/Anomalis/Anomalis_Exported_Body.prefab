@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anomalis_Exported_Body
       objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: 6233b3901176d294d90c7e800021d2da,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -120,7 +125,6 @@ MonoBehaviour:
   animations:
     _serializedList: []
   headNode: {fileID: 203810069972700465}
-  legsNode: {fileID: 0}
   tailNode: {fileID: 5442879462971732001}
   debug: 0
 --- !u!1 &4028078035717602552 stripped

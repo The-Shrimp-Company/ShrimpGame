@@ -65,6 +65,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2223639932434330405, guid: 1ea3b98b211c6f44bad23beff45c694b,
         type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: 1ea3b98b211c6f44bad23beff45c694b,
+        type: 3}
       propertyPath: m_Animations.Array.size
       value: 6
       objectReference: {fileID: 0}

@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Caridid_Exported_Body
       objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: 4649a67346c66d742b846e104ac06bdc,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

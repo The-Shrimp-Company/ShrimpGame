@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Anomalis_Exported_Eyes
       objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: 64b2b923585156946bdbc3bdd6f4b3ce,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

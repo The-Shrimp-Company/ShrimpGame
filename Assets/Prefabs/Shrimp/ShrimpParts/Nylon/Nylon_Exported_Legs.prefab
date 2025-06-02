@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4c1f46a0bbc1b8b49878861bdea78ae3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.70838857
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4c1f46a0bbc1b8b49878861bdea78ae3,
         type: 3}
@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4c1f46a0bbc1b8b49878861bdea78ae3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.5068524
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4c1f46a0bbc1b8b49878861bdea78ae3,
         type: 3}
@@ -62,6 +62,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Nylon_Exported_Legs
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223639932434330405, guid: 4c1f46a0bbc1b8b49878861bdea78ae3,
+        type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
