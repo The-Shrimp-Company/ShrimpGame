@@ -14,24 +14,16 @@ public class TankViewScript : ScreenView
 {
     
     private TankController tank;
-    [SerializeField]
-    private GameObject panel;
-    [SerializeField]
-    protected GameObject shrimpView;
-    private Vector3 panelresting;
+    [SerializeField] private GameObject leftPanel;
+    [SerializeField] protected GameObject shrimpView;
     protected Shrimp _shrimp;
-    [SerializeField]
-    protected TextMeshProUGUI tankPop;
-    [SerializeField]
-    private GameObject _content;
-    [SerializeField]
-    private GameObject _contentBlock;
+    [SerializeField] protected TextMeshProUGUI tankPop;
+    [SerializeField] private GameObject _content;
+    [SerializeField] private GameObject _contentBlock;
     private List<TankContentBlock> contentBlocks = new List<TankContentBlock>();
 
-    [SerializeField]
-    private TMP_InputField Name;
-    [SerializeField]
-    private TMP_InputField salePrice;
+    [SerializeField] private TMP_InputField Name;
+    [SerializeField] private TMP_InputField salePrice;
     [SerializeField] private TextMeshProUGUI foodAmount;
     [SerializeField] private GameObject inventoryScreen;
 
@@ -41,24 +33,38 @@ public class TankViewScript : ScreenView
     private bool allSelected = false;
     [SerializeField] Checkbox multiSelect;
 
-    [SerializeField] private Animator ContextBox;
-    [SerializeField] private Animator UpgradeBox;
+    [SerializeField] private Animator contextBox;
+    [SerializeField] private Animator upgradeBox;
 
     [SerializeField] private UpgradePanel upgrades;
 
-    protected override void Start()
+
+    [Header("Panel Tweening")]
+    private Vector3 leftPanelResting, upgradeBoxResting;
+    [SerializeField] private Vector3 leftPanelTweenPos;
+    [SerializeField] private Vector3 leftPanelSwitchInPos;
+    [SerializeField] private Vector3 leftPanelSwitchOutPos;
+    [SerializeField] private Vector3 upgradeBoxTweenPos;
+    [SerializeField] private Vector3 upgradeBoxSwitchInPos;
+    [SerializeField] private Vector3 upgradeBoxSwitchOutPos;
+
+
+    public override void Open(bool switchTab)
     {
         player = GameObject.Find("Player");
         shelves = GetComponentInParent<ShelfSpawn>();
         tank = GetComponentInParent<TankController>();
         tank.tankViewScript = this;
-        panelresting = panel.transform.position;
+        leftPanelResting = leftPanel.transform.position;
+        upgradeBoxResting = upgradeBox.transform.position;
         Name.text = tank.tankName;
         salePrice.text = tank.openTankPrice.ToString();
         selectedShrimp = new List<Shrimp>();
         upgrades.Tank = tank;
         multiSelect.Uncheck(false);
+        StartCoroutine(OpenTab(switchTab));
         UpdateContent();
+        base.Open(switchTab);
     }
 
 
@@ -69,13 +75,13 @@ public class TankViewScript : ScreenView
 
         if(selectedShrimp.Count > 0)
         {
-            ContextBox.SetBool("Selection", true);
-            UpgradeBox.SetBool("Expand", false);
+            contextBox.SetBool("Selection", true);
+            upgradeBox.SetBool("Expand", false);
         }
         else
         {
-            ContextBox.SetBool("Selection", false);
-            UpgradeBox.SetBool("Expand", true);
+            contextBox.SetBool("Selection", false);
+            upgradeBox.SetBool("Expand", true);
         }
 
         if(selectedShrimp.Count == 0)
@@ -215,13 +221,13 @@ public class TankViewScript : ScreenView
 
     public void SlideMenu()
     {
-        if((panel.transform.position - panelresting).magnitude < 1)
+        if((leftPanel.transform.position - leftPanelResting).magnitude < 1)
         {
-            panel.transform.position += Vector3.left * 250 * UIManager.instance.GetCanvas().transform.localScale.x;
+            leftPanel.transform.position += Vector3.left * 250 * UIManager.instance.GetCanvas().transform.localScale.x;
         }
         else
         {
-            panel.transform.position = panelresting;
+            leftPanel.transform.position = leftPanelResting;
         }
     }
 
@@ -265,16 +271,83 @@ public class TankViewScript : ScreenView
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("TankView");
     }
 
-    public override void Close()
+    public override void Close(bool switchTab)
     {
-        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
-        base.Close();
-        
+        StartCoroutine(CloseTab(switchTab));
     }
 
     public void AddFood()
     {
         GameObject screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas());
         screen.GetComponentInChildren<InventoryContent>().FoodAssignement(this, tank, screen);
+    }
+
+    public IEnumerator OpenTab(bool switchTab)
+    {
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
+
+        leftPanel.transform.localPosition = switchTab ? leftPanelSwitchInPos : leftPanelTweenPos;
+        upgradeBox.transform.localPosition = switchTab ? upgradeBoxSwitchInPos : upgradeBoxTweenPos;
+        upgradeBox.enabled = false;
+        contextBox.enabled = false;
+        contextBox.gameObject.SetActive(false);
+
+        if (switchTab)
+        {
+            yield return new WaitForSeconds(0.4f);
+
+            leftPanel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutBack, 1.4f);
+            upgradeBox.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutBack, 1.4f);
+
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+            GetComponent<CanvasGroup>().alpha = 0f;
+            GetComponent<CanvasGroup>().DOFade(1, 0.3f).SetEase(Ease.OutCubic);
+
+            leftPanel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutBack);
+            upgradeBox.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutBack);
+
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        contextBox.gameObject.SetActive(true);
+        upgradeBox.enabled = true;
+        contextBox.enabled = true;
+    }
+
+
+
+    public IEnumerator CloseTab(bool switchTab)
+    {
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
+        DOTween.Kill(leftPanel);
+        DOTween.Kill(upgradeBox);
+        upgradeBox.enabled = false;
+        contextBox.enabled = false;
+
+        if (switchTab)
+        {
+            leftPanel.GetComponent<RectTransform>().DOAnchorPos(leftPanelSwitchOutPos, 0.5f).SetEase(Ease.InBack, 1.4f);
+            upgradeBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxSwitchOutPos, 0.5f).SetEase(Ease.InBack, 1.4f);
+            contextBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxSwitchOutPos, 0.5f).SetEase(Ease.InBack, 1.4f);
+
+            yield return new WaitForSeconds(0.5f);
+        }
+        else  // Fully closing
+        {
+            leftPanel.GetComponent<RectTransform>().DOAnchorPos(leftPanelTweenPos, 0.3f).SetEase(Ease.InBack);
+            upgradeBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxTweenPos, 0.3f).SetEase(Ease.InBack);
+            contextBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxTweenPos, 0.3f).SetEase(Ease.InBack);
+            GetComponent<CanvasGroup>().DOFade(0, 0.3f).SetEase(Ease.InCubic);
+
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        DOTween.Kill(leftPanel);
+        DOTween.Kill(upgradeBox);
+        DOTween.Kill(contextBox);
+        base.Close(switchTab);
     }
 }

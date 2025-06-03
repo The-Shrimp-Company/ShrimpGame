@@ -95,7 +95,7 @@ public class TabletInteraction : ScreenView
         UIManager.instance.ChangeFocus(vetScreen.GetComponent<ScreenView>());
     }
 
-    public override void Close()
+    public override void Close(bool switchTab)
     {
 
     }

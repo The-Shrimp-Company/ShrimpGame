@@ -1230,6 +1230,7 @@ GameObject:
   - component: {fileID: 8862721570316287926}
   - component: {fileID: 6387445573526290414}
   - component: {fileID: 3114528873896908004}
+  - component: {fileID: 8032751519568286105}
   m_Layer: 5
   m_Name: ShrimpView
   m_TagString: UIScreen
@@ -1333,6 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 0}
+  panel: {fileID: 1160506725339480958}
   title: {fileID: 1901118840297408420}
   tankView: {fileID: 4927723591345053280, guid: 89d7b0e4c6dd7814aa2cc254ba712ae0,
     type: 3}
@@ -1353,6 +1355,23 @@ MonoBehaviour:
   primaryColour: {fileID: 2376940187439495515}
   secondaryColour: {fileID: 1489016657286172719}
   hunger: {fileID: 1093045287904912434}
+  panelRestPos: {x: -672.3644, y: 0, z: 0}
+  panelTweenPos: {x: -1200, y: 0, z: 0}
+  panelSwitchInPos: {x: -672.3644, y: 1200, z: 0}
+  panelSwitchOutPos: {x: 0, y: -1200, z: 0}
+  shrimpSwitchPunch: {x: 20, y: 0}
+--- !u!225 &8032751519568286105
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4927723591345053280}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4992998009482329976
 GameObject:
   m_ObjectHideFlags: 0

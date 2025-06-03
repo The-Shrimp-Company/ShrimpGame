@@ -1,4 +1,5 @@
 using Cinemachine;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,23 +7,32 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ShrimpView : ScreenView
 {
-
-    [SerializeField]
-    private TMP_InputField title;
-    [SerializeField]
-    private GameObject tankView;
-    [SerializeField]
-    private TextMeshProUGUI age, gender, body, pattern, legs, tail, tailFan, eyes, head;
-    [SerializeField]
-    private RenderTexture texture;
+    [SerializeField] private RectTransform panel;
+    [SerializeField] private TMP_InputField title;
+    [SerializeField] private GameObject tankView;
+    [SerializeField] private TextMeshProUGUI age, gender, body, pattern, legs, tail, tailFan, eyes, head;
+    [SerializeField] private RenderTexture texture;
     protected Shrimp _shrimp;
-    [SerializeField]
-    private GameObject currentTankScreen, medScreen;
+    [SerializeField] private GameObject currentTankScreen, medScreen;
     [SerializeField] private Image primaryColour, secondaryColour;
     [SerializeField] private Slider hunger;
+
+    [SerializeField] private Vector3 panelRestPos;
+    [SerializeField] private Vector3 panelTweenPos;
+    [SerializeField] private Vector3 panelSwitchInPos;
+    [SerializeField] private Vector3 panelSwitchOutPos;
+    [SerializeField] private Vector2 shrimpSwitchPunch;
+
+    public override void Open(bool switchTab)
+    {
+        StartCoroutine(OpenTab(switchTab));
+        base.Open(switchTab);
+    }
+
 
     public void Update()
     {
@@ -62,7 +72,10 @@ public class ShrimpView : ScreenView
             //GetComponent<Canvas>().planeDistance = 1;
             UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
             _shrimp.GetComponentInChildren<ShrimpCam>().SetCam();
-            
+
+            DOTween.Kill(panel);
+            panel.transform.localPosition = panelRestPos;
+            panel.DOPunchAnchorPos(shrimpSwitchPunch, 0.25f);
         }
     }
 
@@ -129,13 +142,61 @@ public class ShrimpView : ScreenView
         player.GetComponent<PlayerInput>().SwitchCurrentActionMap("TankView");
     }
 
-    public override void Close()
-    {
 
+
+    public override void Close(bool switchTab)
+    {
         _shrimp.gameObject.layer = LayerMask.NameToLayer("Shrimp");
         _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
         _shrimp.StopFocussingShrimp();
         player.GetComponent<PlayerUIController>().UnsetShrimpCam();
-        base.Close();
+        StartCoroutine(CloseTab(switchTab));
+    }
+
+    public IEnumerator OpenTab(bool switchTab)
+    {
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
+
+        panel.transform.localPosition = switchTab ? panelSwitchInPos : panelTweenPos;
+
+        if (switchTab)
+        {
+            yield return new WaitForSeconds(0.4f);
+            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutBack, 1.4f);
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+            GetComponent<CanvasGroup>().alpha = 0f;
+            GetComponent<CanvasGroup>().DOFade(1, 0.3f).SetEase(Ease.OutCubic);
+
+            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutBack);
+
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+
+
+    public IEnumerator CloseTab(bool switchTab)
+    {
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
+        DOTween.Kill(panel);
+
+        if (switchTab)
+        {
+            panel.GetComponent<RectTransform>().DOAnchorPos(panelSwitchOutPos, 0.5f).SetEase(Ease.InBack, 1.4f);
+            yield return new WaitForSeconds(0.5f);
+        }
+        else  // Fully closing
+        {
+            panel.GetComponent<RectTransform>().DOAnchorPos(panelTweenPos, 0.3f).SetEase(Ease.InBack);
+            GetComponent<CanvasGroup>().DOFade(0, 0.3f).SetEase(Ease.InCubic);
+
+            yield return new WaitForSeconds(0.3f);
+        }
+
+        DOTween.Kill(panel);
+        base.Close(switchTab);
     }
 }

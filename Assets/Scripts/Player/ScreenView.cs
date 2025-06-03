@@ -25,9 +25,13 @@ public class ScreenView : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
-    
 
-    public virtual void Close()
+    public virtual void Open(bool switchTab)
+    {
+
+    }
+
+    public virtual void Close(bool switchTab)
     {
         Destroy(gameObject);
     }

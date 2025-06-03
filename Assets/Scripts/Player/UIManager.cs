@@ -50,7 +50,7 @@ public class UIManager
 
         if (_currentUI != null)
         {
-            _currentUI.Close();
+            _currentUI.Close(false);
         }
         _currentUI = null;
 
@@ -71,12 +71,16 @@ public class UIManager
         //_cursor.transform.SetParent(newFocus.transform);
         //_cursor.transform.SetAsLastSibling();
 
+        bool switching = false;
         if (_currentUI != null)
         {
-            _currentUI.Close();
+            switching = true;
+            _currentUI.Close(true);
         }
         _currentUI = newFocus;
         _currentRect = customRect.rect;
+
+        newFocus.Open(switching);
 
         //_cursor.transform.localScale = Vector3.one;
 
