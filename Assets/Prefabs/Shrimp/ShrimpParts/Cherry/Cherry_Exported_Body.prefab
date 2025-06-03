@@ -76,6 +76,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2803432465111337051}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8be2ff103d4514f4a88db716eccf44ff,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -9217899366161318778}
   m_SourcePrefab: {fileID: 100100000, guid: 8be2ff103d4514f4a88db716eccf44ff, type: 3}
 --- !u!1 &885234864021743535 stripped
 GameObject:
@@ -121,6 +125,30 @@ MonoBehaviour:
   headNode: {fileID: 5928233010257449146}
   tailNode: {fileID: 8341032733875084886}
   debug: 0
+--- !u!205 &-9217899366161318778
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6867213429032711871}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!4 &8341032733875084886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2327546265019340216, guid: 8be2ff103d4514f4a88db716eccf44ff,

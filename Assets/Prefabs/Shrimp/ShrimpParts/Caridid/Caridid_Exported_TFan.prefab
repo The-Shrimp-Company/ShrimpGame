@@ -76,6 +76,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: -1593548326220472586}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 362dde7349cdc0344b5d1d958e7350a5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2677157316891265709}
   m_SourcePrefab: {fileID: 100100000, guid: 362dde7349cdc0344b5d1d958e7350a5, type: 3}
 --- !u!1 &3601140031396582683 stripped
 GameObject:
@@ -105,3 +109,27 @@ MonoBehaviour:
   - {fileID: 3601140031396582683}
   animations:
     _serializedList: []
+--- !u!205 &2677157316891265709
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3726934252427812064}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

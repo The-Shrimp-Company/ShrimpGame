@@ -147,6 +147,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 940991797210860243}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1ea3b98b211c6f44bad23beff45c694b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1421710052654409789}
   m_SourcePrefab: {fileID: 100100000, guid: 1ea3b98b211c6f44bad23beff45c694b, type: 3}
 --- !u!1 &249031865175995675 stripped
 GameObject:
@@ -213,6 +217,30 @@ MonoBehaviour:
       Value: {fileID: 4280079746397091737, guid: 1ea3b98b211c6f44bad23beff45c694b,
         type: 3}
   eyesNode: {fileID: 3710812933700666559}
+--- !u!205 &1421710052654409789
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881032530459974104}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &3403298115596311974 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5052654683423262417, guid: 1ea3b98b211c6f44bad23beff45c694b,
