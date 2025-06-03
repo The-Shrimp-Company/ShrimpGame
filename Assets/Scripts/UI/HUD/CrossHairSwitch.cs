@@ -19,6 +19,8 @@ public class CrossHairSwitch : MonoBehaviour
 
     [SerializeField] private Ease crosshairEase;
 
+    [HideInInspector] public bool hovering;
+
     private void Start()
     {
         crosshairRect = crosshair.GetComponent<RectTransform>();
@@ -26,12 +28,12 @@ public class CrossHairSwitch : MonoBehaviour
 
     private void Update()
     {
-        if(text.text == "" && text.enabled)
+        if(hovering == false && text.enabled)
         {
             if (crosshair.sprite != crosshairSprite)
             {
                 ChangeSprite(crosshairSprite, crosshairSize);
-                text.DOFade(0, 0.1f);
+                FadeText(0);
             }
         }
         else
@@ -39,7 +41,7 @@ public class CrossHairSwitch : MonoBehaviour
             if (crosshair.sprite != interactSprite)
             {
                 ChangeSprite(interactSprite, interactSize);
-                text.DOFade(1, 0.1f);
+                FadeText(1);
             }
         }
     }
@@ -49,5 +51,11 @@ public class CrossHairSwitch : MonoBehaviour
         crosshair.sprite = sprite;
         DOTween.Kill(crosshairRect);
         crosshairRect.DOScale(new Vector2(size, size), 0.2f).SetEase(crosshairEase);
+    }
+
+    private void FadeText(float alpha)
+    {
+        DOTween.Kill(text);
+        text.DOFade(alpha, 0.1f);
     }
 }

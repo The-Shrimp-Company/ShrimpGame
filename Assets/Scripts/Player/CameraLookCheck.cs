@@ -6,6 +6,13 @@ using UnityEngine;
 public class CameraLookCheck : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI toolTip;
+    private CrossHairSwitch crosshair;
+
+    private void Start()
+    {
+        crosshair = toolTip.transform.parent.GetComponent<CrossHairSwitch>();
+        if (crosshair == null) Debug.LogWarning("CameraLookCheck cannot find crosshair");
+    }
 
     public GameObject LookCheck(float Distance, string layer)
     {
@@ -40,12 +47,14 @@ public class CameraLookCheck : MonoBehaviour
                     if (hit.collider.GetComponent<ToolTip>())
                     {
                         toolTip.text = hit.collider.GetComponent<ToolTip>().toolTip;
+                        crosshair.hovering = true;
                         return;
                     }
                 }
             }
 
-            toolTip.text = "";
+            //toolTip.text = "";
+            crosshair.hovering = false;
         }
     }
 }

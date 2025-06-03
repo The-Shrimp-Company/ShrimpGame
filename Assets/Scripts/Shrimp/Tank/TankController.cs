@@ -79,6 +79,9 @@ public class TankController : MonoBehaviour
     public Transform particleParent;
     private Transform player;
 
+    [Header("Tooltip")]
+    private ToolTip tooltip;
+
     [Header("Debugging")]
     [SerializeField] bool autoSpawnTestShrimp;
     [SerializeField] float autoSpawnFoodTime;
@@ -94,6 +97,7 @@ public class TankController : MonoBehaviour
         if (string.IsNullOrEmpty(tankName)) tankName = "Tank";
 
         upgradeController = GetComponent<TankUpgradeController>();
+        tooltip = GetComponent<ToolTip>();
 
         sign.SetActive(destinationTank);
 
@@ -153,6 +157,7 @@ public class TankController : MonoBehaviour
         }
 
         label.text = tankName;
+        if (tooltip) tooltip.toolTip = tankName;
 
         if (focussingTank) PlayerStats.stats.timeSpentFocusingTank += Time.deltaTime;
     }
