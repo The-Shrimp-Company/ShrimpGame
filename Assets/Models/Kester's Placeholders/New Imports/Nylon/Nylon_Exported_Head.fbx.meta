@@ -28,7 +28,7 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Head|ANylon_Head.Breeding - Female
       internalID: -6233081730277817817
       firstFrame: 0
-      lastFrame: 420
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,8 +65,8 @@ ModelImporter:
       name: Head|ANylon_Head.Breeding - Male
       takeName: Head|ANylon_Head.Breeding - Male
       internalID: 4220111783432878447
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 70
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,8 +94,8 @@ ModelImporter:
       name: Head|ANylon_Head.Eating
       takeName: Head|ANylon_Head.Eating
       internalID: 8081075844515544653
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -124,7 +124,7 @@ ModelImporter:
       takeName: Head|ANylon_Head.Fighting
       internalID: -3711672533407558197
       firstFrame: 0
-      lastFrame: 420
+      lastFrame: 320
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -152,8 +152,8 @@ ModelImporter:
       name: Head|ANylon_Head.Idle
       takeName: Head|ANylon_Head.Idle
       internalID: -7094714269737484914
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,8 +181,8 @@ ModelImporter:
       name: Head|ANylon_Head.Swimming
       takeName: Head|ANylon_Head.Swimming
       internalID: 5416052541120513026
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
