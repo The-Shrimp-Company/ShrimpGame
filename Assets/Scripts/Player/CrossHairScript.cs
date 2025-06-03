@@ -21,6 +21,7 @@ public class CrossHairScript : PlayerUIController
             {
                 Debug.Log("CHS Line 22");
                 toolTipText.enabled = true;
+                crosshair.enabled = true;
             }
             else
             {
