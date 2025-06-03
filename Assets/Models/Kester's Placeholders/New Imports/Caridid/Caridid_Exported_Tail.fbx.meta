@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Caridid_Tail|Caridid_Tail.Breeding - Female
       internalID: 8197738904337842565
       firstFrame: 0
-      lastFrame: 480
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,8 +65,8 @@ ModelImporter:
       name: Caridid_Tail|Caridid_Tail.Breeding - Male
       takeName: Caridid_Tail|Caridid_Tail.Breeding - Male
       internalID: -5571208894308728846
-      firstFrame: 0
-      lastFrame: 320
+      firstFrame: 70
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,8 +94,8 @@ ModelImporter:
       name: Caridid_Tail|Caridid_Tail.Eating
       takeName: Caridid_Tail|Caridid_Tail.Eating
       internalID: 3749326565088433866
-      firstFrame: 0
-      lastFrame: 480
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -152,8 +152,8 @@ ModelImporter:
       name: Caridid_Tail|Caridid_Tail.Idle
       takeName: Caridid_Tail|Caridid_Tail.Idle
       internalID: 2052781058961009100
-      firstFrame: 0
-      lastFrame: 480
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,8 +181,8 @@ ModelImporter:
       name: Caridid_Tail|Caridid_Tail.Swimming
       takeName: Caridid_Tail|Caridid_Tail.Swimming
       internalID: 4292636575831141226
-      firstFrame: 0
-      lastFrame: 690
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

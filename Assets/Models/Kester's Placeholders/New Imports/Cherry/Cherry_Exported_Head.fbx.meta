@@ -14,7 +14,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -22,7 +22,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    importAnimatedCustomProperties: 0
+    importAnimatedCustomProperties: 1
     importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Armature.001|Cherry_Head.Breeding - Female
       internalID: 6298539421784252782
       firstFrame: 0
-      lastFrame: 420
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,8 +65,8 @@ ModelImporter:
       name: Armature.001|Cherry_Head.Breeding - Male
       takeName: Armature.001|Cherry_Head.Breeding - Male
       internalID: 403477290867382519
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 70
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,8 +94,8 @@ ModelImporter:
       name: Armature.001|Cherry_Head.Eating
       takeName: Armature.001|Cherry_Head.Eating
       internalID: -4388208699145184717
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -124,7 +124,7 @@ ModelImporter:
       takeName: Armature.001|Cherry_Head.Fighting
       internalID: -5562649530083478191
       firstFrame: 0
-      lastFrame: 420
+      lastFrame: 320
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -152,8 +152,8 @@ ModelImporter:
       name: Armature.001|Cherry_Head.Idle
       takeName: Armature.001|Cherry_Head.Idle
       internalID: 209579299877524449
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,8 +181,8 @@ ModelImporter:
       name: Armature.001|Cherry_Head.Swimming
       takeName: Armature.001|Cherry_Head.Swimming
       internalID: 5958431488689016283
-      firstFrame: 0
-      lastFrame: 420
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

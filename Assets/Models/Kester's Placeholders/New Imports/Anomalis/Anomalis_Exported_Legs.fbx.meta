@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Leg|Anomalis_Legs.Breeding - Female
       internalID: 5550986178141034500
       firstFrame: 0
-      lastFrame: 491
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,8 +65,8 @@ ModelImporter:
       name: Leg|Anomalis_Legs.Breeding - Male
       takeName: Leg|Anomalis_Legs.Breeding - Male
       internalID: -7278590163962955056
-      firstFrame: 0
-      lastFrame: 491
+      firstFrame: 70
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,8 +94,8 @@ ModelImporter:
       name: Leg|Anomalis_Legs.Eating
       takeName: Leg|Anomalis_Legs.Eating
       internalID: 546167989220067141
-      firstFrame: 0
-      lastFrame: 491
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -124,7 +124,7 @@ ModelImporter:
       takeName: Leg|Anomalis_Legs.Fighting
       internalID: -3763485057062048684
       firstFrame: 0
-      lastFrame: 491
+      lastFrame: 320
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -152,8 +152,8 @@ ModelImporter:
       name: Leg|Anomalis_Legs.Idle
       takeName: Leg|Anomalis_Legs.Idle
       internalID: -9127179560779135024
-      firstFrame: 0
-      lastFrame: 491
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,8 +181,8 @@ ModelImporter:
       name: Leg|Anomalis_Legs.Swimming
       takeName: Leg|Anomalis_Legs.Swimming
       internalID: 7147726391802428529
-      firstFrame: 0
-      lastFrame: 491
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

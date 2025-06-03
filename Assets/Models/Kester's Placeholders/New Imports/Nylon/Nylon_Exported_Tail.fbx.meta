@@ -28,7 +28,7 @@ ModelImporter:
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
-    animationWrapMode: 0
+    animationWrapMode: 2
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Tail.001|ANylon_Tail.Breeding - Female
       internalID: 860580103007075133
       firstFrame: 0
-      lastFrame: 425
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,8 +65,8 @@ ModelImporter:
       name: Tail.001|ANylon_Tail.Breeding - Male
       takeName: Tail.001|ANylon_Tail.Breeding - Male
       internalID: 7826216913118446384
-      firstFrame: 0
-      lastFrame: 425
+      firstFrame: 70
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,8 +94,8 @@ ModelImporter:
       name: Tail.001|ANylon_Tail.Eating
       takeName: Tail.001|ANylon_Tail.Eating
       internalID: -6329222933314164899
-      firstFrame: 0
-      lastFrame: 425
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -124,7 +124,7 @@ ModelImporter:
       takeName: Tail.001|ANylon_Tail.Fighting
       internalID: -5881897472309696620
       firstFrame: 0
-      lastFrame: 425
+      lastFrame: 320
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -152,8 +152,8 @@ ModelImporter:
       name: Tail.001|ANylon_Tail.Idle
       takeName: Tail.001|ANylon_Tail.Idle
       internalID: -6467698988575847594
-      firstFrame: 0
-      lastFrame: 425
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,8 +181,8 @@ ModelImporter:
       name: Tail.001|ANylon_Tail.Swimming
       takeName: Tail.001|ANylon_Tail.Swimming
       internalID: 8471898878427446657
-      firstFrame: 0
-      lastFrame: 425
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Leg.001|Caridid_Legs.Breeding - Female
       internalID: -8437960823159846021
       firstFrame: 0
-      lastFrame: 470
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,8 +65,8 @@ ModelImporter:
       name: Leg.001|Caridid_Legs.Breeding - Male
       takeName: Leg.001|Caridid_Legs.Breeding - Male
       internalID: 1128497439554798220
-      firstFrame: 0
-      lastFrame: 470
+      firstFrame: 70
+      lastFrame: 110
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,8 +94,8 @@ ModelImporter:
       name: Leg.001|Caridid_Legs.Eating
       takeName: Leg.001|Caridid_Legs.Eating
       internalID: -8213038239183117436
-      firstFrame: 0
-      lastFrame: 470
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -124,7 +124,7 @@ ModelImporter:
       takeName: Leg.001|Caridid_Legs.Fighting
       internalID: -2844167422686948681
       firstFrame: 0
-      lastFrame: 470
+      lastFrame: 320
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -152,8 +152,8 @@ ModelImporter:
       name: Leg.001|Caridid_Legs.Idle
       takeName: Leg.001|Caridid_Legs.Idle
       internalID: 3550321931802976134
-      firstFrame: 0
-      lastFrame: 470
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,8 +181,8 @@ ModelImporter:
       name: Leg.001|Caridid_Legs.Swimming
       takeName: Leg.001|Caridid_Legs.Swimming
       internalID: -8868841470250954554
-      firstFrame: 0
-      lastFrame: 470
+      firstFrame: 160
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
