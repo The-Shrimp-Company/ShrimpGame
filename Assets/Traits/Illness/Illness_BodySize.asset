@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b86eda6ac4587f45a7b45a38d7a40f5, type: 3}
   m_Name: Illness_BodySize
   m_EditorClassIdentifier: 
-  trigger: 0
+  trigger: 3
   triggerChance:
     serializedVersion: 2
     m_Curve:
