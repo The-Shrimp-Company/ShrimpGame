@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 using Unity.VisualScripting;
 using System;
 using System.Xml;
+using DG.Tweening;
 
 public class TankViewScript : ScreenView
 {
@@ -36,11 +37,9 @@ public class TankViewScript : ScreenView
 
     [SerializeField] private GameObject currentTankScreen;
 
-    [SerializeField] private Sprite checkmark, uncheck;
-
     private List<Shrimp> selectedShrimp = new List<Shrimp>();
     private bool allSelected = false;
-    [SerializeField] Image multiSelect;
+    [SerializeField] Checkbox multiSelect;
 
     [SerializeField] private Animator ContextBox;
     [SerializeField] private Animator UpgradeBox;
@@ -58,6 +57,7 @@ public class TankViewScript : ScreenView
         salePrice.text = tank.openTankPrice.ToString();
         selectedShrimp = new List<Shrimp>();
         upgrades.Tank = tank;
+        multiSelect.Uncheck(false);
         UpdateContent();
     }
 
@@ -82,7 +82,7 @@ public class TankViewScript : ScreenView
         {
             if (allSelected)
             {
-                multiSelect.sprite = uncheck;
+                multiSelect.Uncheck();
                 allSelected = false;
             }
         }
@@ -90,7 +90,7 @@ public class TankViewScript : ScreenView
         {
             if (!allSelected)
             {
-                multiSelect.sprite = checkmark;
+                multiSelect.Check();
                 allSelected = true;
             }
         }
@@ -134,9 +134,9 @@ public class TankViewScript : ScreenView
             selectedShrimp = new List<Shrimp>();
             foreach(TankContentBlock block in contentBlocks)
             {
-                block.checkbutton.GetComponent<Image>().sprite = uncheck;
+                block.checkbutton.GetComponent<Checkbox>().Uncheck();
             }
-            multiSelect.sprite = uncheck;
+            multiSelect.Uncheck();
         }
         else
         {
@@ -146,9 +146,9 @@ public class TankViewScript : ScreenView
             }
             foreach(TankContentBlock block in contentBlocks)
             {
-                block.checkbutton.GetComponent<Image>().sprite = checkmark;
+                block.checkbutton.GetComponent<Checkbox>().Check();
             }
-            multiSelect.sprite = checkmark;
+            multiSelect.Check();
         }
         allSelected = !allSelected;
     }
@@ -181,17 +181,17 @@ public class TankViewScript : ScreenView
             {
                 if(selectedShrimp.Contains(thisShrimp))
                 {
-                    temp.checkbutton.GetComponent<Image>().sprite = uncheck;
+                    temp.checkbutton.GetComponent<Checkbox>().Uncheck();
                     selectedShrimp.Remove(thisShrimp);
                 }
                 else
                 {
-                    temp.checkbutton.GetComponent<Image>().sprite = checkmark;
+                    temp.checkbutton.GetComponent<Checkbox>().Check();
                     selectedShrimp.Add(thisShrimp);
                 }
             });
-            if (selectedShrimp.Contains(shrimp)) temp.checkbutton.GetComponent<Image>().sprite = checkmark;
-            else temp.checkbutton.GetComponent<Image>().sprite = uncheck;
+            if (selectedShrimp.Contains(shrimp)) temp.checkbutton.GetComponent<Checkbox>().Check();
+            else temp.checkbutton.GetComponent<Checkbox>().Uncheck();
             temp.SetText(shrimp.name);
             temp.SetShrimp(shrimp);
         }
