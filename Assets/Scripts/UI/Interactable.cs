@@ -39,7 +39,7 @@ public class Interactable : MonoBehaviour
 
     }
 
-    protected virtual void OnStopHover()
+    public virtual void OnStopHover()
     {
 
     }
