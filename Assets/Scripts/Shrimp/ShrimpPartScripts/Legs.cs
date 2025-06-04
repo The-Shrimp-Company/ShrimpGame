@@ -20,21 +20,23 @@ public class Legs : PartScript
         {
             s = ShrimpManager.instance.CreateRandomShrimp(false);
 
+            SetMaterials(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).set);
+
             body = Instantiate(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).part, bodyNode).GetComponent<Body>().Construct(s, ref tFan, ref tail, ref head);
 
             SetAnimation(AnimNames.swimming);
-            SetMaterials(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).set);
         }
     }
 
     public void Construct(ShrimpStats s)
     {
         this.s = s;
-        
+
+        SetMaterials(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).set);
+
         body = Instantiate(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).part, bodyNode).GetComponent<Body>().Construct(s, ref tFan, ref tail, ref head);
 
         SetAnimation(AnimNames.swimming);
-        SetMaterials(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).set);
     }
 
     public void ChangeColours(ColourTypes colour)

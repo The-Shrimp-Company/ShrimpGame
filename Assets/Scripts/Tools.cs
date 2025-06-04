@@ -13,4 +13,17 @@ public static class Tools
             parent.GetChild(i).SetLayerRecursively(layer);
         }
     }
+
+    public static List<GameObject> FindDescendants(this GameObject obj)
+    {
+        List<GameObject> list = new List<GameObject>();
+
+        foreach(Transform child in obj.transform)
+        {
+            list.Add(child.gameObject);
+            list.AddRange(child.gameObject.FindDescendants());
+        }
+
+        return list;
+    }
 }

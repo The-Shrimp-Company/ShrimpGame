@@ -17,7 +17,7 @@ public class PartScript : MonoBehaviour
     }
 
 
-    [SerializeField] protected GameObject[] objs;
+    protected List<GameObject> objs = new List<GameObject>();
 
     [SerializeField] protected SerializedDictionary<AnimNames, AnimationClip> animations;
 
@@ -26,6 +26,11 @@ public class PartScript : MonoBehaviour
     protected ShrimpStats s;
     protected void SetMaterials(TraitSet trait)
     {
+        if(objs.Count == 0)
+        {
+            objs = Tools.FindDescendants(gameObject);
+        }
+
         foreach (GameObject obj in objs)
         {
             List<Material> mat = new List<Material>();
