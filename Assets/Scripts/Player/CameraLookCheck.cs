@@ -14,19 +14,30 @@ public class CameraLookCheck : MonoBehaviour
         if (crosshair == null) Debug.LogWarning("CameraLookCheck cannot find crosshair");
     }
 
-    public GameObject LookCheck(float Distance, string layer)
+    public GameObject LookCheck(float Distance, string layer = "")
     {
         RaycastHit hit;
 
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        LayerMask layerMask = LayerMask.GetMask(layer);
-
-
-        if(Physics.Raycast(transform.position, fwd, out hit, Distance, layerMask))
+        if(layer != "")
         {
-            return hit.collider.gameObject;
+            LayerMask layerMask = LayerMask.GetMask(layer);
+
+
+            if (Physics.Raycast(transform.position, fwd, out hit, Distance, layerMask))
+            {
+                return hit.collider.gameObject;
+            }
         }
+        else
+        {
+            if(Physics.Raycast(transform.position, fwd, out hit, Distance))
+            {
+                return hit.collider.gameObject;
+            }
+        }
+        
 
 
         return null;
@@ -44,6 +55,10 @@ public class CameraLookCheck : MonoBehaviour
             {
                 if (hit.collider)
                 {
+                    if (hit.collider.GetComponent<Interactable>())
+                    {
+                        hit.collider.GetComponent<Interactable>().Show();
+                    }
                     if (hit.collider.GetComponent<ToolTip>())
                     {
                         toolTip.text = hit.collider.GetComponent<ToolTip>().toolTip;

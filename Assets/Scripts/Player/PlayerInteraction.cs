@@ -33,21 +33,28 @@ public class PlayerInteraction : MonoBehaviour
     /// here as well, although lookCheck should be refactored to allow more options
     /// if that happens.
     /// </summary>
-    public void OnPlayerClick()
+    public void OnPlayerClick(InputValue key)
     {
-        GameObject target = lookCheck.LookCheck(3, "Tanks");
-
-        if (target != null)
+        if (key.isPressed)
         {
-            if (target.GetComponent<TankController>() != null)
-            {
-                SetTankFocus(target.GetComponent<TankController>());
-            }
-            else if(target.GetComponent<TankSocket>())
-            {
-                GameObject invenScreen = UIManager.instance.GetCanvas().GetComponent<MainCanvas>().RaiseScreen(inventory);
-                invenScreen.GetComponentInChildren<InventoryContent>().TankAssignment(target);
+            GameObject target = lookCheck.LookCheck(3);
 
+            if (target != null)
+            {
+                if (target.GetComponent<TankController>() != null)
+                {
+                    SetTankFocus(target.GetComponent<TankController>());
+                }
+                else if (target.GetComponent<TankSocket>() != null)
+                {
+                    GameObject invenScreen = UIManager.instance.GetCanvas().GetComponent<MainCanvas>().RaiseScreen(inventory);
+                    invenScreen.GetComponentInChildren<InventoryContent>().TankAssignment(target);
+
+                }
+                else if (target.GetComponent<Interactable>() != null)
+                {
+                    target.GetComponent<Interactable>().Action();
+                }
             }
         }
     }
