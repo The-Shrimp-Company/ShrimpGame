@@ -50,9 +50,11 @@ public class Legs : PartScript
 
     public void SetAnimation(AnimNames anim)
     {
+        /*
         head.StartAnimation(anim);
         StartAnimation(anim);
         tail.StartAnimation(anim);
         //tFan.StartAnimation(anim);
+        */
     }
 }
