@@ -75,7 +75,7 @@ public class PlayerInteraction : MonoBehaviour
             tankController.FocusTank();
             _tankView = tankController.gameObject;
         }
-        else Debug.LogError("Cannot find tank to focus.");
+        else Debug.LogWarning("Cannot find tank to focus.");
     }
 
     /// <summary>

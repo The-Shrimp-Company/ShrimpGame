@@ -21,7 +21,7 @@ public class TankUpgrade : MonoBehaviour
 
     public virtual void UpdateUpgrade(float elapsedTime)
     {
-        if ((Random.value * 100) < (upgrade.breakRate / 300) * elapsedTime)
+        if ((Random.value * 100) < (upgrade.breakRate / 1000) * elapsedTime)
             BreakUpgrade();
     }
 

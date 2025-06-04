@@ -19,6 +19,8 @@ public class ScreenView : MonoBehaviour
 
     protected GameObject player;
 
+    public bool locksPlayerMovement = false;
+
 
     protected virtual void Start()
     {

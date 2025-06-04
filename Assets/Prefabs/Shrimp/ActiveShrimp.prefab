@@ -147,7 +147,7 @@ MonoBehaviour:
   tank: {fileID: 0}
   agent: {fileID: 797484481638392343}
   camDock: {fileID: 3154724589825782822, guid: 9c37763690d5b354cb993c972810dd39, type: 3}
-  hungerLossSpeed: 0.25
+  hungerLossSpeed: 0.125
   shrimpLegs: {fileID: 0}
   loadedShrimp: 0
   currentValue: 0

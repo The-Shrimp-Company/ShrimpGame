@@ -43348,7 +43348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8295674, y: 0.066}
   m_AnchorMax: {x: 0.9734792, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: 697.0001}
+  m_AnchoredPosition: {x: 1.5, y: 697.0003}
   m_SizeDelta: {x: -3, y: -724}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &916690609
@@ -67914,6 +67914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 1826170790}
+  locksPlayerMovement: 0
   SellScreen: {fileID: 5382316823195656821, guid: 6f93b301785f2f94cb03dc1e4e86748f,
     type: 3}
   BuyScreen: {fileID: 5382316823195656821, guid: 979402841e176254fb0a0d098f5e46f0,

@@ -26,8 +26,16 @@ public class PlayerMovement : MonoBehaviour
         CC = GetComponent<CharacterController>();
     }
 
+
     private void FixedUpdate()
     {
+        // If the player is in a menu that stops their movement
+        if (UIManager.instance.GetFocus() && UIManager.instance.GetFocus().locksPlayerMovement)  
+        {
+            move = Vector2.zero;
+        }
+
+
         CC.SimpleMove(transform.TransformVector(move.x, 0, move.y));
 
         if (move != Vector2.zero) PlayerStats.stats.timeSpentMoving += Time.deltaTime;
