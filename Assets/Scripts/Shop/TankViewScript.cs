@@ -39,12 +39,18 @@ public class TankViewScript : ScreenView
     [SerializeField] private UpgradePanel upgrades;
 
 
-    [Header("Panel Tweening")]
     private Vector3 leftPanelResting, upgradeBoxResting;
-    [SerializeField] private Vector3 leftPanelTweenPos;
+
+    [Header("Menu Open/Close")]
+    public float openAnimationSpeed = 0.3f;
+    [SerializeField] private Vector3 leftPanelClosePos;
+    [SerializeField] private Vector3 upgradeBoxClosePos;
+
+    [Header("Menu Switch")]
+    public float switchAnimationSpeed = 0.5f;
+    public Ease switchAnimationEase;
     [SerializeField] private Vector3 leftPanelSwitchInPos;
     [SerializeField] private Vector3 leftPanelSwitchOutPos;
-    [SerializeField] private Vector3 upgradeBoxTweenPos;
     [SerializeField] private Vector3 upgradeBoxSwitchInPos;
     [SerializeField] private Vector3 upgradeBoxSwitchOutPos;
 
@@ -286,30 +292,33 @@ public class TankViewScript : ScreenView
     {
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
 
-        leftPanel.transform.localPosition = switchTab ? leftPanelSwitchInPos : leftPanelTweenPos;
-        upgradeBox.transform.localPosition = switchTab ? upgradeBoxSwitchInPos : upgradeBoxTweenPos;
-        upgradeBox.enabled = false;
-        contextBox.enabled = false;
-        contextBox.gameObject.SetActive(false);
-
-        if (switchTab)
+        if ((switchTab && switchAnimationSpeed != 0) || (!switchTab && openAnimationSpeed != 0))
         {
-            yield return new WaitForSeconds(0.4f);
+            leftPanel.transform.localPosition = switchTab ? leftPanelSwitchInPos : leftPanelClosePos;
+            upgradeBox.transform.localPosition = switchTab ? upgradeBoxSwitchInPos : upgradeBoxClosePos;
+            upgradeBox.enabled = false;
+            contextBox.enabled = false;
+            contextBox.gameObject.SetActive(false);
 
-            leftPanel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutBack, 1.4f);
-            upgradeBox.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutBack, 1.4f);
+            if (switchTab)
+            {
+                yield return new WaitForSeconds(switchAnimationSpeed / 1.2f);
 
-            yield return new WaitForSeconds(0.5f);
-        }
-        else
-        {
-            GetComponent<CanvasGroup>().alpha = 0f;
-            GetComponent<CanvasGroup>().DOFade(1, 0.3f).SetEase(Ease.OutCubic);
+                leftPanel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
+                upgradeBox.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
 
-            leftPanel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutBack);
-            upgradeBox.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutBack);
+                yield return new WaitForSeconds(switchAnimationSpeed);
+            }
+            else
+            {
+                GetComponent<CanvasGroup>().alpha = 0f;
+                GetComponent<CanvasGroup>().DOFade(1, openAnimationSpeed).SetEase(Ease.OutCubic);
 
-            yield return new WaitForSeconds(0.3f);
+                leftPanel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, openAnimationSpeed).SetEase(Ease.OutBack);
+                upgradeBox.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, openAnimationSpeed).SetEase(Ease.OutBack);
+
+                yield return new WaitForSeconds(openAnimationSpeed);
+            }
         }
 
         contextBox.gameObject.SetActive(true);
@@ -322,32 +331,38 @@ public class TankViewScript : ScreenView
     public IEnumerator CloseTab(bool switchTab)
     {
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
-        DOTween.Kill(leftPanel);
-        DOTween.Kill(upgradeBox);
-        upgradeBox.enabled = false;
-        contextBox.enabled = false;
 
-        if (switchTab)
+        if ((switchTab && switchAnimationSpeed != 0) || (!switchTab && openAnimationSpeed != 0))
         {
-            leftPanel.GetComponent<RectTransform>().DOAnchorPos(leftPanelSwitchOutPos, 0.5f).SetEase(Ease.InBack, 1.4f);
-            upgradeBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxSwitchOutPos, 0.5f).SetEase(Ease.InBack, 1.4f);
-            contextBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxSwitchOutPos, 0.5f).SetEase(Ease.InBack, 1.4f);
+            DOTween.Kill(leftPanel);
+            DOTween.Kill(upgradeBox);
+            upgradeBox.enabled = false;
+            contextBox.enabled = false;
 
-            yield return new WaitForSeconds(0.5f);
+            if (switchTab)
+            {
+                leftPanel.GetComponent<RectTransform>().DOAnchorPos(leftPanelSwitchOutPos, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
+                upgradeBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxSwitchOutPos, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
+                contextBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxSwitchOutPos, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
+
+                yield return new WaitForSeconds(switchAnimationSpeed);
+            }
+            else  // Fully closing
+            {
+                leftPanel.GetComponent<RectTransform>().DOAnchorPos(leftPanelClosePos, openAnimationSpeed).SetEase(Ease.InBack);
+                upgradeBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxClosePos, openAnimationSpeed).SetEase(Ease.InBack);
+                contextBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxClosePos, openAnimationSpeed).SetEase(Ease.InBack);
+                GetComponent<CanvasGroup>().DOFade(0, openAnimationSpeed).SetEase(Ease.InCubic);
+
+                yield return new WaitForSeconds(openAnimationSpeed);
+            }
+
+            DOTween.Kill(leftPanel);
+            DOTween.Kill(upgradeBox);
+            DOTween.Kill(contextBox);
         }
-        else  // Fully closing
-        {
-            leftPanel.GetComponent<RectTransform>().DOAnchorPos(leftPanelTweenPos, 0.3f).SetEase(Ease.InBack);
-            upgradeBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxTweenPos, 0.3f).SetEase(Ease.InBack);
-            contextBox.GetComponent<RectTransform>().DOAnchorPos(upgradeBoxTweenPos, 0.3f).SetEase(Ease.InBack);
-            GetComponent<CanvasGroup>().DOFade(0, 0.3f).SetEase(Ease.InCubic);
 
-            yield return new WaitForSeconds(0.3f);
-        }
 
-        DOTween.Kill(leftPanel);
-        DOTween.Kill(upgradeBox);
-        DOTween.Kill(contextBox);
         base.Close(switchTab);
     }
 }

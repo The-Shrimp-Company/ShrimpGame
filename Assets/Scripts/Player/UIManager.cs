@@ -71,7 +71,7 @@ public class UIManager
         //_cursor.transform.SetParent(newFocus.transform);
         //_cursor.transform.SetAsLastSibling();
 
-        bool switching = false;
+        bool switching = false;  // Switching to a different menu as opposed to opening or closing
         if (_currentUI != null)
         {
             switching = true;

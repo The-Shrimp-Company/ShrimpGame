@@ -1356,7 +1356,10 @@ MonoBehaviour:
   secondaryColour: {fileID: 1489016657286172719}
   hunger: {fileID: 1093045287904912434}
   panelRestPos: {x: -672.3644, y: 0, z: 0}
-  panelTweenPos: {x: -1200, y: 0, z: 0}
+  openAnimationSpeed: 0.3
+  panelClosePos: {x: -1200, y: 0, z: 0}
+  switchAnimationSpeed: 0
+  switchAnimationEase: 27
   panelSwitchInPos: {x: -672.3644, y: 1200, z: 0}
   panelSwitchOutPos: {x: 0, y: -1200, z: 0}
   shrimpSwitchPunch: {x: 20, y: 0}

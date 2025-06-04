@@ -21,10 +21,19 @@ public class ShrimpView : ScreenView
     [SerializeField] private Image primaryColour, secondaryColour;
     [SerializeField] private Slider hunger;
 
-    [SerializeField] private Vector3 panelRestPos;
-    [SerializeField] private Vector3 panelTweenPos;
+    public Vector3 panelRestPos;
+
+    [Header("Menu Open/Close")]
+    public float openAnimationSpeed = 0.3f;
+    [SerializeField] private Vector3 panelClosePos;
+
+    [Header("Menu Switch")]
+    public float switchAnimationSpeed = 0.5f;
+    public Ease switchAnimationEase;
     [SerializeField] private Vector3 panelSwitchInPos;
     [SerializeField] private Vector3 panelSwitchOutPos;
+
+    [Header("Shrimp Switch")]
     [SerializeField] private Vector2 shrimpSwitchPunch;
 
     public override void Open(bool switchTab)
@@ -157,22 +166,22 @@ public class ShrimpView : ScreenView
     {
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
 
-        panel.transform.localPosition = switchTab ? panelSwitchInPos : panelTweenPos;
+        panel.transform.localPosition = switchTab ? panelSwitchInPos : panelClosePos;
 
         if (switchTab)
         {
-            yield return new WaitForSeconds(0.4f);
-            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutBack, 1.4f);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(switchAnimationSpeed / 1.2f);
+            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
+            yield return new WaitForSeconds(switchAnimationSpeed);
         }
         else
         {
             GetComponent<CanvasGroup>().alpha = 0f;
-            GetComponent<CanvasGroup>().DOFade(1, 0.3f).SetEase(Ease.OutCubic);
+            GetComponent<CanvasGroup>().DOFade(1, openAnimationSpeed).SetEase(Ease.OutCubic);
 
-            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutBack);
+            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, openAnimationSpeed).SetEase(Ease.OutBack);
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(openAnimationSpeed);
         }
     }
 
@@ -185,15 +194,15 @@ public class ShrimpView : ScreenView
 
         if (switchTab)
         {
-            panel.GetComponent<RectTransform>().DOAnchorPos(panelSwitchOutPos, 0.5f).SetEase(Ease.InBack, 1.4f);
+            panel.GetComponent<RectTransform>().DOAnchorPos(panelSwitchOutPos, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
             yield return new WaitForSeconds(0.5f);
         }
         else  // Fully closing
         {
-            panel.GetComponent<RectTransform>().DOAnchorPos(panelTweenPos, 0.3f).SetEase(Ease.InBack);
-            GetComponent<CanvasGroup>().DOFade(0, 0.3f).SetEase(Ease.InCubic);
+            panel.GetComponent<RectTransform>().DOAnchorPos(panelClosePos, openAnimationSpeed).SetEase(Ease.InBack);
+            GetComponent<CanvasGroup>().DOFade(0, openAnimationSpeed).SetEase(Ease.InCubic);
 
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(openAnimationSpeed);
         }
 
         DOTween.Kill(panel);

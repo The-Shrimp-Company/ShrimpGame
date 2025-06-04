@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3693816031302594156}
   m_HandleRect: {fileID: 5881836059078495782}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3231,10 +3231,13 @@ MonoBehaviour:
   contextBox: {fileID: 7750050729217682107}
   upgradeBox: {fileID: 4987525888990841834}
   upgrades: {fileID: 1088746170828097567}
-  leftPanelTweenPos: {x: -1200, y: 0, z: 0}
+  openAnimationSpeed: 0.3
+  leftPanelClosePos: {x: -1200, y: 0, z: 0}
+  upgradeBoxClosePos: {x: 1200, y: 0, z: 0}
+  switchAnimationSpeed: 0
+  switchAnimationEase: 27
   leftPanelSwitchInPos: {x: -736.38, y: 1200, z: 0}
   leftPanelSwitchOutPos: {x: 0, y: -1200, z: 0}
-  upgradeBoxTweenPos: {x: 1200, y: 0, z: 0}
   upgradeBoxSwitchInPos: {x: 730.3399, y: 1200, z: 0}
   upgradeBoxSwitchOutPos: {x: 0, y: -1200, z: 0}
 --- !u!114 &6387445573526290414
@@ -4412,7 +4415,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2525123677235244900}
   m_HandleRect: {fileID: 8697419140985594460}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

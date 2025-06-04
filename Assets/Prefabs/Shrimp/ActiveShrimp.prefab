@@ -148,7 +148,7 @@ MonoBehaviour:
   agent: {fileID: 797484481638392343}
   camDock: {fileID: 3154724589825782822, guid: 9c37763690d5b354cb993c972810dd39, type: 3}
   hungerLossSpeed: 0.25
-  shrimpBody: {fileID: 0}
+  shrimpLegs: {fileID: 0}
   loadedShrimp: 0
   currentValue: 0
   particleParent: {fileID: 7243179094386093995}
@@ -368,3 +368,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c18ec4e7a03bee49b70eb4504dfb0c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camSwitchSpeed: 0
+  camSwitchEase: 4
