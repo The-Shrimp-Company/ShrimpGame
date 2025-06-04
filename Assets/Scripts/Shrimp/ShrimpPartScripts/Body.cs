@@ -16,12 +16,13 @@ public class Body : PartScript
     {
         this.s = s;
 
+        SetMaterials(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).set);
+
         head = Instantiate(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).part, headNode).GetComponent<Head>().Construct(s);
         tail = Instantiate(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).part, tailNode).GetComponent<Tail>().Construct(s, ref tFan);
 
         
 
-        SetMaterials(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).set);
 
         return this;
     }

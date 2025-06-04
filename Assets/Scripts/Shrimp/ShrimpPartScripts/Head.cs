@@ -9,8 +9,8 @@ public class Head : PartScript
     public Head Construct(ShrimpStats s)
     {
         this.s = s;
-        Instantiate(GeneManager.instance.GetTraitSO(s.eyes.activeGene.ID).part, eyesNode).GetComponent<Eyes>().Construct(s);
         SetMaterials(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).set);
+        Instantiate(GeneManager.instance.GetTraitSO(s.eyes.activeGene.ID).part, eyesNode).GetComponent<Eyes>().Construct(s);
         return this;
     }
 

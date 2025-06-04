@@ -10,4 +10,12 @@ public class tooltips : MonoBehaviour
         UIManager.instance.tooltips = this.gameObject;
     }
 
+
+    private void Update()
+    {
+        if(ShrimpManager.instance.allShrimp.Count > 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

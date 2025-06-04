@@ -8,8 +8,8 @@ public class Tail : PartScript
     public Tail Construct(ShrimpStats s, ref TFan tFan)
     {
         this.s = s;
-        tFan = Instantiate(GeneManager.instance.GetTraitSO(s.tailFan.activeGene.ID).part, tFanNode).GetComponent<TFan>().Construct(s);
         SetMaterials(GeneManager.instance.GetTraitSO(s.tail.activeGene.ID).set);
+        tFan = Instantiate(GeneManager.instance.GetTraitSO(s.tailFan.activeGene.ID).part, tFanNode).GetComponent<TFan>().Construct(s);
         return this;
     }
 
