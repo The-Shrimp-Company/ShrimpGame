@@ -20,7 +20,7 @@ public class SettingsScreen : ScreenView
         }
         else
         {
-            slider.value = 1f;
+            slider.value = 0.5f;
         }
 
         if (PlayerPrefs.HasKey("Volume"))
