@@ -1,13 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SellContent : ContentPopulation
 {
+    [SerializeField] private TextMeshProUGUI shrimpCount;
+    [SerializeField] private TextMeshProUGUI shrimpPrice;
+
     // Start is called before the first frame update
     void Awake()
     {
         CreateContent();
+        shrimpCount.text = "You have [" + ShrimpManager.instance.allShrimp.Count + "] Shrimp.";
+        float price = 0;
+        foreach(Shrimp shrimp in ShrimpManager.instance.allShrimp)
+        {
+            price += EconomyManager.instance.GetShrimpValue(shrimp.stats);
+        }
+        shrimpPrice.text = "You have [£" + price + "] total value of shrimp.";
     }
 
     /// <summary>
@@ -42,6 +53,6 @@ public class SellContent : ContentPopulation
     // Update is called once per frame
     void Update()
     {
-        
+        shrimpCount.text = "You have [" + ShrimpManager.instance.allShrimp.Count + "] Shrimp.";
     }
 }
