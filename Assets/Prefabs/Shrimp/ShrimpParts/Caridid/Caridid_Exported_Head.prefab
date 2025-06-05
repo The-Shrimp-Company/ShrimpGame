@@ -152,45 +152,9 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3658086663315799172}
   m_SourcePrefab: {fileID: 100100000, guid: 3fece97432cb2d04b8e1a1e5e8f4f94b, type: 3}
---- !u!1 &328683913083286298 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8763276535210276404, guid: 3fece97432cb2d04b8e1a1e5e8f4f94b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9012496509548070190}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1540074416856752567 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1707532388191017831, guid: 3fece97432cb2d04b8e1a1e5e8f4f94b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9012496509548070190}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2861837333095432536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6531794198492169334, guid: 3fece97432cb2d04b8e1a1e5e8f4f94b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9012496509548070190}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2925063901279078677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3060974616282313669, guid: 3fece97432cb2d04b8e1a1e5e8f4f94b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9012496509548070190}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2984156448521022140 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6087472144269635474, guid: 3fece97432cb2d04b8e1a1e5e8f4f94b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9012496509548070190}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4562905657216960172 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4449447210202561662, guid: 3fece97432cb2d04b8e1a1e5e8f4f94b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9012496509548070190}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7961278276348023150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7823045321926273984, guid: 3fece97432cb2d04b8e1a1e5e8f4f94b,
     type: 3}
   m_PrefabInstance: {fileID: 9012496509548070190}
   m_PrefabAsset: {fileID: 0}
@@ -212,13 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b717760ae562ee944a73270adc423c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objs:
-  - {fileID: 4562905657216960172}
-  - {fileID: 328683913083286298}
-  - {fileID: 2861837333095432536}
-  - {fileID: 1540074416856752567}
-  - {fileID: 2984156448521022140}
-  - {fileID: 7961278276348023150}
   animations:
     _serializedList:
     - Key: 0
@@ -250,7 +207,7 @@ LODGroup:
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0, z: 0}
   m_Size: 1
-  m_FadeMode: 0
+  m_FadeMode: 1
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:

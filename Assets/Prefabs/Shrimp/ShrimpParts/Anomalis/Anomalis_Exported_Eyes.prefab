@@ -99,8 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb8abcd39b993a4fb5389cdffe194a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objs:
-  - {fileID: 9206123010046229753}
   animations:
     _serializedList: []
 --- !u!205 &5021167673427474526
@@ -113,7 +111,7 @@ LODGroup:
   serializedVersion: 2
   m_LocalReferencePoint: {x: 0, y: 0, z: 0}
   m_Size: 1
-  m_FadeMode: 0
+  m_FadeMode: 1
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
@@ -127,9 +125,3 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
---- !u!1 &9206123010046229753 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -6394798987257647149, guid: 64b2b923585156946bdbc3bdd6f4b3ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 6378121998624625450}
-  m_PrefabAsset: {fileID: 0}

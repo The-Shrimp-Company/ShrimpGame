@@ -99,8 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a9309e1fdc98645b2ce9c1b5f559b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objs:
-  - {fileID: 4377794898953908886}
   animations:
     _serializedList: []
 --- !u!205 &8679721510185400785
@@ -111,15 +109,16 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037924870314319924}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 0
+  m_LocalReferencePoint: {x: 0.015964627, y: -0.10036184, z: -0.29673374}
+  m_Size: 0.6101469
+  m_FadeMode: 1
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
   - screenRelativeHeight: 0.6
     fadeTransitionWidth: 0
-    renderers: []
+    renderers:
+    - renderer: {fileID: 1621015254248481965}
   - screenRelativeHeight: 0.3
     fadeTransitionWidth: 0
     renderers: []
@@ -127,9 +126,9 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
---- !u!1 &4377794898953908886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4726783177462910989, guid: 7c5db95050718644db9badc724a36eb6,
+--- !u!23 &1621015254248481965 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1502260759169972680, guid: 7c5db95050718644db9badc724a36eb6,
     type: 3}
   m_PrefabInstance: {fileID: 190869697312185701}
   m_PrefabAsset: {fileID: 0}
