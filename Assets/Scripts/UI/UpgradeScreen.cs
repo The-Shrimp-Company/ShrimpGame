@@ -77,7 +77,7 @@ public class UpgradeScreen : ScreenView
 
     public void BuyDecor(string decor)
     {
-        if (Money.instance.WithdrawMoney(50))
+        if (Money.instance.WithdrawMoney(30))
         {
             switch (decor)
             {
