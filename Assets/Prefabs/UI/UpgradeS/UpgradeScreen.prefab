@@ -1600,8 +1600,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8986444441810471884}
   m_HandleRect: {fileID: 6187992125951271730}
   m_Direction: 2
-  m_Value: 1.0000029
-  m_Size: 0.6224539
+  m_Value: 1.0000063
+  m_Size: 0.8170514
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2023,6 +2023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 0}
+  locksPlayerMovement: 0
 --- !u!114 &1941717309601830034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2079,6 +2080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 0}
+  locksPlayerMovement: 0
 --- !u!223 &3847415575332341868
 Canvas:
   m_ObjectHideFlags: 0
@@ -3414,8 +3416,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4776241529231175460}
   m_HandleRect: {fileID: 5029628925132203750}
   m_Direction: 2
-  m_Value: 1.0000018
-  m_Size: 0.51140547
+  m_Value: 1.0000029
+  m_Size: 0.67128587
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4517,7 +4519,7 @@ PrefabInstance:
     - target: {fileID: 4828710478823640000, guid: 86f5de5a5df96034291395739b81a0d2,
         type: 3}
       propertyPath: m_text
-      value: '50
+      value: '30
 
 '
       objectReference: {fileID: 0}
@@ -4909,7 +4911,7 @@ PrefabInstance:
     - target: {fileID: 4828710478823640000, guid: 86f5de5a5df96034291395739b81a0d2,
         type: 3}
       propertyPath: m_text
-      value: '50
+      value: '30
 
 '
       objectReference: {fileID: 0}
@@ -5707,7 +5709,7 @@ PrefabInstance:
     - target: {fileID: 4828710478823640000, guid: 86f5de5a5df96034291395739b81a0d2,
         type: 3}
       propertyPath: m_text
-      value: '50
+      value: '30
 
 '
       objectReference: {fileID: 0}
@@ -5908,7 +5910,7 @@ PrefabInstance:
     - target: {fileID: 4828710478823640000, guid: 86f5de5a5df96034291395739b81a0d2,
         type: 3}
       propertyPath: m_text
-      value: '50
+      value: '30
 
 '
       objectReference: {fileID: 0}
@@ -6471,7 +6473,7 @@ PrefabInstance:
     - target: {fileID: 4828710478823640000, guid: 86f5de5a5df96034291395739b81a0d2,
         type: 3}
       propertyPath: m_text
-      value: '50
+      value: '30
 
 '
       objectReference: {fileID: 0}

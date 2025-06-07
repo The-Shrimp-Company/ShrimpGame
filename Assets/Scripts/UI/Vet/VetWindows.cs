@@ -10,6 +10,8 @@ public class VetWindows : MonoBehaviour
 
     [SerializeField] private Button backButton;
 
+    
+
     public bool CheckReputation()
     {
         if (Reputation.GetReputation() >= reputationReq)
