@@ -3,6 +3,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShrimpCam : MonoBehaviour
 {
@@ -45,6 +46,11 @@ public class ShrimpCam : MonoBehaviour
             Camera.main.transform.position = GetTargetCameraPosition();
 
             Camera.main.transform.LookAt(transform.parent.position);
+            if(Camera.main.transform.parent.GetComponent<PlayerInput>().currentActionMap.name == "Move")
+            {
+                Deactivate();
+                Camera.main.transform.position = new Vector3(Camera.main.transform.parent.position.x, 2.6f, Camera.main.transform.parent.position.z);
+            }
         }
     }
 
