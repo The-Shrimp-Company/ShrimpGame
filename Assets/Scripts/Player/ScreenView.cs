@@ -38,8 +38,13 @@ public class ScreenView : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public virtual void Close()
+    {
+        Destroy(gameObject);
+    }
+
     public virtual void Exit()
     {
-        player.GetComponent<PlayerTablet>().OnOpenTablet();
+        UIManager.instance.CloseScreen();
     }
 }

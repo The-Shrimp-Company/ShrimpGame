@@ -2,11 +2,16 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Device;
+using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder;
 
-public class UIManager
+public class UIManager : MonoBehaviour
 {
-    static public UIManager instance = new UIManager();
+    // Old Values
+    static public UIManager instance;
 
     private ScreenView _currentUI = null;
 
@@ -20,6 +25,8 @@ public class UIManager
 
     private GameObject _cursor;
 
+    public PlayerInput input;
+
     public GameObject tooltips { set; private get; }
 
     private Transform MainCanvas;
@@ -27,72 +34,40 @@ public class UIManager
     private TextMeshProUGUI notifBar;
 
     private string _currentText = "Notifications Online";
+    // Old Values
 
-    public UIManager()
+
+    private Stack<ScreenView> _screenStack = new Stack<ScreenView>();
+
+
+    public void Awake()
     {
-
+        if(instance != this)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public void ChangeFocus()
+    
+
+    public void OpenScreen(ScreenView newScreen)
     {
-        //_cursor.transform.SetParent(null);
+        newScreen.Open(false);
 
-        //_cursor.transform.SetAsLastSibling();
+        if(_screenStack.Count != 0)
+        {
+            _screenStack.Peek().gameObject.SetActive(false);
+        }
 
-        _cursor.SetActive(false);
-
-        MainCanvas.GetComponentInChildren<TabletInteraction>().gameObject.GetComponent<CanvasGroup>().interactable = true;
-
-        tooltips.SetActive(true);
         
 
-        Cursor.lockState = CursorLockMode.Locked;
+        _screenStack.Push(newScreen);
 
-        if (_currentUI != null)
-        {
-            _currentUI.Close(false);
-        }
-        _currentUI = null;
-
-
-        foreach(PlayerUIController controller in _playerControllers)
-        {
-            controller.SwitchFocus();
-        }
-    }
-
-    public void ChangeFocus(ScreenView newFocus, bool submenu = false)
-    {
-        ChangeFocus(newFocus, newFocus.GetComponent<RectTransform>(), submenu);
-    }
-
-    public void ChangeFocus(ScreenView newFocus, RectTransform customRect, bool submenu = false)
-    {
-        //_cursor.transform.SetParent(newFocus.transform);
-        //_cursor.transform.SetAsLastSibling();
-
-        bool switching = false;  // Switching to a different menu as opposed to opening or closing
-        if (_currentUI != null)
-        {
-            switching = true;
-            _currentUI.Close(true);
-        }
-        _currentUI = newFocus;
-        _currentRect = customRect.rect;
-
-        newFocus.Open(switching);
-
-        //_cursor.transform.localScale = Vector3.one;
-
-        Cursor.visible = false;
-
-        tooltips.SetActive(false);
-
-        Cursor.lockState = CursorLockMode.Confined;
-
-        subMenu = submenu;
-
-        _cursor.SetActive(true);
+        SetPeripherals();
 
         foreach (PlayerUIController controller in _playerControllers)
         {
@@ -100,11 +75,103 @@ public class UIManager
         }
     }
 
-    public ScreenView GetFocus()
+    public void CloseScreen()
     {
-        return _currentUI;
+        if(_screenStack.Count == 0)
+        {
+            Debug.LogWarning("You've called close screen with an empty screen stack. That shouldn't happen, probably fix it.");
+            return;
+        }
+        else
+        {
+            ScreenView oldScreen = _screenStack.Pop();
+            if(oldScreen != null)
+            {
+                oldScreen.Close(false);
+            }
+        }
+
+        if(_screenStack.Count != 0)
+        {
+            _screenStack.Peek().gameObject.SetActive(true);
+        }
+
+        SetPeripherals();
+
+        foreach (PlayerUIController controller in _playerControllers)
+        {
+            controller.SwitchFocus();
+        }
     }
 
+    public void SwitchScreen(ScreenView newScreen)
+    {
+        if (_screenStack.Count == 0)
+        {
+            OpenScreen(newScreen);
+            Debug.Log("You've called switch screen from an empty screen stack. Are you sure you meant to do that?");
+        }
+        else
+        {
+            CloseScreen();
+            OpenScreen(newScreen);
+        }
+    }
+
+    public void ClearScreens()
+    {
+        for(int i = 0; i <= _screenStack.Count; i++)
+        {
+            CloseScreen();
+        }
+        Debug.Log(_screenStack.Count);
+    }
+
+    /// <summary>
+    /// Function to handle setting all the strange settings based on wether there is
+    /// currently a screen open.
+    /// </summary>
+    private void SetPeripherals()
+    {
+        if(_screenStack.Count == 0)
+        {
+            _cursor.SetActive(false);
+            MainCanvas.GetComponentInChildren<TabletInteraction>().gameObject.GetComponent<CanvasGroup>().interactable = true;
+            tooltips.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            input.SwitchCurrentActionMap("Move");
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            tooltips.SetActive(false);
+            _cursor.SetActive(true);
+        }
+        Cursor.visible = false;
+    }
+
+    public ScreenView GetScreen()
+    {
+        if(_screenStack.Count > 0)
+        {
+            return _screenStack.Peek();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public int CheckLevel()
+    {
+        return _screenStack.Count;
+    }
+
+
+    /// <summary>
+    /// Adds the given controller to the notification list, so when focus is switched, the necessary components will be alerted
+    /// </summary>
+    /// <param name="newController"></param>
     public void Subscribe(PlayerUIController newController)
     {
         _playerControllers.Add(newController);

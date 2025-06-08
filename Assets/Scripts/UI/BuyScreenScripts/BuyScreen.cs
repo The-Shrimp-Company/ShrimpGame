@@ -9,7 +9,7 @@ public class BuyScreen : ScreenView
     protected override void Start()
     {
         base.Start();
-        shelves = transform.parent.GetComponentInChildren<TabletInteraction>().GetShelves();
+        shelves = transform.parent.GetComponent<ShelfRef>().GetShelves();
     }
 
     public void BuyShrimp()

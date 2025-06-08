@@ -65,9 +65,9 @@ public class CustomerManager : MonoBehaviour
     public void AddShrimpToPurchase(Shrimp shrimp)
     {
         ToPurchase.Add(shrimp);
-        if(UIManager.instance.GetFocus() != null && UIManager.instance.GetFocus().GetComponent<SellScreenView>() != null)
+        if(UIManager.instance.GetScreen() != null && UIManager.instance.GetScreen().GetComponent<SellScreenView>() != null)
         {
-            UIManager.instance.GetFocus().GetComponent<SellScreenView>().UpdateList(shrimp);
+            UIManager.instance.GetScreen().GetComponent<SellScreenView>().UpdateList(shrimp);
         }
     }
 

@@ -63,7 +63,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (tankController != null)
         {
-            if (_tankView != null) _tankView.GetComponent<TankController>().StopFocussingTank();
+            if (_tankView != null) _tankView.GetComponent<TankController>().StopFocusingTank();
 
             _camera.transform.position = tankController.GetCam().transform.position;
             _camera.transform.rotation = tankController.GetCam().transform.rotation;
@@ -85,7 +85,7 @@ public class PlayerInteraction : MonoBehaviour
     /// <param name="Key"></param>
     public void OnSwitchTank(InputValue Key)
     {
-        if (UIManager.instance.GetFocus().GetComponent<TankViewScript>() != null)
+        if (UIManager.instance.GetScreen().GetComponent<TankViewScript>() != null)
         {
             if (Key.Get<Vector2>().normalized != press)
             {
@@ -113,12 +113,11 @@ public class PlayerInteraction : MonoBehaviour
     /// </summary>
     public void OnExitView()
     {
-        _tankView.GetComponent<TankController>().StopFocussingTank();
+        _tankView.GetComponent<TankController>().StopFocusingTank();
         Vector3 v3 = _tankView.GetComponent<TankController>().GetCam().transform.position;
         transform.position = new Vector3(v3.x, transform.position.y, v3.z);
         _camera.transform.localPosition = Vector3.up / 2;
-        _input.SwitchCurrentActionMap("Move");
-        UIManager.instance.ChangeFocus();
+        UIManager.instance.ClearScreens();
     }
 
     /// <summary>
@@ -129,11 +128,11 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (point.isPressed)
         {
-            if (UIManager.instance.GetFocus().TryGetComponent<TankViewScript>(out TankViewScript tv))
+            if (UIManager.instance.GetScreen().TryGetComponent<TankViewScript>(out TankViewScript tv))
             {
                 tv.MouseClick(Mouse.current.position.value, point.isPressed);
             }
-            if(UIManager.instance.GetFocus().TryGetComponent<ShrimpView>(out ShrimpView sv))
+            if(UIManager.instance.GetScreen().TryGetComponent<ShrimpView>(out ShrimpView sv))
             {
                 sv.MouseClick(Mouse.current.position.value);
             }

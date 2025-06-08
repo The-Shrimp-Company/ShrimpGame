@@ -56,7 +56,7 @@ public class TankController : MonoBehaviour
     public TankGrid tankGrid;  // The grid used for pathfinding
 
     [Header("Tank Focus")]
-    private bool focussingTank;
+    private bool focusingTank;
     [SerializeField] private GameObject camDock;
     [SerializeField] private GameObject tankViewPrefab;
     [HideInInspector] public TankViewScript tankViewScript;
@@ -159,7 +159,7 @@ public class TankController : MonoBehaviour
         label.text = tankName;
         if (tooltip) tooltip.toolTip = tankName;
 
-        if (focussingTank) PlayerStats.stats.timeSpentFocusingTank += Time.deltaTime;
+        if (focusingTank) PlayerStats.stats.timeSpentFocusingTank += Time.deltaTime;
     }
 
 
@@ -403,9 +403,9 @@ public class TankController : MonoBehaviour
 
     public void FocusTank()
     {
-        focussingTank = true;
+        focusingTank = true;
         GameObject newView = Instantiate(tankViewPrefab, transform);
-        UIManager.instance.ChangeFocus(newView.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(newView.GetComponent<ScreenView>());
         newView.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
         newView.GetComponent<Canvas>().planeDistance = 1;
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
@@ -413,9 +413,9 @@ public class TankController : MonoBehaviour
         tankNameChanged = false;
     }
 
-    public void StopFocussingTank()
+    public void StopFocusingTank()
     {
-        focussingTank = false;
+        focusingTank = false;
         SwitchLODLevel(LODLevel.Low);
         CheckLODDistance();
 

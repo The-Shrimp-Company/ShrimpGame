@@ -191,7 +191,7 @@ public class Shrimp : MonoBehaviour
         shrimpNameChanged = false;
     }
 
-    public void StopFocussingShrimp()
+    public void StopFocusingShrimp()
     {
         focussingShrimp = false;
         tank.SwitchLODLevel(LODLevel.Mid);

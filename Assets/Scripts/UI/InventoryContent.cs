@@ -53,12 +53,7 @@ public class InventoryContent : ContentPopulation
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            if (oldScreen != null)
-            {
-                oldScreen.gameObject.SetActive(true);
-                UIManager.instance.subMenu = false;
-            }
-            Destroy(parent);
+            UIManager.instance.CloseScreen();
         });
 
         foreach (InventoryContentBlock block in contentBlocks)
@@ -101,12 +96,7 @@ public class InventoryContent : ContentPopulation
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            if(oldScreen != null)
-            {
-                UIManager.instance.subMenu = false;
-                oldScreen.gameObject.SetActive(true);
-            }
-            Destroy(parent);
+            UIManager.instance.CloseScreen();
         });
 
         foreach(ContentBlock block in contentBlocks)
@@ -170,12 +160,7 @@ public class InventoryContent : ContentPopulation
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            if(oldScreen != null)
-            {
-                UIManager.instance.subMenu = false;
-                oldScreen.gameObject.SetActive(true);
-            }
-            Destroy(parent);
+            UIManager.instance.CloseScreen();
         });
 
         foreach(InventoryContentBlock block in contentBlocks)

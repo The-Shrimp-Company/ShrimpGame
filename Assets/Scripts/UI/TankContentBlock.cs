@@ -23,7 +23,7 @@ public class TankContentBlock : ContentBlock
     public void Pressed()
     {
         GameObject newitem = Instantiate(shrimpView);
-        UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(newitem.GetComponent<ScreenView>());
         newitem.GetComponent<ShrimpView>().Populate(_shrimp);
         _shrimp.GetComponentInChildren<ShrimpCam>().SetCam();
         newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();

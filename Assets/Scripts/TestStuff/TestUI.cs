@@ -9,7 +9,7 @@ public class TestUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UIManager.instance.ChangeFocus(UI.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(UI.GetComponent<ScreenView>());
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

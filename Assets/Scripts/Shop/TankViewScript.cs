@@ -111,31 +111,35 @@ public class TankViewScript : ScreenView
     public void MoveShrimp()
     {
         CurrentTankScreen screen = Instantiate(currentTankScreen, UIManager.instance.GetCanvas()).GetComponent<CurrentTankScreen>();
-        UIManager.instance.ChangeFocus(screen);
+        UIManager.instance.OpenScreen(screen);
         screen.SetShrimp(selectedShrimp.ToArray());
     }
 
     public void MedicateShrimp()
     {
         InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
+        UIManager.instance.OpenScreen(screen);
         screen.GetComponentInChildren<InventoryContent>().MedAssignment(this, selectedShrimp.ToArray(), screen.gameObject);
     }
 
     public void ChangeHeater()
     {
         InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
+        UIManager.instance.OpenScreen(screen);
         screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Heater, this, screen.gameObject);
     }
 
     public void ChangeFilter()
     {
         InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
+        UIManager.instance.OpenScreen(screen);
         screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Filter, this, screen.gameObject);
     }
 
     public void ChangeDecor()
     {
         InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
+        UIManager.instance.OpenScreen(screen);
         screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Decorations, this, screen.gameObject);
     }
 
@@ -182,7 +186,7 @@ public class TankViewScript : ScreenView
             temp.main.onClick.AddListener(() =>
             {
                 GameObject newitem = Instantiate(shrimpView);
-                UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
+                UIManager.instance.OpenScreen(newitem.GetComponent<ScreenView>());
                 newitem.GetComponent<ShrimpView>().Populate(thisShrimp);
                 thisShrimp.GetComponentInChildren<ShrimpCam>().SetCam();
                 newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
@@ -245,7 +249,7 @@ public class TankViewScript : ScreenView
         {
             _shrimp = ray.transform.GetComponent<Shrimp>();
             GameObject newitem = Instantiate(shrimpView);
-            UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
+            UIManager.instance.OpenScreen(newitem.GetComponent<ScreenView>());
             newitem.GetComponent<ShrimpView>().Populate(_shrimp);
             newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
             newitem.GetComponent<Canvas>().planeDistance = 1;

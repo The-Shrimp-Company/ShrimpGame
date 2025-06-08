@@ -7,7 +7,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using DG.Tweening;
 
 public class ShrimpView : ScreenView
 {
@@ -54,15 +53,15 @@ public class ShrimpView : ScreenView
     public void Click()
     {
         CurrentTankScreen screen = Instantiate(currentTankScreen, UIManager.instance.GetCanvas()).GetComponent<CurrentTankScreen>();
-        UIManager.instance.ChangeFocus(screen, true);
+        UIManager.instance.OpenScreen(screen);
         screen.SetShrimp(_shrimp);
     }
 
     public void MedScreen()
     {
         GameObject screen = Instantiate(medScreen, UIManager.instance.GetCanvas());
-        //UIManager.instance.ChangeFocus(screen.GetComponent<ScreenView>());
-        UIManager.instance.subMenu = true;
+        UIManager.instance.OpenScreen(screen.GetComponent<ScreenView>());
+        
         screen.GetComponentInChildren<InventoryContent>().MedAssignment(this, _shrimp, screen);
     }
 
@@ -124,13 +123,10 @@ public class ShrimpView : ScreenView
         _shrimp.gameObject.layer = LayerMask.NameToLayer("Shrimp");
         _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
         player.GetComponent<PlayerUIController>().UnsetShrimpCam();
-        GameObject newitem = Instantiate(tankView, _shrimp.tank.transform);
         TankController tank = _shrimp.tank.GetComponent<TankController>();
-        newitem.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
-        newitem.GetComponent<Canvas>().planeDistance = 1;
         Camera.main.transform.position = tank.GetCam().transform.position;
         Camera.main.transform.rotation = tank.GetCam().transform.rotation;
-        UIManager.instance.ChangeFocus(newitem.GetComponent<ScreenView>());
+        UIManager.instance.CloseScreen();
     }
 
     public void SetName(TextMeshProUGUI input)
@@ -157,7 +153,7 @@ public class ShrimpView : ScreenView
     {
         _shrimp.gameObject.layer = LayerMask.NameToLayer("Shrimp");
         _shrimp.GetComponentInChildren<ShrimpCam>().Deactivate();
-        _shrimp.StopFocussingShrimp();
+        _shrimp.StopFocusingShrimp();
         player.GetComponent<PlayerUIController>().UnsetShrimpCam();
         StartCoroutine(CloseTab(switchTab));
     }

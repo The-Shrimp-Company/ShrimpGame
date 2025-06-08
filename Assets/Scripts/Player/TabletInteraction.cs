@@ -35,66 +35,58 @@ public class TabletInteraction : ScreenView
 
     public void OpenSell()
     {
-        GetComponent<CanvasGroup>().interactable = false;
         GameObject sellScreen = Instantiate(SellScreen, transform.parent.transform);
-        UIManager.instance.ChangeFocus(sellScreen.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(sellScreen.GetComponent<ScreenView>());
         PlayerStats.stats.timesSellingAppOpened++;
     }
 
     public void OpenBuy()
     {
-        GetComponent<CanvasGroup>().interactable = false;
         GameObject buyScreen = Instantiate(BuyScreen, transform.parent.transform);
-        UIManager.instance.ChangeFocus(buyScreen.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(buyScreen.GetComponent<ScreenView>());
         PlayerStats.stats.timesShrimpShopAppOpened++;
     }
 
     public void OpenUpgrades()
     {
-        GetComponent<CanvasGroup>().interactable = false;
         GameObject upgradeScreen = Instantiate(UpgradeScreen, transform.parent.transform);
-        UIManager.instance.ChangeFocus(upgradeScreen.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(upgradeScreen.GetComponent<ScreenView>());
         PlayerStats.stats.timesItemShopAppOpened++;
     }
 
     public void OpenInventory()
     {
-        GetComponent<CanvasGroup>().interactable = false;
         GameObject inventoryScreen = Instantiate(InventoryScreen, transform.parent.transform);
-        UIManager.instance.ChangeFocus(inventoryScreen.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(inventoryScreen.GetComponent<ScreenView>());
         PlayerStats.stats.timesInventoryAppOpened++;
     }
 
     public void OpenEmails()
     {
-        GetComponent<CanvasGroup>().interactable = false;
         GameObject emailScreen = Instantiate(EmailScreen, transform.parent.transform);
-        UIManager.instance.ChangeFocus(emailScreen.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(emailScreen.GetComponent<ScreenView>());
         PlayerStats.stats.timesMailAppOpened++;
     }
 
     public void OpenSettings()
     {
-        GetComponent<CanvasGroup>().interactable = false;
         GameObject settingsScreen = Instantiate(SettingsScreen, transform.parent.transform);
-        UIManager.instance.ChangeFocus(settingsScreen.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(settingsScreen.GetComponent<ScreenView>());
         PlayerStats.stats.timesSettingsAppOpened++;
     }
 
     public void OpenSave()
     {
-        GetComponent<CanvasGroup>().interactable = false;
         GameObject saveScreen = Instantiate(SaveScreen, transform.parent.transform);
-        UIManager.instance.ChangeFocus(saveScreen.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(saveScreen.GetComponent<ScreenView>());
     }
 
     public void OpenVet()
     {
-        GetComponent<CanvasGroup>().interactable = false;
         GameObject vetScreen = Instantiate(VetScreen, transform.parent.transform);
-        UIManager.instance.ChangeFocus(vetScreen.GetComponent<ScreenView>());
+        UIManager.instance.OpenScreen(vetScreen.GetComponent<ScreenView>());
     }
-
+    
     public override void Close(bool switchTab)
     {
 

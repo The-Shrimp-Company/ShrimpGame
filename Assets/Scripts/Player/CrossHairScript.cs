@@ -17,7 +17,7 @@ public class CrossHairScript : PlayerUIController
         if (!toolTipText.IsDestroyed())
         {
             Debug.Log("CHS Line 19");
-            if (UIManager.instance.GetFocus() == null)
+            if (UIManager.instance.GetScreen() == null)
             {
                 Debug.Log("CHS Line 22");
                 toolTipText.enabled = true;

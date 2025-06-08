@@ -35,22 +35,17 @@ public class PlayerTablet : PlayerUIController
         UIManager.instance.AssignNotifBar(notifBar);
         _tabletRect.gameObject.SetActive(true);
         RectTools.ChangeRectTransform(_tabletRect, _tabletActiveCoord);
-        UIManager.instance.ChangeFocus(_tabletInteraction);
-        _tabletInteraction.GetComponent<CanvasGroup>().interactable = true;
+        UIManager.instance.OpenScreen(_tabletInteraction);
         _input.SwitchCurrentActionMap("UI");
     }
 
     public void OnCloseTablet()
     {
-        if (!UIManager.instance.subMenu)
-        {
             UIManager.instance.AssignNotifBar(notifBar);
             _tabletRect.gameObject.SetActive(true);
             RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
-            UIManager.instance.ChangeFocus();
-            _tabletInteraction.GetComponent<CanvasGroup>().interactable = false;
+            UIManager.instance.ClearScreens();
             _input.SwitchCurrentActionMap("Move");
-        }
     }
 
 

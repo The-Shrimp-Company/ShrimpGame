@@ -22,7 +22,7 @@ public class PlayerUIController : MonoBehaviour
 
     public void OnShrimpCamMove(InputValue input)
     {
-        if (UIManager.instance.GetFocus().GetComponent<ShrimpView>() != null)
+        if (UIManager.instance.GetScreen().GetComponent<ShrimpView>() != null)
         {
             if(_cam != null)
             {
@@ -51,7 +51,7 @@ public class PlayerUIController : MonoBehaviour
 
     public virtual void SwitchFocus()
     {
-        if (UIManager.instance.GetFocus() != null)
+        if (UIManager.instance.GetScreen() != null)
         {
             _currentAreaRect = UIManager.instance.GetCurrentRect();
         }
@@ -60,7 +60,7 @@ public class PlayerUIController : MonoBehaviour
     public void OnMoveMouse()
     {
         Vector2 pos = Mouse.current.position.value;
-        RectTransform uiPanel = UIManager.instance.GetFocus().GetComponent<RectTransform>();
+        RectTransform uiPanel = UIManager.instance.GetScreen().GetComponent<RectTransform>();
         float localScale = UIManager.instance.GetCanvas().GetComponent<Canvas>().scaleFactor;
         Vector2 scale = UIManager.instance.GetCanvas().GetComponent<RectTransform>().localScale;
 
