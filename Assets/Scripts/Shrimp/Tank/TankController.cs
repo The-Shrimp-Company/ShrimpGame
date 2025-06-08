@@ -405,7 +405,7 @@ public class TankController : MonoBehaviour
     {
         focusingTank = true;
         GameObject newView = Instantiate(tankViewPrefab, transform);
-        UIManager.instance.OpenScreen(newView.GetComponent<ScreenView>());
+        UIManager.instance.SwitchScreen(newView.GetComponent<ScreenView>());
         newView.GetComponent<Canvas>().worldCamera = UIManager.instance.GetCamera();
         newView.GetComponent<Canvas>().planeDistance = 1;
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;

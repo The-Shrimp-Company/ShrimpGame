@@ -113,7 +113,19 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            CloseScreen();
+            if (_screenStack.Count == 0)
+            {
+                Debug.LogWarning("You've called close screen with an empty screen stack. That shouldn't happen, probably fix it.");
+                return;
+            }
+            else
+            {
+                ScreenView oldScreen = _screenStack.Pop();
+                if (oldScreen != null)
+                {
+                    oldScreen.Close(false);
+                }
+            }
             OpenScreen(newScreen);
         }
     }
