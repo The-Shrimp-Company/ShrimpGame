@@ -20,6 +20,8 @@ public class MainCanvas : MonoBehaviour
     [SerializeField]
     private RectTransform _tabletActiveCoord;
 
+    [SerializeField] private Animator tabletAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,12 +48,12 @@ public class MainCanvas : MonoBehaviour
 
     public void RaiseTablet()
     {
-        RectTools.ChangeRectTransform(_tabletRect, _tabletActiveCoord);
+        tabletAnim.SetTrigger("Raise");
     }
 
     public void LowerTablet()
     {
-        RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
+        tabletAnim.SetTrigger("Lower");
     }
 
     public ShelfSpawn GetShelves()
