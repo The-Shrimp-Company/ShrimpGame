@@ -77,6 +77,7 @@ public class CustomerManager : MonoBehaviour
         {
             shrimp.tank.shrimpToRemove.Add(shrimp);
             Money.instance.AddMoney(shrimp.tank.openTankPrice);
+            Reputation.AddReputation(1);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
 
             Email email = new Email();
