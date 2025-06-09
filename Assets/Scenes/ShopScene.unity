@@ -36891,6 +36891,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1790987988}
+  tablet: {fileID: 625308365}
+  _tabletRestingCoord: {fileID: 2134961594}
+  _tabletActiveCoord: {fileID: 71212194}
 --- !u!114 &794203976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77588,6 +77591,11 @@ PrefabInstance:
       objectReference: {fileID: 1501870177}
     - target: {fileID: 2294150799693192735, guid: 95854f16d1017c34eaac405f4651506b,
         type: 3}
+      propertyPath: FreezeScreen
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2294150799693192735, guid: 95854f16d1017c34eaac405f4651506b,
+        type: 3}
       propertyPath: _tabletActiveCoord
       value: 
       objectReference: {fileID: 71212194}
@@ -82353,6 +82361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subMenu: 0
   input: {fileID: 1790987993}
+  TabletView: {fileID: 1461927821}
 --- !u!4 &1933495676
 Transform:
   m_ObjectHideFlags: 0
