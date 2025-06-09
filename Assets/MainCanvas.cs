@@ -12,17 +12,25 @@ public class MainCanvas : MonoBehaviour
 
     private ShelfSpawn shelves;
 
+    [SerializeField]
+    private GameObject tablet;
+    private RectTransform _tabletRect;
+    [SerializeField]
+    private RectTransform _tabletRestingCoord;
+    [SerializeField]
+    private RectTransform _tabletActiveCoord;
+
     // Start is called before the first frame update
     void Start()
     {
         UIManager.instance.SetCanvas(transform);
+        _tabletRect = tablet.GetComponent<RectTransform>();
     }
 
     public GameObject RaiseScreen(GameObject screen)
     {
-        player.GetComponent<PlayerTablet>().OnOpenTablet();
-        GetComponentInChildren<TabletInteraction>().gameObject.GetComponent<CanvasGroup>().interactable = false;
-        lastCreated = Instantiate(screen, GetComponentInChildren<TabletInteraction>().transform.parent.transform);
+        RaiseTablet();
+        lastCreated = Instantiate(screen, GetComponentInChildren<ShelfRef>().transform);
         UIManager.instance.OpenScreen(lastCreated.GetComponent<ScreenView>());
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
         return lastCreated;
@@ -30,10 +38,20 @@ public class MainCanvas : MonoBehaviour
 
     public void LowerScreen()
     {
-        player.GetComponent<PlayerTablet>().OnCloseTablet();
+        LowerTablet();
         Destroy(lastCreated);
         UIManager.instance.GetCursor().GetComponent<Image>().maskable = false;
         UIManager.instance.CloseScreen();
+    }
+
+    public void RaiseTablet()
+    {
+        RectTools.ChangeRectTransform(_tabletRect, _tabletActiveCoord);
+    }
+
+    public void LowerTablet()
+    {
+        RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
     }
 
     public ShelfSpawn GetShelves()

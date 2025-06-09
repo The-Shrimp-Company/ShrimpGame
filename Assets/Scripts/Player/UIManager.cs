@@ -10,35 +10,29 @@ using UnityEngine.ProBuilder;
 
 public class UIManager : MonoBehaviour
 {
-    // Old Values
-    static public UIManager instance;
-
-    private ScreenView _currentUI = null;
+    public static UIManager instance;
 
     public bool subMenu = false;
-
-    private List<PlayerUIController> _playerControllers = new List<PlayerUIController>();
-
-    private Rect _currentRect = new Rect();
-
-    private Camera SecondCamera;
-
-    private GameObject _cursor;
 
     public PlayerInput input;
 
     public GameObject tooltips { set; private get; }
 
     private Transform MainCanvas;
-
+    private Camera SecondCamera;
     private TextMeshProUGUI notifBar;
 
     private string _currentText = "Notifications Online";
-    // Old Values
 
+    private List<PlayerUIController> _playerControllers = new List<PlayerUIController>();
+
+    private Rect _currentRect = new Rect();
+    private GameObject _cursor;
 
     private Stack<ScreenView> _screenStack = new Stack<ScreenView>();
+    private Stack<ScreenView> _tabletStack = new Stack<ScreenView>();
 
+    [SerializeField] private ScreenView TabletView;
 
     public void Awake()
     {
@@ -52,18 +46,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    
+    private void Start()
+    {
+        _tabletStack.Push(TabletView);
+    }
 
     public void OpenScreen(ScreenView newScreen)
     {
         newScreen.Open(false);
-
-        if(_screenStack.Count != 0)
+        if (_screenStack.Count != 0)
         {
             _screenStack.Peek().gameObject.SetActive(false);
         }
-
-        
 
         _screenStack.Push(newScreen);
 
@@ -74,6 +68,7 @@ public class UIManager : MonoBehaviour
             controller.SwitchFocus();
         }
     }
+
 
     public void CloseScreen()
     {
@@ -130,6 +125,8 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    
+
     public void ClearScreens()
     {
         for(int i = 0; i <= _screenStack.Count; i++)
@@ -137,29 +134,6 @@ public class UIManager : MonoBehaviour
             CloseScreen();
         }
         Debug.Log(_screenStack.Count);
-    }
-
-    /// <summary>
-    /// Function to handle setting all the strange settings based on wether there is
-    /// currently a screen open.
-    /// </summary>
-    private void SetPeripherals()
-    {
-        if(_screenStack.Count == 0)
-        {
-            _cursor.SetActive(false);
-            MainCanvas.GetComponentInChildren<TabletInteraction>().gameObject.GetComponent<CanvasGroup>().interactable = true;
-            tooltips.SetActive(true);
-            Cursor.lockState = CursorLockMode.Locked;
-            input.SwitchCurrentActionMap("Move");
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Confined;
-            tooltips.SetActive(false);
-            _cursor.SetActive(true);
-        }
-        Cursor.visible = false;
     }
 
     public ScreenView GetScreen()
@@ -179,6 +153,35 @@ public class UIManager : MonoBehaviour
         return _screenStack.Count;
     }
 
+    public void OpenTabletScreen()
+    {
+        //ClearScreens();
+        _screenStack = _tabletStack;
+
+        SetPeripherals();
+
+        foreach (PlayerUIController controller in _playerControllers)
+        {
+            controller.SwitchFocus();
+        }
+    }
+
+    public void CloseTabletScreen()
+    {
+        _screenStack = new Stack<ScreenView>();
+
+        SetPeripherals();
+
+        foreach (PlayerUIController controller in _playerControllers)
+        {
+            controller.SwitchFocus();
+        }
+    }
+
+    public bool IsTabletScreen()
+    {
+        return _tabletStack == _screenStack;
+    }
 
     /// <summary>
     /// Adds the given controller to the notification list, so when focus is switched, the necessary components will be alerted
@@ -229,5 +232,27 @@ public class UIManager : MonoBehaviour
         notifBar.GetComponent<AudioSource>().Play();
         _currentText = notif;
         notifBar.text = notif;
+    }
+    
+    /// <summary>
+    /// Function to handle setting all the strange settings based on whether there is
+    /// currently a screen open.
+    /// </summary>
+    private void SetPeripherals()
+    {
+        if (_screenStack.Count == 0)
+        {
+            _cursor.SetActive(false);
+            tooltips.SetActive(true);
+            Cursor.lockState = CursorLockMode.Locked;
+            input.SwitchCurrentActionMap("Move");
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            tooltips.SetActive(false);
+            _cursor.SetActive(true);
+        }
+        Cursor.visible = false;
     }
 }

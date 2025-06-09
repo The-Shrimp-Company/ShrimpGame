@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class TabletInteraction : ScreenView
 {
-
+    
 
     [SerializeField]
     private GameObject SellScreen;
@@ -26,7 +26,10 @@ public class TabletInteraction : ScreenView
     [SerializeField]
     private GameObject VetScreen;
 
-    
+    protected override void Start()
+    {
+        base.Start();
+    }
 
 
     public ShelfSpawn GetShelves() { return shelves; }
