@@ -17,4 +17,11 @@ public class Reputation
     {
         instance.reputation += add;
     }
+
+    /// <summary>
+    /// Only use when loading save data
+    /// </summary>
+    /// <param name="newRep"></param>
+    public static void SetReputation(float newRep) { instance.reputation = newRep; }
+
 }
