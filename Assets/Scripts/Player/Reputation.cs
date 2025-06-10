@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class Reputation
 {
-    private int reputation = 0;
+    private float reputation = 0;
 
     public static Reputation instance = new Reputation();
 
-    public static int GetReputation()
+    public static float GetReputation()
     {
         return instance.reputation;
     }
 
-    public static void AddReputation(int add)
+    public static void AddReputation(float add)
     {
         instance.reputation += add;
     }
+
+    /// <summary>
+    /// Only use when loading save data
+    /// </summary>
+    /// <param name="newRep"></param>
+    public static void SetReputation(float newRep) { instance.reputation = newRep; }
+
 }
