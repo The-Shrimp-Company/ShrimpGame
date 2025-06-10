@@ -48,6 +48,7 @@ public class PlayerInteraction : MonoBehaviour
                 else if (target.GetComponent<TankSocket>() != null)
                 {
                     GameObject invenScreen = UIManager.instance.GetCanvas().GetComponent<MainCanvas>().RaiseScreen(inventory);
+                    GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
                     invenScreen.GetComponentInChildren<InventoryContent>().TankAssignment(target);
 
                 }

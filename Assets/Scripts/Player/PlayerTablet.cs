@@ -20,6 +20,7 @@ public class PlayerTablet : PlayerUIController
 
     [SerializeField] private TextMeshProUGUI notifBar;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,18 +35,29 @@ public class PlayerTablet : PlayerUIController
     {
         UIManager.instance.AssignNotifBar(notifBar);
         _tabletRect.gameObject.SetActive(true);
-        RectTools.ChangeRectTransform(_tabletRect, _tabletActiveCoord);
-        UIManager.instance.OpenScreen(_tabletInteraction);
+        UIManager.instance.GetCanvas().GetComponent<MainCanvas>().RaiseTablet();
+        UIManager.instance.OpenTabletScreen();
         _input.SwitchCurrentActionMap("UI");
     }
 
     public void OnCloseTablet()
     {
+        if (UIManager.instance.IsTabletScreen())
+        {
             UIManager.instance.AssignNotifBar(notifBar);
             _tabletRect.gameObject.SetActive(true);
-            RectTools.ChangeRectTransform(_tabletRect, _tabletRestingCoord);
+            UIManager.instance.GetCanvas().GetComponent<MainCanvas>().LowerTablet();
+            UIManager.instance.CloseTabletScreen();
+        }
+        else
+        {
+            UIManager.instance.AssignNotifBar(notifBar);
+            _tabletRect.gameObject.SetActive(true);
+            UIManager.instance.GetCanvas().GetComponent<MainCanvas>().LowerTablet();
             UIManager.instance.ClearScreens();
-            _input.SwitchCurrentActionMap("Move");
+        }
+        
+        _input.SwitchCurrentActionMap("Move");
     }
 
 
