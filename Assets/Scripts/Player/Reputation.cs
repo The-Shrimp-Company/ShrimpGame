@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Reputation
 {
-    private int reputation = 0;
+    private float reputation = 0;
 
     public static Reputation instance = new Reputation();
 
-    public static int GetReputation()
+    public static float GetReputation()
     {
         return instance.reputation;
     }
 
-    public static void AddReputation(int add)
+    public static void AddReputation(float add)
     {
         instance.reputation += add;
     }
