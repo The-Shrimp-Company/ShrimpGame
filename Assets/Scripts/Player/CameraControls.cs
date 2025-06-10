@@ -33,10 +33,17 @@ public class CameraControls : MonoBehaviour
 
     private void Update()
     {
-        if(_playerInput.currentActionMap.name != "Move")
+        // If the player is in a menu that stops their movement
+        if (UIManager.instance.GetScreen())
+        {
+            _look = Vector2.zero;
+        }
+
+        if (_playerInput.currentActionMap.name != "Move")
         {
             return;
         }
+
         _rotY += _look.y * lookSenstivity;
         _rotY = Mathf.Clamp(_rotY, -75, 45);
         cameraTransform.localRotation = Quaternion.Euler(-_rotY, 0, 0);
