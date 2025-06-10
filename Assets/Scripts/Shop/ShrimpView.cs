@@ -158,24 +158,25 @@ public class ShrimpView : ScreenView
         StartCoroutine(CloseTab(switchTab));
     }
 
+
     public IEnumerator OpenTab(bool switchTab)
     {
-        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;  // Enable cursor masking
+        panel.transform.localPosition = switchTab ? panelSwitchInPos : panelClosePos;  // Move the panel offscreen
 
-        panel.transform.localPosition = switchTab ? panelSwitchInPos : panelClosePos;
 
-        if (switchTab)
+        if (switchTab)  // If we are switching from another menu
         {
-            yield return new WaitForSeconds(switchAnimationSpeed / 1.2f);
-            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
+            yield return new WaitForSeconds(switchAnimationSpeed / 1.2f);  // Wait for the other one to close partially
+            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);  // Move this panel onto the screen
             yield return new WaitForSeconds(switchAnimationSpeed);
         }
-        else
+        else  // If we don't have a menu open already
         {
-            GetComponent<CanvasGroup>().alpha = 0f;
-            GetComponent<CanvasGroup>().DOFade(1, openAnimationSpeed).SetEase(Ease.OutCubic);
+            GetComponent<CanvasGroup>().alpha = 0f;  // Make the menu transparent
+            GetComponent<CanvasGroup>().DOFade(1, openAnimationSpeed).SetEase(Ease.OutCubic);  // Fade the menu in
 
-            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, openAnimationSpeed).SetEase(Ease.OutBack);
+            panel.GetComponent<RectTransform>().DOAnchorPos(Vector2.zero, openAnimationSpeed).SetEase(Ease.OutBack);  // Move this panel onto the screen
 
             yield return new WaitForSeconds(openAnimationSpeed);
         }
@@ -185,23 +186,23 @@ public class ShrimpView : ScreenView
 
     public IEnumerator CloseTab(bool switchTab)
     {
-        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;
-        DOTween.Kill(panel);
+        UIManager.instance.GetCursor().GetComponent<Image>().maskable = true;  // Enable cursor masking
+        DOTween.Kill(panel);  // End currently running tweens
 
-        if (switchTab)
+        if (switchTab)  // If we are switching to another menu
         {
-            panel.GetComponent<RectTransform>().DOAnchorPos(panelSwitchOutPos, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);
+            panel.GetComponent<RectTransform>().DOAnchorPos(panelSwitchOutPos, switchAnimationSpeed).SetEase(switchAnimationEase, 1.4f);  // Move this panel off the screen
             yield return new WaitForSeconds(0.5f);
         }
-        else  // Fully closing
+        else  // If we are fully closing the menu
         {
-            panel.GetComponent<RectTransform>().DOAnchorPos(panelClosePos, openAnimationSpeed).SetEase(Ease.InBack);
-            GetComponent<CanvasGroup>().DOFade(0, openAnimationSpeed).SetEase(Ease.InCubic);
+            panel.GetComponent<RectTransform>().DOAnchorPos(panelClosePos, openAnimationSpeed).SetEase(Ease.InBack);  // Move this panel off the screen
+            GetComponent<CanvasGroup>().DOFade(0, openAnimationSpeed).SetEase(Ease.InCubic);  // Fade the panel out
 
             yield return new WaitForSeconds(openAnimationSpeed);
         }
 
-        DOTween.Kill(panel);
+        DOTween.Kill(panel);  // End the tweens
         base.Close(switchTab);
     }
 }
