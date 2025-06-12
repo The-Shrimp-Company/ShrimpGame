@@ -14,25 +14,31 @@ public class CameraControls : MonoBehaviour
 
     private Vector2 _look;
     private float _rotY;
+    private float _rotX;
+
+    private float myDelta;
 
     private void Start()
     {
+        myDelta = Time.time;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _playerInput = GetComponent<PlayerInput>();
         if (!PlayerPrefs.HasKey("Sensitivity"))
         {
-            lookSenstivity = 0.5f * 1f;
-            PlayerPrefs.SetFloat("Sensitivity", 1f);
+            lookSenstivity = 10f;
+            PlayerPrefs.SetFloat("Sensitivity", 10f);
         }
         else
         {
-            lookSenstivity = 0.5f * PlayerPrefs.GetFloat("Sensitivity");
+            lookSenstivity = PlayerPrefs.GetFloat("Sensitivity");
         }
     }
 
     private void Update()
     {
+
         // If the player is in a menu that stops their movement
         if (UIManager.instance.GetScreen())
         {
@@ -43,18 +49,28 @@ public class CameraControls : MonoBehaviour
         {
             return;
         }
+        _look *= Time.time - myDelta;
 
         _rotY += _look.y * lookSenstivity;
         _rotY = Mathf.Clamp(_rotY, -75, 45);
+        _rotX += _look.x * lookSenstivity;
         cameraTransform.localRotation = Quaternion.Euler(-_rotY, 0, 0);
 
         transform.Rotate(0, _look.x * lookSenstivity, 0);
+        transform.rotation = Quaternion.Euler(0, _rotX, 0);
+
+        
 
         cameraTransform.position = new Vector3(cameraTransform.position.x, 2.3f, cameraTransform.position.z);
+        _look = Vector2.zero;
+
+        myDelta = Time.time;
     }
+
+    
 
     public void OnLook(InputValue Mouse)
     {
-        _look = Mouse.Get<Vector2>();
+        _look += Mouse.Get<Vector2>();
     }
 }

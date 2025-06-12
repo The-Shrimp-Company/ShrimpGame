@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    private void Update()
     {
         // If the player is in a menu that stops their movement
         if (UIManager.instance.GetScreen() && UIManager.instance.GetScreen().locksPlayerMovement)  

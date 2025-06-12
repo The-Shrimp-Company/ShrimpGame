@@ -38,7 +38,7 @@ public class SettingsScreen : ScreenView
 
     public void ValueChange()
     {
-        player.GetComponent<CameraControls>().lookSenstivity = 0.5f * slider.value;
+        player.GetComponent<CameraControls>().lookSenstivity = slider.value;
         PlayerPrefs.SetFloat("Sensitivity", slider.value);
     }
 

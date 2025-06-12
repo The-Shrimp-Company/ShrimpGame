@@ -19,7 +19,7 @@
                     "type": "PassThrough",
                     "id": "928ecfff-fcfe-417c-a232-6b1f7e33b9df",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "StickDeadzone(min=1.401298E-45,max=1)",
                     "interactions": "",
                     "initialStateCheck": false
                 },
@@ -194,7 +194,7 @@
                     "id": "91bce512-f739-4aca-b1a3-699d5e6148c3",
                     "path": "<Mouse>/delta",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "ScaleVector2(x=0.05,y=0.05)",
                     "groups": "K&M",
                     "action": "Look",
                     "isComposite": false,

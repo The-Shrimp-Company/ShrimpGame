@@ -705,10 +705,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 3981313450501820466}
   m_HandleRect: {fileID: 7635864417852930938}
   m_Direction: 0
-  m_MinValue: 0.1
-  m_MaxValue: 1
+  m_MinValue: 100
+  m_MaxValue: 150
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1072,6 +1072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 0}
+  locksPlayerMovement: 0
 --- !u!114 &1941717309601830034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1168,6 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 0}
+  locksPlayerMovement: 0
   slider: {fileID: 2403193273693103376}
   volume: {fileID: 4612068025108264393}
 --- !u!1 &5660974517856255425
