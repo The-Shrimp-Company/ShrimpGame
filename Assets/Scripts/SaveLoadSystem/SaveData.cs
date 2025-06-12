@@ -6,6 +6,7 @@ namespace SaveLoadSystem
     public class SaveData
     {
         public float money;
+        public float reputation;
         public float totalTime;
         public int day;
         public int year;

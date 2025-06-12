@@ -83,23 +83,26 @@ public class SaveController : MonoBehaviour
     {
         SaveData d = new SaveData();
 
-
-
+        // Money
         d.money = Money.instance.money;
 
+        // Reputation
+        d.reputation = Reputation.GetReputation();
+
+        // Time
         d.totalTime = TimeManager.instance.totalTime;
         d.day = TimeManager.instance.day;
         d.year = TimeManager.instance.year;
 
+        // Player
         Transform player = GameObject.Find("Player").transform;
         d.playerPosition = player.position;
         d.playerRotation = player.rotation;
 
+        // Stats & Settings
         d.playerStats = PlayerStats.stats;
         d.gameSettings = GameSettings.settings;
-
         d.versionNumber = Application.version;
-
 
         // Inventory
         List<ItemSaveData> ii = new List<ItemSaveData>();
@@ -114,7 +117,6 @@ public class SaveController : MonoBehaviour
         }
         d.inventoryItems = ii.ToArray();
         d.inventoryQuantities = iq.ToArray();
-
 
         // Global Genes
         if (GeneManager.instance)
@@ -184,21 +186,26 @@ public class SaveController : MonoBehaviour
 
     private void CopyDataFromSaveData(SaveData d)  // Load
     {
+        // Money
         Money.instance.SetMoney(d.money);
 
+        // Time
         TimeManager.instance.totalTime = d.totalTime;
         TimeManager.instance.prevDay = d.day - 1;
         TimeManager.instance.prevYear = d.year - 1;
 
+        // Player
         Transform player = GameObject.Find("Player").transform;
         if (loadPlayerPosition) player.position = d.playerPosition;
         if (loadPlayerPosition) player.rotation = d.playerRotation;
+
+        // Stats & Settings
         PlayerStats.stats = d.playerStats;
         GameSettings.settings = d.gameSettings;
 
-
         // Inventory
         int index = 0;
+        Inventory.instance.Initialize();
         if (d.inventoryItems != null && d.inventoryItems.Length != 0)
         {
             foreach (ItemSaveData i in d.inventoryItems)
@@ -208,6 +215,12 @@ public class SaveController : MonoBehaviour
                 index++;
             }
         }
+
+        // Emails
+        EmailManager.instance.Initialize();
+
+        // Reputation
+        Reputation.SetReputation(d.reputation);
     }
 
 
@@ -215,7 +228,9 @@ public class SaveController : MonoBehaviour
     {
         PlayerStats.stats = new Stats();
         Inventory.instance.Initialize();
+        EmailManager.instance.Initialize();
         Money.instance.SetStartingMoney();
+        Reputation.SetReputation(0);
         SaveManager.NewGame();
     }
 }
