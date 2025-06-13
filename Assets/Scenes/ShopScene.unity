@@ -67941,7 +67941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 1826170790}
-  locksPlayerMovement: 0
+  locksPlayerMovement: 1
   SellScreen: {fileID: 5382316823195656821, guid: 6f93b301785f2f94cb03dc1e4e86748f,
     type: 3}
   BuyScreen: {fileID: 5382316823195656821, guid: 979402841e176254fb0a0d098f5e46f0,
