@@ -1,21 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ShrimpActivityManager : MonoBehaviour
+public static class ShrimpActivityManager
 {
-    public static ShrimpActivityManager instance;
-
-
-    public void Awake()
-    {
-        instance = this;
-    }
-
-
-    public ShrimpActivity GetRandomActivity(Shrimp shrimp)
+    public static ShrimpActivity GetRandomActivity(Shrimp shrimp)
     {
         int i = Random.Range(0, 4);
         if (i == 0) return new ShrimpMovement();
@@ -26,100 +14,104 @@ public class ShrimpActivityManager : MonoBehaviour
     }
 
 
-    public void AddActivity(Shrimp shrimp, ShrimpActivity activity = null, bool randomActivity = true)
+    public static void AddActivity(Shrimp shrimp, ShrimpActivity activity = null)
     {
-        if (shrimp != null)
+        if (shrimp == null)
+            return;
+
+        if (activity == null)  // If they did not request a specific activity
+            activity = GetRandomActivity(shrimp);  // Pick a random one
+
+
+        if (activity is ShrimpMovement)
         {
-            if (randomActivity) activity = GetRandomActivity(shrimp);
+            ShrimpMovement movement = (ShrimpMovement)activity;  // Casts the activity to the derrived shrimpMovement activity
+            movement.randomDestination = true;
+        }
 
-            if (activity is ShrimpMovement)
+
+        else if (activity is ShrimpSleeping)
+        {
+            ShrimpSleeping sleeping = (ShrimpSleeping)activity;
+
+            sleeping.taskTime = Random.Range(4, 8);
+        }
+
+
+        else if (activity is ShrimpBreeding)
+        {
+            // Find other shrimp
+            List<Shrimp> validShrimp = new List<Shrimp>();
+            foreach (Shrimp s in shrimp.tank.shrimpInTank)
             {
-                ShrimpMovement movement = (ShrimpMovement)activity;  // Casts the activity to the derrived shrimpMovement activity
-                movement.randomDestination = true;
-            }
-
-
-            else if (activity is ShrimpSleeping)
-            {
-                ShrimpSleeping sleeping = (ShrimpSleeping)activity;
-
-                sleeping.taskTime = Random.Range(4, 8);
-            }
-
-
-            else if (activity is ShrimpBreeding)
-            {
-                // Find other shrimp
-                List<Shrimp> validShrimp = new List<Shrimp>();
-                foreach (Shrimp s in shrimp.tank.shrimpInTank)
+                if (s.stats.gender != shrimp.stats.gender)  // Get all shrimp of the opposite gender, also excludes this shrimp
                 {
-                    if (s.stats.gender != shrimp.stats.gender)  // Get all shrimp of the opposite gender, also excludes this shrimp
+                    // Other logic for who can breed here
+                    // Once every molt for female
+                    if (s.stats.canBreed &&
+                        s.stats.canBreed)
                     {
-                        // Other logic for who can breed here
-                        // Once every molt for female
-                        if (s.stats.canBreed &&
-                            s.stats.canBreed)
-                        {
-                            validShrimp.Add(s);
-                        }
+                        validShrimp.Add(s);
                     }
                 }
-
-                if (validShrimp.Count == 0)  // If there are no valid shrimp
-                {
-                    AddActivity(shrimp, GetRandomActivity(shrimp));
-                    return;  // Cancel this and find a different activity
-                }
-
-                int i = Random.Range(0, validShrimp.Count);
-                Shrimp otherShrimp = validShrimp[i];
-
-                ShrimpBreeding otherBreeding = new ShrimpBreeding();
-                otherBreeding.instigator = false;
-                otherBreeding.shrimp = otherShrimp;
-                otherBreeding.otherShrimp = shrimp;
-                otherShrimp.shrimpActivities.Add(otherBreeding);
-
-
-
-                ShrimpBreeding breeding = (ShrimpBreeding)activity;
-                breeding.instigator = true;
-                breeding.otherShrimp = otherShrimp;
             }
 
-
-            else if (activity is ShrimpEating)
+            if (validShrimp.Count == 0)  // If there are no valid shrimp
             {
-                if (shrimp.tank.foodInTank.Count == 0)  // If there are no valid shrimp
-                {
-                    AddActivity(shrimp, GetRandomActivity(shrimp));
-                    return;  // Cancel this and find a different activity
-                }
-
-                int i = Random.Range(0, shrimp.tank.foodInTank.Count);
-                ShrimpFood food = shrimp.tank.foodInTank[i];
-
-                if (food.shrimpEating != null)  // If a shrimp is already eating it
-                {
-                    AddActivity(shrimp, GetRandomActivity(shrimp));
-                    return;  // Cancel this and find a different activity
-                }
-
-                food.shrimpEating = shrimp;
-
-                ShrimpEating eating = (ShrimpEating)activity;
-                eating.food = food;
+                AddActivity(shrimp, GetRandomActivity(shrimp));
+                return;  // Cancel this and find a different activity
             }
 
+            // Pick other shrimp
+            int i = Random.Range(0, validShrimp.Count);
+            Shrimp otherShrimp = validShrimp[i];
 
-            else
-            {
-                Debug.Log("Activity logic is missing");
-            }
+            // Setup other shrimp activity
+            ShrimpBreeding otherBreeding = new ShrimpBreeding();
+            otherBreeding.instigator = false;
+            otherBreeding.shrimp = otherShrimp;
+            otherBreeding.otherShrimp = shrimp;
+            otherShrimp.shrimpActivities.Add(otherBreeding);
 
-            activity.shrimp = shrimp;
-            activity.CreateActivity();
-            shrimp.shrimpActivities.Add(activity);
+            // Setup this shrimp's activity
+            ShrimpBreeding breeding = (ShrimpBreeding)activity;
+            breeding.instigator = true;
+            breeding.otherShrimp = otherShrimp;
         }
+
+
+        else if (activity is ShrimpEating)
+        {
+            if (shrimp.tank.foodInTank.Count == 0)  // If there are no valid shrimp
+            {
+                AddActivity(shrimp, GetRandomActivity(shrimp));
+                return;  // Cancel this and find a different activity
+            }
+
+            int i = Random.Range(0, shrimp.tank.foodInTank.Count);
+            ShrimpFood food = shrimp.tank.foodInTank[i];
+
+            if (food.shrimpEating != null)  // If a shrimp is already eating it
+            {
+                AddActivity(shrimp, GetRandomActivity(shrimp));
+                return;  // Cancel this and find a different activity
+            }
+
+            food.shrimpEating = shrimp;
+
+            ShrimpEating eating = (ShrimpEating)activity;
+            eating.food = food;
+        }
+
+
+        else
+        {
+            Debug.Log(activity + " Activity logic is missing");
+            return;
+        }
+
+        activity.shrimp = shrimp;
+        activity.CreateActivity();
+        shrimp.shrimpActivities.Add(activity);
     }
 }

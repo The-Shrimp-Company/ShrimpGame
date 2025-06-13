@@ -14,20 +14,25 @@ public class SaveController : MonoBehaviour
 
     void Start()
     {
-        if (!SaveManager.startNewGame)
+        StartGame();
+    }
+
+    private void StartGame()
+    {
+        if (SaveManager.startNewGame)
         {
-            if (SaveManager.currentSaveFile != null && SaveManager.currentSaveFile != "")
-            {
-                LoadGame(SaveManager.currentSaveFile);
-            }
-            else
-            {
-                Debug.Log("Autosave");
-                LoadGame("Autosave");
-            }
-        }
-        else
             NewGame();
+            return;
+        }
+
+        if (SaveManager.currentSaveFile != null && SaveManager.currentSaveFile != "")
+        {
+            LoadGame(SaveManager.currentSaveFile);
+            return;
+        }
+
+        Debug.Log("Autosave");
+        LoadGame("Autosave");
     }
 
 
@@ -57,9 +62,9 @@ public class SaveController : MonoBehaviour
 
     public void SaveGame(string _fileName)
     {
-        if (!SaveManager.gameInitialized ||  // If the game hasn't loaded yet
-            SaveManager.currentlySaving)     // If the game is already saving
-            return;
+        if (!SaveManager.gameInitialized) return;  // If the game hasn't loaded yet
+        if (SaveManager.currentlySaving) return;   // If the game is already saving
+
         SaveManager.currentlySaving = true;
         CopyDataToSaveData();
         SaveManager.SaveGame(_fileName);
@@ -68,9 +73,10 @@ public class SaveController : MonoBehaviour
 
     public void LoadGame(string _fileName)
     {
+        Debug.Log("Loading " +  _fileName + "...");
         SaveManager.LoadGame(_fileName);
         
-        if (SaveManager.loadingGameFromFile)
+        if (SaveManager.loadingGameFromFile)  // Loading was successful
             CopyDataFromSaveData(SaveManager.CurrentSaveData);
 
         SaveManager.gameInitialized = true;

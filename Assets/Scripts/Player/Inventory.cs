@@ -26,7 +26,6 @@ public static class Items
 
 public class Item
 {
-
     public string itemName;
     public int value;
     public int quantity;
@@ -42,7 +41,6 @@ public class Item
     {
         return item.itemName;
     }
-
 }
 
 

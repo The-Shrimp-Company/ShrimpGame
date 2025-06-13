@@ -13,6 +13,7 @@ public class IllnessController : MonoBehaviour
     [SerializeField] float illnessCheckTime = 5f;
     private float illnessCheckTimer;
     [SerializeField] float severityBoostIfSymptomIsAlreadyPresent = 20;
+    public AnimationCurve severityCurve;
     [SerializeField] GameObject curingParticles;
     [SerializeField] GameObject gainIllnessParticles;
     private bool loadingIllnesses = false;
@@ -38,7 +39,7 @@ public class IllnessController : MonoBehaviour
             illnessCheckTimer = 0;
         }
 
-        shrimp.stats.illnessLevel = 0;
+        shrimp.stats.illnessLevel = 0;  // Set the illness level to 0, this will be recalculated in the symptom updates
         foreach (Symptom s in currentSymptoms)
         {
             s.UpdateSymptom(elapsedTime);

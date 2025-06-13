@@ -33,10 +33,19 @@ public struct Email
 
 public class EmailManager
 {
-
     static public EmailManager instance = new EmailManager();
 
     public List<Email> emails { get; private set; } = new List<Email>();
+
+    public EmailManager()
+    {
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        emails = new List<Email>();
+    }
 
     static public void SendEmail(Email email, bool important = false, int delay = 0)
     {
@@ -59,7 +68,6 @@ public class EmailManager
         instance.emails.Add(email);
         UIManager.instance.SendNotification(email.title);
     }
-
 }
 
 public static class EmailTools
@@ -82,6 +90,6 @@ public static class EmailTools
         button.action = action;
         button.destroy = destroy;
         email.buttons.Add(button);
-        Debug.Log("Added button");
+        //Debug.Log("Added button");
     }
 }

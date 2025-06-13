@@ -77,7 +77,7 @@ public class CustomerManager : MonoBehaviour
         {
             shrimp.tank.shrimpToRemove.Add(shrimp);
             Money.instance.AddMoney(shrimp.tank.openTankPrice);
-            Reputation.AddReputation(0.6f - shrimp.stats.illnessLevel/100);
+            Reputation.AddReputation(1);
             EconomyManager.instance.UpdateTraitValues(false, shrimp.stats);
 
             Email email = new Email();
@@ -109,7 +109,7 @@ public class CustomerManager : MonoBehaviour
             email.title = "Thanks!";
             email.subjectLine = "I Love this shrimp!";
             email.mainText = "It's just what I wanted, so I got you this bonus!";
-            email.value = shrimp.Bonus();
+            email.value = Mathf.RoundToInt(shrimp.GetValue());
             email.CreateEmailButton("Add money", email.GiveMoney, true);
             EmailManager.SendEmail(email, true, Random.Range(10, 30));
         }

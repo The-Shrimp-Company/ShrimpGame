@@ -10,7 +10,7 @@ public class Symptom
     public Shrimp shrimp;
     public float severity;
 
-    private float severityOverTime = 0.25f;
+    private float severityOverTime = 1f;
 
     public virtual void StartSymptom()
     {
@@ -20,8 +20,8 @@ public class Symptom
 
     public virtual void UpdateSymptom(float elapsedTime)
     {
-        severity = Mathf.Clamp(severity + (severityOverTime * elapsedTime), 0, 100);
-        shrimp.stats.illnessLevel += (severity / 4);
+        severity = Mathf.Clamp(severity + (severityOverTime * elapsedTime * shrimp.illnessCont.severityCurve.Evaluate(severity)), 0, 100);
+        shrimp.stats.illnessLevel = Mathf.Clamp(shrimp.stats.illnessLevel + severity, 0, 100);
     }
 
 

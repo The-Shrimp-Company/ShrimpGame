@@ -6,7 +6,6 @@ public class EconomyManager : MonoBehaviour
 {
     public static EconomyManager instance;
 
-
     [Header("Starting Trait Values")]
     [SerializeField] float minTraitValue = 5;
     [SerializeField] float maxTraitValue = 30;
@@ -72,7 +71,6 @@ public class EconomyManager : MonoBehaviour
         UpdateValueOfGene(purchased, traits.eyes.activeGene);
         UpdateValueOfGene(purchased, traits.tail.activeGene);
         UpdateValueOfGene(purchased, traits.tailFan.activeGene);
-        //UpdateValueOfGene(purchased, traits.antenna.activeGene);
         UpdateValueOfGene(purchased, traits.legs.activeGene);
     }
 
@@ -110,7 +108,6 @@ public class EconomyManager : MonoBehaviour
         t += GeneManager.instance.GetGlobalGene(s.eyes.activeGene.ID).currentValue;
         t += GeneManager.instance.GetGlobalGene(s.tail.activeGene.ID).currentValue;
         t += GeneManager.instance.GetGlobalGene(s.tailFan.activeGene.ID).currentValue;
-        //t += GeneManager.instance.GetGlobalGene(s.antenna.activeGene.ID).currentValue;
         t += GeneManager.instance.GetGlobalGene(s.legs.activeGene.ID).currentValue;
 
 
@@ -128,7 +125,7 @@ public class EconomyManager : MonoBehaviour
         return t;
     }
 
-    public float GetObfsShrimpValue(ShrimpStats s)
+    public float GetObfsShrimpValue(ShrimpStats s)  // Get Obfuscated Shrimp Value
     {
         // Add trait values
         float t = 0;

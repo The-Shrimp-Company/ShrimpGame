@@ -213,8 +213,7 @@ public class TankController : MonoBehaviour
                 if (shrimpInTank.Contains(shrimpToRemove[i]))
                 {
                     shrimpInTank.Remove(shrimpToRemove[i]);
-                    ShrimpManager.instance.RemoveShrimpFromStore(shrimpToRemove[i].stats);
-                    ShrimpManager.instance.allShrimp.Remove(shrimpToRemove[i]);
+                    ShrimpManager.instance.RemoveShrimpFromStore(shrimpToRemove[i]);
 
                     if (tankViewScript != null) tankViewScript.UpdateContent();
                 }

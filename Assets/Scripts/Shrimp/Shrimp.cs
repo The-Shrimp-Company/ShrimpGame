@@ -5,24 +5,27 @@ using UnityEngine;
 [RequireComponent(typeof(IllnessController))]
 public class Shrimp : MonoBehaviour
 {
+    [Header("Shrimp")]
     public ShrimpStats stats;
-    public List<ShrimpActivity> shrimpActivities = new List<ShrimpActivity>();
     public TankController tank;
+
+    [Header("Activities")]
+    public List<ShrimpActivity> shrimpActivities = new List<ShrimpActivity>();
     private int minActivitiesInQueue = 2;
+
+    [Header("Pathfinding")]
     public ShrimpAgent agent;
+
+    [Header("Model")]
+    [HideInInspector] public Legs shrimpLegs;
+
+    [Header("Hunger")]
+    [SerializeField] private float hungerLossSpeed = 0.1f;
     public Transform camDock;
+
+    [Header("Molt")]
     private float moltTimer;
     private float moltSpeed;
-    [SerializeField] private float hungerLossSpeed = 0.1f;
-    private bool focussingShrimp;
-    [HideInInspector] public Legs shrimpLegs;
-    [HideInInspector] public bool loadedShrimp;  // Whether the shrimp has been loaded from a save file
-
-    public float currentValue;
-
-    public Transform particleParent;
-
-    [HideInInspector] public bool shrimpNameChanged;
 
     [Header("Illness")]
     public GameObject symptomBubbleParticles;
@@ -31,27 +34,34 @@ public class Shrimp : MonoBehaviour
     [Header("Breeding")]
     public GameObject breedingHeartParticles;
 
+    [Header("Effects")]
+    public Transform particleParent;
+
+    [Header("Misc")]
+    public float currentValue;
+    [HideInInspector] public bool shrimpNameChanged;
+    [HideInInspector] public bool loadedShrimp;  // Whether the shrimp has been loaded from a save file
+    private bool focussingShrimp;
+
+
 
     public void Start()
     {
         agent.tankGrid = tank.tankGrid;
         illnessCont = GetComponent<IllnessController>();
 
-        if (shrimpActivities.Count == 0)
-        {
-            ShrimpActivityManager.instance.AddActivity(this, null, true);
-            ShrimpActivityManager.instance.AddActivity(this, null, true); 
-            ShrimpActivityManager.instance.AddActivity(this, null, true);
-        }
+        TryAddActivity(3);  // Try to add up to 3 activities
 
         moltSpeed = ShrimpManager.instance.GetMoltTime(TimeManager.instance.GetShrimpAge(stats.birthTime));
         agent.shrimpModel.localScale = ShrimpManager.instance.GetShrimpSize(TimeManager.instance.GetShrimpAge(stats.birthTime), stats.geneticSize);
     }
 
+
     private void Update()
     {
         if (focussingShrimp) PlayerStats.stats.timeSpentFocusingShrimp += Time.deltaTime;
     }
+
 
     public void ConstructShrimp()
     {
@@ -59,6 +69,7 @@ public class Shrimp : MonoBehaviour
         shrimpLegs = newShrimp.GetComponent<Legs>();
         shrimpLegs.Construct(stats);
     }
+
 
     public void UpdateShrimp(float elapsedTime)
     {
@@ -86,29 +97,37 @@ public class Shrimp : MonoBehaviour
         moltTimer += elapsedTime;
         while (moltTimer >= moltSpeed && moltSpeed != 0)
         {
-            int age = TimeManager.instance.GetShrimpAge(stats.birthTime);
-
             moltTimer -= moltSpeed;
-            stats.moltHistory++;
-            agent.shrimpModel.localScale = ShrimpManager.instance.GetShrimpSize(age, stats.geneticSize);
-
-            if (age >= ShrimpManager.instance.GetAdultAge())  // If the shrimp is considered an adult
-                stats.canBreed = true;  // The shrimp can breed
-
-            if (ShrimpManager.instance.CheckForMoltFail(age, stats, tank))
-            {
-                KillShrimp();  // Molt has failed, the shrimp will now die
-                //PlayerStats.stats.shrimpDeathsThroughAge++;
-            }
-
-            moltSpeed = ShrimpManager.instance.GetMoltTime(age);
+            Molt();
         }
 
 
+        // Update illness
         if (illnessCont != null)
             illnessCont.UpdateIllness(elapsedTime);
 
+
+        // Reduce hunger
         stats.hunger = Mathf.Clamp(stats.hunger - ((hungerLossSpeed * ((stats.metabolism / 50) + 1)) * elapsedTime), 0, 100);
+        
+
+        // Try to add an activity if we don't have enough
+        TryAddActivity();  
+    }
+
+
+    public void TryAddActivity(int activities = 1)
+    {
+        if (activities <= 0)  // If we don't need any more activities
+            return;
+
+        if (shrimpActivities.Count > minActivitiesInQueue)  // If the shrimp doesn't have enough activities
+            return;
+
+        ShrimpActivityManager.AddActivity(this, null);  // Add an activity
+
+        activities--;
+        TryAddActivity(activities);  // Recursively add activities
     }
 
 
@@ -116,14 +135,25 @@ public class Shrimp : MonoBehaviour
     {
         shrimpActivities.RemoveAt(0);
 
-        if (shrimpActivities.Count <= minActivitiesInQueue)  // If the shrimp doesn't have enough tasks
-        {
-            ShrimpActivityManager.instance.AddActivity(this, null, true);
-        }
+        TryAddActivity();
     }
 
 
- 
+    private void Molt()
+    {
+        int age = TimeManager.instance.GetShrimpAge(stats.birthTime);
+
+        stats.moltHistory++;
+        agent.shrimpModel.localScale = ShrimpManager.instance.GetShrimpSize(age, stats.geneticSize);
+
+        if (age >= ShrimpManager.instance.GetAdultAge())  // If the shrimp is considered an adult
+            stats.canBreed = true;  // The shrimp can breed
+
+        if (ShrimpManager.instance.CheckForMoltFail(age, stats, tank))
+            KillShrimp();  // Molt has failed, the shrimp will now die
+
+        moltSpeed = ShrimpManager.instance.GetMoltTime(age);
+    }
 
 
     public void ChangeTank(TankController t)
@@ -139,10 +169,9 @@ public class Shrimp : MonoBehaviour
             shrimpActivities[0].EndActivity();
         shrimpActivities.Clear();
 
-        ShrimpActivityManager.instance.AddActivity(this, null, true);
-        ShrimpActivityManager.instance.AddActivity(this, null, true);
-        ShrimpActivityManager.instance.AddActivity(this, null, true);
+        TryAddActivity(3);  // Try to add up to 3 activities
     }
+
 
     public void KillShrimp()
     {
@@ -150,6 +179,7 @@ public class Shrimp : MonoBehaviour
         tank.shrimpToRemove.Add(this);
 
         // Spawn dead body
+
 
 
 
@@ -164,24 +194,18 @@ public class Shrimp : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void SellThis()
+
+    public void SellShrimp()
     {
         illnessCont.RemoveShrimp();
         CustomerManager.Instance.PurchaseShrimp(this, currentValue);
     }
 
-    public int Bonus()
-    {
-        return Mathf.RoundToInt(EconomyManager.instance.GetShrimpValue(stats));
-    }
 
-    public float FindValue()
+    public float GetValue()
     {
         return (EconomyManager.instance.GetShrimpValue(stats));
     }
-
-
-    
 
 
     public void FocusShrimp()
@@ -191,15 +215,21 @@ public class Shrimp : MonoBehaviour
         shrimpNameChanged = false;
     }
 
+
     public void StopFocusingShrimp()
     {
         focussingShrimp = false;
         tank.SwitchLODLevel(LODLevel.Mid);
 
         if (shrimpNameChanged)
+        {
             PlayerStats.stats.shrimpNamed++;
-        shrimpNameChanged = false;
+            shrimpNameChanged = false;
+        }
     }
+
+
+
 
 
     public void SwitchLODLevel(LODLevel level)  // Focused on shrimp

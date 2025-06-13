@@ -6,11 +6,6 @@ public class InventoryContent : ContentPopulation
 {
     [SerializeField] private GameObject algaeWafers, foodPellets;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     private void Awake()
     {
@@ -23,6 +18,7 @@ public class InventoryContent : ContentPopulation
             contentBlocks[i].GetComponent<InventoryContentBlock>().item = Inventory.GetInventory()[i];
         }
     }
+
 
     public void TankAssignment(GameObject tankSocket)
     {
@@ -45,6 +41,7 @@ public class InventoryContent : ContentPopulation
             }
         }
     }
+
 
     public void UpgradeAssignment(TankUpgradeController controller, UpgradeTypes type, ScreenView oldScreen, GameObject parent)
     {
@@ -88,6 +85,7 @@ public class InventoryContent : ContentPopulation
             }
         }
     }
+
 
     public void FoodAssignement(TankViewScript oldScreen, TankController tank, GameObject parent)
     {
@@ -147,11 +145,13 @@ public class InventoryContent : ContentPopulation
         }
     }
 
+
     public void MedAssignment(ScreenView oldScreen, Shrimp shrimp, GameObject parent)
     {
         Shrimp[] shrimpList = new Shrimp[] { shrimp };
         MedAssignment(oldScreen, shrimpList, parent);
     }
+
 
     public void MedAssignment(ScreenView oldScreen, Shrimp[] shrimp, GameObject parent)
     {
@@ -190,11 +190,5 @@ public class InventoryContent : ContentPopulation
                 Destroy(block.gameObject);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -626,7 +626,6 @@ public class GeneManager : MonoBehaviour
         s = ApplyStatModifier(s.eyes.activeGene.ID, s);
         s = ApplyStatModifier(s.tail.activeGene.ID, s);
         s = ApplyStatModifier(s.tailFan.activeGene.ID, s);
-        //s = ApplyStatModifier(s.antenna.activeGene.ID, s);
         s = ApplyStatModifier(s.legs.activeGene.ID, s);
 
         return s;
@@ -702,7 +701,6 @@ public class GeneManager : MonoBehaviour
         if (GetTraitSO(s.eyes.activeGene.ID).set != ts) return false;
         if (GetTraitSO(s.tail.activeGene.ID).set != ts) return false;
         if (GetTraitSO(s.tailFan.activeGene.ID).set != ts) return false;
-        //if (GetTraitSO(s.antenna.activeGene.ID).set != ts) return false;
         if (GetTraitSO(s.legs.activeGene.ID).set != ts) return false;
 
         Debug.Log("Pure Shrimp!");
@@ -752,7 +750,6 @@ public class GeneManager : MonoBehaviour
         AddInstanceOfGene(GetGlobalGeneIndex(s.eyes.activeGene.ID), add);
         AddInstanceOfGene(GetGlobalGeneIndex(s.tail.activeGene.ID), add);
         AddInstanceOfGene(GetGlobalGeneIndex(s.tailFan.activeGene.ID), add);
-        //AddInstanceOfGene(GetGlobalGeneIndex(s.antenna.activeGene.ID), add);
         AddInstanceOfGene(GetGlobalGeneIndex(s.legs.activeGene.ID), add);
     }
 

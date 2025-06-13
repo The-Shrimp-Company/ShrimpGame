@@ -225,7 +225,49 @@ MonoBehaviour:
   currentIllness: []
   currentSymptoms: []
   illnessCheckTime: 5
-  severityBoostIfSymptomIsAlreadyPresent: 20
+  severityBoostIfSymptomIsAlreadyPresent: 10
+  severityCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.28936517
+      outSlope: -0.28936517
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.24886219
+    - serializedVersion: 3
+      time: 0.20624326
+      value: 0.7069848
+      inSlope: -4.5630093
+      outSlope: -4.5630093
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.028184973
+    - serializedVersion: 3
+      time: 0.3430101
+      value: 0.2027439
+      inSlope: -1.0868009
+      outSlope: -1.0868009
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.0698773
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.10945609
+      outSlope: -0.10945609
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.119210094
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   curingParticles: {fileID: 8476586959974745204, guid: ef7f90b19f215fe4a93657c5defc0046,
     type: 3}
   gainIllnessParticles: {fileID: 6749437817111371028, guid: 845913931120dd840a85cc9fea10e964,

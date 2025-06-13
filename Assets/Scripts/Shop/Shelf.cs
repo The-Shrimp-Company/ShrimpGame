@@ -32,6 +32,4 @@ public class Shelf : MonoBehaviour
     }
 
     public ShelfSpawn GetShelves() { return shelves; }
-
-    
 }
