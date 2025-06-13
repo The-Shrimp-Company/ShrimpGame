@@ -18,6 +18,10 @@ public class IllnessController : MonoBehaviour
     [SerializeField] GameObject gainIllnessParticles;
     private bool loadingIllnesses = false;
 
+    [Header("Illness Unlock Requirement")]
+    [SerializeField] int unlockReqTotalShrimp = 50;
+    [SerializeField] int unlockReqShrimpInOneTank = 20;
+
     private void Start()
     {
         shrimp = GetComponent<Shrimp>();
@@ -25,6 +29,13 @@ public class IllnessController : MonoBehaviour
 
     public void UpdateIllness(float elapsedTime)
     {
+        // Illnesses will not start to appear until certain requirements are met
+        if (unlockReqTotalShrimp > PlayerStats.stats.totalShrimp &&
+            unlockReqShrimpInOneTank > PlayerStats.stats.mostShrimpInOneTank)
+            return;
+        Debug.Log("illness unlocked");
+
+
         illnessCheckTimer += Time.deltaTime;
         if (illnessCheckTimer > illnessCheckTime)
         {

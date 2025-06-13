@@ -305,6 +305,8 @@ public class TankController : MonoBehaviour
         s.ConstructShrimp();
 
         shrimpToAdd.Add(s);
+
+        CheckMostShrimpInTank();
     }
 
 
@@ -338,6 +340,8 @@ public class TankController : MonoBehaviour
             newShrimp.GetComponent<IllnessController>().LoadIllnesses(s);
 
         shrimpToAdd.Add(shrimp);
+
+        CheckMostShrimpInTank();
     }
  
     public void MoveShrimp(Shrimp shrimp)
@@ -347,6 +351,8 @@ public class TankController : MonoBehaviour
         shrimp.transform.position = GetRandomTankPosition();
         shrimpToAdd.Add(shrimp);
         shrimp.ChangeTank(this);
+
+        CheckMostShrimpInTank();
         PlayerStats.stats.shrimpMoved++;
     }
 
@@ -391,6 +397,13 @@ public class TankController : MonoBehaviour
                 shrimpInTank[r].KillShrimp();
             }
         }
+    }
+
+
+    private void CheckMostShrimpInTank()
+    {
+        if (shrimpInTank.Count > PlayerStats.stats.mostShrimpInOneTank)
+            PlayerStats.stats.mostShrimpInOneTank = shrimpInTank.Count;
     }
 
 

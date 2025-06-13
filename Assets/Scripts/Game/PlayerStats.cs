@@ -11,6 +11,7 @@ public static class PlayerStats
 public struct Stats
 {
     public int timesGameLoaded;
+    public float totalPlaytime;
 
     public int shelfCount;
     public int tankCount;
@@ -24,16 +25,15 @@ public struct Stats
     public float reputationGained;
     public float reputationLost;  // Unused
 
-    public int totalShrimp;
-    public float totalPlaytime;
-
     public int shrimpSold;
     public int shrimpSoldThroughOpenTank;
     public int requestsCompleted;
 
+    public int totalShrimp;
     public int shrimpBred;
     public int shrimpBought;
     public int shrimpMoved;
+    public int mostShrimpInOneTank;
 
     public int tanksNamed;
     public int shrimpNamed;

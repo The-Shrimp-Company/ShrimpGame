@@ -11,6 +11,11 @@ public class TankUpgrade : MonoBehaviour
     private GameObject brokenParticles;
     public Upgrade item;
 
+    [Header("Illness Unlock Requirement")]
+    [SerializeField] int unlockReqTotalShrimp = 50;
+    [SerializeField] int unlockReqShrimpInOneTank = 20;
+
+
     public virtual void CreateUpgrade(UpgradeSO u, TankController t)
     {
         tank = t;
@@ -21,8 +26,13 @@ public class TankUpgrade : MonoBehaviour
 
     public virtual void UpdateUpgrade(float elapsedTime)
     {
-        if ((Random.value * 100) < (upgrade.breakRate / 1000) * elapsedTime)
-            BreakUpgrade();
+        // Upgrades will not start to break until certain requirements are met
+        if (unlockReqTotalShrimp <= PlayerStats.stats.totalShrimp ||
+            unlockReqShrimpInOneTank <= PlayerStats.stats.mostShrimpInOneTank)
+        {
+            if ((Random.value * 100) < (upgrade.breakRate / 1000) * elapsedTime)
+                BreakUpgrade();
+        }
     }
 
 
