@@ -11,4 +11,5 @@ public class GameSettings : MonoBehaviour
 public struct Settings
 {
     public float cameraSensitivity;
+    public float volume;
 }

@@ -9,6 +9,7 @@ public class CameraControls : MonoBehaviour
 {
     public Transform cameraTransform;
     public float lookSenstivity;
+    [SerializeField][Range(0f, 250f)] private float startingSensitivity = 100f;
 
     private PlayerInput _playerInput;
 
@@ -25,30 +26,21 @@ public class CameraControls : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _playerInput = GetComponent<PlayerInput>();
-        if (!PlayerPrefs.HasKey("Sensitivity"))
-        {
-            lookSenstivity = 10f;
-            PlayerPrefs.SetFloat("Sensitivity", 10f);
-        }
-        else
-        {
-            lookSenstivity = PlayerPrefs.GetFloat("Sensitivity");
-        }
+
+        LoadSensitivity();
     }
+
 
     private void Update()
     {
-
         // If the player is in a menu that stops their movement
         if (UIManager.instance.GetScreen())
-        {
             _look = Vector2.zero;
-        }
 
+        // If the player is not using the correct action map
         if (_playerInput.currentActionMap.name != "Move")
-        {
             return;
-        }
+
         _look *= Time.time - myDelta;
 
         _rotY += _look.y * lookSenstivity;
@@ -72,5 +64,14 @@ public class CameraControls : MonoBehaviour
     public void OnLook(InputValue Mouse)
     {
         _look += Mouse.Get<Vector2>();
+    }
+
+
+    public void LoadSensitivity()
+    {
+        if (!PlayerPrefs.HasKey("Sensitivity"))
+            PlayerPrefs.SetFloat("Sensitivity", startingSensitivity);
+
+        lookSenstivity = PlayerPrefs.GetFloat("Sensitivity");
     }
 }

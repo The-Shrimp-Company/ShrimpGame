@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 3874880353017896214}
   - component: {fileID: 549427715268376057}
   m_Layer: 5
-  m_Name: CurrentControls (1)
+  m_Name: Look Sensitivity Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -615,8 +615,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8986444441810471884}
   m_HandleRect: {fileID: 6187992125951271730}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 1.000006
+  m_Size: 0.7882319
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 2403193273693103376}
   - component: {fileID: 1540941878616607510}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Look Sensitivity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,8 +705,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 3981313450501820466}
   m_HandleRect: {fileID: 7635864417852930938}
   m_Direction: 0
-  m_MinValue: 100
-  m_MaxValue: 150
+  m_MinValue: 50
+  m_MaxValue: 250
   m_WholeNumbers: 0
   m_Value: 100
   m_OnValueChanged:
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 6029687343633904050}
   - component: {fileID: 799086090638326983}
   m_Layer: 5
-  m_Name: CurrentControls (2)
+  m_Name: Volume Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1628,7 +1628,7 @@ GameObject:
   - component: {fileID: 4612068025108264393}
   - component: {fileID: 908306737312234768}
   m_Layer: 5
-  m_Name: Slider (1)
+  m_Name: Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
