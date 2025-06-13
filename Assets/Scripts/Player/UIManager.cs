@@ -133,7 +133,6 @@ public class UIManager : MonoBehaviour
         {
             CloseScreen();
         }
-        Debug.Log(_screenStack.Count);
     }
 
     public ScreenView GetScreen()

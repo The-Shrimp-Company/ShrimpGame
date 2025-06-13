@@ -17,7 +17,6 @@ public class CameraControls : MonoBehaviour
     private float _rotY;
     private float _rotX;
 
-    private float myDelta;
 
     private void Start()
     {
@@ -41,7 +40,7 @@ public class CameraControls : MonoBehaviour
         if (_playerInput.currentActionMap.name != "Move")
             return;
 
-        _look *= Time.time - myDelta;
+        _look *= Time.deltaTime;
 
         _rotY += _look.y * lookSenstivity;
         _rotY = Mathf.Clamp(_rotY, -75, 45);
@@ -56,7 +55,6 @@ public class CameraControls : MonoBehaviour
         cameraTransform.position = new Vector3(cameraTransform.position.x, 2.3f, cameraTransform.position.z);
         _look = Vector2.zero;
 
-        myDelta = Time.time;
     }
 
     
