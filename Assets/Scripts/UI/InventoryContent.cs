@@ -90,12 +90,14 @@ public class InventoryContent : ContentPopulation
     public void FoodAssignement(TankViewScript oldScreen, TankController tank, GameObject parent)
     {
         Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();
-        oldScreen.gameObject.SetActive(false);
+        /*
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
+            Debug.Log("Closing Screen");
             UIManager.instance.CloseScreen();
         });
+        */
 
         foreach(ContentBlock block in contentBlocks)
         {

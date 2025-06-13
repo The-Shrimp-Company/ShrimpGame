@@ -9,7 +9,6 @@ public class ButtonSounds : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(() =>
         {
-            Debug.Log("Tried To Button");
             AudioManager.instance.GetButtonClick();
         });
     }

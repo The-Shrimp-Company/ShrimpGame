@@ -289,6 +289,7 @@ public class TankViewScript : ScreenView
     public void AddFood()
     {
         GameObject screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas());
+        UIManager.instance.OpenScreen(screen.GetComponent<ScreenView>());
         screen.GetComponentInChildren<InventoryContent>().FoodAssignement(this, tank, screen);
     }
 
