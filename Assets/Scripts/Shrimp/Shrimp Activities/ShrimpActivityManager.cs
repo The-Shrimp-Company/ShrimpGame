@@ -82,20 +82,39 @@ public static class ShrimpActivityManager
 
         else if (activity is ShrimpEating)
         {
-            if (shrimp.tank.foodInTank.Count == 0)  // If there are no valid shrimp
+            // Check if there is food in the tank
+            if (shrimp.tank.foodInTank.Count == 0)
             {
                 AddActivity(shrimp, GetRandomActivity(shrimp));
                 return;  // Cancel this and find a different activity
             }
 
-            int i = Random.Range(0, shrimp.tank.foodInTank.Count);
-            ShrimpFood food = shrimp.tank.foodInTank[i];
+            // Create a list of all of the food in the tank that is available to be eaten right now
+            List<ShrimpFood> possibleFood = new List<ShrimpFood>();
+            foreach (ShrimpFood f in shrimp.tank.foodInTank)
+            {
+                bool foodValid = true;
 
-            if (food.shrimpEating != null)  // If a shrimp is already eating it
+                if (100 - shrimp.stats.hunger <= f.hungerFillAmount)  // If the shrimp isn't hungry enough
+                    foodValid = false;
+
+                if (f.shrimpEating != null)  // If a shrimp is already eating it
+                    foodValid = false;
+
+                if (foodValid)
+                    possibleFood.Add(f);
+            }
+
+            // Check if there is valid food in the tank
+            if (possibleFood.Count == 0)
             {
                 AddActivity(shrimp, GetRandomActivity(shrimp));
                 return;  // Cancel this and find a different activity
             }
+
+            // Pick a random piece of food
+            int i = Random.Range(0, possibleFood.Count);
+            ShrimpFood food = possibleFood[i];
 
             food.shrimpEating = shrimp;
 
