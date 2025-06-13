@@ -23,7 +23,10 @@ public class PlayerDebug : MonoBehaviour
     public void OnTestingFunctions()
     {
         if (giveMoneyButton)
+        {
             Money.instance.AddMoney(20);
+            Reputation.AddReputation(10);
+        }
     }
 
 

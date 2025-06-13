@@ -75022,7 +75022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6dbafe8f0204704b914586365c6b51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toolTip: Whatever
+  toolTip: Toggle Music
 --- !u!114 &1719997270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80779,7 +80779,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
+  m_sendNavigationEvents: 0
   m_DragThreshold: 10
 --- !u!4 &1853294159
 Transform:
