@@ -20,7 +20,6 @@ public class CameraControls : MonoBehaviour
 
     private void Start()
     {
-        myDelta = Time.time;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
