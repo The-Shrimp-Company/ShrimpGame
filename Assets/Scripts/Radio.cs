@@ -1,3 +1,4 @@
+using SaveLoadSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,51 +14,117 @@ public class Radio : Interactable
 
     private Queue<AudioClip> playList = new Queue<AudioClip>();
 
+    private int playlistLength;
+
     private AudioSource source;
 
-    // Start is called before the first frame update
-    void Start()
+    private bool pausedDueToApplicationFocus;
+
+
+    private void Start()
     {
         source = GetComponent<AudioSource>();
         foreach(AudioClip clip in clips)
         {
             playList.Enqueue(clip);
+            playlistLength++;
+        }
+
+
+        // Loading Radio State
+        if (!SaveManager.startNewGame)
+        {
+            if (PlayerStats.stats.radioPlaying) Play();
+            else Pause();
+
+            int skipTo = PlayerStats.stats.currentSongPlaying + 1;
+            PlayerStats.stats.currentSongPlaying = -1;
+            for (int i = 0; i < skipTo; i++)
+                StartNextSong();
+        }
+        else  // If a new game is being started
+        {
+            Play();
+            PlayerStats.stats.currentSongPlaying = -1;
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         MouseHover();
-        if(!source.isPlaying && play)
+        if(!source.isPlaying && play)  // If it should be playing but is not
         {
-            AudioClip toPlay = playList.Dequeue();
-            playList.Enqueue(toPlay);
-            source.clip = toPlay;
-            source.Play();
+            StartNextSong();
         }
     }
 
     
-
     public override void Action()
     {
         if (source.isPlaying)
         {
-            source.Pause();
-            play = false;
+            Pause();
         }
         else
         {
-            source.UnPause();
-            play = true;
+            Play();
         }
+
+        PlayerStats.stats.timesRadioToggled++;
     }
+
 
     public override void OnHover()
     {
         //screen.gameObject.SetActive(true);
     }
 
-    
+
+    private void Play()
+    {
+        if (source)
+        {
+            source.UnPause();
+            play = true;
+            PlayerStats.stats.radioPlaying = true;
+        }
+    }
+
+
+    private void Pause()
+    {
+        source.Pause();
+        play = false;
+        PlayerStats.stats.radioPlaying = false;
+    }
+
+
+    private void StartNextSong()
+    {
+        AudioClip toPlay = playList.Dequeue();
+        playList.Enqueue(toPlay);
+        source.clip = toPlay;
+        source.Play();
+
+        PlayerStats.stats.currentSongPlaying++;
+        if (PlayerStats.stats.currentSongPlaying >= playlistLength)
+            PlayerStats.stats.currentSongPlaying = 0;
+    }
+
+
+    // Prevents an issue where the game would skip a song anytime the application loses focus
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus && pausedDueToApplicationFocus)
+        {
+            Play();
+            pausedDueToApplicationFocus = false;
+        }
+        else if (!focus && play)
+        {
+            Pause();
+            pausedDueToApplicationFocus = true;
+        }
+    }
 }

@@ -23,7 +23,7 @@ public struct Stats
     public float moneySpent;
 
     public float reputationGained;
-    public float reputationLost;  // Unused
+    public float reputationLost;
 
     public int shrimpSold;
     public int shrimpSoldThroughOpenTank;
@@ -56,4 +56,9 @@ public struct Stats
     public float timeSpentMoving;
     public float timeSpentFocusingTank;
     public float timeSpentFocusingShrimp;
+
+    public bool radioPlaying;
+    public int currentSongPlaying;
+    public int timesRadioToggled;
+
 }
