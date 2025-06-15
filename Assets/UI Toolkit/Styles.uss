@@ -43,7 +43,7 @@
 }
 
 .Button:active {
-    background-color: rgb(217, 175, 207);
+    background-color: rgb(178, 108, 161);
     border-top-width: 5px;
     border-right-width: 5px;
     border-bottom-width: 5px;
@@ -59,7 +59,7 @@
     border-right-color: rgb(217, 175, 207);
     border-top-color: rgb(217, 175, 207);
     border-bottom-color: rgb(217, 175, 207);
-    color: rgb(217, 175, 207);
+    color: rgb(195, 120, 214);
 }
 
 .MainScreen {
