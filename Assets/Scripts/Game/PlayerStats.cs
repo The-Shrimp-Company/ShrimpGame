@@ -56,4 +56,9 @@ public struct Stats
     public float timeSpentMoving;
     public float timeSpentFocusingTank;
     public float timeSpentFocusingShrimp;
+
+    public bool radioPlaying;
+    public int currentSongPlaying;
+    public int timesRadioToggled;
+
 }
