@@ -46,7 +46,6 @@ public class CameraControls : MonoBehaviour
         _rotX += _look.x * lookSenstivity;
         cameraTransform.localRotation = Quaternion.Euler(-_rotY, 0, 0);
 
-        transform.Rotate(0, _look.x * lookSenstivity, 0);
         transform.rotation = Quaternion.Euler(0, _rotX, 0);
 
         
@@ -61,6 +60,7 @@ public class CameraControls : MonoBehaviour
     public void OnLook(InputValue Mouse)
     {
         _look += Mouse.Get<Vector2>();
+        Debug.Log(_look);
     }
 
 
