@@ -77624,6 +77624,11 @@ PrefabInstance:
       propertyPath: shelves
       value: 
       objectReference: {fileID: 1826170790}
+    - target: {fileID: 2460986827988387558, guid: 95854f16d1017c34eaac405f4651506b,
+        type: 3}
+      propertyPath: giveMoneyButton
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2873474120732443855, guid: 95854f16d1017c34eaac405f4651506b,
         type: 3}
       propertyPath: m_Name
