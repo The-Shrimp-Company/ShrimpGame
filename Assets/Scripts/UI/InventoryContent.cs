@@ -46,16 +46,11 @@ public class InventoryContent : ContentPopulation
     public void UpgradeAssignment(TankUpgradeController controller, UpgradeTypes type, ScreenView oldScreen, GameObject parent)
     {
         Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();
-        oldScreen.gameObject.SetActive(false);
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() =>
-        {
-            UIManager.instance.CloseScreen();
-        });
+        //oldScreen.gameObject.SetActive(false);
 
         foreach (InventoryContentBlock block in contentBlocks)
         {
-            Debug.Log("Inventory Content - " + block.item + " - " + ((Upgrade)block.item).upgrade.upgradeType);
+            //Debug.Log("Inventory Content - " + block.item + " - " + ((Upgrade)block.item).upgrade.upgradeType);
             if(block.item is Upgrade && ((Upgrade)block.item).upgrade.upgradeType == type)
             {
                 block.ClearFunctions();
@@ -72,11 +67,14 @@ public class InventoryContent : ContentPopulation
                         thisController.AddUpgrade(((Upgrade)thisBlock.item).upgrade);
                         thisController.GetUpgrade(type).item = (Upgrade)thisBlock.item;
                         Inventory.instance.RemoveItem(thisBlock.item);
+                        /*
                         if (oldScreen != null)
                         {
                             oldScreen.gameObject.SetActive(true);
                         }
                         Destroy(parent);
+                        */
+                        UIManager.instance.CloseScreen();
                     }
                 });
             }
@@ -91,12 +89,7 @@ public class InventoryContent : ContentPopulation
     public void FoodAssignement(TankViewScript oldScreen, TankController tank, GameObject parent)
     {
         Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();
-        oldScreen.gameObject.SetActive(false);
-        button.onClick.RemoveAllListeners();
-        button.onClick.AddListener(() =>
-        {
-            UIManager.instance.CloseScreen();
-        });
+        //oldScreen.gameObject.SetActive(false);
 
         foreach(ContentBlock block in contentBlocks)
         {
