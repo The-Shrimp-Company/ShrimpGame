@@ -458,6 +458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shelves: {fileID: 0}
+  locksPlayerMovement: 1
 --- !u!1 &7027760303548040325
 GameObject:
   m_ObjectHideFlags: 0

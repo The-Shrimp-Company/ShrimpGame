@@ -65,6 +65,7 @@ public class Inventory
 
     public void AddItem(Item newItem, int quantity = 1)
     {
+        if (newItem == null) return;
 
         for(int i = 0; i < newInventory.Count; i++)
         {
@@ -98,7 +99,74 @@ public class Inventory
         return false;
 
     }
+    /*
+    public Item GetItemFromName(string name)
+    {
+        Item item = null;
 
+        foreach(Item i in Items)
+        {
+            
+        }
+
+        // Examining the name of all variables in a C# object
+        // In this case, we'll list the variable in this NameToBlorp
+        // class
+        System.Reflection.PropertyInfo[] rProps = Items.GetType().GetProperties();
+        foreach (System.Reflection.PropertyInfo rp in rProps)
+            Debug.Log(rp.Name);
+
+        // Getting the info of a specific variable name.
+        // This gives us the ability to read/write it
+        System.Reflection.PropertyInfo propName = this.GetType().GetProperty("name");
+        if (propName != null)
+        {
+            // The PropertyInfo isn't the actual variable, just the "idea" of
+            // the variable existing in an object.
+            // 
+            // It needs to be used in conjunction with the object...
+            // Equivalent of this.name = "blorp"
+            propName.SetValue(
+                this, // So we specify who owns the object
+                "blorp", // A C# object as the value, will be casted (if possible)
+                null
+              );
+
+            // And GetValue can be used in a similar fassion.
+            // Equivalent of Debug.log( "..." + this.name )
+            Debug.Log("The name is " + propName.GetValue(this, null));
+        }
+    }
+
+  
+     * // Examining the name of all variables in a C# object
+		// In this case, we'll list the variable in this NameToBlorp
+		// class
+		System.Reflection.PropertyInfo [] rProps = this.GetType().GetProperties();
+		foreach(System.Reflection.PropertyInfo rp in rProps )
+			Debug.Log( rp.Name );
+
+		// Getting the info of a specific variable name.
+		// This gives us the ability to read/write it
+		System.Reflection.PropertyInfo propName = this.GetType().GetProperty( "name" );
+		if( propName != null )
+		{
+			// The PropertyInfo isn't the actual variable, just the "idea" of
+			// the variable existing in an object.
+			// 
+			// It needs to be used in conjunction with the object...
+			// Equivalent of this.name = "blorp"
+			propName.SetValue(	 
+				this, // So we specify who owns the object
+			    "blorp", // A C# object as the value, will be casted (if possible)
+			    null
+          	);
+
+			// And GetValue can be used in a similar fassion.
+			// Equivalent of Debug.log( "..." + this.name )
+			Debug.Log( "The name is " + propName.GetValue( this, null ) );
+		}
+     */
     public int GetItemCount() { return  newInventory.Count; }
 
     public static int GetItemQuant(Item itemCheck)

@@ -55,6 +55,7 @@ public class InventoryContent : ContentPopulation
 
         foreach (InventoryContentBlock block in contentBlocks)
         {
+            Debug.Log("Inventory Content - " + block.item + " - " + ((Upgrade)block.item).upgrade.upgradeType);
             if(block.item is Upgrade && ((Upgrade)block.item).upgrade.upgradeType == type)
             {
                 block.ClearFunctions();
@@ -90,14 +91,12 @@ public class InventoryContent : ContentPopulation
     public void FoodAssignement(TankViewScript oldScreen, TankController tank, GameObject parent)
     {
         Button button = transform.parent.GetComponentInChildren<BackButton>().GetComponent<Button>();
-        /*
+        oldScreen.gameObject.SetActive(false);
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(() =>
         {
-            Debug.Log("Closing Screen");
             UIManager.instance.CloseScreen();
         });
-        */
 
         foreach(ContentBlock block in contentBlocks)
         {
@@ -107,7 +106,6 @@ public class InventoryContent : ContentPopulation
                 ContentBlock thisBlock = block;
                 block.AssignFunction(() =>
                 {
-                    Debug.Log("Getting to algae func");
                     if (Inventory.Contains(Items.AlgaeWafer))
                     {
                         Inventory.instance.RemoveItem(Items.AlgaeWafer);
