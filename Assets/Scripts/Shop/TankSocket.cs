@@ -56,10 +56,10 @@ public class TankSocket : MonoBehaviour
         GetComponent<BoxCollider>().enabled = false;
 
         Inventory.instance.activeTanks.Add(tank);
-        PlayerStats.stats.tankCount++;
 
         if (!loading)
         {
+            PlayerStats.stats.tankCount++;
             shelves.SwitchDestinationTank(tank);
             tank.tankName = "Tank " + Inventory.instance.activeTanks.Count;
         }
