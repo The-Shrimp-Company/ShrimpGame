@@ -70,4 +70,7 @@ public class CameraControls : MonoBehaviour
 
         lookSenstivity = PlayerPrefs.GetFloat("Sensitivity");
     }
+
+    public void SetRotationX(float rot) { _rotX = rot; }
+    public float GetRotationX() { return _rotX; }
 }

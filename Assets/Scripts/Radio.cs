@@ -34,13 +34,13 @@ public class Radio : Interactable
         // Loading Radio State
         if (!SaveManager.startNewGame)
         {
-            if (PlayerStats.stats.radioPlaying) Play();
-            else Pause();
-
             int skipTo = PlayerStats.stats.currentSongPlaying + 1;
             PlayerStats.stats.currentSongPlaying = -1;
             for (int i = 0; i < skipTo; i++)
                 StartNextSong();
+
+            if (PlayerStats.stats.radioPlaying) Play();
+            else Pause();
         }
         else  // If a new game is being started
         {

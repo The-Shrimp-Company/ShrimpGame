@@ -11,7 +11,7 @@ namespace SaveLoadSystem
         public int day;
         public int year;
         public Vector3 playerPosition;
-        public Quaternion playerRotation;
+        public float playerRotation;
 
 
         public Stats playerStats;

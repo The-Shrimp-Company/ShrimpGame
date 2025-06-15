@@ -103,7 +103,7 @@ public class SaveController : MonoBehaviour
         // Player
         Transform player = GameObject.Find("Player").transform;
         d.playerPosition = player.position;
-        d.playerRotation = player.rotation;
+        d.playerRotation = player.GetComponent<CameraControls>().GetRotationX();
 
         // Stats & Settings
         d.playerStats = PlayerStats.stats;
@@ -203,7 +203,7 @@ public class SaveController : MonoBehaviour
         // Player
         Transform player = GameObject.Find("Player").transform;
         if (loadPlayerPosition) player.position = d.playerPosition;
-        if (loadPlayerPosition) player.rotation = d.playerRotation;
+        if (loadPlayerPosition) player.GetComponent<CameraControls>().SetRotationX(d.playerRotation);
 
         // Stats & Settings
         PlayerStats.stats = d.playerStats;
