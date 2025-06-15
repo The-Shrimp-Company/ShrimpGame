@@ -46,6 +46,8 @@ public class ShelfSpawn : MonoBehaviour
             {
                 SpawnNextTank();
             }
+
+            PlayerStats.stats.tankCount = tanksToSpawnAtGameStart;
         }
     }
 
