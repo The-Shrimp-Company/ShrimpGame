@@ -33,7 +33,6 @@ public class IllnessController : MonoBehaviour
         if (unlockReqTotalShrimp > PlayerStats.stats.totalShrimp &&
             unlockReqShrimpInOneTank > PlayerStats.stats.mostShrimpInOneTank)
             return;
-        Debug.Log("illness unlocked");
 
 
         illnessCheckTimer += Time.deltaTime;

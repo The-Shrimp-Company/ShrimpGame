@@ -126,21 +126,21 @@ public class TankViewScript : ScreenView
     {
         InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
         UIManager.instance.OpenScreen(screen);
-        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Heater, this, screen.gameObject);
+        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.upgradeController, UpgradeTypes.Heater, this, screen.gameObject);
     }
 
     public void ChangeFilter()
     {
         InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
         UIManager.instance.OpenScreen(screen);
-        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Filter, this, screen.gameObject);
+        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.upgradeController, UpgradeTypes.Filter, this, screen.gameObject);
     }
 
     public void ChangeDecor()
     {
         InventoryScreen screen = Instantiate(inventoryScreen, UIManager.instance.GetCanvas()).GetComponent<InventoryScreen>();
         UIManager.instance.OpenScreen(screen);
-        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.GetComponent<TankUpgradeController>(), UpgradeTypes.Decorations, this, screen.gameObject);
+        screen.GetComponentInChildren<InventoryContent>().UpgradeAssignment(tank.upgradeController, UpgradeTypes.Decorations, this, screen.gameObject);
     }
 
     public void SelectAll()
