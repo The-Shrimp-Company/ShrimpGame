@@ -23,7 +23,7 @@ public struct Stats
     public float moneySpent;
 
     public float reputationGained;
-    public float reputationLost;  // Unused
+    public float reputationLost;
 
     public int shrimpSold;
     public int shrimpSoldThroughOpenTank;

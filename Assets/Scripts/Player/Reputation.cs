@@ -16,7 +16,8 @@ public class Reputation
     public static void AddReputation(float add)
     {
         instance.reputation += add;
-        PlayerStats.stats.reputationGained += add;
+        if (add > 0) PlayerStats.stats.reputationGained += add;
+        if (add < 0) PlayerStats.stats.reputationLost += add;
     }
 
     /// <summary>
