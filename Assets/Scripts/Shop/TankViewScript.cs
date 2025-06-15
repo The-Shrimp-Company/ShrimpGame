@@ -57,6 +57,7 @@ public class TankViewScript : ScreenView
 
     public override void Open(bool switchTab)
     {
+        Debug.Log("Opening tank");
         player = GameObject.Find("Player");
         shelves = GetComponentInParent<ShelfSpawn>();
         tank = GetComponentInParent<TankController>();
@@ -73,6 +74,10 @@ public class TankViewScript : ScreenView
         base.Open(switchTab);
     }
 
+    private void OnEnable()
+    {
+        UpdateContent();
+    }
 
     public virtual void Update()
     {
@@ -171,6 +176,7 @@ public class TankViewScript : ScreenView
 
     public void UpdateContent()
     {
+        Debug.Log("Updating tank view content");
         foreach (Transform child in _content.transform)
         {
             Destroy(child.gameObject);
