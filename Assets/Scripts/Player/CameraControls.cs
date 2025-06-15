@@ -60,7 +60,6 @@ public class CameraControls : MonoBehaviour
     public void OnLook(InputValue Mouse)
     {
         _look += Mouse.Get<Vector2>();
-        Debug.Log(_look);
     }
 
 

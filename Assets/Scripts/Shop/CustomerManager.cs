@@ -12,7 +12,10 @@ public class CustomerManager : MonoBehaviour
 
     private int count = 0;
     private int coolDown = 0;
+    private float openSaleCoolDownCount = 0;
 
+    [SerializeField]
+    private float openSaleCoolDown = 5;
 
     public List<TankController> openTanks = new List<TankController>();
     public List<Shrimp> ToPurchase { get; private set; } = new List<Shrimp>();
@@ -30,27 +33,34 @@ public class CustomerManager : MonoBehaviour
 
     private void Update()
     {
-        if(count < openTanks.Count)
+        if (openSaleCoolDownCount > (openSaleCoolDown/openTanks.Count))
         {
-            TankController currentTank = openTanks[count];
-            foreach(Shrimp shrimp in currentTank.shrimpInTank)
+            if (count < openTanks.Count)
             {
-                float value = EconomyManager.instance.GetShrimpValue(shrimp.stats);
-                float chance = currentTank.openTankPrice / value;
-                //Debug.Log(chance);
-                if (Random.value * 2 > chance)
+                TankController currentTank = openTanks[count];
+                foreach (Shrimp shrimp in currentTank.shrimpInTank)
                 {
-                    PurchaseShrimp(shrimp);
+                    float value = EconomyManager.instance.GetShrimpValue(shrimp.stats);
+                    float chance = currentTank.openTankPrice / value;
+                    //Debug.Log(chance);
+                    if (Random.value * 2 > chance)
+                    {
+                        PurchaseShrimp(shrimp);
+                        break;
+                    }
                 }
             }
-        }
 
-        count++;
+            count++;
 
-        if(count >= openTanks.Count)
-        {
-            count = 0;
+
+            if (count >= openTanks.Count)
+            {
+                count = 0;
+            }
+            openSaleCoolDownCount = 0;
         }
+        openSaleCoolDownCount += Time.deltaTime;
 
         if(Random.Range(0, 1000) == 1 && requests.Count < 5 && coolDown < 0)
         {
