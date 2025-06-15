@@ -4223,6 +4223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13f8f642b0d27f946a9dfbbcb08edb59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  openSaleCoolDown: 5
   openTanks: []
 --- !u!4 &113587256
 Transform:
