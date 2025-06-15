@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Eyes : PartScript
 {
-    public void Construct(ShrimpStats s)
+    public Eyes Construct(ShrimpStats s)
     {
         this.s = s;
         SetMaterials(GeneManager.instance.GetTraitSO(s.eyes.activeGene.ID).set);
+        return this;
     }
 
     public void ChangeColours(ColourTypes colour)

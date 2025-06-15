@@ -6,11 +6,11 @@ public class Head : PartScript
 {
     public Transform eyesNode;
 
-    public Head Construct(ShrimpStats s)
+    public Head Construct(ShrimpStats s, ref Eyes eyes)
     {
         this.s = s;
         SetMaterials(GeneManager.instance.GetTraitSO(s.head.activeGene.ID).set);
-        Instantiate(GeneManager.instance.GetTraitSO(s.eyes.activeGene.ID).part, eyesNode).GetComponent<Eyes>().Construct(s);
+        eyes = Instantiate(GeneManager.instance.GetTraitSO(s.eyes.activeGene.ID).part, eyesNode).GetComponent<Eyes>().Construct(s);
         return this;
     }
 

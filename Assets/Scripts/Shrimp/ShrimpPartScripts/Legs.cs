@@ -13,6 +13,8 @@ public class Legs : PartScript
     private Tail tail;
     private TFan tFan;
     private Head head;
+    private Eyes eyes;
+
 
     private void Start()
     {
@@ -22,11 +24,24 @@ public class Legs : PartScript
 
             SetMaterials(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).set);
 
-            body = Instantiate(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).part, bodyNode).GetComponent<Body>().Construct(s, ref tFan, ref tail, ref head);
+            body = Instantiate(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).part, bodyNode).GetComponent<Body>().Construct(s, ref tFan, ref tail, ref head, ref eyes);
 
             SetAnimation(AnimNames.swimming);
+
+            body.GetComponent<LODGroup>().localReferencePoint = body.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+            body.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
+            tail.GetComponent<LODGroup>().localReferencePoint = tail.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+            tail.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
+            tFan.GetComponent<LODGroup>().localReferencePoint = tFan.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+            tFan.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
+            head.GetComponent<LODGroup>().localReferencePoint = head.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+            head.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
+            eyes.GetComponent<LODGroup>().localReferencePoint = eyes.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+            eyes.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
         }
     }
+
+    
 
     public void Construct(ShrimpStats s)
     {
@@ -34,9 +49,20 @@ public class Legs : PartScript
 
         SetMaterials(GeneManager.instance.GetTraitSO(s.legs.activeGene.ID).set);
 
-        body = Instantiate(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).part, bodyNode).GetComponent<Body>().Construct(s, ref tFan, ref tail, ref head);
+        body = Instantiate(GeneManager.instance.GetTraitSO(s.body.activeGene.ID).part, bodyNode).GetComponent<Body>().Construct(s, ref tFan, ref tail, ref head, ref eyes);
 
         SetAnimation(AnimNames.swimming);
+
+        body.GetComponent<LODGroup>().localReferencePoint = body.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+        body.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
+        tail.GetComponent<LODGroup>().localReferencePoint = tail.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+        tail.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
+        tFan.GetComponent<LODGroup>().localReferencePoint = tFan.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+        tFan.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
+        head.GetComponent<LODGroup>().localReferencePoint = head.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+        head.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
+        eyes.GetComponent<LODGroup>().localReferencePoint = eyes.transform.InverseTransformPoint(transform.TransformPoint(GetComponent<LODGroup>().localReferencePoint));
+        eyes.GetComponent<LODGroup>().size = GetComponent<LODGroup>().size;
     }
 
     public void ChangeColours(ColourTypes colour)
